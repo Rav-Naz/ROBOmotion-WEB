@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../src/app/scss/colors';
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@media only screen and (max-width: 1450px) {
+    html {
+        font-size: 62%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    html {
+        font-size: 57%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    html {
+        font-size: 52%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 47%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Changa', sans-serif;
+    background-color: $color-grey-1;
+    color: $color-white;
+    overflow-x: hidden;
+}
+
+.montserrat {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.changa {
+    font-family: 'Changa', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background: $color-grey-4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $color-primary;
+    border-radius: .3rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $color-primary;
+}

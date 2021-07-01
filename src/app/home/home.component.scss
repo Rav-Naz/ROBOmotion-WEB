@@ -1,0 +1,59 @@
+@import '../scss/variables';
+@import '../scss/colors';
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.paralax {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    // background-color: green;
+    &-name {
+        color: $color-primary;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 4rem;
+        line-height: 4rem;
+        font-family: $title-font;
+        &-second {
+            margin-left: 2rem;
+            color: $color-white;
+        }
+        &-container {
+            position: absolute;
+            z-index: 2;
+            margin: 4rem;
+            min-width: 30rem;
+            height: min-content;
+            width: min-content;
+        }
+        &-img {
+            width: 5rem;
+            margin-top: 1rem;
+            margin-left: 7.5rem;
+        }
+    }
+    &-wave {
+        width: 110%;
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+        height: 100%;
+        &-yellow {
+            transform: translateX(-8rem);
+            background: radial-gradient(ellipse farthest-side at 30% 20%, rgba(63, 94, 251, 0) 96%, rgba($color-primary, 0.8) 100%);
+        }
+        background: radial-gradient(ellipse farthest-side at 30% 10%, rgba(63, 94, 251, 0) 99%, $color-grey-2 100%);
+    }
+}
+
+.event-info {
+    background-color: $color-grey-2;
+    width: 100%;
+    height: 60vh;
+}
