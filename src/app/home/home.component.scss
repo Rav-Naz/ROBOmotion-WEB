@@ -48,12 +48,101 @@
             transform: translateX(-8rem);
             background: radial-gradient(ellipse farthest-side at 30% 20%, rgba(63, 94, 251, 0) 96%, rgba($color-primary, 0.8) 100%);
         }
-        background: radial-gradient(ellipse farthest-side at 30% 10%, rgba(63, 94, 251, 0) 99%, $color-grey-2 100%);
+        background: radial-gradient(ellipse farthest-side at 30% 10%, rgba(63, 94, 251, 0) 99%, $color-grey-3 100%);
     }
 }
 
 .event-info {
-    background-color: $color-grey-2;
+    background-color: $color-grey-3;
     width: 100%;
-    height: 60vh;
+    padding: 9rem 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3 {
+        color: rgba($color-white, 0.6);
+        text-transform: uppercase;
+        font-size: 4rem;
+        font-weight: 400;
+        letter-spacing: .5rem;
+        z-index: 4;
+        margin-bottom: 2rem;
+    }
+    &-counter {
+        width: min-content;
+        min-width: 80rem;
+        height: 15rem;
+        display: grid;
+        grid-template-columns: 1fr 1rem 1fr 1rem 1fr 1rem 1fr;
+        grid-template-rows: auto;
+        background: $color-grey-3;
+        box-shadow: -2rem 2rem 4rem $color-grey-2, 2rem -2rem 5rem $color-grey-4, inset 1rem -1rem 2rem $color-grey-4, inset -1rem 1rem 2rem $color-grey-2;
+        border-radius: 4rem;
+        padding: 2rem;
+        &-part {
+            min-width: 10rem;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            &--number {
+                font-size: 5rem;
+                line-height: 5rem;
+                font-family: $title-font;
+                letter-spacing: 1rem;
+            }
+            &--name {
+                font-size: 3rem;
+                line-height: 3rem;
+                color: $color-primary;
+                text-transform: uppercase;
+            }
+        }
+        &-delimeter {
+            padding-top: .7rem;
+            color: $color-primary;
+        }
+    }
+    &-details {
+        margin-top: 8rem;
+        display: grid;
+        width: 60%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content;
+        &-name {
+            padding: 0 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            border-right: 4px dotted #484848;
+            &-a {
+                margin: 0;
+            }
+            &-date {
+                font-weight: 100 !important;
+                padding-top: 1rem;
+                text-align: right;
+                font-family: $default-font;
+                line-height: 2.5rem !important;
+                font-size: 2.5rem !important;
+                letter-spacing: normal !important;
+                text-transform: none !important;
+                &-big {
+                    font-weight: 400 !important;
+                    line-height: 3rem;
+                    font-size: 3rem;
+                }
+            }
+        }
+        &-description {
+            font-weight: 400;
+            padding: 0 3rem;
+            font-size: 2rem;
+        }
+    }
 }

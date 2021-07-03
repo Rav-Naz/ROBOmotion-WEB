@@ -1,17 +1,77 @@
 <div class="container">
     <section class="paralax">
         <div class="paralax-name-container">
-            <p class="paralax-name">
+            <h1 class="paralax-name">
                 ROBO<br>
                 <span class="paralax-name-second">~motion 2021</span><br>
                 <img src="../../assets/svg/klocki.svg" class="paralax-name-img">
-            </p>
+            </h1>
         </div>
         <div class="paralax-wave paralax-wave-yellow"></div>
         <div class="paralax-wave"></div>
     </section>
     <section class="event-info">
-
+        <h3>Event starts in</h3>
+        <div class="event-info-counter">
+            <div class="event-info-counter-part">
+                <p class="event-info-counter-part--number">
+                    {{timeToEvent | msTransform: 'd'}}
+                </p>
+                <p class="event-info-counter-part--name">
+                    DAYS
+                </p>
+            </div>
+            <p class="event-info-counter-part--number event-info-counter-delimeter">
+                :
+            </p>
+            <div class="event-info-counter-part">
+                <p class="event-info-counter-part--number">
+                    {{timeToEvent | msTransform: 'h'}}
+                </p>
+                <p class="event-info-counter-part--name">
+                    HOURS
+                </p>
+            </div>
+            <p class="event-info-counter-part--number event-info-counter-delimeter">
+                :
+            </p>
+            <div class="event-info-counter-part">
+                <p class="event-info-counter-part--number">
+                    {{timeToEvent | msTransform: 'm'}}
+                </p>
+                <p class="event-info-counter-part--name">
+                    MINUTES
+                </p>
+            </div>
+            <p class="event-info-counter-part--number event-info-counter-delimeter">
+                :
+            </p>
+            <div class="event-info-counter-part">
+                <p class="event-info-counter-part--number">
+                    {{timeToEvent | msTransform: 's'}}
+                </p>
+                <p class="event-info-counter-part--name">
+                    SECONDS
+                </p>
+            </div>
+        </div>
+        <div class="event-info-details">
+            <div class="event-info-details-name">
+                <h1 class="paralax-name">
+                    ROBO<span class="paralax-name-second event-info-details-name-a">~motion 2021</span>
+                </h1>
+                <h3 class="event-info-details-name-date">
+                    <span class="event-info-details-name-date-big">21.11.2021</span> - Sports hall of the
+                    <br> Rzeszów University of Technology
+                </h3>
+            </div>
+            <div class="event-info-details-description">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna turpis, suscipit ut nunc ac, consectetur aliquet nibh. Etiam laoreet libero vestibulum arcu aliquam, at tincidunt nunc dapibus. Phasellus eget lectus lobortis, mollis justo nec, feugiat
+                    velit. Sed sodales metus diam, tristique efficitur diam.
+                </p>
+            </div>
+        </div>
     </section>
     <section class="event-program">
 

@@ -8,6 +8,7 @@ import { CompetitorZoneComponent } from './competitor-zone/competitor-zone.compo
 import { AdminZoneComponent } from './admin-zone/admin-zone.component';
 import { TimetableComponent } from './home/timetable/timetable.component';
 import { ResultsComponent } from './home/results/results.component';
+import { MsToDaysPipe } from './pipes/ms-transform.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ResultsComponent } from './home/results/results.component';
     CompetitorZoneComponent,
     AdminZoneComponent,
     TimetableComponent,
-    ResultsComponent
+    ResultsComponent,
+    MsToDaysPipe
   ],
   imports: [
     BrowserModule,
