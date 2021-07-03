@@ -10,9 +10,11 @@ export class HomeComponent  {
   timeToEvent: number;
 
   constructor() {
-    let eventDate = new Date(2021,10,21,10,0,0);
-    let now = new Date();
-    this.timeToEvent = eventDate.getTime() - now.getTime();
+    let eventDate = new Date(2021,10,21,9,0,0);
+    this.timeToEvent = eventDate.getTime() - new Date().getTime();
+    setInterval(() => {
+      this.timeToEvent = eventDate.getTime() - new Date().getTime();
+    }, 1000);
   }
 
 

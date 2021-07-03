@@ -9,14 +9,19 @@ export class MsToDaysPipe implements PipeTransform {
     var temp = args[0];
     let transformed: number = 0;
     transformed = value / 1000;
-    if (temp == 'm' || temp == 'h' || temp == 'd') {
-      transformed = transformed * (1 / 60);
+    if (temp == 's') {
+      transformed %= 60;
     }
-    if (temp == 'h' || temp == 'd') {
-      transformed = transformed * (1 / 60);
+    if (temp == 'm') {
+      transformed *= (1 / 60);
+      transformed %= 60;
+    }
+    if (temp == 'h') {
+      transformed *= (1 / 3600);
+      transformed %= 60;
     }
     if (temp == 'd') {
-      transformed = transformed * (1 / 24);
+      transformed *= (1 / (24 * 3600));
     }
 
     return Math.floor(transformed);
