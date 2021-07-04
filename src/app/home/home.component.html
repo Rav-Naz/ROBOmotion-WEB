@@ -74,15 +74,28 @@
         </div>
     </section>
     <section class="event-program">
-        <div class="event-program-container">
-
+        <div class="event-program-grid">
+            <div class="event-program-grid-names">
+                <div *ngFor="let event of eventsList" (click)="onSwitchEvent(event.id)" class="event-program-grid-names-arrow" [ngClass]="{'event-program-grid-names-arrow-disabled': selectedEventIndex != event.id}">
+                    {{event.name}}
+                </div>
+            </div>
+            <div class="event-program-grid-description" [@switch]="switchAnimationStateName">
+                <div class="event-program-grid-description-header">
+                    <p>IKONA</p>
+                </div>
+                <p>
+                    {{descriptionOfSelectedEvent()}}
+                </p>
+            </div>
         </div>
     </section>
     <section class="competitions">
 
     </section>
-    <section class="location">
-
+    <section class="location paralax">
+        <div class="location-wave location-wave-yellow"></div>
+        <div class="location-wave"></div>
     </section>
     <section class="organiser">
 

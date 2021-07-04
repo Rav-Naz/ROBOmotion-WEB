@@ -53,7 +53,8 @@
 }
 
 .event-info {
-    background: linear-gradient(180deg, rgba($color-grey-3, 1) 95%, rgba($color-grey-5, 0.88) 99%, rgba($color-grey-5, 1) 100%);
+    background-color: $color-grey-3;
+    // background: linear-gradient(180deg,rgba($color-grey-3, 1) 95%, rgba($color-grey-5, 0.88) 99%, rgba($color-grey-5, 1) 100%);
     width: 100%;
     padding: 9rem 0;
     height: auto;
@@ -152,6 +153,101 @@
 
 .event-program {
     width: 100%;
-    height: 50vh;
-    background-color: $color-grey-5;
+    height: min-content;
+    padding: 5rem 0;
+    background-color: $color-grey-3;
+    &-grid {
+        background-color: $color-grey-5;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 50rem 1fr;
+        grid-template-rows: min-content;
+        box-shadow: 0 -1rem 5rem rgba($color-grey-5, 0.9), 0 1rem 5rem rgba($color-grey-5, 0.9);
+        &-names {
+            width: 100%;
+            height: 100%;
+            grid-row: 1;
+            grid-column: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            align-items: flex-start;
+            &-arrow {
+                width: 100%;
+                padding: 2rem 5rem;
+                font-size: 3rem;
+                background: linear-gradient($color-primary 60%, $color-primary-dark 100%);
+                font-family: $title-font;
+                font-weight: 700;
+                color: $color-grey-2;
+                border-radius: 0 2rem 2rem 0;
+                cursor: pointer;
+                &-disabled {
+                    transition: ease-in .25s;
+                    &:hover {
+                        // transform: scale(1.05);
+                        color: $color-white;
+                    }
+                    color: $color-grey-0;
+                    background: none;
+                }
+            }
+        }
+        &-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            min-height: 30rem;
+            &-header {
+                width: 70%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-bottom: 0.5rem dotted #484848;
+                p {
+                    color: $color-grey-0;
+                    font-size: 4rem !important;
+                    padding: 1rem !important;
+                }
+            }
+            p {
+                padding: 2rem;
+                width: 80%;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+.competitions {
+    background-color: $color-grey-3;
+    // background: linear-gradient(0deg, rgba($color-grey-3, 1) 95%, rgba($color-grey-5, 0.88) 99%, rgba($color-grey-5, 1) 100%);
+    width: 100%;
+    padding: 9rem 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.location {
+    position: relative;
+    top: 0 !important;
+    &-wave {
+        width: 110% !important;
+        position: absolute;
+        transform: translateX(-10rem);
+        top: 0 !important;
+        z-index: 1;
+        height: 100%;
+        &-yellow {
+            transform: translateX(-10rem);
+            background: radial-gradient(ellipse farthest-side at 70% 80%, rgba(63, 94, 251, 0) 96%, rgba($color-primary, 0.8) 100%);
+        }
+        background: radial-gradient(ellipse farthest-side at 70% 80%, rgba(63, 94, 251, 0) 99%, $color-grey-3 100%);
+    }
 }
