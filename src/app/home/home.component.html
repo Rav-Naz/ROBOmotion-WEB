@@ -11,8 +11,9 @@
         <div class="paralax-wave"></div>
     </section>
     <section class="event-info">
-        <h3>Event starts in</h3>
-        <div class="event-info-counter">
+        <h3>{{timeIsUp ? streamLink === undefined ? 'Event is ended' : 'Event is now live!' : 'Event starts in'}}</h3>
+        <iframe [src]="streamLink" *ngIf="timeIsUp && streamLink !== undefined" width="1120" height="630" title="ROBO~motion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="event-info-counter" *ngIf="!timeIsUp">
             <div class="event-info-counter-part">
                 <p class="event-info-counter-part--number">
                     {{timeToEvent | msTransform: 'd'}}
@@ -82,7 +83,7 @@
             </div>
             <div class="event-program-grid-description" [@switch]="switchAnimationStateName">
                 <div class="event-program-grid-description-header">
-                    <p>IKONA</p>
+                    <i class="las" [ngClass]=iconOfSelectedEvent()></i>
                 </div>
                 <p>
                     {{descriptionOfSelectedEvent()}}
@@ -91,7 +92,16 @@
         </div>
     </section>
     <section class="competitions">
-
+        <h3>COMPETITIONS</h3>
+        <div class="competitions-grid">
+            <div class="competitions-grid-tile-container" *ngFor="let category of categories">
+                <div class="competitions-grid-tile">
+                    <img [src]="'../../assets/svg/' + category.icon" class="competitions-grid-tile-img">
+                    <label>{{category.name}}</label>
+                    <button>LEARN MORE</button>
+                </div>
+            </div>
+        </div>
     </section>
     <section class="location paralax">
         <div class="location-wave location-wave-yellow"></div>

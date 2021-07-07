@@ -18,7 +18,7 @@ export class MsToDaysPipe implements PipeTransform {
     }
     if (temp == 'h') {
       transformed *= (1 / 3600);
-      transformed %= 60;
+      transformed %= 24;
     }
     if (temp == 'd') {
       transformed *= (1 / (24 * 3600));

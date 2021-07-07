@@ -7,6 +7,8 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { Category } from '../models/category';
+import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-home',
@@ -25,7 +27,7 @@ import {
       })),
 
       transition('void => start', [
-        animate('0.2s ease-in')
+        animate(`0.2s ease-in`)
       ]),
       transition('void => end', [
         animate('0.2s ease-out')
@@ -48,56 +50,86 @@ import {
 export class HomeComponent {
 
   eventsList: Array<EventDescription> = new Array(
-    { id: 1, name: 'Tournament', description: 'ZXCZXCZXC', icon: '' },
-    { id: 2, name: 'Hackaton', description: 'ASDASD', icon: '' },
-    { id: 3, name: 'Workshops', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna turpis, suscipit ut nunc ac, consectetur aliquet nibh. Etiam laoreet libero vestibulum arcu aliquam, at tincidunt nunc dapibus. Phasellus eget lectus lobortis, mollis justo nec, feugiatvelit. Sed sodales metus diam, tristique efficitur diam.', icon: '' },
+    { id: 1, name: 'Tournament', description: 'A competition for teams or single players in which a series of games is played, and the winners of each game play against each other until only one winner is left', icon: 'la-trophy' },
+    { id: 2, name: 'Hackaton', description: 'A developer event where IT professionals and other software developers, such as graphic designers, interface developers and project managers, face a specific design problem. Hackathons take place over a short period of time, usually over the course of a day or weekend. The task to be performed is announced on the day of the competition opening. Only the work done during the event is taken into account when judging.', icon: 'la-laptop-code' },
+    { id: 3, name: 'Workshops', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna turpis, suscipit ut nunc ac, consectetur aliquet nibh. Etiam laoreet libero vestibulum arcu aliquam, at tincidunt nunc dapibus. Phasellus eget lectus lobortis, mollis justo nec, feugiatvelit. Sed sodales metus diam, tristique efficitur diam.', icon: 'la-network-wired' },
+    );
+  categories: Array<Category> = new Array(
+    {id: 1, name: 'Line Follower', icon: 'linefollower.svg'},
+    {id: 2, name: 'Sumo', icon: 'linefollower.svg'},
+    {id: 3, name: 'Ketchup house', icon: 'linefollower.svg'},
+    {id: 4, name: 'Humanoid sprint', icon: 'linefollower.svg'},
+    {id: 5, name: 'Freestyle', icon: 'linefollower.svg'},
   );
-  selectedEventIndex: number = 1;
-  timeToEvent: number;
-  private switchTimer: any;
-  public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
 
-  constructor() {
-    let eventDate = new Date(2021, 10, 21, 9, 0, 0);
-    this.timeToEvent = eventDate.getTime() - new Date().getTime();
+  switchTime = 200;
+  selectedEventIndex: number = 1;
+  public timeToEvent: number = 1000000;
+  private switchTimer: any;
+  public streamLink: SafeResourceUrl | undefined = undefined;
+  public timeIsUp = false;
+  public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
+  public eventDate = new Date(2021, 10, 21, 9, 0, 0);
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/5qap5aO4i9A");
+    this.refreshCounter()
     setInterval(() => {
-      this.timeToEvent = eventDate.getTime() - new Date().getTime();
+      this.refreshCounter()
     }, 1000);
-    this.switchTimer = setInterval(async () => {
-      await this.onSwitchEvent(this.selectedEventIndex % this.eventsList.length + 1);
-    }, 5000)
+    this.resetSwitchTimer();
   }
 
   async onSwitchEvent(eventIndex: number) {
+    const switchTime = 200;
+    this.resetSwitchTimer();
     if (eventIndex == this.selectedEventIndex) return;
     let temp = Math.abs(eventIndex - this.selectedEventIndex);
     for (let index = 0; index < temp; index++) {
       if (eventIndex < this.selectedEventIndex) {
         this.switchAnimationStateName = 'end';
-        setTimeout(() => {
-          this.switchAnimationStateName = 'start';
-          this.selectedEventIndex -= 1;
-          setTimeout(() => {
-            this.switchAnimationStateName = 'void';
-          }, 200);
-        }, 200);
+        await this.timeout(switchTime/temp);
+        this.switchAnimationStateName = 'start';
+        this.selectedEventIndex -= 1;
+        await this.timeout(switchTime/temp);
+        this.switchAnimationStateName = 'void';
       }
       else {
         this.switchAnimationStateName = 'start';
-        setTimeout(() => {
-          this.switchAnimationStateName = 'end';
-          this.selectedEventIndex += 1;
-          setTimeout(() => {
-            this.switchAnimationStateName = 'void';
-          }, 200);
-        }, 200);
+        await this.timeout(switchTime/temp);
+        this.switchAnimationStateName = 'end';
+        this.selectedEventIndex += 1;
+        await this.timeout(switchTime/temp);
+        this.switchAnimationStateName = 'void';
       }
     }
-    // reset interval
   }
 
-  descriptionOfSelectedEvent() {
+  resetSwitchTimer(): void {
+    clearInterval(this.switchTimer);
+    this.switchTimer = setInterval(async () => {
+      await this.onSwitchEvent(this.selectedEventIndex % this.eventsList.length + 1);
+    }, 10000)
+  }
+
+  refreshCounter() :void {
+    this.timeToEvent = this.eventDate.getTime() - new Date().getTime();
+    if(Math.floor(this.timeToEvent/1000) < 0) {
+      this.timeIsUp = true;
+    }
+  }
+
+  descriptionOfSelectedEvent(): string | undefined {
     return this.eventsList.find((event) => event.id === this.selectedEventIndex)?.description;
   }
+
+  iconOfSelectedEvent(): string {
+    let icon = this.eventsList.find((event) => event.id === this.selectedEventIndex)?.icon;
+    return icon == undefined ? '' : icon;
+  }
+
+  timeout(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 }

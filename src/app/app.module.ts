@@ -21,8 +21,7 @@ import { MsToDaysPipe } from './pipes/ms-transform.pipe';
     AdminZoneComponent,
     TimetableComponent,
     ResultsComponent,
-    MsToDaysPipe
-  ],
+    MsToDaysPipe  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
