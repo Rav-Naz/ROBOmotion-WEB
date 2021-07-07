@@ -225,10 +225,8 @@
 
 .competitions {
     background-color: $color-grey-3;
-    // background: linear-gradient(0deg, rgba($color-grey-3, 1) 95%, rgba($color-grey-5, 0.88) 99%, rgba($color-grey-5, 1) 100%);
     width: 100%;
     padding: 6rem;
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -243,83 +241,157 @@
         margin-bottom: 2rem;
     }
     &-grid {
-        height: auto;
-        // height: 10rem;
+        height: min-content;
         width: 100%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: min-content;
         row-gap: 4rem;
         column-gap: 4rem;
-        &-tile {
+        &-card {
             width: 100%;
             height: 100%;
-            background-color: $color-grey-1;
-            box-shadow: 0 0 2rem rgba($color-grey-2, 0.7); // background: linear-gradient(145deg, $color-grey-5, $color-grey-2);
-            border-radius: 3rem;
-            transition: ease-in 0.2s;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 25rem 1fr auto;
-            &-img {
-                display: flex;
-                justify-self: center;
-                align-self: center;
-                height: 100%;
+            position: relative;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+            &.is-flipped {
+                transform: rotateY(-180deg);
+            }
+            &-style {
                 width: 100%;
-                padding: 3rem;
-            }
-            label {
-                justify-self: center;
-                align-self: flex-end;
-                text-align: center;
-                width: 80%;
-                color: $color-grey-0;
-                font-weight: 700;
-                font-size: 3rem;
-                font-family: $title-font;
+                height: 100%;
                 padding: 1rem;
-                border-bottom: 0.1rem solid rgba($color-grey-0, 0.5);
+                background-color: $color-grey-1;
+                box-shadow: 0 0 2rem rgba($color-grey-2, 0.7); // background: linear-gradient(145deg, $color-grey-5, $color-grey-2);
+                border-radius: 3rem;
+                transition: ease-in 0.2s;
+                position: absolute;
+                backface-visibility: hidden;
             }
-            button {
-                &,
-                &:link,
-                &:visited {
-                    margin: 2rem;
-                    line-height: 1rem;
-                    border-radius: 5rem;
-                    box-shadow: 0 0.2rem 2rem rgba($color-primary, 0.5);
-                    font-size: 2rem;
-                    padding: 2rem;
-                    letter-spacing: 0.2rem;
-                    text-transform: uppercase;
-                    border: none;
-                    cursor: pointer;
-                    transition: box-shadow ease-in 0.4s, transform ease-out 0.1s;
-                    text-decoration: none;
-                    font-family: $default-font;
-                    background: linear-gradient($color-primary 60%, $color-primary-dark 100%);
-                    &:hover {
-                        box-shadow: 0 0.2rem 3rem rgba($color-primary, 0.7);
+            &--front {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 25rem 1fr auto;
+                img {
+                    display: flex;
+                    justify-self: center;
+                    align-self: center;
+                    height: 100%;
+                    width: 100%;
+                    padding: 3rem;
+                }
+                label {
+                    justify-self: center;
+                    align-self: flex-end;
+                    text-align: center;
+                    width: 80%;
+                    color: $color-grey-0;
+                    font-weight: 700;
+                    font-size: 3rem;
+                    font-family: $title-font;
+                    padding: 1rem;
+                    border-bottom: 0.1rem solid rgba($color-grey-0, 0.5);
+                }
+                button {
+                    &,
+                    &:link,
+                    &:visited {
+                        margin: 2rem;
+                        line-height: 1rem;
+                        border-radius: 5rem;
+                        box-shadow: 0 0.2rem 2rem rgba($color-primary, 0.5);
+                        font-size: 2rem;
+                        padding: 2rem;
+                        letter-spacing: 0.2rem;
+                        text-transform: uppercase;
+                        border: none;
+                        cursor: pointer;
+                        transition: box-shadow ease-in 0.4s, transform ease-out 0.1s;
+                        text-decoration: none;
+                        font-family: $default-font;
+                        background: linear-gradient($color-primary 60%, $color-primary-dark 100%);
+                        &:hover {
+                            box-shadow: 0 0.2rem 3rem rgba($color-primary, 0.7);
+                        }
+                    }
+                    &:focus {
+                        outline: none;
+                        &:active {
+                            transform: translateY(3px);
+                        }
                     }
                 }
-                &:focus {
-                    outline: none;
+                &:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 0 1rem rgba($color-grey-2, 0.4);
+                }
+            }
+            &--back {
+                transform: rotateY(180deg);
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto;
+                button {
+                    &,
+                    &:link,
+                    &:visited {
+                        color: $color-primary;
+                        margin-top: 2rem;
+                        margin-left: 2rem;
+                        width: 5rem;
+                        height: 5rem;
+                        background-color: $color-grey-2;
+                        line-height: 1rem;
+                        border-radius: 5rem;
+                        box-shadow: 0 0.2rem 2rem rgba($color-grey-5, 0.5);
+                        font-size: 3rem;
+                        padding: 1rem;
+                        border: .2rem solid $color-primary;
+                        cursor: pointer;
+                        transition: transform ease-out 0.1s;
+                        text-decoration: none;
+                        font-family: $title-font;
+                        &:focus {
+                            outline: none;
+                            &:active {
+                                transform: translateY(3px);
+                            }
+                        }
+                    }
+                }
+                p {
+                    padding: 2rem;
+                    font-size: 1.6rem;
+                    text-align: justify;
+                    line-height: 2.5rem;
+                    font-family: $default-font;
+                    font-weight: 300;
+                    height: 100%;
+                }
+                span {
+                    cursor: pointer;
+                    color: rgba($color-white, 0.6);
+                    margin-bottom: 2rem;
+                    margin-right: 2rem;
+                    font-size: 1.8rem;
+                    justify-self: right;
+                    font-family: $title-font;
+                    align-self: center;
+                    border-bottom: 0.2rem dashed rgba($color-grey-0, 0.5);
+                    line-height: 2.8rem;
+                    transition: transform ease-out 0.1s;
                     &:active {
                         transform: translateY(3px);
                     }
                 }
             }
-            &:hover {
-                transform: scale(1.02);
-                box-shadow: 0 0 1rem rgba($color-grey-2, 0.4);
-            }
             &-container {
+                perspective: 60rem;
                 border-radius: 4rem;
                 padding: 4rem;
                 background: $color-grey-3;
                 box-shadow: -2rem 2rem 4rem $color-grey-2, 2rem -2rem 5rem $color-grey-4, inset 1rem -1rem 2rem $color-grey-4, inset -1rem 1rem 2rem $color-grey-2;
-                height: auto;
+                min-height: 55rem;
             }
         }
     }

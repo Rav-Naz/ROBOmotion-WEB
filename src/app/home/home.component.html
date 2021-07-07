@@ -94,11 +94,20 @@
     <section class="competitions">
         <h3>COMPETITIONS</h3>
         <div class="competitions-grid">
-            <div class="competitions-grid-tile-container" *ngFor="let category of categories">
-                <div class="competitions-grid-tile">
-                    <img [src]="'../../assets/svg/' + category.icon" class="competitions-grid-tile-img">
-                    <label>{{category.name}}</label>
-                    <button>LEARN MORE</button>
+            <div class="competitions-grid-card-container" *ngFor="let category of categories">
+                <div class="competitions-grid-card">
+                    <div class="competitions-grid-card-style competitions-grid-card--front">
+                        <img [src]="'../../assets/svg/' + category.icon" class="competitions-grid-card--front-img">
+                        <label>{{category.name}}</label>
+                        <button (click)="flipCard($event, 'back')">LEARN MORE</button>
+                    </div>
+                    <div class="competitions-grid-card-style competitions-grid-card--back">
+                        <button (click)="flipCard($event, 'front')">X</button>
+                        <p>{{category.description}}</p>
+                        <span (click)="showRegulation(category.linkToRegulation)">
+                        Regulations
+                        <i class="las la-file-alt"></i>                      </span>
+                    </div>
                 </div>
             </div>
         </div>

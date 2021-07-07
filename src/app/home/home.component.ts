@@ -55,11 +55,11 @@ export class HomeComponent {
     { id: 3, name: 'Workshops', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna turpis, suscipit ut nunc ac, consectetur aliquet nibh. Etiam laoreet libero vestibulum arcu aliquam, at tincidunt nunc dapibus. Phasellus eget lectus lobortis, mollis justo nec, feugiatvelit. Sed sodales metus diam, tristique efficitur diam.', icon: 'la-network-wired' },
     );
   categories: Array<Category> = new Array(
-    {id: 1, name: 'Line Follower', icon: 'linefollower.svg'},
-    {id: 2, name: 'Sumo', icon: 'linefollower.svg'},
-    {id: 3, name: 'Ketchup house', icon: 'linefollower.svg'},
-    {id: 4, name: 'Humanoid sprint', icon: 'linefollower.svg'},
-    {id: 5, name: 'Freestyle', icon: 'linefollower.svg'},
+    {id: 1, name: 'Line Follower', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.' , icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 2, name: 'Sumo', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 3, name: 'Ketchup house', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 4, name: 'Humanoid sprint', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 5, name: 'Freestyle', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
   );
 
   switchTime = 200;
@@ -117,6 +117,21 @@ export class HomeComponent {
     if(Math.floor(this.timeToEvent/1000) < 0) {
       this.timeIsUp = true;
     }
+  }
+
+  flipCard(event: Event, direction: 'front' | 'back') {
+    var allFliped = document.getElementsByClassName("is-flipped") as HTMLCollectionOf<Element>;
+    for (let i = 0; i < allFliped.length; i++) {
+      allFliped[i].classList.remove("is-flipped");
+    }
+    if (direction === 'back') {
+      let target = event.target as HTMLElement;
+      ((target.parentElement as HTMLElement).parentElement as HTMLElement).classList.toggle('is-flipped')
+    }
+  }
+
+  showRegulation(url: string): void {
+    window.open(url);
   }
 
   descriptionOfSelectedEvent(): string | undefined {
