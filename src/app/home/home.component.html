@@ -11,7 +11,7 @@
         <div class="paralax-wave"></div>
     </section>
     <section class="event-info">
-        <h3>{{timeIsUp ? streamLink === undefined ? 'Event is ended' : 'Event is now live!' : 'Event starts in'}}</h3>
+        <h3 class="section-header">{{timeIsUp ? streamLink === undefined ? 'Event is ended' : 'Event is now live!' : 'Event starts in'}}</h3>
         <iframe [src]="streamLink" *ngIf="timeIsUp && streamLink !== undefined" width="1120" height="630" title="ROBO~motion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="event-info-counter" *ngIf="!timeIsUp">
             <div class="event-info-counter-part">
@@ -92,7 +92,7 @@
         </div>
     </section>
     <section class="competitions">
-        <h3>COMPETITIONS</h3>
+        <h3 class="section-header">COMPETITIONS</h3>
         <div class="competitions-grid">
             <div class="competitions-grid-card-container" *ngFor="let category of categories">
                 <div class="competitions-grid-card">
@@ -104,7 +104,7 @@
                     <div class="competitions-grid-card-style competitions-grid-card--back">
                         <button (click)="flipCard($event, 'front')">X</button>
                         <p>{{category.description}}</p>
-                        <span (click)="showRegulation(category.linkToRegulation)">
+                        <span (click)="openUrl(category.linkToRegulation)">
                         Regulations
                         <i class="las la-file-alt"></i>                      </span>
                     </div>
@@ -115,9 +115,32 @@
     <section class="location paralax">
         <div class="location-wave location-wave-yellow"></div>
         <div class="location-wave"></div>
-    </section>
-    <section class="organiser">
+        <div class="location-grid">
+            <img src="../../assets/svg/location.svg">
+            <div class="location-grid-right">
+                <h3 class="section-header">LOCATION</h3>
+                <h2>
+                    Sports hall of the <br>
+                    <span>Rzeszów University of Technology</span><br> Poznańska 2a,<br> 35-959 Rzeszów
+                </h2>
+                <button (click)="openUrl('https://www.google.pl/maps/place/Pozna%C5%84ska+2a,+35-959+Rzesz%C3%B3w/@50.0183684,21.9778566,743m/data=!3m2!1e3!4b1!4m5!3m4!1s0x473cfbb694b5d4cf:0x92a58d80f703df60!8m2!3d50.018365!4d21.9800453')">Show on map
+                  <i class="las la-map-marked-alt"></i>
+                </button>
+            </div>
+        </div>
 
+    </section>
+    <section class="organizer">
+        <div>
+            <h3 class="section-header">ORGANIZER</h3>
+            <span>Scientific Club of Automation and Robotics “ROBO”</span>
+            <img src="../../assets/svg/robo_white.svg">
+            <div class="organizer-social">
+                <p class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
+                <p class="organizer-social-item organizer-social-item--ig"><i class="lab la-instagram"></i></p>
+                <p class="organizer-social-item organizer-social-item--web"><i class="lab la-globe"></i></p>
+            </div>
+        </div>
     </section>
     <section class="patrons">
 

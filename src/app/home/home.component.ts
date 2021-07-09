@@ -130,7 +130,7 @@ export class HomeComponent {
     }
   }
 
-  showRegulation(url: string): void {
+  openUrl(url: string): void {
     window.open(url);
   }
 

@@ -8,6 +8,16 @@
     flex-direction: column;
 }
 
+.section-header {
+    color: rgba($color-white, 0.6);
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: .5rem;
+    z-index: 4;
+    margin-bottom: 2rem;
+}
+
 .paralax {
     position: relative;
     width: 100%;
@@ -62,15 +72,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h3 {
-        color: rgba($color-white, 0.6);
-        text-transform: uppercase;
-        font-size: 4rem;
-        font-weight: 400;
-        letter-spacing: .5rem;
-        z-index: 4;
-        margin-bottom: 2rem;
-    }
     &-counter {
         text-align: center;
         width: min-content;
@@ -231,15 +232,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h3 {
-        color: rgba($color-white, 0.6);
-        text-transform: uppercase;
-        font-size: 4rem;
-        font-weight: 400;
-        letter-spacing: .5rem;
-        z-index: 4;
-        margin-bottom: 2rem;
-    }
     &-grid {
         height: min-content;
         width: 100%;
@@ -338,14 +330,14 @@
                         color: $color-primary;
                         margin-top: 2rem;
                         margin-left: 2rem;
-                        width: 5rem;
-                        height: 5rem;
+                        width: 4rem;
+                        height: 4rem;
                         background-color: $color-grey-2;
                         line-height: 1rem;
                         border-radius: 5rem;
                         box-shadow: 0 0.2rem 2rem rgba($color-grey-5, 0.5);
                         font-size: 3rem;
-                        padding: 1rem;
+                        // padding: 1rem;
                         border: .2rem solid $color-primary;
                         cursor: pointer;
                         transition: transform ease-out 0.1s;
@@ -399,7 +391,9 @@
 
 .location {
     position: relative;
+    height: 50vh;
     top: 0 !important;
+    // padding: 1rem 5rem;
     &-wave {
         width: 110% !important;
         position: absolute;
@@ -412,5 +406,191 @@
             background: radial-gradient(ellipse farthest-side at 70% 80%, rgba(63, 94, 251, 0) 96%, rgba($color-primary, 0.8) 100%);
         }
         background: radial-gradient(ellipse farthest-side at 70% 80%, rgba(63, 94, 251, 0) 99%, $color-grey-3 100%);
+    }
+    &-grid {
+        // width: 80%;
+        // padding: 1rem 10rem 1rem 0;
+        margin-right: 5rem;
+        display: grid;
+        grid-template-columns: 1fr 40rem;
+        grid-template-rows: 50rem;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        &-right {
+            z-index: 3;
+            text-align: right;
+            justify-self: center;
+            align-self: center;
+            padding: 3rem;
+            h2 {
+                font-size: 3rem;
+                font-weight: 100;
+                color: $color-white;
+                line-height: 5rem;
+                span {
+                    color: $color-primary;
+                    font-weight: 400;
+                }
+            }
+            button {
+                &,
+                &:link,
+                &:visited {
+                    i {
+                        font-size: 2rem;
+                    }
+                    margin-top: 2rem;
+                    text-decoration: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                    border: none;
+                    color: rgba($color-white, 0.6);
+                    font-size: 1.8rem;
+                    justify-self: right;
+                    font-family: $title-font;
+                    align-self: center;
+                    border-bottom: 0.2rem dashed rgba($color-grey-0, 0.5);
+                    line-height: 2.8rem;
+                    transition: transform ease-out 0.1s;
+                    &:focus {
+                        outline: none;
+                        &:active {
+                            transform: translateY(3px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.organizer {
+    width: 100%;
+    padding: 2rem;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &-social {
+        // top: 50%;
+        // left: 50%;
+        margin-top: 5rem;
+        height: 10rem !important;
+        width: 80%;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-evenly !important;
+        align-items: center !important;
+        &-item {
+            cursor: pointer;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            color: $color-white;
+            width: 8rem;
+            height: 8rem;
+            background-color: #686868;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            transform: perspective(100rem) rotate(-30deg) skew(25deg) translate(0, 0);
+            transition: .5s;
+            box-shadow: -2rem 2rem 1rem rgba($color-black, 0.5);
+            &:before {
+                position: absolute;
+                content: '';
+                top: 1rem;
+                left: -2rem;
+                height: 100%;
+                width: 2rem;
+                transition: .5s;
+                transform: rotate(0deg) skewY(-45deg);
+                background: #575656;
+            }
+            &:after {
+                position: absolute;
+                content: '';
+                bottom: -2rem;
+                left: -1rem;
+                height: 2rem;
+                width: 100%;
+                transition: .5s;
+                transform: rotate(0deg) skewX(-45deg);
+                background: #464545;
+            }
+            &:hover {
+                transform: perspective(100rem) rotate(-30deg) skew(25deg) translate(2rem, -2rem);
+                box-shadow: -5rem 2rem 1rem rgba($color-black, .5);
+                transition: .5s;
+            }
+            &--fb {
+                &:hover {
+                    transition: .5s;
+                    color: $color-white;
+                    background: linear-gradient(#2958f0, #2431df);
+                    &:before {
+                        background: linear-gradient(#254fd8, #202bc2);
+                    }
+                    &:after {
+                        background: linear-gradient(#2043b6, #19229c);
+                        ;
+                    }
+                }
+            }
+            &--ig {
+                &:hover {
+                    transition: .5s;
+                    color: $color-white;
+                    background: linear-gradient(135deg, #6c09ee, #eb2598, #f8ec45 90%);
+                    &:before {
+                        background: linear-gradient(135deg, #5a0ac4, #b91e79);
+                        ;
+                    }
+                    &:after {
+                        background: linear-gradient(135deg, #9b1965, #9c952d 90%);
+                    }
+                }
+            }
+            &--web {
+                &:hover {
+                    transition: .5s;
+                    color: $color-white;
+                    background: linear-gradient(135deg, #4f14f1, #980df5);
+                    &:before {
+                        background: linear-gradient(135deg, #4112c4, #580ece);
+                        ;
+                    }
+                    &:after {
+                        background: linear-gradient(135deg, #480ba8, #6d09af 90%);
+                    }
+                }
+            }
+        }
+    }
+    div {
+        height: 70rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url('../../assets/svg/splash.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        span {
+            font-size: 3.5rem;
+            font-family: $title-font;
+            text-align: center;
+            color: $color-white;
+        }
+        img {
+            margin-top: 2rem;
+            height: 20rem;
+        }
     }
 }
