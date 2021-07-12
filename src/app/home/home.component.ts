@@ -1,3 +1,4 @@
+import { Patreon } from './../models/patreon';
 import { EventDescription } from './../models/event-description.model';
 import { Component } from '@angular/core';
 import {
@@ -62,6 +63,16 @@ export class HomeComponent {
     {id: 5, name: 'Freestyle', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
   );
 
+  patreons: Array<Patreon> = new Array(
+    {id: 1, patreonCategory: 0, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 0, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 2, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 2, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+  );
+
   switchTime = 200;
   selectedEventIndex: number = 1;
   public timeToEvent: number = 1000000;
@@ -70,7 +81,7 @@ export class HomeComponent {
   public timeIsUp = false;
   public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
   public eventDate = new Date(2021, 10, 21, 9, 0, 0);
-
+  public patreonNames: Array<string> = ['Tier 1', 'Tier 2'];
   constructor(private sanitizer: DomSanitizer) {
     this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/5qap5aO4i9A");
     this.refreshCounter()
@@ -130,15 +141,19 @@ export class HomeComponent {
     }
   }
 
+  getAllPatreonsWithIndex(index: number) {
+    return this.patreons.filter(element => element.patreonCategory === index);
+  }
+
   openUrl(url: string): void {
     window.open(url);
   }
 
-  descriptionOfSelectedEvent(): string | undefined {
+  get descriptionOfSelectedEvent(): string | undefined {
     return this.eventsList.find((event) => event.id === this.selectedEventIndex)?.description;
   }
 
-  iconOfSelectedEvent(): string {
+  get iconOfSelectedEvent(): string {
     let icon = this.eventsList.find((event) => event.id === this.selectedEventIndex)?.icon;
     return icon == undefined ? '' : icon;
   }

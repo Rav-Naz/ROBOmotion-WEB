@@ -83,10 +83,10 @@
             </div>
             <div class="event-program-grid-description" [@switch]="switchAnimationStateName">
                 <div class="event-program-grid-description-header">
-                    <i class="las" [ngClass]=iconOfSelectedEvent()></i>
+                    <i class="las" [ngClass]=iconOfSelectedEvent></i>
                 </div>
                 <p>
-                    {{descriptionOfSelectedEvent()}}
+                    {{descriptionOfSelectedEvent}}
                 </p>
             </div>
         </div>
@@ -121,7 +121,7 @@
                 <h3 class="section-header">LOCATION</h3>
                 <h2>
                     Sports hall of the <br>
-                    <span>Rzeszów University of Technology</span><br> Poznańska 2a,<br> 35-959 Rzeszów
+                    <span>Rzeszów University of Technology</span><br> Poznańska 2a, <b>b. Ł</b>,<br> 35-959 Rzeszów
                 </h2>
                 <button (click)="openUrl('https://www.google.pl/maps/place/Pozna%C5%84ska+2a,+35-959+Rzesz%C3%B3w/@50.0183684,21.9778566,743m/data=!3m2!1e3!4b1!4m5!3m4!1s0x473cfbb694b5d4cf:0x92a58d80f703df60!8m2!3d50.018365!4d21.9800453')">Show on map
                   <i class="las la-map-marked-alt"></i>
@@ -136,13 +136,19 @@
             <span>Scientific Club of Automation and Robotics “ROBO”</span>
             <img src="../../assets/svg/robo_white.svg">
             <div class="organizer-social">
-                <p class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
-                <p class="organizer-social-item organizer-social-item--ig"><i class="lab la-instagram"></i></p>
-                <p class="organizer-social-item organizer-social-item--web"><i class="lab la-globe"></i></p>
+                <p (click)="openUrl('https://www.facebook.com/rzeszowska.grupa.it')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
+                <p (click)="openUrl('https://www.instagram.com/rzeszowskagrupait/')" class="organizer-social-item organizer-social-item--ig"><i class="lab la-instagram"></i></p>
+                <p (click)="openUrl('https://rzit.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p>
             </div>
         </div>
     </section>
-    <section class="patrons">
-
+    <section class="patreons">
+        <h3 class="section-header">PATREONS</h3>
+        <ng-container *ngFor="let name of patreonNames; let i = index">
+            <p>{{name}}</p>
+            <div>
+                <p *ngFor="let patreon of getAllPatreonsWithIndex(i)">{{patreon.description}}</p>
+            </div>
+        </ng-container>
     </section>
 </div>
