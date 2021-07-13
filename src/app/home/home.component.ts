@@ -64,24 +64,29 @@ export class HomeComponent {
   );
 
   patreons: Array<Patreon> = new Array(
+    {id: 1, patreonCategory: 0, description: 'Rektor', image: '../../assets/svg/klocki.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
     {id: 1, patreonCategory: 0, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 0, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/linefollower.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 1, description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac.', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
     {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
     {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
     {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 2, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 2, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
+    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/location.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
   );
 
   switchTime = 200;
   selectedEventIndex: number = 1;
-  public timeToEvent: number = 1000000;
   private switchTimer: any;
+  public timeToEvent: number = 1000000;
   public streamLink: SafeResourceUrl | undefined = undefined;
   public timeIsUp = false;
   public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
   public eventDate = new Date(2021, 10, 21, 9, 0, 0);
   public patreonNames: Array<string> = ['Tier 1', 'Tier 2'];
+  public isMenuOpen: boolean = false;
+
   constructor(private sanitizer: DomSanitizer) {
     this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/5qap5aO4i9A");
     this.refreshCounter()
@@ -147,6 +152,17 @@ export class HomeComponent {
 
   openUrl(url: string): void {
     window.open(url);
+  }
+
+  switchMenu(): void {
+    const menuButton = document.querySelector('.container-menu');
+    if(this.isMenuOpen) {
+      menuButton?.classList.remove('open');
+    }
+    else {
+      menuButton?.classList.add('open');
+    }
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   get descriptionOfSelectedEvent(): string | undefined {

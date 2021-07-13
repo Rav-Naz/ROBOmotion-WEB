@@ -1,4 +1,9 @@
 <div class="container">
+    <button class="container-menu" (click)="switchMenu()">
+      <div class="container-menu-burger container-menu-top"></div>
+      <div class="container-menu-burger container-menu-middle"></div>
+      <div class="container-menu-burger container-menu-bottom"></div>
+    </button>
     <section class="paralax">
         <div class="paralax-name-container">
             <h1 class="paralax-name">
@@ -145,10 +150,24 @@
     <section class="patreons">
         <h3 class="section-header">PATREONS</h3>
         <ng-container *ngFor="let name of patreonNames; let i = index">
-            <p>{{name}}</p>
-            <div>
-                <p *ngFor="let patreon of getAllPatreonsWithIndex(i)">{{patreon.description}}</p>
+            <p class="patreons-name">{{name}}</p>
+            <div class="patreons-class-container">
+                <div class="patreons-one" *ngFor="let patreon of getAllPatreonsWithIndex(i)" (click)="openUrl(patreon.linkToSite)">
+                    <img [src]="patreon.image">
+                    <p>{{patreon.description}}</p>
+                </div>
             </div>
         </ng-container>
+    </section>
+    <section class="footer">
+        <h1 class="paralax-name footer-name">
+            ROBO<br>
+            <span class="paralax-name-second footer-name-second">~motion 2021</span><br>
+            <img src="../../assets/svg/klocki.svg" class="paralax-name-img footer-name-img">
+        </h1>
+        <!-- <a></a> -->
+        <p>
+            Copyright © {{eventDate.getFullYear()}} - Rzeszowska Grupa IT | Designed & Developed by <span>Rafał Nazarko</span>
+        </p>
     </section>
 </div>
