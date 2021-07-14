@@ -1,9 +1,20 @@
+<div class="container-menu-navigation">
+    <a class="container-menu-navigation-competitor-zone">COMPETITOR ZONE</a>
+    <a href="#home">HOME</a>
+    <a href="#programme">PROGRAMME</a>
+    <a href="#competitions">COMPETITIONS</a>
+    <a href="#location">LOCATION</a>
+    <a href="#patreons">PATREONS</a>
+    <a>RESULTS</a>
+    <a>TIMETABLE</a>
+    <a>BUILDING PLAN</a>
+</div>
+<button class="container-menu" (click)="switchMenu()">
+  <div class="container-menu-burger container-menu-burger-top"></div>
+  <div class="container-menu-burger container-menu-burger-middle"></div>
+  <div class="container-menu-burger container-menu-burger-bottom"></div>
+</button>
 <div class="container">
-    <button class="container-menu" (click)="switchMenu()">
-      <div class="container-menu-burger container-menu-top"></div>
-      <div class="container-menu-burger container-menu-middle"></div>
-      <div class="container-menu-burger container-menu-bottom"></div>
-    </button>
     <section class="paralax">
         <div class="paralax-name-container">
             <h1 class="paralax-name">
@@ -15,7 +26,7 @@
         <div class="paralax-wave paralax-wave-yellow"></div>
         <div class="paralax-wave"></div>
     </section>
-    <section class="event-info">
+    <section class="event-info" id="home">
         <h3 class="section-header">{{timeIsUp ? streamLink === undefined ? 'Event is ended' : 'Event is now live!' : 'Event starts in'}}</h3>
         <iframe [src]="streamLink" *ngIf="timeIsUp && streamLink !== undefined" width="1120" height="630" title="ROBO~motion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="event-info-counter" *ngIf="!timeIsUp">
@@ -79,7 +90,7 @@
             </div>
         </div>
     </section>
-    <section class="event-program">
+    <section class="event-program" id="programme">
         <div class="event-program-grid">
             <div class="event-program-grid-names">
                 <div *ngFor="let event of eventsList" (click)="onSwitchEvent(event.id)" class="event-program-grid-names-arrow" [ngClass]="{'event-program-grid-names-arrow-disabled': selectedEventIndex != event.id}">
@@ -96,7 +107,7 @@
             </div>
         </div>
     </section>
-    <section class="competitions">
+    <section class="competitions" id="competitions">
         <h3 class="section-header">COMPETITIONS</h3>
         <div class="competitions-grid">
             <div class="competitions-grid-card-container" *ngFor="let category of categories">
@@ -117,7 +128,7 @@
             </div>
         </div>
     </section>
-    <section class="location paralax">
+    <section class="location paralax" id="location">
         <div class="location-wave location-wave-yellow"></div>
         <div class="location-wave"></div>
         <div class="location-grid">
@@ -135,7 +146,7 @@
         </div>
 
     </section>
-    <section class="organizer">
+    <section class="organizer" id="patreons">
         <div>
             <h3 class="section-header">ORGANIZER</h3>
             <span>Scientific Club of Automation and Robotics “ROBO”</span>

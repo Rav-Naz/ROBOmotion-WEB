@@ -94,6 +94,7 @@ export class HomeComponent {
       this.refreshCounter()
     }, 1000);
     this.resetSwitchTimer();
+
   }
 
   async onSwitchEvent(eventIndex: number) {
@@ -156,11 +157,14 @@ export class HomeComponent {
 
   switchMenu(): void {
     const menuButton = document.querySelector('.container-menu');
+    const container = document.querySelector('.container');
     if(this.isMenuOpen) {
       menuButton?.classList.remove('open');
+      container?.classList.remove('open');
     }
     else {
       menuButton?.classList.add('open');
+      container?.classList.add('open');
     }
     this.isMenuOpen = !this.isMenuOpen;
   }
