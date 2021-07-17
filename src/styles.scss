@@ -43,6 +43,20 @@ body {
     background-color: $color-grey-1;
     color: $color-white;
     overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $color-grey-1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    position: absolute;
+    overflow: hidden;
+    box-shadow: 0 0 5rem rgba($color-grey-5, 0.8);
 }
 
 .montserrat {

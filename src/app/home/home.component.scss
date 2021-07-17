@@ -1,121 +1,5 @@
 @import '../scss/variables';
 @import '../scss/colors';
-.container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    position: absolute;
-    transition: ease-in-out .5s;
-    overflow: hidden;
-    background-color: $color-grey-1;
-    box-shadow: 0 0 5rem rgba($color-grey-5, 0.8);
-    &.open {
-        transform: translateX(-40rem);
-    }
-    &-menu {
-        padding: .5rem;
-        &,
-        &:link,
-        &:visited {
-            z-index: 100;
-            color: $color-white;
-            position: fixed;
-            right: 2rem;
-            top: 2rem;
-            width: 5rem;
-            height: 5rem;
-            background-color: transparent;
-            line-height: 1rem;
-            border-radius: 1rem;
-            box-shadow: 0 0.2rem 2rem rgba($color-grey-5, 0.5);
-            font-size: 3rem;
-            border: .2rem solid $color-white;
-            cursor: pointer;
-            transition: all ease-out 0.5s;
-            text-decoration: none;
-            font-family: $title-font;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-            &:focus {
-                outline: none;
-                &:active {
-                    transition: all ease-out 0.5s;
-                    border: .2rem solid $color-white;
-                    transform: translateY(3px);
-                }
-            }
-            &.open {
-                transition: all ease-out 0.5s;
-                color: $color-grey-5;
-                border: .2rem solid $color-grey-5;
-            }
-            &.open .container-menu-burger {
-                transform: translateX(5rem);
-                color: $color-grey-5;
-                background-color: $color-grey-5;
-                border: .2rem solid $color-grey-5;
-            }
-            &.open .container-menu-burger-top {
-                transform: translateY(1rem) rotate(45deg)
-            }
-            &.open .container-menu-burger-middle {
-                opacity: 0;
-            }
-            &.open .container-menu-burger-bottom {
-                transform: translateY(-1rem) rotate(-45deg)
-            }
-        }
-        &-burger {
-            width: 70%;
-            height: .3rem;
-            background: $color-white;
-            transition: all .5s ease-in-out;
-        }
-        &-navigation {
-            padding: 10rem 0rem 10rem 5rem;
-            // padding-bottom: 10rem;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 40rem;
-            height: 100vh;
-            background: linear-gradient(-90deg, $color-primary, $color-primary-dark);
-            z-index: -1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            &-competitor-zone {
-                font-size: 3rem !important;
-            }
-            a {
-                color: $color-grey-5;
-                width: 100%;
-                text-align: left;
-                margin: 2rem;
-                line-height: 1rem;
-                font-size: 2.5rem;
-                letter-spacing: 0.2rem;
-                text-transform: uppercase;
-                border: none;
-                cursor: pointer;
-                text-decoration: none;
-                font-family: $default-font;
-                font-weight: 700;
-                background: transparent;
-                transition: all 0.1s ease-in-out;
-                &:active {
-                    transform: translateY(3px);
-                }
-            }
-        }
-    }
-}
-
 .section-header {
     color: rgba($color-white, 0.6);
     text-transform: uppercase;
@@ -219,6 +103,31 @@
             padding-top: .7rem;
             color: $color-primary;
             padding-left: 0 !important;
+        }
+    }
+    button {
+        &,
+        &:link,
+        &:visited {
+            margin-top: 5rem;
+            text-decoration: none;
+            background-color: transparent;
+            cursor: pointer;
+            color: $color-primary;
+            font-size: 2rem;
+            justify-self: right;
+            font-family: $title-font;
+            align-self: center;
+            border: 0.2rem solid $color-primary;
+            border-radius: 10rem;
+            transition: transform ease-out 0.1s;
+            padding: 2rem;
+            &:focus {
+                outline: none;
+                &:active {
+                    transform: translateY(3px);
+                }
+            }
         }
     }
     &-details {
@@ -765,13 +674,13 @@
         font-size: 2rem;
         line-height: 2rem;
         &-second {
-            margin-left: 2rem;
+            margin-left: 1rem;
         }
         min-width: max-content;
         &-img {
             width: 2.5rem;
             margin-top: 0.5rem;
-            margin-left: 4.75rem;
+            margin-left: 3.5rem;
         }
     }
     p {

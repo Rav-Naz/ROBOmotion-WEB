@@ -8,20 +8,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CompetitorZoneComponent } from './competitor-zone/competitor-zone.component';
-import { AdminZoneComponent } from './admin-zone/admin-zone.component';
 import { TimetableComponent } from './home/timetable/timetable.component';
 import { ResultsComponent } from './home/results/results.component';
 import { MsToDaysPipe } from './pipes/ms-transform.pipe';
+import { BuildingPlanComponent } from './home/building-plan/building-plan.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CompetitorZoneComponent,
-    AdminZoneComponent,
     TimetableComponent,
     ResultsComponent,
-    MsToDaysPipe  ],
+    MsToDaysPipe,
+    BuildingPlanComponent,
+    HeaderComponent  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -85,7 +85,6 @@ export class HomeComponent {
   public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
   public eventDate = new Date(2021, 10, 21, 9, 0, 0);
   public patreonNames: Array<string> = ['Tier 1', 'Tier 2'];
-  public isMenuOpen: boolean = false;
 
   constructor(private sanitizer: DomSanitizer) {
     this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/5qap5aO4i9A");
@@ -153,20 +152,6 @@ export class HomeComponent {
 
   openUrl(url: string): void {
     window.open(url);
-  }
-
-  switchMenu(): void {
-    const menuButton = document.querySelector('.container-menu');
-    const container = document.querySelector('.container');
-    if(this.isMenuOpen) {
-      menuButton?.classList.remove('open');
-      container?.classList.remove('open');
-    }
-    else {
-      menuButton?.classList.add('open');
-      container?.classList.add('open');
-    }
-    this.isMenuOpen = !this.isMenuOpen;
   }
 
   get descriptionOfSelectedEvent(): string | undefined {
