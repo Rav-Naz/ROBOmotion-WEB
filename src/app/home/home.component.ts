@@ -10,6 +10,7 @@ import {
 } from '@angular/animations';
 import { Category } from '../models/category';
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -50,31 +51,31 @@ import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 })
 export class HomeComponent {
 
-  eventsList: Array<EventDescription> = new Array(
-    { id: 1, name: 'Tournament', description: 'A competition for teams or single players in which a series of games is played, and the winners of each game play against each other until only one winner is left', icon: 'la-trophy' },
-    { id: 2, name: 'Hackaton', description: 'A developer event where IT professionals and other software developers, such as graphic designers, interface developers and project managers, face a specific design problem. Hackathons take place over a short period of time, usually over the course of a day or weekend. The task to be performed is announced on the day of the competition opening. Only the work done during the event is taken into account when judging.', icon: 'la-laptop-code' },
-    { id: 3, name: 'Workshops', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna turpis, suscipit ut nunc ac, consectetur aliquet nibh. Etiam laoreet libero vestibulum arcu aliquam, at tincidunt nunc dapibus. Phasellus eget lectus lobortis, mollis justo nec, feugiatvelit. Sed sodales metus diam, tristique efficitur diam.', icon: 'la-network-wired' },
-    );
-  categories: Array<Category> = new Array(
-    {id: 1, name: 'Line Follower', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.' , icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 2, name: 'Sumo', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 3, name: 'Ketchup house', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 4, name: 'Humanoid sprint', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 5, name: 'Freestyle', description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.', icon: 'linefollower.svg', linkToRegulation: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-  );
+  constructor(private sanitizer: DomSanitizer, public translate: TranslateService) {
+    this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/5qap5aO4i9A");
+    this.refreshCounter()
+    setInterval(() => {
+      this.refreshCounter()
+    }, 1000);
+    this.resetSwitchTimer();
+    translate.stream('home.event-program.eventsList').subscribe((events: Array<EventDescription>) => {
+      this.eventsList = events;
+    });
+    translate.stream('home.competitions.categories').subscribe((categories: Array<Category>) => {
+      this.categories = categories;
+    });
+    translate.stream('home.patreons.patreonList').subscribe((patreons: Array<Patreon>) => {
+      this.patreons = patreons;
+    });
+    translate.stream('home.patreons.tiers').subscribe((tiers: Array<string>) => {
+      this.patreonNames = tiers;
+    });
+  }
 
-  patreons: Array<Patreon> = new Array(
-    {id: 1, patreonCategory: 0, description: 'Rektor', image: '../../assets/svg/klocki.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 0, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/linefollower.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 1, description: 'Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac.', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/robo_white.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-    {id: 1, patreonCategory: 1, description: 'Rektor', image: '../../assets/svg/location.svg', linkToSite: 'https://rzit.smarthost.pl/robomotion/10b.pdf'},
-  );
+  eventsList: Array<EventDescription> = [];
+  categories: Array<Category> = [];
+  patreons: Array<Patreon> = [];
+  patreonNames: Array<string> = [];
 
   switchTime = 200;
   selectedEventIndex: number = 1;
@@ -84,17 +85,6 @@ export class HomeComponent {
   public timeIsUp = false;
   public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
   public eventDate = new Date(2021, 10, 21, 9, 0, 0);
-  public patreonNames: Array<string> = ['Tier 1', 'Tier 2'];
-
-  constructor(private sanitizer: DomSanitizer) {
-    this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/5qap5aO4i9A");
-    this.refreshCounter()
-    setInterval(() => {
-      this.refreshCounter()
-    }, 1000);
-    this.resetSwitchTimer();
-
-  }
 
   async onSwitchEvent(eventIndex: number) {
     const switchTime = 200;

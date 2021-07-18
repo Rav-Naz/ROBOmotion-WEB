@@ -1,4 +1,20 @@
 <div class="container">
-
-    <app-header [pageName]="'Timetable'"></app-header>
+    <app-header [pageName]="'menu.timetable'"></app-header>
+    <div class="timetable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let point of timetable">
+                    <td class="td">{{point.time}}</td>
+                    <td>{{point.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>{{'timetable.info' | translate}}</p>
+    </div>
 </div>

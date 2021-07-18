@@ -437,6 +437,7 @@
             height: 100%;
             z-index: 0;
             margin-left: 7rem;
+            padding-right: 4rem;
         }
         &-right {
             z-index: 3;
@@ -659,6 +660,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        margin-bottom: 5rem;
     }
 }
 

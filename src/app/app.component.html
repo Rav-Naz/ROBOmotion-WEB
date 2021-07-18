@@ -1,13 +1,14 @@
 <div class="navigator">
-    <a [routerLink]="['/competitor-zone']" class="navigator-competitor-zone">COMPETITOR ZONE</a>
-    <a [routerLink]="['/']" fragment="home">HOME</a>
-    <a [routerLink]="['/']" fragment="programme">PROGRAMME</a>
-    <a [routerLink]="['/']" fragment="competitions">COMPETITIONS</a>
-    <a [routerLink]="['/']" fragment="location">LOCATION</a>
-    <a [routerLink]="['/']" fragment="patreons">PATREONS</a>
-    <a [routerLink]="['/results']">RESULTS</a>
-    <a [routerLink]="['/timetable']">TIMETABLE</a>
-    <a [routerLink]="['/building-plan']">BUILDING PLAN</a>
+    <a [routerLink]="['/']" fragment="home">{{'menu.home' | translate}}</a>
+    <a [routerLink]="['/']" fragment="programme">{{'menu.program' | translate}}</a>
+    <a [routerLink]="['/']" fragment="competitions">{{'menu.competitions' | translate}}</a>
+    <a [routerLink]="['/']" fragment="location">{{'menu.location' | translate}}</a>
+    <a [routerLink]="['/']" fragment="patreons">{{'menu.patreons' | translate}}</a>
+    <a [routerLink]="['/results']">{{'menu.results' | translate}}</a>
+    <a [routerLink]="['/timetable']">{{'menu.timetable' | translate}}</a>
+    <a [routerLink]="['/building-plan']">{{'menu.plan' | translate}}</a>
+    <a [routerLink]="['/competitor-zone']" class="navigator-competitor-zone">{{'menu.competitor-zone' | translate}}</a>
+    <img (click)="switchLang()" [src]="!isEnglish ? '../assets/svg/gb.svg' : '../assets/svg/pl.svg'">
 </div>
 <button class="navigator-menu" (click)="switchMenu()">
   <div class="navigator-menu-burger navigator-menu-burger-top"></div>

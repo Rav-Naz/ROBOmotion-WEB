@@ -15,6 +15,13 @@
     align-items: center;
     flex-direction: column;
     transition: ease-in-out .5s;
+    img {
+        margin-top: 5rem;
+        border-radius: 1.5rem;
+        align-self: flex-start;
+        height: 4rem;
+        cursor: pointer;
+    }
     &-competitor-zone {
         font-size: 3rem !important;
     }

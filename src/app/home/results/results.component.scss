@@ -1,0 +1,12 @@
+.results {
+    width: 100%;
+    height: 100vh;
+    padding-top: 9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+        font-size: 2rem;
+    }
+}

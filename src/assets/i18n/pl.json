@@ -1,0 +1,94 @@
+{
+    "menu": {
+        "home": "Strona główna",
+        "program": "Program wydarzenia",
+        "competitions": "Konkurencje",
+        "location": "Lokalizacja",
+        "patreons": "Patroni",
+        "results": "Wyniki",
+        "timetable": "Harmonogram",
+        "plan": "Plan budynku",
+        "competitor-zone": "Strefa Zawodnika"
+    },
+    "home": {
+        "event-info": {
+            "status": {
+                "ended": "Wydarzenie zakończyło się",
+                "live": "Wydarzenie właśnie trwa!",
+                "coming": "Wydarzenie zaczyna się za"
+            },
+            "time": {
+                "days": "Dni",
+                "hours": "Godzin",
+                "minutes": "Minut",
+                "seconds": "Sekund"
+            },
+            "university": {
+                "hall": "Hala sportowa",
+                "name": "Politechniki Rzeszowskiej"
+            },
+            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna turpis, suscipit ut nunc ac, consectetur aliquet nibh. Etiam laoreet libero vestibulum arcu aliquam, at tincidunt nunc dapibus. Phasellus eget lectus lobortis, mollis justo nec, feugiat velit. Sed sodales metus diam, tristique efficitur diam.",
+            "results": "Zobacz wyniki!"
+        },
+        "event-program": {
+            "eventsList": [
+                { "id": 1, "name": "Zawody", "description": "A competition for teams or single players in which a series of games is played, and the winners of each game play against each other until only one winner is left", "icon": "la-trophy" },
+                { "id": 2, "name": "Hackaton", "description": "A developer event where IT professionals and other software developers, such as graphic designers, interface developers and project managers, face a specific design problem. Hackathons take place over a short period of time, usually over the course of a day or weekend. The task to be performed is announced on the day of the competition opening. Only the work done during the event is taken into account when judging.", "icon": "la-laptop-code" },
+                { "id": 3, "name": "Warsztaty", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna turpis, suscipit ut nunc ac, consectetur aliquet nibh. Etiam laoreet libero vestibulum arcu aliquam, at tincidunt nunc dapibus. Phasellus eget lectus lobortis, mollis justo nec, feugiatvelit. Sed sodales metus diam, tristique efficitur diam.", "icon": "la-network-wired" }
+            ]
+        },
+        "competitions": {
+            "title": "KONKURENCJE",
+            "learn": "DOWIEDZ SIĘ WIĘCEJ",
+            "regulations": "Regulamin",
+            "categories": [
+                { "id": 1, "name": "Line Follower", "description": "Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.", "icon": "linefollower.svg", "linkToRegulation": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 2, "name": "Sumo", "description": "Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.", "icon": "linefollower.svg", "linkToRegulation": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 3, "name": "Ketchup house", "description": "Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.", "icon": "linefollower.svg", "linkToRegulation": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 4, "name": "Humanoid sprint", "description": "Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.", "icon": "linefollower.svg", "linkToRegulation": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 5, "name": "Freestyle", "description": "Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac. Praesent sagittis consequat justo vel scelerisque. Etiam blandit euismod nisl. Etiam ligula eros, fringilla eu iaculis vel, tempor sed turpis. Sed congue vehicula ex, mattis egestas nulla accumsan ac. Quisque quis est rhoncus, venenatis ipsum a, tristique ante.", "icon": "linefollower.svg", "linkToRegulation": "https://rzit.smarthost.pl/robomotion/10b.pdf" }
+            ]
+        },
+        "location": {
+            "title": "LOKALIZACJA",
+            "showOnMap": "Pokaż na mapie"
+        },
+        "patreons": {
+            "organizer": {
+                "title": "ORGANIZATOR",
+                "name": "Koło Naukowe Automatyków i Robotyków “ROBO”"
+            },
+            "title": "Patroni",
+            "tiers": ["Patron głowny", "Patroni medialni"],
+            "patreonList": [
+                { "id": 1, "patreonCategory": 0, "description": "Rektor", "image": "../../assets/svg/klocki.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 1, "patreonCategory": 0, "description": "Rektor", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 1, "patreonCategory": 1, "description": "Rektor", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 1, "patreonCategory": 1, "description": "Rektor", "image": "../../assets/svg/linefollower.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 1, "patreonCategory": 1, "description": "Mauris lacinia dui ac dui porttitor. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac.", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 1, "patreonCategory": 1, "description": "Rektor", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
+                { "id": 1, "patreonCategory": 1, "description": "Rektor", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" }
+            ]
+        },
+        "footer": {
+            "copyright": "Prawa autorskie",
+            "designed": "Zaprojektowane i opracowane przez",
+            "developer": "Rafała Nazarko"
+        }
+    },
+    "results": {
+        "info": "Wyniki będą się pojawiać w tym miejscu"
+    },
+    "timetable": {
+        "table": [
+            { "time": "8:00-11:00", "name": "Rejestracja" },
+            { "time": "11:00-15:00", "name": "Eliminacje" },
+            { "time": "15:00-18:00", "name": "Finał" },
+            { "time": "18:00", "name": "Rozdanie nagród" }
+        ],
+        "info": "Harmonogram może się zmienić. Prosimy obserwować tą stronę w celu uzyskania najnowszych informacji."
+    },
+    "competitor-zone": {
+        "info": "Strefa zawodnika będzie otwarta wkrótce!"
+    }
+}

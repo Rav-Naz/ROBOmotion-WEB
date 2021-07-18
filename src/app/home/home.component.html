@@ -11,16 +11,16 @@
         <div class="paralax-wave"></div>
     </section>
     <section class="event-info" id="home">
-        <h3 class="section-header">{{timeIsUp ? streamLink === undefined ? 'Event is ended' : 'Event is now live!' : 'Event starts in'}}</h3>
+        <h3 class="section-header">{{timeIsUp ? streamLink === undefined ? ('home.event-info.status.ended' | translate) : ('home.event-info.status.live' | translate) : ('home.event-info.status.coming' | translate)}}</h3>
         <iframe [src]="streamLink" *ngIf="timeIsUp && streamLink !== undefined" width="1120" height="630" title="ROBO~motion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <button [routerLink]="['/results']" *ngIf="timeIsUp">See the results!</button>
+        <button [routerLink]="['/results']" *ngIf="timeIsUp">{{'home.event-info.results' | translate}}</button>
         <div class="event-info-counter" *ngIf="!timeIsUp">
             <div class="event-info-counter-part">
                 <p class="event-info-counter-part--number">
                     {{timeToEvent | msTransform: 'd'}}
                 </p>
                 <p class="event-info-counter-part--name">
-                    DAYS
+                    {{'home.event-info.time.days' | translate}}
                 </p>
             </div>
             <p class="event-info-counter-part--number event-info-counter-delimeter">
@@ -31,7 +31,7 @@
                     {{timeToEvent | msTransform: 'h'}}
                 </p>
                 <p class="event-info-counter-part--name">
-                    HOURS
+                    {{'home.event-info.time.hours' | translate}}
                 </p>
             </div>
             <p class="event-info-counter-part--number event-info-counter-delimeter">
@@ -42,7 +42,7 @@
                     {{timeToEvent | msTransform: 'm'}}
                 </p>
                 <p class="event-info-counter-part--name">
-                    MINUTES
+                    {{'home.event-info.time.minutes' | translate}}
                 </p>
             </div>
             <p class="event-info-counter-part--number event-info-counter-delimeter">
@@ -53,7 +53,7 @@
                     {{timeToEvent | msTransform: 's'}}
                 </p>
                 <p class="event-info-counter-part--name">
-                    SECONDS
+                    {{'home.event-info.time.seconds' | translate}}
                 </p>
             </div>
         </div>
@@ -63,14 +63,13 @@
                     ROBO<span class="paralax-name-second event-info-details-name-a">~motion 2021</span>
                 </h1>
                 <h3 class="event-info-details-name-date">
-                    <span class="event-info-details-name-date-big">21.11.2021</span> - Sports hall of the
-                    <br> Rzeszów University of Technology
+                    <span class="event-info-details-name-date-big">21.11.2021</span> - {{'home.event-info.university.hall' | translate}}
+                    <br> {{'home.event-info.university.name' | translate}}
                 </h3>
             </div>
             <div class="event-info-details-description">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna turpis, suscipit ut nunc ac, consectetur aliquet nibh. Etiam laoreet libero vestibulum arcu aliquam, at tincidunt nunc dapibus. Phasellus eget lectus lobortis, mollis justo nec, feugiat
-                    velit. Sed sodales metus diam, tristique efficitur diam.
+                    {{'home.event-info.details' | translate}}
                 </p>
             </div>
         </div>
@@ -93,20 +92,20 @@
         </div>
     </section>
     <section class="competitions" id="competitions">
-        <h3 class="section-header">COMPETITIONS</h3>
+        <h3 class="section-header">{{'home.competitions.title' | translate}}</h3>
         <div class="competitions-grid">
             <div class="competitions-grid-card-container" *ngFor="let category of categories">
                 <div class="competitions-grid-card">
                     <div class="competitions-grid-card-style competitions-grid-card--front">
                         <img [src]="'../../assets/svg/' + category.icon" class="competitions-grid-card--front-img">
                         <label>{{category.name}}</label>
-                        <button (click)="flipCard($event, 'back')">LEARN MORE</button>
+                        <button (click)="flipCard($event, 'back')">{{'home.competitions.learn' | translate}}</button>
                     </div>
                     <div class="competitions-grid-card-style competitions-grid-card--back">
                         <button (click)="flipCard($event, 'front')">X</button>
                         <p>{{category.description}}</p>
                         <span (click)="openUrl(category.linkToRegulation)">
-                        Regulations
+                          {{'home.competitions.regulations' | translate}}
                         <i class="las la-file-alt"></i>                      </span>
                     </div>
                 </div>
@@ -119,12 +118,12 @@
         <div class="location-grid">
             <img src="../../assets/svg/location.svg">
             <div class="location-grid-right">
-                <h3 class="section-header">LOCATION</h3>
+                <h3 class="section-header">{{'home.location.title' | translate}}</h3>
                 <h2>
-                    Sports hall of the <br>
-                    <span>Rzeszów University of Technology</span><br> Poznańska 2a, <b>b. Ł</b>,<br> 35-959 Rzeszów
+                    {{'home.event-info.university.hall' | translate}} <br>
+                    <span>{{'home.event-info.university.name' | translate}}</span><br> Poznańska 2a, <b>b. Ł</b>,<br> 35-959 Rzeszów
                 </h2>
-                <button (click)="openUrl('https://www.google.pl/maps/place/Pozna%C5%84ska+2a,+35-959+Rzesz%C3%B3w/@50.0183684,21.9778566,743m/data=!3m2!1e3!4b1!4m5!3m4!1s0x473cfbb694b5d4cf:0x92a58d80f703df60!8m2!3d50.018365!4d21.9800453')">Show on map
+                <button (click)="openUrl('https://www.google.pl/maps/place/Pozna%C5%84ska+2a,+35-959+Rzesz%C3%B3w/@50.0183684,21.9778566,743m/data=!3m2!1e3!4b1!4m5!3m4!1s0x473cfbb694b5d4cf:0x92a58d80f703df60!8m2!3d50.018365!4d21.9800453')">{{'home.location.showOnMap' | translate}}
                   <i class="las la-map-marked-alt"></i>
                 </button>
             </div>
@@ -133,8 +132,8 @@
     </section>
     <section class="organizer" id="patreons">
         <div>
-            <h3 class="section-header">ORGANIZER</h3>
-            <span>Scientific Club of Automation and Robotics “ROBO”</span>
+            <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
+            <span>{{'home.patreons.organizer.name' | translate}}</span>
             <img src="../../assets/svg/robo_white.svg">
             <div class="organizer-social">
                 <p (click)="openUrl('https://www.facebook.com/rzeszowska.grupa.it')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
@@ -144,7 +143,7 @@
         </div>
     </section>
     <section class="patreons">
-        <h3 class="section-header">PATREONS</h3>
+        <h3 class="section-header">{{'home.patreons.title' | translate}}</h3>
         <ng-container *ngFor="let name of patreonNames; let i = index">
             <p class="patreons-name">{{name}}</p>
             <div class="patreons-class-container">
@@ -163,7 +162,7 @@
         </h1>
         <!-- <a></a> -->
         <p>
-            Copyright © {{eventDate.getFullYear()}} - Rzeszowska Grupa IT | Designed & Developed by <span>Rafał Nazarko</span>
+            {{'home.footer.copyright' | translate}} © {{eventDate.getFullYear()}} - Rzeszowska Grupa IT | {{'home.footer.designed' | translate}} <span>{{'home.footer.developer' | translate}}</span>
         </p>
     </section>
 </div>
