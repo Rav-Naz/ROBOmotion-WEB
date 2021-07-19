@@ -121,3 +121,154 @@
         display: block;
     }
 }
+
+@media only screen and (max-width: $max-width-5) {
+    .navigator {
+        width: 100vw;
+        a {
+            font-size: 4rem;
+            line-height: 5rem;
+            width: auto;
+            text-align: center;
+        }
+        img {
+            align-self: center;
+            height: 6rem;
+            cursor: pointer;
+        }
+        &-competitor-zone {
+            font-size: 4.5rem !important;
+        }
+        &-outlet {
+            &.open {
+                transform: translateX(-100vw);
+            }
+        }
+        &-menu {
+            padding: .5rem;
+            &,
+            &:link,
+            &:visited {
+                background-color: $color-grey-5;
+                right: 3rem;
+                top: 3rem;
+                width: 8rem;
+                height: 8rem;
+                line-height: 1rem;
+                border-radius: 1rem;
+                font-size: 3rem;
+                border: .3rem solid $color-primary;
+                &:focus {
+                    &:active {
+                        border: .3rem solid $color-primary;
+                        transform: translateY(3px);
+                    }
+                }
+                &.open {
+                    border: .3rem solid $color-grey-5;
+                    background: transparent;
+                }
+                &.open .navigator-menu-burger {
+                    border: .3rem solid $color-grey-5;
+                }
+                &.open .navigator-menu-burger-top {
+                    transform: translateY(1.7rem) rotate(45deg)
+                }
+                &.open .navigator-menu-burger-bottom {
+                    transform: translateY(-1.7rem) rotate(-45deg)
+                }
+            }
+            &-burger {
+                background: $color-primary;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $max-width-5) and (max-width: $max-width-4) {
+    .navigator {
+        width: 50rem;
+        a {
+            font-size: 3rem;
+            line-height: 2rem;
+        }
+        img {
+            height: 5rem;
+            cursor: pointer;
+        }
+        &-competitor-zone {
+            font-size: 4rem !important;
+        }
+        &-outlet {
+            &.open {
+                transform: translateX(-50rem);
+            }
+        }
+        &-menu {
+            padding: .5rem;
+            &,
+            &:link,
+            &:visited {
+                background-color: $color-grey-5;
+                right: 3rem;
+                top: 3rem;
+                width: 7rem;
+                height: 7rem;
+                font-size: 3rem;
+                border: .3rem solid $color-primary;
+                &:focus {
+                    &:active {
+                        border: .3rem solid $color-primary;
+                        transform: translateY(3px);
+                    }
+                }
+                &.open {
+                    background: transparent;
+                    border: .3rem solid $color-grey-5;
+                }
+                &.open .navigator-menu-burger {
+                    border: .2rem solid $color-grey-5;
+                }
+                &.open .navigator-menu-burger-top {
+                    transform: translateY(1.5rem) rotate(45deg)
+                }
+                &.open .navigator-menu-burger-bottom {
+                    transform: translateY(-1.5rem) rotate(-45deg)
+                }
+            }
+            &-burger {
+                background: $color-primary;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $max-width-4) and (max-width: $max-width-1) {
+    .navigator {
+        &-menu {
+            padding: .5rem;
+            &,
+            &:link,
+            &:visited {
+                right: 3rem;
+                top: 3rem;
+                width: 6rem;
+                height: 6rem;
+                font-size: 3rem;
+                border: .3rem solid $color-white;
+                &.open {
+                    border: .3rem solid $color-grey-5;
+                }
+                &.open .navigator-menu-burger {
+                    border: .2rem solid $color-grey-5;
+                }
+                &.open .navigator-menu-burger-top {
+                    transform: translateY(1.2rem) rotate(45deg)
+                }
+                &.open .navigator-menu-burger-bottom {
+                    transform: translateY(-1.2rem) rotate(-45deg)
+                }
+            }
+        }
+    }
+}

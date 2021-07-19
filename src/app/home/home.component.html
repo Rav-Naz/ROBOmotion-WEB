@@ -75,7 +75,7 @@
         </div>
     </section>
     <section class="event-program" id="programme">
-        <div class="event-program-grid">
+        <div class="event-program-grid" *ngIf="!isMobile">
             <div class="event-program-grid-names">
                 <div *ngFor="let event of eventsList" (click)="onSwitchEvent(event.id)" class="event-program-grid-names-arrow" [ngClass]="{'event-program-grid-names-arrow-disabled': selectedEventIndex != event.id}">
                     {{event.name}}
@@ -88,6 +88,19 @@
                 <p>
                     {{descriptionOfSelectedEvent}}
                 </p>
+            </div>
+        </div>
+        <div class="event-program-grid event-program-grid-mobile" *ngIf="isMobile">
+            <div class="event-program-grid-mobile-names">
+                <button (click)="onSwitchEvent(selectedEventIndex - 1)"><</button>
+                <p>{{nameOfSelectedEvent}}</p>
+                <button (click)="onSwitchEvent(selectedEventIndex + 1)">></button>
+            </div>
+            <div class="event-program-grid-description" [@switch]="switchAnimationStateName">
+                <div class="event-program-grid-description-header">
+                    <i class="las" [ngClass]=iconOfSelectedEvent></i>
+                </div>
+                <p>{{descriptionOfSelectedEvent}}</p>
             </div>
         </div>
     </section>

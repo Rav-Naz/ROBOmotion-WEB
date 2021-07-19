@@ -11,6 +11,8 @@ import {
 import { Category } from '../models/category';
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { TranslateService } from '@ngx-translate/core';
+import { WindowSize } from '../models/window_size.model';
+import { fromEvent, Observable } from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -52,6 +54,12 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomeComponent {
 
   constructor(private sanitizer: DomSanitizer, public translate: TranslateService) {
+    this.windowSize = {height: window.innerHeight, width: window.innerWidth };
+    const resizeObs = fromEvent(window, 'resize') as Observable<any>;
+    resizeObs.subscribe(size => {
+      if (!size) { return; }
+      this.windowSize = {height: size.currentTarget.innerHeight, width: size.currentTarget.innerWidth};
+    })
     this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/5qap5aO4i9A");
     this.refreshCounter()
     setInterval(() => {
@@ -85,28 +93,55 @@ export class HomeComponent {
   public timeIsUp = false;
   public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
   public eventDate = new Date(2021, 10, 21, 9, 0, 0);
+  public windowSize: WindowSize = { height: 1080, width: 1920};
 
   async onSwitchEvent(eventIndex: number) {
     const switchTime = 200;
     this.resetSwitchTimer();
     if (eventIndex == this.selectedEventIndex) return;
-    let temp = Math.abs(eventIndex - this.selectedEventIndex);
-    for (let index = 0; index < temp; index++) {
+    if (eventIndex > this.eventsList.length) {
+      eventIndex = 1
+    }
+    else if (eventIndex < 1) {
+      eventIndex = this.eventsList.length;
+    }
+    if (this.isMobile) {
       if (eventIndex < this.selectedEventIndex) {
         this.switchAnimationStateName = 'end';
-        await this.timeout(switchTime/temp);
+        await this.timeout(switchTime);
         this.switchAnimationStateName = 'start';
-        this.selectedEventIndex -= 1;
-        await this.timeout(switchTime/temp);
+        this.selectedEventIndex = eventIndex;
+        await this.timeout(switchTime);
         this.switchAnimationStateName = 'void';
       }
       else {
         this.switchAnimationStateName = 'start';
-        await this.timeout(switchTime/temp);
+        await this.timeout(switchTime);
         this.switchAnimationStateName = 'end';
-        this.selectedEventIndex += 1;
-        await this.timeout(switchTime/temp);
+        this.selectedEventIndex = eventIndex;
+        await this.timeout(switchTime);
         this.switchAnimationStateName = 'void';
+      }
+
+    } else {
+      let temp = Math.abs(eventIndex - this.selectedEventIndex);
+      for (let index = 0; index < temp; index++) {
+        if (eventIndex < this.selectedEventIndex) {
+          this.switchAnimationStateName = 'end';
+          await this.timeout(switchTime/temp);
+          this.switchAnimationStateName = 'start';
+          this.selectedEventIndex -= 1;
+          await this.timeout(switchTime/temp);
+          this.switchAnimationStateName = 'void';
+        }
+        else {
+          this.switchAnimationStateName = 'start';
+          await this.timeout(switchTime/temp);
+          this.switchAnimationStateName = 'end';
+          this.selectedEventIndex += 1;
+          await this.timeout(switchTime/temp);
+          this.switchAnimationStateName = 'void';
+        }
       }
     }
   }
@@ -147,10 +182,18 @@ export class HomeComponent {
   get descriptionOfSelectedEvent(): string | undefined {
     return this.eventsList.find((event) => event.id === this.selectedEventIndex)?.description;
   }
+  get nameOfSelectedEvent(): string | undefined {
+    return this.eventsList.find((event) => event.id === this.selectedEventIndex)?.name;
+  }
 
   get iconOfSelectedEvent(): string {
     let icon = this.eventsList.find((event) => event.id === this.selectedEventIndex)?.icon;
     return icon == undefined ? '' : icon;
+  }
+
+  get isMobile()
+  {
+    return this.windowSize.width <= 800;
   }
 
   timeout(ms: number) {

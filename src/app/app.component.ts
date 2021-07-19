@@ -24,9 +24,12 @@ export class AppComponent {
   public isMenuOpen: boolean = false;
   public isEnglish: boolean = true;
 
-  switchMenu(): void {
+  switchMenu(bool?: boolean): void {
     const menuButton = document.querySelector('.navigator-menu');
     const container = document.querySelector('.navigator-outlet');
+    if(bool != null && bool != undefined) {
+      this.isMenuOpen = !bool;
+    }
     if (this.isMenuOpen) {
       menuButton?.classList.remove('open');
       container?.classList.remove('open');

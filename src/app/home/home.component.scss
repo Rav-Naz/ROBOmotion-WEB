@@ -3,11 +3,30 @@
 .section-header {
     color: rgba($color-white, 0.6);
     text-transform: uppercase;
+    text-align: center;
     font-size: 4rem;
     font-weight: 400;
     letter-spacing: .5rem;
     z-index: 4;
     margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: $max-width-3) {
+    .section-header {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (max-width: $max-width-5) {
+    .section-header {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: $max-width-6) {
+    .section-header {
+        font-size: 2.7rem;
+    }
 }
 
 .paralax {
@@ -52,6 +71,45 @@
             background: radial-gradient(ellipse farthest-side at 30% 20%, rgba(63, 94, 251, 0) 96%, rgba($color-primary, 0.8) 100%);
         }
         background: radial-gradient(ellipse farthest-side at 30% 10%, rgba(63, 94, 251, 0) 99%, $color-grey-3 100%);
+    }
+}
+
+@media only screen and (max-width: $max-width-3) {
+    .paralax {
+        height: 50vh;
+        &-wave {
+            &-yellow {
+                transform: translateX(-5rem);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-4) {
+    .paralax {
+        height: 40vh;
+        &-wave {
+            &-yellow {
+                transform: translateX(-4rem);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-5) {
+    .paralax {
+        height: 35vh;
+        &-wave {
+            &-yellow {
+                transform: translateX(-3rem);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-6) {
+    .paralax {
+        height: 30vh;
     }
 }
 
@@ -170,6 +228,89 @@
     }
 }
 
+@media only screen and (max-width: $max-width-2) {
+    .event-info {
+        padding: 5rem 0;
+        &-details {
+            width: 70%;
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-3) {
+    .event-info {
+        padding: 3rem 0;
+        &-details {
+            width: 80%;
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-4) {
+    .event-info {
+        padding: 1rem 0;
+        &-details {
+            width: 90%;
+        }
+        &-counter {
+            min-width: 70rem;
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-5) {
+    .event-info {
+        padding: 1rem 0;
+        &-details {
+            width: 95%;
+            &-description {
+                padding: 0 0 0 3rem;
+            }
+            &-name {
+                padding: 0 3rem 0 0;
+            }
+        }
+        &-counter {
+            min-width: 65rem;
+            &-part {
+                min-width: 5rem;
+                &--number {
+                    padding-left: .7rem;
+                    font-size: 4rem;
+                    line-height: 4rem;
+                    letter-spacing: .7rem;
+                }
+                &--name {
+                    font-size: 2.5rem;
+                    line-height: 2.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-6) {
+    .event-info {
+        padding: 1rem 0;
+        &-details {
+            width: 95%;
+        }
+        &-counter {
+            padding: 1rem;
+            min-width: 55rem;
+            &-part {
+                &--name {
+                    font-size: 2.2rem;
+                    line-height: 2.2rem;
+                }
+            }
+            &-delimeter {
+                padding-top: 2rem;
+            }
+        }
+    }
+}
+
 .event-program {
     width: 100%;
     height: min-content;
@@ -239,6 +380,96 @@
                 font-size: 2rem;
             }
         }
+        &-mobile {
+            overflow: hidden;
+            background-color: $color-grey-5;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 15rem auto !important;
+            &-names {
+                width: max-content;
+                min-width: 60%;
+                display: flex;
+                align-self: center;
+                justify-self: center;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                background-color: $color-grey-1;
+                border-radius: 3rem;
+                button {
+                    &,
+                    &:link,
+                    &:visited {
+                        width: 7rem;
+                        height: 7rem;
+                        margin: 1rem;
+                        border: none;
+                        text-decoration: none;
+                        background: linear-gradient($color-primary 60%, $color-primary-dark 100%);
+                        cursor: pointer;
+                        color: $color-grey-3;
+                        font-size: 4rem;
+                        font-family: $title-font;
+                        border-radius: 2rem;
+                        transition: transform ease-out 0.1s;
+                        &:focus {
+                            outline: none;
+                            &:active {
+                                transform: translateY(3px);
+                            }
+                        }
+                    }
+                }
+                p {
+                    width: 50%;
+                    text-align: center;
+                    font-size: 3.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-2) {
+    .event-program {
+        &-grid {
+            grid-template-columns: 40rem 1fr;
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-3) {
+    .event-program {
+        &-grid {
+            grid-template-columns: 35rem 1fr;
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-5) {
+    .event-program {
+        &-grid {
+            &-mobile {
+                &-names {
+                    min-width: 70%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-6) {
+    .event-program {
+        &-grid {
+            &-mobile {
+                &-names {
+                    min-width: 80%;
+                }
+            }
+        }
     }
 }
 
@@ -254,11 +485,13 @@
         height: min-content;
         width: 95%;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: min-content;
+        grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+        grid-template-rows: max-content;
         row-gap: 4rem;
         column-gap: 4rem;
         &-card {
+            // min-width: 30rem;
+            min-height: 50rem;
             width: 100%;
             height: 100%;
             position: relative;
@@ -281,7 +514,7 @@
             &--front {
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-template-rows: 25rem 1fr auto;
+                grid-template-rows: minmax(25rem, 30rem) 1fr auto;
                 img {
                     display: flex;
                     justify-self: center;
@@ -307,11 +540,11 @@
                     &:link,
                     &:visited {
                         margin: 2rem;
-                        line-height: 1rem;
+                        line-height: 1.8rem;
                         border-radius: 5rem;
                         box-shadow: 0 0.2rem 2rem rgba($color-primary, 0.5);
                         font-size: 2rem;
-                        padding: 2rem;
+                        padding: 1.8rem;
                         letter-spacing: 0.2rem;
                         text-transform: uppercase;
                         border: none;
@@ -402,6 +635,106 @@
                 background: $color-grey-3;
                 box-shadow: -2rem 2rem 4rem $color-grey-2, 2rem -2rem 5rem $color-grey-4, inset 1rem -1rem 2rem $color-grey-4, inset -1rem 1rem 2rem $color-grey-2;
                 min-height: 60vh;
+                max-width: 45rem;
+                min-width: 40rem;
+                width: 100%;
+                justify-self: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-4) {
+    .competitions {
+        padding: 6rem 0;
+        &-grid {
+            padding: 4rem 0;
+            height: min-content;
+            display: flex;
+            flex-direction: row;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            grid-template-columns: unset;
+            grid-template-rows: unset;
+            row-gap: unset;
+            column-gap: 0em;
+            column-gap: 3rem;
+            &-card {
+                &--front {
+                    grid-template-rows: minmax(30rem, 35rem) 1fr auto;
+                }
+                &-container {
+                    max-width: 45rem;
+                    min-width: 45rem;
+                }
+                &--back {
+                    button {
+                        &,
+                        &:link,
+                        &:visited {
+                            width: 6rem;
+                            height: 6rem;
+                            line-height: 2rem;
+                            font-size: 4rem;
+                        }
+                    }
+                    p {
+                        font-size: 2.2rem;
+                    }
+                    span {
+                        margin-bottom: 2rem;
+                        margin-right: 2rem;
+                        font-size: 2.5rem;
+                        border-bottom: 0.3rem dashed rgba($color-grey-0, 0.5);
+                        line-height: 3.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-5) {
+    .competitions {
+        padding: 6rem 0;
+        &-grid {
+            &-card {
+                &--front {
+                    grid-template-rows: minmax(30rem, 35rem) 1fr auto;
+                }
+                &--back {
+                    p {
+                        font-size: 2.5rem;
+                    }
+                }
+                &-container {
+                    max-width: 45rem;
+                    min-width: 45rem;
+                    min-height: 55vh;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-6) {
+    .competitions {
+        padding: 6rem 0;
+        &-grid {
+            &-card {
+                &--front {
+                    grid-template-rows: minmax(27rem, 32rem) 1fr auto;
+                }
+                &--back {
+                    p {
+                        font-size: 2rem;
+                    }
+                }
+                &-container {
+                    max-width: 42rem;
+                    min-width: 42rem;
+                    min-height: 52vh;
+                }
             }
         }
     }
@@ -428,7 +761,7 @@
     &-grid {
         // width: 80%;
         // padding: 1rem 10rem 1rem 0;
-        margin-right: 5rem;
+        margin-right: 6rem;
         display: grid;
         grid-template-columns: 1fr 40rem;
         grid-template-rows: 50rem;
@@ -440,11 +773,16 @@
             padding-right: 4rem;
         }
         &-right {
+            grid-column: 2;
+            grid-row: 1;
             z-index: 3;
             text-align: right;
             justify-self: center;
             align-self: center;
             padding: 3rem;
+            h3 {
+                text-align: right;
+            }
             h2 {
                 font-size: 3rem;
                 font-weight: 100;
@@ -482,6 +820,90 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-2) {
+    .location {
+        &-grid {
+            margin-right: 8rem;
+            img {
+                opacity: 0.3;
+                z-index: 0;
+                grid-column: 1/3;
+                grid-row: 1;
+            }
+            button {
+                &,
+                &:link,
+                &:visited {
+                    font-size: 2.2rem;
+                    i {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-3) {
+    .location {
+        height: 45vh;
+        &-wave {
+            transform: translateX(-8rem);
+            &-yellow {
+                transform: translateX(-8rem);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-4) {
+    .location {
+        height: 40vh;
+        &-wave {
+            transform: translateX(-7rem);
+            &-yellow {
+                transform: translateX(-7rem);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-5) {
+    .location {
+        &-grid {
+            margin-right: 2rem;
+            img {
+                margin-left: 3rem;
+            }
+            &-right {
+                h2 {
+                    font-size: 2.5rem;
+                    line-height: 4rem;
+                }
+            }
+        }
+        height: 37vh;
+        &-wave {
+            transform: translateX(-6rem);
+            &-yellow {
+                transform: translateX(-6rem);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-6) {
+    .location {
+        height: 34vh;
+        &-wave {
+            transform: translateX(-5rem);
+            &-yellow {
+                transform: translateX(-5rem);
             }
         }
     }
@@ -618,6 +1040,61 @@
     }
 }
 
+@media only screen and (max-width: $max-width-4) {
+    .organizer {
+        div {
+            span {
+                font-size: 3rem;
+            }
+            img {
+                height: 15rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-5) {
+    .organizer {
+        &-social {
+            &-item {
+                font-size: 3.5rem;
+                width: 7rem;
+                height: 7rem;
+            }
+        }
+        div {
+            height: 60rem;
+            span {
+                font-size: 2.7rem;
+            }
+            img {
+                height: 13rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-6) {
+    .organizer {
+        &-social {
+            &-item {
+                font-size: 3rem;
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+        div {
+            height: 50rem;
+            span {
+                font-size: 2.5rem;
+            }
+            img {
+                height: 10rem;
+            }
+        }
+    }
+}
+
 .patreons {
     margin-top: 5rem;
     box-shadow: 0 -1rem 2rem rgba($color-grey-5, 0.5);
@@ -664,6 +1141,44 @@
     }
 }
 
+@media only screen and (max-width: $max-width-3) {
+    .patreons {
+        &-name {
+            font-size: 3.5rem;
+        }
+        &-one {
+            max-width: 25rem;
+            img {
+                max-width: 17rem;
+                padding: 1rem;
+                max-height: 13rem;
+            }
+            p {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-4) {
+    .patreons {
+        &-name {
+            font-size: 3.2rem;
+        }
+        &-one {
+            max-width: 22rem;
+            img {
+                max-width: 15rem;
+                padding: 1rem;
+                max-height: 11rem;
+            }
+            p {
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
+
 .footer {
     width: 100%;
     background-color: $color-grey-5;
@@ -686,11 +1201,34 @@
         }
     }
     p {
+        text-align: right;
         font-size: 1.8rem;
         color: $color-grey-0;
         span {
             font-size: 2rem;
             color: $color-primary;
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-3) {
+    .footer {
+        p {
+            font-size: 1.6rem;
+            span {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-4) {
+    .footer {
+        p {
+            font-size: 1.4rem;
+            span {
+                font-size: 1.6rem;
+            }
         }
     }
 }

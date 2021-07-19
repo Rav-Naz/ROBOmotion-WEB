@@ -1,4 +1,5 @@
 @import '../src/app/scss/colors';
+@import '../src/app/scss/variables';
 *,
 *::after,
 *::before {
@@ -11,27 +12,33 @@ html {
     font-size: 62.5%;
 }
 
-@media only screen and (max-width: 1450px) {
+@media only screen and (max-width: $max-width-1) {
     html {
         font-size: 62%;
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: $max-width-2) {
     html {
         font-size: 57%;
     }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: $max-width-3) {
     html {
         font-size: 52%;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: $max-width-4) {
     html {
         font-size: 47%;
+    }
+}
+
+@media only screen and (max-width: $max-width-5) {
+    html {
+        font-size: 43%;
     }
 }
 
