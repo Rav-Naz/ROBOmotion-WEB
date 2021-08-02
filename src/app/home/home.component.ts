@@ -1,3 +1,4 @@
+import { HttpService } from './../services/http.service';
 import { Patreon } from './../models/patreon';
 import { EventDescription } from './../models/event-description.model';
 import { Component } from '@angular/core';
@@ -53,14 +54,37 @@ import { fromEvent, Observable } from "rxjs";
 })
 export class HomeComponent {
 
-  constructor(private sanitizer: DomSanitizer, public translate: TranslateService) {
+  eventsList: Array<EventDescription> = [];
+  categories: Array<Category> = [];
+  patreons: Array<Patreon> = [];
+  patreonNames: Array<string> = [];
+
+  switchTime = 200;
+  selectedEventIndex: number = 1;
+  private switchTimer: any;
+  public timeToEvent: number | undefined;
+  public streamLink: SafeResourceUrl | undefined = undefined;
+  public timeIsUp = false;
+  public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
+  public eventDate!: Date;
+  public windowSize: WindowSize = { height: 1080, width: 1920};
+
+
+  constructor(private sanitizer: DomSanitizer, public translate: TranslateService, private httpService: HttpService) {
+    this.httpService.getHomePageInfo.subscribe((data) => {
+      console.log(data)
+      if(data === undefined || data === null) return;
+      this.eventDate = new Date(data.body.eventDate);
+      if(data.body.streamLink) {
+        this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl(data.body.streamLink);
+      }
+    })
     this.windowSize = {height: window.innerHeight, width: window.innerWidth };
     const resizeObs = fromEvent(window, 'resize') as Observable<any>;
     resizeObs.subscribe(size => {
       if (!size) { return; }
       this.windowSize = {height: size.currentTarget.innerHeight, width: size.currentTarget.innerWidth};
     })
-    this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/5qap5aO4i9A");
     this.refreshCounter()
     setInterval(() => {
       this.refreshCounter()
@@ -73,27 +97,12 @@ export class HomeComponent {
       this.categories = categories;
     });
     translate.stream('home.patreons.patreonList').subscribe((patreons: Array<Patreon>) => {
-      this.patreons = patreons;
+      if(typeof patreons === 'object') this.patreons = patreons;
     });
     translate.stream('home.patreons.tiers').subscribe((tiers: Array<string>) => {
-      this.patreonNames = tiers;
+      if(typeof tiers === 'object') this.patreonNames = tiers;
     });
   }
-
-  eventsList: Array<EventDescription> = [];
-  categories: Array<Category> = [];
-  patreons: Array<Patreon> = [];
-  patreonNames: Array<string> = [];
-
-  switchTime = 200;
-  selectedEventIndex: number = 1;
-  private switchTimer: any;
-  public timeToEvent: number = 1000000;
-  public streamLink: SafeResourceUrl | undefined = undefined;
-  public timeIsUp = false;
-  public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
-  public eventDate = new Date(2021, 10, 21, 9, 0, 0);
-  public windowSize: WindowSize = { height: 1080, width: 1920};
 
   async onSwitchEvent(eventIndex: number) {
     const switchTime = 200;
@@ -154,6 +163,7 @@ export class HomeComponent {
   }
 
   refreshCounter() :void {
+    if(this.eventDate === undefined) return;
     this.timeToEvent = this.eventDate.getTime() - new Date().getTime();
     if(Math.floor(this.timeToEvent/1000) < 0) {
       this.timeIsUp = true;
@@ -177,6 +187,12 @@ export class HomeComponent {
 
   openUrl(url: string): void {
     window.open(url);
+  }
+
+  playVideo(comp: number) {
+    let player = (document.getElementById(`comp-${comp}`) as HTMLVideoElement);
+    player.muted = true;
+    player.play()
   }
 
   get descriptionOfSelectedEvent(): string | undefined {

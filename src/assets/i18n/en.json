@@ -59,16 +59,7 @@
                 "name": "Scientific Club of Automation and Robotics “ROBO”"
             },
             "title": "PATREONS",
-            "tiers": ["Tier 1", "Tier 2"],
-            "patreonList": [
-                { "id": 1, "patreonCategory": 0, "description": "Rektor", "image": "../../assets/svg/klocki.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
-                { "id": 1, "patreonCategory": 0, "description": "Rektor", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
-                { "id": 1, "patreonCategory": 1, "description": "Rektor", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
-                { "id": 1, "patreonCategory": 1, "description": "Rektor", "image": "../../assets/svg/linefollower.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
-                { "id": 1, "patreonCategory": 1, "description": "Mauris lacinia dui ac dui porttitor, at maximus nisl sollicitudin. Vivamus at aliquet enim. Cras tempor augue neque, at consequat est rhoncus ac.", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
-                { "id": 1, "patreonCategory": 1, "description": "Rektor", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" },
-                { "id": 1, "patreonCategory": 1, "description": "Rektor", "image": "../../assets/svg/robo_white.svg", "linkToSite": "https://rzit.smarthost.pl/robomotion/10b.pdf" }
-            ]
+            "question": "Do you want to become a patron? Contact us at kontakt@kneiti.prz.edu.pl"
         },
         "footer": {
             "copyright": "Copyright",

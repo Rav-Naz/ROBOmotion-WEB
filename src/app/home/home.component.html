@@ -1,20 +1,27 @@
 <div class="container">
     <section class="paralax">
-        <div class="paralax-name-container">
+        <video id="videoBG" autoplay muted>
+            <source src="../../assets/mp4/intro.mp4" type="video/mp4" preload="true">
+             Your browser does not support the video tag.
+        </video>
+        <script>
+            document.getElementById('videoBG').play();
+        </script>
+        <!-- <div class="paralax-name-container">
             <h1 class="paralax-name">
                 ROBO<br>
                 <span class="paralax-name-second">~motion 2021</span><br>
                 <img src="../../assets/svg/klocki.svg" class="paralax-name-img">
             </h1>
-        </div>
+        </div> -->
         <div class="paralax-wave paralax-wave-yellow"></div>
         <div class="paralax-wave"></div>
     </section>
     <section class="event-info" id="home">
-        <h3 class="section-header">{{timeIsUp ? streamLink === undefined ? ('home.event-info.status.ended' | translate) : ('home.event-info.status.live' | translate) : ('home.event-info.status.coming' | translate)}}</h3>
+        <h3 class="section-header" *ngIf="timeToEvent">{{timeIsUp ? streamLink === undefined ? ('home.event-info.status.ended' | translate) : ('home.event-info.status.live' | translate) : ('home.event-info.status.coming' | translate)}}</h3>
         <iframe [src]="streamLink" *ngIf="timeIsUp && streamLink !== undefined" width="1120" height="630" title="ROBO~motion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <button [routerLink]="['/results']" *ngIf="timeIsUp">{{'home.event-info.results' | translate}}</button>
-        <div class="event-info-counter" *ngIf="!timeIsUp">
+        <div class="event-info-counter" *ngIf="!timeIsUp && timeToEvent">
             <div class="event-info-counter-part">
                 <p class="event-info-counter-part--number">
                     {{timeToEvent | msTransform: 'd'}}
@@ -107,10 +114,12 @@
     <section class="competitions" id="competitions">
         <h3 class="section-header">{{'home.competitions.title' | translate}}</h3>
         <div class="competitions-grid">
-            <div class="competitions-grid-card-container" *ngFor="let category of categories">
+            <div class="competitions-grid-card-container" *ngFor="let category of categories; index as i;" (mouseenter)="playVideo(i)">
                 <div class="competitions-grid-card">
                     <div class="competitions-grid-card-style competitions-grid-card--front">
-                        <img [src]="'../../assets/svg/' + category.icon" class="competitions-grid-card--front-img">
+                        <video class="competitions-grid-card--front-img" muted [id]="'comp-'+i">
+                            <source [src]="'../../assets/mp4/' + category.icon" type="video/mp4">
+                        </video>
                         <label>{{category.name}}</label>
                         <button (click)="flipCard($event, 'back')">{{'home.competitions.learn' | translate}}</button>
                     </div>
@@ -166,6 +175,7 @@
                 </div>
             </div>
         </ng-container>
+        <p>{{'home.patreons.question' | translate}}</p>
     </section>
     <section class="footer">
         <h1 class="paralax-name footer-name">
@@ -175,7 +185,7 @@
         </h1>
         <!-- <a></a> -->
         <p>
-            {{'home.footer.copyright' | translate}} © {{eventDate.getFullYear()}} - Rzeszowska Grupa IT | {{'home.footer.designed' | translate}} <span>{{'home.footer.developer' | translate}}</span>
+            {{'home.footer.copyright' | translate}} © {{eventDate?.getFullYear()}} - Rzeszowska Grupa IT | {{'home.footer.designed' | translate}} <span>{{'home.footer.developer' | translate}}</span>
         </p>
     </section>
 </div>
