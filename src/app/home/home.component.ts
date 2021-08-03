@@ -1,7 +1,7 @@
 import { HttpService } from './../services/http.service';
 import { Patreon } from './../models/patreon';
 import { EventDescription } from './../models/event-description.model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   trigger,
   state,
@@ -52,7 +52,7 @@ import { fromEvent, Observable } from "rxjs";
     ])
   ],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   eventsList: Array<EventDescription> = [];
   categories: Array<Category> = [];
@@ -62,6 +62,8 @@ export class HomeComponent {
   switchTime = 200;
   selectedEventIndex: number = 1;
   private switchTimer: any;
+  private scrollTimer: any;
+  private isScrollPaused: boolean = true;
   public timeToEvent: number | undefined;
   public streamLink: SafeResourceUrl | undefined = undefined;
   public timeIsUp = false;
@@ -72,7 +74,6 @@ export class HomeComponent {
 
   constructor(private sanitizer: DomSanitizer, public translate: TranslateService, private httpService: HttpService) {
     this.httpService.getHomePageInfo.subscribe((data) => {
-      console.log(data)
       if(data === undefined || data === null) return;
       this.eventDate = new Date(data.body.eventDate);
       if(data.body.streamLink) {
@@ -102,6 +103,10 @@ export class HomeComponent {
     translate.stream('home.patreons.tiers').subscribe((tiers: Array<string>) => {
       if(typeof tiers === 'object') this.patreonNames = tiers;
     });
+  }
+
+  ngOnInit() {
+    this.enableCompetitionsScrolling()
   }
 
   async onSwitchEvent(eventIndex: number) {
@@ -160,6 +165,41 @@ export class HomeComponent {
     this.switchTimer = setInterval(async () => {
       await this.onSwitchEvent(this.selectedEventIndex % this.eventsList.length + 1);
     }, 10000)
+  }
+
+  
+  enableCompetitionsScrolling(): void {
+    let lastScroll = -1;
+    let scrollingBack = false;
+    this.pauseScrolling(false);
+    clearInterval(this.scrollTimer);
+    const flavoursContainer = document.getElementById('competitions-scroll')! as HTMLElement;
+    this.scrollTimer = setInterval(() => {
+      if(!this.isScrollPaused) {
+        if (lastScroll !== flavoursContainer.scrollLeft && !scrollingBack) {
+          lastScroll = flavoursContainer.scrollLeft;
+          flavoursContainer.scrollTo(flavoursContainer.scrollLeft + 1, 0);
+        }
+        else {
+          this.isScrollPaused  = true;
+          scrollingBack = true;
+          setTimeout(() => {
+            flavoursContainer.scrollTo({
+              left: 0,
+              behavior: 'smooth',
+            });
+            setTimeout(() => {
+              this.isScrollPaused = false; 
+              scrollingBack = false;
+            }, 1000)
+          }, 500)
+        }
+      }
+    }, 15);
+  }
+
+  pauseScrolling(value: boolean) {
+    this.isScrollPaused = value;
   }
 
   refreshCounter() :void {

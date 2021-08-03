@@ -1,4 +1,5 @@
 <div class="container">
+    <!-- INTRO -->
     <section class="paralax">
         <video id="videoBG" autoplay muted>
             <source src="../../assets/mp4/intro.mp4" type="video/mp4" preload="true">
@@ -17,9 +18,12 @@
         <div class="paralax-wave paralax-wave-yellow"></div>
         <div class="paralax-wave"></div>
     </section>
+    <!-- DESCRIPTION -->
     <section class="event-info" id="home">
         <h3 class="section-header" *ngIf="timeToEvent">{{timeIsUp ? streamLink === undefined ? ('home.event-info.status.ended' | translate) : ('home.event-info.status.live' | translate) : ('home.event-info.status.coming' | translate)}}</h3>
-        <iframe [src]="streamLink" *ngIf="timeIsUp && streamLink !== undefined" width="1120" height="630" title="ROBO~motion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="iframe-container" *ngIf="timeIsUp && streamLink !== undefined">
+            <iframe [src]="streamLink" title="ROBO~motion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <button [routerLink]="['/results']" *ngIf="timeIsUp">{{'home.event-info.results' | translate}}</button>
         <div class="event-info-counter" *ngIf="!timeIsUp && timeToEvent">
             <div class="event-info-counter-part">
@@ -111,13 +115,14 @@
             </div>
         </div>
     </section>
+    <!-- COMPETITIONS -->
     <section class="competitions" id="competitions">
         <h3 class="section-header">{{'home.competitions.title' | translate}}</h3>
-        <div class="competitions-grid">
-            <div class="competitions-grid-card-container" *ngFor="let category of categories; index as i;" (mouseenter)="playVideo(i)">
+        <div class="competitions-grid" id="competitions-scroll">
+            <div class="competitions-grid-card-container" *ngFor="let category of categories; index as i;" (mouseenter)="pauseScrolling(true)" (mouseleave)="pauseScrolling(false)" (scroll)="pauseScrolling(false)">
                 <div class="competitions-grid-card">
                     <div class="competitions-grid-card-style competitions-grid-card--front">
-                        <video class="competitions-grid-card--front-img" muted [id]="'comp-'+i">
+                        <video class="competitions-grid-card--front-img" [id]="'comp-'+i" autoplay muted loop>
                             <source [src]="'../../assets/mp4/' + category.icon" type="video/mp4">
                         </video>
                         <label>{{category.name}}</label>
@@ -134,6 +139,7 @@
             </div>
         </div>
     </section>
+    <!-- LOCATION -->
     <section class="location paralax" id="location">
         <div class="location-wave location-wave-yellow"></div>
         <div class="location-wave"></div>
@@ -150,8 +156,8 @@
                 </button>
             </div>
         </div>
-
     </section>
+    <!-- PATREONS -->
     <section class="organizer" id="patreons">
         <div>
             <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
@@ -177,6 +183,7 @@
         </ng-container>
         <p>{{'home.patreons.question' | translate}}</p>
     </section>
+    <!-- FOOTER -->
     <section class="footer">
         <h1 class="paralax-name footer-name">
             ROBO<br>

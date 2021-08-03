@@ -16,12 +16,14 @@
     font-weight: 400;
     letter-spacing: .5rem;
     z-index: 4;
+    max-width: 80%;
     margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: $max-width-3) {
     .section-header {
         font-size: 3.5rem;
+        margin-top: 2rem;
     }
 }
 
@@ -235,6 +237,22 @@
             font-size: 2rem;
         }
     }
+    .iframe-container {
+        position: relative;
+        overflow: hidden;
+        height: 60vh;
+        width: 80%;
+        // padding-top: 56.25%;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 
 @media only screen and (max-width: $max-width-2) {
@@ -259,10 +277,24 @@
     .event-info {
         padding: 1rem 0;
         &-details {
-            width: 90%;
+            grid-template-columns: 1fr;
+            // grid-template-rows: min-content;
+            width: 70% !important;
+            &-name {
+                padding: 3rem;
+                border-right: none;
+                border-bottom: 4px dotted #484848;
+            }
+            &-description {
+                padding: 3rem;
+            }
         }
         &-counter {
             min-width: 70rem;
+        }
+        .iframe-container {
+            height: 40vh;
+            width: 80%;
         }
     }
 }
@@ -271,16 +303,10 @@
     .event-info {
         padding: 1rem 0;
         &-details {
-            width: 95%;
-            &-description {
-                padding: 0 0 0 3rem;
-            }
-            &-name {
-                padding: 0 3rem 0 0;
-            }
+            width: 80% !important;
         }
         &-counter {
-            min-width: 65rem;
+            min-width: 50rem;
             &-part {
                 min-width: 5rem;
                 &--number {
@@ -290,8 +316,8 @@
                     letter-spacing: .7rem;
                 }
                 &--name {
-                    font-size: 2.5rem;
-                    line-height: 2.5rem;
+                    font-size: 2.2rem;
+                    line-height: 2.2rem;
                 }
             }
         }
@@ -301,16 +327,41 @@
 @media only screen and (max-width: $max-width-6) {
     .event-info {
         padding: 1rem 0;
-        &-details {
-            width: 95%;
-        }
         &-counter {
             padding: 1rem;
-            min-width: 55rem;
+            min-width: 42rem;
+            height: 12rem;
             &-part {
+                &--number {
+                    font-size: 3.5rem;
+                    line-height: 3.5rem;
+                }
                 &--name {
-                    font-size: 2.2rem;
-                    line-height: 2.2rem;
+                    font-size: 2rem;
+                    line-height: 2rem;
+                }
+            }
+            &-delimeter {
+                padding-top: 2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-7) {
+    .event-info {
+        padding: 1rem 0;
+        &-counter {
+            padding: 1rem;
+            min-width: 38rem;
+            &-part {
+                &--number {
+                    font-size: 3.2rem;
+                    line-height: 3.2rem;
+                }
+                &--name {
+                    font-size: 1.8rem;
+                    line-height: 1.8rem;
                 }
             }
             &-delimeter {
@@ -500,6 +551,7 @@
         column-gap: 4rem;
         &-card {
             // min-width: 30rem;
+            max-width: 100%;
             min-height: 50rem;
             width: 100%;
             height: 100%;
@@ -524,11 +576,12 @@
                 display: grid;
                 overflow: hidden;
                 grid-template-columns: 1fr;
-                grid-template-rows: minmax(25rem, 30rem) 1fr auto;
+                grid-template-rows: minmax(auto, 70%) 1fr max-content;
                 video {
+                    object-fit: cover;
                     display: flex;
-                    justify-self: flex-start;
-                    align-self: flex-start;
+                    justify-self: center;
+                    align-self: center;
                     height: auto;
                     width: 100%;
                     padding: 0;
@@ -658,7 +711,7 @@
     .competitions {
         padding: 6rem 0;
         &-grid {
-            padding: 4rem 0;
+            padding: 3rem 0;
             height: min-content;
             display: flex;
             flex-direction: row;
@@ -670,9 +723,6 @@
             column-gap: 0em;
             column-gap: 3rem;
             &-card {
-                &--front {
-                    grid-template-rows: minmax(30rem, 35rem) 1fr auto;
-                }
                 &-container {
                     max-width: 45rem;
                     min-width: 45rem;
@@ -689,14 +739,14 @@
                         }
                     }
                     p {
-                        font-size: 2.2rem;
+                        font-size: 2rem;
                     }
                     span {
-                        margin-bottom: 2rem;
-                        margin-right: 2rem;
-                        font-size: 2.5rem;
+                        margin-bottom: 2.5rem;
+                        margin-right: 2.5rem;
+                        font-size: 2.2rem;
                         border-bottom: 0.3rem dashed rgba($color-grey-0, 0.5);
-                        line-height: 3.5rem;
+                        line-height: 3.2rem;
                     }
                 }
             }
@@ -708,13 +758,18 @@
     .competitions {
         padding: 6rem 0;
         &-grid {
+            padding: 2rem 0;
             &-card {
-                &--front {
-                    grid-template-rows: minmax(30rem, 35rem) 1fr auto;
-                }
                 &--back {
                     p {
-                        font-size: 2.5rem;
+                        font-size: 2rem;
+                    }
+                    span {
+                        margin-bottom: 2.5rem;
+                        margin-right: 2.5rem;
+                        font-size: 2.2rem;
+                        border-bottom: 0.3rem dashed rgba($color-grey-0, 0.5);
+                        line-height: 3.2rem;
                     }
                 }
                 &-container {
@@ -731,19 +786,27 @@
     .competitions {
         padding: 6rem 0;
         &-grid {
+            padding: 1.5rem 0;
             &-card {
                 &--front {
-                    grid-template-rows: minmax(27rem, 32rem) 1fr auto;
+                    grid-template-rows: minmax(auto, 70%) 1fr max-content;
                 }
                 &--back {
                     p {
+                        font-size: 1.8rem;
+                    }
+                    span {
+                        margin-bottom: 2.2rem;
+                        margin-right: 2.2rem;
                         font-size: 2rem;
+                        border-bottom: 0.3rem dashed rgba($color-grey-0, 0.5);
+                        line-height: 3rem;
                     }
                 }
                 &-container {
-                    max-width: 42rem;
-                    min-width: 42rem;
-                    min-height: 52vh;
+                    max-width: 45rem;
+                    min-width: 45rem;
+                    min-height: 55vh;
                 }
             }
         }
@@ -754,8 +817,9 @@
     position: relative;
     height: 50vh;
     top: 0 !important;
+    display: flex;
+    align-items: center;
     background-color: $color-grey-1;
-    // padding: 1rem 5rem;
     &-wave {
         width: 110% !important;
         position: absolute;
@@ -775,7 +839,7 @@
         margin-right: 6rem;
         display: grid;
         grid-template-columns: 1fr 40rem;
-        grid-template-rows: 50rem;
+        grid-template-rows: 100%;
         img {
             width: 100%;
             height: 100%;
@@ -788,11 +852,12 @@
             grid-row: 1;
             z-index: 3;
             text-align: right;
-            justify-self: center;
+            justify-self: right;
             align-self: center;
             padding: 3rem;
             h3 {
-                text-align: right;
+                text-align: right !important;
+                max-width: 100% !important;
             }
             h2 {
                 font-size: 3rem;
@@ -862,11 +927,21 @@
 
 @media only screen and (max-width: $max-width-3) {
     .location {
-        height: 45vh;
         &-wave {
             transform: translateX(-8rem);
             &-yellow {
                 transform: translateX(-8rem);
+            }
+        }
+        &-grid {
+            margin-right: 4rem;
+            &-right {
+                h2 {
+                    font-size: 2.5rem;
+                    font-weight: 100;
+                    color: $color-white;
+                    line-height: 4rem;
+                }
             }
         }
     }
@@ -886,6 +961,7 @@
 
 @media only screen and (max-width: $max-width-5) {
     .location {
+        height: 40vh !important;
         &-grid {
             margin-right: 2rem;
             img {
@@ -910,7 +986,7 @@
 
 @media only screen and (max-width: $max-width-6) {
     .location {
-        height: 34vh;
+        height: 35vh !important;
         &-wave {
             transform: translateX(-5rem);
             &-yellow {
@@ -1067,6 +1143,7 @@
 @media only screen and (max-width: $max-width-5) {
     .organizer {
         &-social {
+            width: 100%;
             &-item {
                 font-size: 3.5rem;
                 width: 7rem;
@@ -1118,6 +1195,7 @@
     background-color: $color-grey-2;
     p {
         font-size: 2rem;
+        text-align: center;
     }
     &-name {
         font-size: 4rem;
