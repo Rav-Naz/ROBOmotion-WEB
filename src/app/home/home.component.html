@@ -1,8 +1,8 @@
 <div class="container">
     <!-- INTRO -->
     <section class="paralax">
-        <video id="videoBG" autoplay muted>
-            <source src="../../assets/mp4/intro.mp4" type="video/mp4" preload="true">
+        <video id="videoBG" preload="auto" autoplay muted>
+            <source src="../../assets/mp4/intro_panorama.mp4" type="video/mp4" preload="true">
              Your browser does not support the video tag.
         </video>
         <script>
@@ -122,7 +122,7 @@
             <div class="competitions-grid-card-container" *ngFor="let category of categories; index as i;" (mouseenter)="pauseScrolling(true)" (mouseleave)="pauseScrolling(false)" (scroll)="pauseScrolling(false)">
                 <div class="competitions-grid-card">
                     <div class="competitions-grid-card-style competitions-grid-card--front">
-                        <video class="competitions-grid-card--front-img" [id]="'comp-'+i" autoplay muted loop>
+                        <video class="competitions-grid-card--front-img" [id]="'comp-'+i" preload="auto" autoplay muted loop>
                             <source [src]="'../../assets/mp4/' + category.icon" type="video/mp4">
                         </video>
                         <label>{{category.name}}</label>

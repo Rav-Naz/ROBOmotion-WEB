@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import openSocket from 'socket.io-client';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,10 @@ export class AppComponent {
       this.isEnglish = prefLanguage !== 'pl';
       translate.setDefaultLang(prefLanguage);
     }
+    const socket = openSocket('http://localhost:8080');
+    socket.on("socketId", (data) => {
+      console.log(data);
+    })
   }
 
   public isMenuOpen: boolean = false;
