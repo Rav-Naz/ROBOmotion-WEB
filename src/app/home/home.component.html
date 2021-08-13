@@ -1,12 +1,13 @@
 <div class="container">
     <!-- INTRO -->
-    <section class="paralax">
-        <video autoplay muted plays-inline id="videoBG" preload="auto">
-            <source [src]="windowSize.width > 600 ? '../../assets/mp4/intro_panorama.mp4' : '../../assets/mp4/intro.mp4'" type="video/mp4" preload="none" >
-            <source [src]="windowSize.width > 600 ? '../../assets/webm/intro_panorama.webm' : '../../assets/webm/intro.webm'" type="video/webm" preload="none" >
-             Your browser does not support the video tag.
-        </video>
-
+    <section class="paralax paralax-background">
+        <div class="paralax-name-container paralax-name-container-top">
+            <h1 class="paralax-name paralax-name-top">
+                ROBO<br>
+                <span class="paralax-name-second">~motion 2021</span><br>
+                <img src="../../assets/svg/klocki.svg" class="paralax-name-img paralax-name-img-top">
+            </h1>
+        </div>
         <div class="paralax-wave paralax-wave-yellow"></div>
         <div class="paralax-wave"></div>
     </section>
@@ -114,10 +115,11 @@
             <div class="competitions-grid-card-container" *ngFor="let category of categories; index as i;" (mouseenter)="pauseScrolling(true)" (mouseleave)="pauseScrolling(false)" (scroll)="pauseScrolling(false)">
                 <div class="competitions-grid-card">
                     <div class="competitions-grid-card-style competitions-grid-card--front">
-                        <video class="competitions-grid-card--front-img" [id]="'comp-'+i" preload="auto" autoplay muted loop>
+                        <img [src]="'../../assets/gifs/' + category.icon" class="competitions-grid-card--front-img" [id]="'comp-'+i">
+                        <!-- <video class="competitions-grid-card--front-img" [id]="'comp-'+i" preload="auto" autoplay muted loop>
                             <source [src]="'../../assets/mp4/' + category.icon" type="video/mp4">
                             <source [src]="'../../assets/webm/' + category.icon" type="video/webm">
-                        </video>
+                        </video> -->
                         <label>{{category.name}}</label>
                         <button (click)="flipCard($event, 'back')">{{'home.competitions.learn' | translate}}</button>
                     </div>

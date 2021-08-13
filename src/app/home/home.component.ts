@@ -107,14 +107,6 @@ export class HomeComponent implements OnInit{
 
   ngOnInit() {
     this.enableCompetitionsScrolling()
-    var interval = setInterval(function(){
-      var countForVideo = (document.getElementById('videoBG') as HTMLVideoElement).readyState;
-      if(countForVideo == 4){
-        (document.getElementById('videoBG') as HTMLVideoElement).play();
-        clearInterval(interval);
-      }
-    },1000);
-
   }
 
   async onSwitchEvent(eventIndex: number) {
