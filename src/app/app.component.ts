@@ -21,11 +21,19 @@ export class AppComponent {
       this.isEnglish = prefLanguage !== 'pl';
       translate.setDefaultLang(prefLanguage);
     }
-    const socket = openSocket('http://localhost:8080');
-    socket.on("socketId", (data) => {
-      console.log(data);
-    })
+    // const socket = openSocket('http://localhost:8080', {
+    //   auth: {
+    //     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1enl0a293bmlrX2lkIjo4LCJ1enl0a293bmlrX3V1aWQiOiIyZjM5NzgwNS1kOTI4LTExZWItOGJhNS1iOGNhM2E1YmM3ZDAiLCJ1enl0a293bmlrX3R5cCI6MiwiaWF0IjoxNjI4NzcyNDE4LCJleHAiOjE2Mjg4NTg4MTh9.53BQyw7nLpGNs2vwEoAPgLlpT1RJZlPvqqP8NhZITM8"
+    //   }
+    // });
+    // socket.on("socketId", (data) => {
+    //   console.log(data);
+    // })
+    // socket.on("addRobotCategory", (data) => {
+    //   console.log(data);
+    // })
   }
+
 
   public isMenuOpen: boolean = false;
   public isEnglish: boolean = true;

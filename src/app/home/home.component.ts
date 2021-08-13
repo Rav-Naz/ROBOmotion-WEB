@@ -1,7 +1,7 @@
 import { HttpService } from './../services/http.service';
 import { Patreon } from './../models/patreon';
 import { EventDescription } from './../models/event-description.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, EventEmitter } from '@angular/core';
 import {
   trigger,
   state,
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit{
   public streamLink: SafeResourceUrl | undefined = undefined;
   public timeIsUp = false;
   public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
-  public eventDate!: Date;
+  public eventDate: Date = new Date(2021, 10, 27, 9, 0, 0);
   public windowSize: WindowSize = { height: 1080, width: 1920};
 
 
@@ -107,6 +107,14 @@ export class HomeComponent implements OnInit{
 
   ngOnInit() {
     this.enableCompetitionsScrolling()
+    var interval = setInterval(function(){
+      var countForVideo = (document.getElementById('videoBG') as HTMLVideoElement).readyState;
+      if(countForVideo == 4){
+        (document.getElementById('videoBG') as HTMLVideoElement).play();
+        clearInterval(interval);
+      }
+    },1000);
+
   }
 
   async onSwitchEvent(eventIndex: number) {
@@ -164,7 +172,7 @@ export class HomeComponent implements OnInit{
     clearInterval(this.switchTimer);
     this.switchTimer = setInterval(async () => {
       await this.onSwitchEvent(this.selectedEventIndex % this.eventsList.length + 1);
-    }, 10000)
+    }, 15000)
   }
 
   
