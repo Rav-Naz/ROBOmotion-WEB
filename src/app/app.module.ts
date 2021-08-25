@@ -15,6 +15,8 @@ import { ResultsComponent } from './home/results/results.component';
 import { MsToDaysPipe } from './pipes/ms-transform.pipe';
 import { BuildingPlanComponent } from './home/building-plan/building-plan.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { ConfirmCodeComponent } from './competitor-zone/confirm-code/confirm-code.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HeaderComponent } from './shared/header/header.component';
     ResultsComponent,
     MsToDaysPipe,
     BuildingPlanComponent,
-    HeaderComponent  ],
+    HeaderComponent,
+    ConfirmCodeComponent,
+    SpinnerComponent  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

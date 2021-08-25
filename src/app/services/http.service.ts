@@ -21,6 +21,14 @@ export class HttpService {
   })
   }
 
+  confirmCode(uzytkownik_uuid: string, kod: string, czy_na_telefon: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.get(`${this.url}public/confirmCode/${uzytkownik_uuid}/${kod}/${czy_na_telefon}`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
 
   get getHomePageInfo(): Observable<APIResponse> {
     return this.http.get<APIResponse>(`${this.url}site/info`, {headers: this.headers});

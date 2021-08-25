@@ -83,6 +83,13 @@
         "info": "The schedule is subject to change. Please keep an eye on this page for the latest information."
     },
     "competitor-zone": {
-        "info": "Competitor zone will be open soon!"
+        "info": "Competitor zone will be open soon!",
+        "confirmation-code": {
+            "name": "Confirmation of identity",
+            "button": "Log in",
+            "incorrect": "Provided incorrect data.",
+            "activated": "The user already has a confirmed email.",
+            "success": "The account has been confirmed! You can login now."
+        }
     }
 }

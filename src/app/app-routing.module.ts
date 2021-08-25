@@ -1,3 +1,4 @@
+import { ConfirmCodeComponent } from './competitor-zone/confirm-code/confirm-code.component';
 import { BuildingPlanComponent } from './home/building-plan/building-plan.component';
 import { TimetableComponent } from './home/timetable/timetable.component';
 import { ResultsComponent } from './home/results/results.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'timetable', component: TimetableComponent},
   {path: 'building-plan', component: BuildingPlanComponent},
   {path: 'competitor-zone', component: CompetitorZoneComponent},
+  {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},
 ];
 

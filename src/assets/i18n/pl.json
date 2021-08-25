@@ -83,6 +83,13 @@
         "info": "Harmonogram może się zmienić. Prosimy obserwować tą stronę w celu uzyskania najnowszych informacji."
     },
     "competitor-zone": {
-        "info": "Strefa zawodnika będzie otwarta wkrótce!"
+        "info": "Strefa zawodnika będzie otwarta wkrótce!",
+        "confirmation-code": {
+            "name": "Potwierdzanie tożsamości",
+            "button": "Przejdź do logowania",
+            "incorrect": "Podano niepoprawne dane.",
+            "activated": "Uzytkownik ma już potwierdzony email.",
+            "success": "Konto zostało potwierdzone! Możesz się teraz zalogować."
+        }
     }
 }

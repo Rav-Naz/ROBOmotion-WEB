@@ -1,7 +1,7 @@
 import { HttpService } from './../services/http.service';
 import { Patreon } from './../models/patreon';
 import { EventDescription } from './../models/event-description.model';
-import { Component, OnInit, ChangeDetectorRef, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {
   trigger,
   state,
