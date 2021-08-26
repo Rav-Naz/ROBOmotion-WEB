@@ -91,5 +91,58 @@
             "activated": "Uzytkownik ma już potwierdzony email.",
             "success": "Konto zostało potwierdzone! Możesz się teraz zalogować."
         }
+    },
+    "errors": {
+        "names": {
+            "success": "Sukces",
+            "warning": "Uwaga!",
+            "error": "Błąd!",
+            "loading": "Ładowanie..."
+        },
+        "statusCodes": {
+            "400": "Błędnie określone dane - błąd użytkownika",
+            "401": "Nieautoryzowany dostęp - wymagane uwierzytelnienie",
+            "402": "Wymagana opłata",
+            "403": "Zabroniony",
+            "404": "Nie znaleziono – serwer nie odnalazł zasobu",
+            "405": "Niedozwolona metoda – metoda zawarta w żądaniu nie jest dozwolona dla wskazanego zasobu",
+            "406": "Podane dane nie są właściwe",
+            "407": "Wymagane uwierzytelnienie do serwera pośredniczącego",
+            "408": "Koniec czasu oczekiwania na żądanie ",
+            "409": "Konflikt – żądanie nie może być zrealizowane",
+            "410": "Zniknął (usunięto) – zażądany zasób nie jest dłużej dostępny",
+            "411": "Wymagana długość – serwer odmawia zrealizowania zapytania ze względu na brak nagłówka",
+            "412": "Warunek wstępny nie może być spełniony – serwer nie może spełnić przynajmniej jednego z warunków zawartych w zapytaniu",
+            "413": "Encja zapytania zbyt długa",
+            "414": "Adres URI zapytania zbyt długi",
+            "415": "Nieznany sposób żądania",
+            "416": "Zakres bajtowy podany w zapytaniu nie do obsłużenia",
+            "417": "Oczekiwana wartość nie do zwrócenia",
+            "418": "Jestem czajnikiem",
+            "421": "Zapytanie zostało skierowane do serwera, który nie powinien go otrzymać lub który nie jest w stanie na nie odpowiedzieć",
+            "422": "Zapytanie było poprawnie sformułowane, ale było niemożliwe do kontynuowania",
+            "423": "Próba uzyskania dostępu do zasobu, który jest aktualnie zablokowany",
+            "424": "Brak powodzenia żądania, ponieważ jest ono zależne od innego żądania, które również nie powiodło się",
+            "425": "Serwer nie chce ryzykować przetwarzania żądania, które może zostać powtórzone",
+            "426": "Serwer odmawia wykonania żądania używając aktualnego protokołu",
+            "428": "Brak nagłówka wstępnego, który jest wymagany przez serwer",
+            "429": "Użytkownik wysłał za wiele żądań w danym czasie",
+            "431": "Serwer odmawia wykonania żądania ze względu na zbyt duże pole lub pola nagłówka",
+            "444": "Połączenie zostało zamknięte bez otrzymania odpowiedzi",
+            "451": "Zawartość niedostępna z powodów prawnych",
+            "499": "Klient zakończył połączenie",
+            "500": "Wewnętrzny błąd serwera – serwer napotkał niespodziewane trudności, które uniemożliwiły zrealizowanie żądania",
+            "501": "Nie zaimplementowano – serwer nie dysponuje funkcjonalnością wymaganą w zapytaniu",
+            "502": "Błąd bramy – serwer – spełniający rolę bramy lub pośrednika – otrzymał niepoprawną odpowiedź od serwera nadrzędnego",
+            "503": "Usługa niedostępna – serwer nie jest w stanie w danej chwili zrealizować zapytania",
+            "504": "Przekroczony czas bramy – serwer – spełniający rolę bramy lub pośrednika – nie otrzymał w ustalonym czasie odpowiedzi od wskazanego serwera",
+            "505": "Nieobsługiwana wersja HTTP",
+            "506": "Wariant również negocjuje",
+            "507": "Serwer nie jest w stanie zapisać danych związanych z wykonaniem zapytania",
+            "508": "Serwer wykrył nieskończoną pętlę w trakcie przetwarzania zapytania",
+            "510": "Brak rozszerzenia HTTP koniecznego do obsługi danego zapytania",
+            "511": "Wymagane uwierzytelnienie przed otrzymaniem dostępu do sieci",
+            "599": "Błąd limitu czasu połączenia sieciowego"
+        }
     }
 }

@@ -1,3 +1,5 @@
+import { ErrorsService } from './../../services/errors.service';
+import { UiService } from './../../services/ui.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ConfirmCodeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, public translate: TranslateService, private httpService: HttpService) { }
+  constructor(private route: ActivatedRoute, public translate: TranslateService, private httpService: HttpService, private ui: UiService, private errorService: ErrorsService ) { }
 
   public text:any = undefined;
   private opis:any = undefined;
@@ -31,14 +33,17 @@ export class ConfirmCodeComponent implements OnInit {
 
     if(typeof uzytkownik_uuid !== 'string' || typeof kod !== 'string' || typeof czy_na_telefon !== 'string') {
       this.text = this.opis.incorrect;
+      this.errorService.showError(400)
       return;
     }
+
     const value = await this.httpService.confirmCode(uzytkownik_uuid,kod,czy_na_telefon).catch(err => {
       if(err.error.body == "Uzytkownik ma już potwierdzony email.") {
         this.text = this.opis.activated;
       } else {
         this.text = err.error.body;
       }
+      this.errorService.showError(err.status, this.text);
     });
 
     if(value !== undefined) { this.text = this.opis.success; this.success = true}

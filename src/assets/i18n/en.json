@@ -91,5 +91,58 @@
             "activated": "The user already has a confirmed email.",
             "success": "The account has been confirmed! You can login now."
         }
+    },
+    "errors": {
+        "names": {
+            "success": "Success",
+            "warning": "Warning!",
+            "error": "Error!",
+            "loading": "Loading..."
+        },
+        "statusCodes": {
+            "400": "Incorrectly specified data - user error",
+            "401": "Unauthorized Access - Authentication Required",
+            "402": "Fee required",
+            "403": "Forbidden",
+            "404": "Not found - the server did not find the resource",
+            "405": "Illegal method - the method contained in the request is not allowed for the indicated resource",
+            "406": "The given data is incorrect",
+            "407": "Proxy authentication required",
+            "408": "End of waiting time for request",
+            "409": "Conflict - request cannot be processed",
+            "410": "Disappeared (deleted) - requested resource is no longer available",
+            "411": "Length required - the server refuses to complete the request due to the lack of a header",
+            "412": "The precondition cannot be met - the server cannot meet at least one of the query conditions",
+            "413": "Query entity too long",
+            "414": "Request URI too long",
+            "415": "Unknown request method",
+            "416": "Byte range specified in the query unsupported",
+            "417": "Expected value cannot be returned",
+            "418": "I am a kettle",
+            "421": "The request was directed to a server that should not receive it or is unable to answer it",
+            "422": "The query was worded correctly but could not be continued",
+            "423": "Attempting to access a resource that is currently locked",
+            "424": "The request failed because it depends on another request that also failed",
+            "425": "The server does not want to risk processing a request that may be repeated",
+            "426": "The server is refusing to execute the request using the current protocol",
+            "428": "No pre-header that is required by the server",
+            "429": "User sent too many requests in the given time",
+            "431": "The server refuses to execute the request because the header field or fields are too large",
+            "444": "The connection was closed without receiving a response",
+            "451": "Content unavailable for legal reasons",
+            "499": "The client terminated the connection",
+            "500": "Internal server error - the server encountered unexpected difficulties that prevented the request from being fulfilled",
+            "501": "Not implemented - the server does not have the functionality required in the query",
+            "502": "Gateway error - server - acting as gateway or intermediary - received an incorrect response from the parent server",
+            "503": "Service unavailable - the server is not able to process the query at the moment",
+            "504": "Gateway timeout - server - acting as gateway or intermediary - did not receive a response from the indicated server within the set time",
+            "505": "HTTP Version Unsupported",
+            "506": "Variant also negotiates",
+            "507": "The server is unable to save the data related to the query",
+            "508": "The server detected an infinite loop while processing a query",
+            "510": "No HTTP extension needed to service the request",
+            "511": "Authentication required before accessing the network",
+            "599": "Network connection timeout error"
+        }
     }
 }
