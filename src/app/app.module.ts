@@ -6,6 +6,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { BuildingPlanComponent } from './home/building-plan/building-plan.compon
 import { HeaderComponent } from './shared/header/header.component';
 import { ConfirmCodeComponent } from './competitor-zone/confirm-code/confirm-code.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { InputComponent } from './shared/input/input.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     BuildingPlanComponent,
     HeaderComponent,
     ConfirmCodeComponent,
-    SpinnerComponent  ],
+    SpinnerComponent,
+    InputComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -50,7 +54,8 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

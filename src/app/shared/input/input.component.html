@@ -1,0 +1,9 @@
+<div class="top" [formGroup]="group">
+    <div class="form">
+        <input type="text" [id]="controlName" class="form__input" [autocomplete]="controlName" placeholder=" " [ngClass]="{'form__input-invalid': isFormInvalid}" [formControlName]="controlName" [type]="controlName" [name]="controlName">
+        <label [for]="controlName" class="form__label" [ngClass]="{'form__label-invalid': isFormInvalid}">{{('controls.'+controlName+'.name') | translate}}</label>
+    </div>
+    <div class="errors" *ngIf="isFormInvalid">
+        <span *ngFor="let error of getErrors">{{('controls.'+controlName+'.validators.'+error) | translate}}</span>
+    </div>
+</div>

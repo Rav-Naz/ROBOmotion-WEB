@@ -23,7 +23,7 @@ export class ErrorsService {
 
   private errorBody(main: string, additional?: string | undefined): string {
     if (additional) {
-      return main + '<br>:: ' + additional; 
+      return main + '<br><br>:: ' + additional; 
     } else {
       return main;
     }

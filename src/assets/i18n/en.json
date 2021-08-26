@@ -90,6 +90,34 @@
             "incorrect": "Provided incorrect data.",
             "activated": "The user already has a confirmed email.",
             "success": "The account has been confirmed! You can login now."
+        },
+        "login": {
+            "title": "Login",
+            "sign-in": "Sign in",
+            "not": "Don't have an account yet?",
+            "register": "Sign up!"
+        },
+        "register": {
+            "title": "Register"
+        }
+    },
+    "controls": {
+        "email": {
+            "name": "E-mail",
+            "validators": {
+                "required": "This field is required",
+                "pattern": "Please enter a valid email address",
+                "minlength": "E-mail must be longer than 2 characters",
+                "maxlength": "E-mail must be less than 100 characters"
+            }
+        },
+        "password": {
+            "name": "Password",
+            "validators": {
+                "required": "This field is required",
+                "minlength": "Password must be longer than 6 characters",
+                "maxlength": "The password must be less than 64 characters"
+            }
         }
     },
     "errors": {

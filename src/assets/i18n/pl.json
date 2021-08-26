@@ -90,6 +90,34 @@
             "incorrect": "Podano niepoprawne dane.",
             "activated": "Uzytkownik ma już potwierdzony email.",
             "success": "Konto zostało potwierdzone! Możesz się teraz zalogować."
+        },
+        "login": {
+            "title": "Logowanie",
+            "sign-in": "Zaloguj się",
+            "not": "Nie posiadasz jeszcze konta?",
+            "register": "Zarejestruj się!"
+        },
+        "register": {
+            "title": "Rejestracja"
+        }
+    },
+    "controls": {
+        "email": {
+            "name": "E-mail",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "pattern": "Wprowadź poprawny adres e-mail",
+                "minlength": "E-mail musi być dłuższy niż 2 znaki",
+                "maxlength": "E-mail musi być krótszy niż 100 znaków"
+            }
+        },
+        "password": {
+            "name": "Hasło",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "minlength": "Hasło musi być dłuższe niż 6 znaków",
+                "maxlength": "Hasło musi być krótsze niż 64 znaki"
+            }
         }
     },
     "errors": {

@@ -1,17 +1,5 @@
 @import '../scss/variables';
 @import '../scss/colors';
-.section-header {
-    color: rgba($color-white, 0.6);
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 4rem;
-    font-weight: 400;
-    letter-spacing: .5rem;
-    z-index: 4;
-    max-width: 80%;
-    margin-bottom: 2rem;
-}
-
 @media only screen and (max-width: $max-width-3) {
     .section-header {
         font-size: 3.5rem;

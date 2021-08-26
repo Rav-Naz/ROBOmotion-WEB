@@ -73,6 +73,58 @@ body {
     box-shadow: 0 0 5rem rgba($color-grey-5, 0.8);
 }
 
+.section-header {
+    color: rgba($color-white, 0.6);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: .5rem;
+    z-index: 4;
+    max-width: 80%;
+    margin-bottom: 2rem;
+}
+
+.submit-button {
+    &,
+    &:link,
+    &:visited {
+        margin: 2rem;
+        line-height: 1.8rem;
+        border-radius: 5rem;
+        box-shadow: 0 0.2rem 2rem rgba($color-primary, 0.5);
+        font-size: 2rem;
+        padding: 1.8rem;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        transition: all ease-out 0.1s, box-shadow ease-in 0.4s, background-position ease-in 0.2s;
+        text-decoration: none;
+        font-family: $default-font;
+        background: linear-gradient($color-primary-dark 0%, $color-primary 50%, $color-grey-3 75%, $color-grey-5 100%);
+        background-size: 100% 400%;
+        background-position: 100% 0%;
+        &:hover {
+            box-shadow: 0 0.2rem 3rem rgba($color-primary, 0.7);
+        }
+    }
+    &:focus {
+        outline: none;
+        &:active {
+            transform: translateY(3px);
+        }
+    }
+    &:disabled {
+        box-shadow: none;
+        opacity: 0.5;
+        color: $color-white;
+        // background: linear-gradient($color-grey-0 60%, $color-grey-1 100%);
+        background-position: 100% 100%;
+        cursor: not-allowed;
+    }
+}
+
 .montserrat {
     font-family: 'Montserrat Alternates', sans-serif;
 }
