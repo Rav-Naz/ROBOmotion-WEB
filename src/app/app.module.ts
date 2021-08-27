@@ -20,6 +20,9 @@ import { HeaderComponent } from './shared/header/header.component';
 import { ConfirmCodeComponent } from './competitor-zone/confirm-code/confirm-code.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { InputComponent } from './shared/input/input.component';
+import { SelectComponent } from './shared/select/select.component';
+import { LoginComponent } from './competitor-zone/login/login.component';
+import { RegisterComponent } from './competitor-zone/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { InputComponent } from './shared/input/input.component';
     HeaderComponent,
     ConfirmCodeComponent,
     SpinnerComponent,
-    InputComponent
+    InputComponent,
+    SelectComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

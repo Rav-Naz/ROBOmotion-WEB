@@ -1,3 +1,5 @@
+import { RegisterComponent } from './competitor-zone/register/register.component';
+import { LoginComponent } from './competitor-zone/login/login.component';
 import { ConfirmCodeComponent } from './competitor-zone/confirm-code/confirm-code.component';
 import { BuildingPlanComponent } from './home/building-plan/building-plan.component';
 import { TimetableComponent } from './home/timetable/timetable.component';
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: 'results', component: ResultsComponent},
   {path: 'timetable', component: TimetableComponent},
   {path: 'building-plan', component: BuildingPlanComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'competitor-zone', component: CompetitorZoneComponent},
   {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},

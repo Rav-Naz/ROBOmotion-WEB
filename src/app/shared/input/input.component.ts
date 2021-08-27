@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,20 +6,11 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent implements OnInit {
+export class InputComponent {
 
   @Input() group!: FormGroup;
   @Input() controlName!: string;
   @Input() nameKey!: string;
-  
-  constructor(private ref: ChangeDetectorRef) { }
-
-  ngOnInit(): void {
-    setInterval(() => {
-      this.ref.detectChanges()
-      console.log(this.getErrors)
-    },2000)
-  }
 
   get isFormInvalid() {
     return !this.group.get(this.controlName)?.valid && this.group.get(this.controlName)?.touched;
@@ -29,6 +20,10 @@ export class InputComponent implements OnInit {
     var control = this.group.get(this.controlName);
     var keys = control?.errors ? Object.keys(control?.errors) : [];
     return keys;
+  }
+  
+  get isControlPassword() {
+    return this.controlName.toLowerCase().indexOf('assword') > 0;
   }
 
 }

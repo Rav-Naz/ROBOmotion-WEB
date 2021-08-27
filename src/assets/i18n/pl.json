@@ -94,14 +94,33 @@
         "login": {
             "title": "Logowanie",
             "sign-in": "Zaloguj się",
-            "not": "Nie posiadasz jeszcze konta?",
+            "havent": "Nie posiadasz jeszcze konta?",
             "register": "Zarejestruj się!"
         },
         "register": {
-            "title": "Rejestracja"
+            "title": "Rejestracja",
+            "sign-in": "Zarejestruj się",
+            "have": "Posiadasz już konto?",
+            "login": "Zaloguj się!"
         }
     },
     "controls": {
+        "name": {
+            "name": "Imię",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "minlength": "Imię musi być dłuższe niż 2 znaki",
+                "maxlength": "Imię musi być krótsze niż 40 znaków"
+            }
+        },
+        "surname": {
+            "name": "Nazwisko",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "minlength": "Nazwisko musi być dłuższe niż 2 znaki",
+                "maxlength": "Nazwisko musi być krótsze niż 40 znaków"
+            }
+        },
         "email": {
             "name": "E-mail",
             "validators": {
@@ -118,6 +137,19 @@
                 "minlength": "Hasło musi być dłuższe niż 6 znaków",
                 "maxlength": "Hasło musi być krótsze niż 64 znaki"
             }
+        },
+        "repeatPassword": {
+            "name": "Powtórz hasło",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "confirmedValidator": "Hasła nie są takie same"
+            }
+        },
+        "category": {
+            "name": "Kategoria",
+            "validators": {
+                "required": "To pole jest wymagane"
+            }
         }
     },
     "errors": {
@@ -126,6 +158,9 @@
             "warning": "Uwaga!",
             "error": "Błąd!",
             "loading": "Ładowanie..."
+        },
+        "description": {
+
         },
         "statusCodes": {
             "400": "Błędnie określone dane - błąd użytkownika",

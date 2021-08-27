@@ -32,21 +32,21 @@ export class ConfirmCodeComponent implements OnInit {
     });
 
     if(typeof uzytkownik_uuid !== 'string' || typeof kod !== 'string' || typeof czy_na_telefon !== 'string') {
-      this.text = this.opis.incorrect;
+      this.text = 'competitor-zone.confirmation-code.incorrect';
       this.errorService.showError(400)
       return;
     }
 
     const value = await this.httpService.confirmCode(uzytkownik_uuid,kod,czy_na_telefon).catch(err => {
       if(err.error.body == "Uzytkownik ma już potwierdzony email.") {
-        this.text = this.opis.activated;
+        this.text = 'competitor-zone.confirmation-code.activated';
       } else {
         this.text = err.error.body;
       }
-      this.errorService.showError(err.status, this.text);
+      this.errorService.showError(err.status, this.translate.instant(this.text));
     });
 
-    if(value !== undefined) { this.text = this.opis.success; this.success = true}
+    if(value !== undefined) { this.text = 'competitor-zone.confirmation-code.success'; this.success = true}
   }
 
 }

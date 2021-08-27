@@ -4,7 +4,7 @@
         <app-spinner *ngIf="!text" [size]="100"></app-spinner>
         <div class="success" *ngIf="text">
             <div class="success-left">
-                <p>{{text}}</p>
+                <p>{{text | translate}}</p>
                 <button [routerLink]="['/competitor-zone']">{{'competitor-zone.confirmation-code.button' | translate}}</button>
             </div>
             <img [src]="success ? '../../../assets/gifs/freestyle.gif' : '../../../assets/gifs/sumo.gif'">
