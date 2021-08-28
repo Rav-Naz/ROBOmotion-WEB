@@ -11,13 +11,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'results', component: ResultsComponent},
-  {path: 'timetable', component: TimetableComponent},
-  {path: 'building-plan', component: BuildingPlanComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'competitor-zone', component: CompetitorZoneComponent},
-  {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
+  // {path: 'results', component: ResultsComponent},
+  // {path: 'timetable', component: TimetableComponent},
+  // {path: 'building-plan', component: BuildingPlanComponent},
+  // {path: 'login', component: LoginComponent},
+  // {path: 'register', component: RegisterComponent},
+  // {path: 'competitor-zone', component: CompetitorZoneComponent},
+  // {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},
 ];
 
