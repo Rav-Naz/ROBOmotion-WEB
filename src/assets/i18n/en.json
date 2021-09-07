@@ -27,7 +27,7 @@
                 "hall": "Sports hall of the",
                 "name": "Rzeszów University of Technology"
             },
-            "details": "After a short break, one of the best competitions in Poland return to Rzeszów with a bang! This time, in addition to the classic Sumo or LineFollower competitions, we were the first in Poland who prepare a unique category for you - Smash Bots! Younger participants will surely like the LEGO competitions, but if someone just wants to look and watch - they will definitely not be bored.",
+            "details": "After a short break, one of the best competitions in Poland return to Rzeszów with a bang! This time, in addition to the classic Sumo or LineFollower competitions, we were the first in Poland who prepare a unique category for you - Smash Bots by RoboLAB! Younger participants will surely like the LEGO competitions, but if someone just wants to look and watch - they will definitely not be bored.",
             "results": "See the results!",
             "open": "The competitor zone will be open soon!"
         },
@@ -43,7 +43,7 @@
             "learn": "LEARN MORE",
             "regulations": "Rules",
             "categories": [
-                { "id": 1, "name": "Smash Bots", "description": "Smash Botsy is certainly the most demanding competition at our competition! In a special arena, remote-controlled robots will fight each other until the end of their breath. There will be a lot going on here!", "icon": "battlebot.gif", "linkToRegulation": "https://bit.ly/robomotion21bbeng" },
+                { "id": 1, "name": "Smash Bots by RoboLAB", "description": "Smash Bots by RoboLAB is certainly the most demanding competition at our competition! In a special arena, remote-controlled robots will fight each other until the end of their breath. There will be a lot going on here!", "icon": "battlebot.gif", "linkToRegulation": "https://bit.ly/robomotion21bbeng" },
                 { "id": 2, "name": "Freestyle", "description": "In this competition, competitors can put on any project, robot or machine. The structures are assessed by referees and visitors. Each voter completes a questionnaire in which they award points for each project, so it is important that each competitor presents their project in the best possible way.", "icon": "freestyle.gif", "linkToRegulation": "https://bit.ly/robomotion21fs" },
                 { "id": 3, "name": "Humanoid Sprint", "description": "Humanoid robots are supposed to resemble a human body in appearance and way of movement, therefore each robot in this competition must have one pair of legs and arms (and they certainly cannot have wheels). Here they will race against each other on a straight track. The first one at the finish line wins.", "icon": "humanoid_sprint.gif", "linkToRegulation": "https://rzgit-my.sharepoint.com/:f:/g/personal/robo_kneiti_prz_edu_pl/EuHkMduHWcdGrRk0_ZHTSuYBZMeydZy-cCFBMRvDA-5iIA?e=7fscaM" },
                 { "id": 4, "name": "Line Follower", "description": "The goal of the robot in this competition is to follow the route marked by the black line drawn on the board as quickly as possible. The robot must follow the line as accurately as possible, without avoiding or cutting corners.", "icon": "line_follower.gif", "linkToRegulation": "https://rzgit-my.sharepoint.com/:f:/g/personal/robo_kneiti_prz_edu_pl/Erv3ruktMJtImHEgknuiI8EB5tQCTr3wcBGiN_7RSbGXSA?e=8Rcm8i" },
@@ -61,6 +61,15 @@
             "organizer": {
                 "title": "ORGANIZER",
                 "name": "Scientific Club of Automation and Robotics “ROBO”"
+            },
+            "organizer2": {
+                "title": "ORGANIZER",
+                "name": "Foundation for the Support of Education at the Aviation Valley Association",
+                "src": "../../assets/svg/Fundacja-white-en.png"
+            },
+            "organizer3": {
+                "title": "ORGANIZER",
+                "name": "RoboLAB – Local STEM Incubator"
             },
             "title": "PATRONS",
             "question": "Do you want to become a patron? Contact us at kontakt@kneiti.prz.edu.pl"

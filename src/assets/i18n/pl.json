@@ -27,7 +27,7 @@
                 "hall": "Hala sportowa",
                 "name": "Politechniki Rzeszowskiej"
             },
-            "details": "Po krótkiej przerwie jedne z najlepszych zawodów w Polsce powracają do Rzeszowa z wielkim przytupem! Tym razem oprócz klasycznych konkurencji typu Sumo, czy LineFollower, jako pierwsi w Polsce przygotowaliśmy dla Was wyjątkową kategorię - Smash Bots! Młodszym uczestnikom  z pewnością spodobają się konkurencje związane z LEGO, natomiast jeżeli ktoś ma chęć jedynie przyjść i pooglądać - na pewno nie będzie się nudzić.",
+            "details": "Po krótkiej przerwie jedne z najlepszych zawodów w Polsce powracają do Rzeszowa z wielkim przytupem! Tym razem oprócz klasycznych konkurencji typu Sumo, czy LineFollower, jako pierwsi w Polsce przygotowaliśmy dla Was wyjątkową kategorię - Smash Bots by RoboLAB! Młodszym uczestnikom  z pewnością spodobają się konkurencje związane z LEGO, natomiast jeżeli ktoś ma chęć jedynie przyjść i pooglądać - na pewno nie będzie się nudzić.",
             "results": "Zobacz wyniki!",
             "open": "Strefa zawodnika zostanie otwarta wkrótce!"
         },
@@ -43,7 +43,7 @@
             "learn": "DOWIEDZ SIĘ WIĘCEJ",
             "regulations": "Regulamin",
             "categories": [
-                { "id": 1, "name": "Smash Bots", "description": "Smash Botsy to z pewnością najbardziej wymagająca konkurencja na naszych zawodach! W specjalnej arenie zdalnie sterowane roboty będą walczyć ze sobą do ostaniego tchu. Tutaj będzie się wiele działo!", "icon": "battlebot.gif", "linkToRegulation": "https://bit.ly/robomotion21bb" },
+                { "id": 1, "name": "Smash Bots by RoboLAB", "description": "Smash Botsy by RoboLAB to z pewnością najbardziej wymagająca konkurencja na naszych zawodach! W specjalnej arenie zdalnie sterowane roboty będą walczyć ze sobą do ostaniego tchu. Tutaj będzie się wiele działo!", "icon": "battlebot.gif", "linkToRegulation": "https://bit.ly/robomotion21bb" },
                 { "id": 2, "name": "Freestyle", "description": "W tej konkurencji zawodnicy mogą wystawić całkowicie dowolny projekt, robota lub maszynę. Konstrukcje są oceniane prze sędziów oraz odwiedzających. Każdy głosujący wypełnia ankietę, w której przyznaje punkty każdemu projektowi, dlatego ważne jest, aby każdy zawodnik jak najlepiej zaprezentował swój projekt.", "icon": "freestyle.gif", "linkToRegulation": "https://bit.ly/robomotion21fs" },
                 { "id": 3, "name": "Humanoid Sprint", "description": "Roboty humanoidalne, wyglądem i sposobem poruszania się mają przypominać ciało człowieka, dlatego każdy robot w tej konkurencji musi posiadać jedną parę nóg i rąk (a już z pewnością nie mogą posiadać kółek). Tutaj będą ścigać się między sobą po prostym torze. Wygrywa pierwszy na mecie.", "icon": "humanoid_sprint.gif", "linkToRegulation": "https://rzgit-my.sharepoint.com/:f:/g/personal/robo_kneiti_prz_edu_pl/EuHkMduHWcdGrRk0_ZHTSuYBZMeydZy-cCFBMRvDA-5iIA?e=7fscaM" },
                 { "id": 4, "name": "Line Follower", "description": "Celem robota w tej konkurencji jest jak najszybsze pokonanie trasy wyznaczonej przez czarną linię narysowaną na planszy. Robot musi poruszać się po linii możliwie dokładnie, bez omijania czy ścinania zakrętów.", "icon": "line_follower.gif", "linkToRegulation": "https://rzgit-my.sharepoint.com/:f:/g/personal/robo_kneiti_prz_edu_pl/Erv3ruktMJtImHEgknuiI8EB5tQCTr3wcBGiN_7RSbGXSA?e=8Rcm8i" },
@@ -61,6 +61,15 @@
             "organizer": {
                 "title": "ORGANIZATOR",
                 "name": "Koło Naukowe Automatyków i Robotyków “ROBO”"
+            },
+            "organizer2": {
+                "title": "ORGANIZER",
+                "name": "Fundacja Wspierania Edukacji przy Stowarzyszeniu Dolina Lotnicza",
+                "src": "../../assets/svg/Fundacja-white-pl.svg"
+            },
+            "organizer3": {
+                "title": "ORGANIZER",
+                "name": "RoboLAB – Local STEM Incubator"
             },
             "title": "Patroni",
             "question": "Chcesz zostać patronem? Skontaktuj się z nami pod adresem kontakt@kneiti.prz.edu.pl"

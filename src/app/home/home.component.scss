@@ -208,6 +208,8 @@
     justify-content: center;
     align-items: center;
     &>p {
+        max-width: 85%;
+        text-align: center;
         color: $color-grey-0;
         margin-top: 10rem;
         font-size: 4rem;
@@ -1209,6 +1211,7 @@
     }
     div {
         height: 70rem;
+        width: 70%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1216,7 +1219,7 @@
         background-image: url('../../assets/svg/splash.svg');
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: right;
+        background-position: center;
         span {
             font-size: 3.5rem;
             font-family: $title-font;
@@ -1233,6 +1236,7 @@
 @media only screen and (max-width: $max-width-4) {
     .organizer {
         div {
+            width: 80%;
             span {
                 font-size: 3rem;
             }
@@ -1255,6 +1259,7 @@
         }
         div {
             height: 60rem;
+            width: 90%;
             span {
                 font-size: 2.7rem;
             }
@@ -1275,6 +1280,7 @@
             }
         }
         div {
+            width: 95%;
             height: 50rem;
             span {
                 font-size: 2.5rem;
