@@ -25,9 +25,9 @@ export class CompetitorZoneComponent implements OnInit{
   }
 
   ngOnInit() {
-    setInterval(() => {
-      console.log(this.form)
-    }, 2000)
+    // setInterval(() => {
+    //   console.log(this.form)
+    // }, 2000)
   }
 
   get isFormGroupValid() {

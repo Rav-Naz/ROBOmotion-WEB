@@ -8,7 +8,9 @@
         "results": "Wyniki",
         "timetable": "Harmonogram",
         "plan": "Plan budynku",
-        "competitor-zone": "Strefa Zawodnika"
+        "competitor-zone": "Strefa Zawodnika",
+        "hello": "Witaj",
+        "logout": "Wyloguj"
     },
     "home": {
         "event-info": {
@@ -105,13 +107,23 @@
             "title": "Logowanie",
             "sign-in": "Zaloguj się",
             "havent": "Nie posiadasz jeszcze konta?",
-            "register": "Zarejestruj się!"
+            "register": "Zarejestruj się!",
+            "errors": {
+                "not-found": "Taki użytkownik nie istnieje!",
+                "not-activated": "Użytkownik nie został aktywowany",
+                "failed": "Podano błędny e-mail lub hasło",
+                "logout": "Pomyślnie wylogowano"
+            }
         },
         "register": {
             "title": "Rejestracja",
             "sign-in": "Zarejestruj się",
             "have": "Posiadasz już konto?",
-            "login": "Zaloguj się!"
+            "login": "Zaloguj się!",
+            "errors": {
+                "duplicate": "Uzytkownik o takim e-mailu już istnieje!",
+                "success": "Pomyślnie zarejestrowano. Potwierdź swoje konto poprzez wiadomość wysłaną na podany adres e-mail."
+            }
         }
     },
     "controls": {

@@ -30,6 +30,32 @@ export class HttpService {
     })
   }
 
+  register(imie: string, nazwisko: string, email: string, hasloHashed: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.post(`${this.url}public/registerUser`, {
+        imie: imie,
+        nazwisko: nazwisko,
+        email: email,
+        haslo: hasloHashed
+      }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  login(email: string, hasloHashed: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.post(`${this.url}public/loginUser`, {
+        email: email,
+        haslo: hasloHashed
+      }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   get getHomePageInfo(): Observable<APIResponse> {
     return this.http.get<APIResponse>(`${this.url}site/info`, {headers: this.headers});
   }

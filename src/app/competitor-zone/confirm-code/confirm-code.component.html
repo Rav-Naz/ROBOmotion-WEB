@@ -5,7 +5,7 @@
         <div class="success" *ngIf="text">
             <div class="success-left">
                 <p>{{text | translate}}</p>
-                <button [routerLink]="['/competitor-zone']">{{'competitor-zone.confirmation-code.button' | translate}}</button>
+                <button [routerLink]="['/login']">{{'competitor-zone.confirmation-code.button' | translate}}</button>
             </div>
             <img [src]="success ? '../../../assets/gifs/freestyle.gif' : '../../../assets/gifs/sumo.gif'">
         </div>

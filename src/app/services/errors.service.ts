@@ -18,7 +18,13 @@ export class ErrorsService {
   }
 
   public showError(statusCode: statusCode, additionalMessage?: string, type?: 'succes' | 'warning' | 'error' | 'loading'): void {
-    this.ui.showFeedback(type ? type : "error", this.errorBody(this.messageBody[statusCode], additionalMessage));
+    if(this.messageBody) {
+      this.ui.showFeedback(type ? type : "error", this.errorBody(this.messageBody[statusCode], additionalMessage));
+    } else {
+      setTimeout(() => {
+        this.ui.showFeedback(type ? type : "error", this.errorBody(this.translate.instant(`errors.statusCodes.${statusCode}`), additionalMessage));
+      }, 200)
+    }
   }
 
   private errorBody(main: string, additional?: string | undefined): string {

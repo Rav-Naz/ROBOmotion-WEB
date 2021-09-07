@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { Component, OnInit, Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import openSocket from 'socket.io-client';
-import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(public translate: TranslateService) {
+  constructor(public translate: TranslateService, private injector: Injector) {
     translate.addLangs(['en', 'pl']);
     const prefLanguage = localStorage.getItem("prefLang");
     if (prefLanguage == null || prefLanguage == undefined) {
@@ -34,7 +33,13 @@ export class AppComponent {
     // })
   }
 
+  ngOnInit() {
+    this.injector.get(AuthService).getFirstName$.subscribe((data) => {
+      this.userName = data;
+    });
+  }
 
+  public userName: string | null = null;
   public isMenuOpen: boolean = false;
   public isEnglish: boolean = true;
 
@@ -53,6 +58,10 @@ export class AppComponent {
       container?.classList.add('open');
     }
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  onLogout() {
+    this.injector.get(AuthService).logout();
   }
 
   getDepth(outlet: any): void {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../services/auth.service';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ConfirmedValidator } from 'src/app/shared/utils/matching';
@@ -8,11 +9,11 @@ import { ConfirmedValidator } from 'src/app/shared/utils/matching';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent{
 
   form: FormGroup;
 
-  constructor(public translate: TranslateService, private formBuilder: FormBuilder) {
+  constructor(public translate: TranslateService, private formBuilder: FormBuilder, private authService: AuthService) {
     this.form = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
       surname: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
@@ -24,8 +25,10 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-
+  onSubmit() {
+    if (this.isFormGroupValid) {
+      this.authService.register(this.form.get('name')?.value ,this.form.get('surname')?.value,this.form.get('email')?.value,this.form.get('password')?.value)
+    }
   }
 
   get isFormGroupValid() {

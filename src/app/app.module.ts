@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +23,7 @@ import { InputComponent } from './shared/input/input.component';
 import { SelectComponent } from './shared/select/select.component';
 import { LoginComponent } from './competitor-zone/login/login.component';
 import { RegisterComponent } from './competitor-zone/register/register.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,10 @@ import { RegisterComponent } from './competitor-zone/register/register.component
     }),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: "pl-PL" },
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

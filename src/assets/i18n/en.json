@@ -8,7 +8,10 @@
         "results": "Results",
         "timetable": "Timetable",
         "plan": "Building plan",
-        "competitor-zone": "Competitor Zone"
+        "competitor-zone": "Competitor Zone",
+        "hello": "Hello",
+        "logout": "Logout"
+
     },
     "home": {
         "event-info": {
@@ -105,13 +108,23 @@
             "title": "Login",
             "sign-in": "Sign in",
             "havent": "Don't have an account yet?",
-            "register": "Sign up!"
+            "register": "Sign up!",
+            "errors": {
+                "not-found": "There is no such user!",
+                "not-activated": "User has not been activated",
+                "failed": "Incorrect e-mail or password provided",
+                "logout": "Successfully logged out"
+            }
         },
         "register": {
             "title": "Register",
             "sign-in": "Sign up",
             "have": "Already have an account?",
-            "login": "Sign in!"
+            "login": "Sign in!",
+            "errors": {
+                "duplicate": "User with this e-mail already exists!",
+                "success": "Successfully registered. Confirm your account via a message sent to the e-mail address provided."
+            }
         }
     },
     "controls": {

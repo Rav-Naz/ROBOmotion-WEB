@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth-guard.service';
 import { RegisterComponent } from './competitor-zone/register/register.component';
 import { LoginComponent } from './competitor-zone/login/login.component';
 import { ConfirmCodeComponent } from './competitor-zone/confirm-code/confirm-code.component';
@@ -14,10 +15,10 @@ const routes: Routes = [
   // {path: 'results', component: ResultsComponent},
   // {path: 'timetable', component: TimetableComponent},
   // {path: 'building-plan', component: BuildingPlanComponent},
-  // {path: 'login', component: LoginComponent},
-  // {path: 'register', component: RegisterComponent},
-  // {path: 'competitor-zone', component: CompetitorZoneComponent},
-  // {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'competitor-zone', canActivate: [AuthGuard], component: CompetitorZoneComponent},
+  {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},
 ];
 

@@ -1,7 +1,7 @@
 @import '../app/scss/colors';
 @import '../app/scss/variables';
 .navigator {
-    padding: 10rem 0rem 10rem 5rem;
+    padding: 12rem 0rem 10rem 5rem;
     // padding-bottom: 10rem;
     position: fixed;
     top: 0;
@@ -10,11 +10,17 @@
     height: 100vh;
     background: linear-gradient(-90deg, $color-primary, $color-primary-dark);
     z-index: -1;
+    transition: ease-in-out .5s;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    transition: ease-in-out .5s;
+    &-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
     img {
         margin-top: 5rem;
         border-radius: 1.5rem;
@@ -43,6 +49,50 @@
         transition: all 0.1s ease-in-out;
         &:active {
             transform: translateY(3px);
+        }
+    }
+    &-user {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start;
+        label {
+            text-align: left;
+            font-size: 3.5rem;
+            color: $color-grey-5;
+            font-weight: 400;
+            span {
+                font-weight: bold;
+                font-family: $title-font;
+                // text-transform: uppercase;
+                font-size: 4rem;
+            }
+        }
+        button {
+            &,
+            &:link,
+            &:visited {
+                color: $color-grey-5;
+                background-color: transparent;
+                text-transform: uppercase;
+                line-height: 1.75rem;
+                border-radius: 1rem;
+                // box-shadow: 0 0.2rem 2rem rgba($color-grey-5, 0.5);
+                font-size: 1.75rem;
+                font-weight: 600;
+                border: .3rem solid $color-grey-5;
+                cursor: pointer;
+                transition: all ease-out 0.2s;
+                text-decoration: none;
+                padding: 0.5rem;
+                &:focus {
+                    outline: none;
+                    &:active {
+                        transform: translateY(3px);
+                    }
+                }
+            }
         }
     }
     &-menu {
@@ -124,6 +174,7 @@
 
 @media only screen and (max-width: $max-width-5) {
     .navigator {
+        overflow-y: auto;
         width: 100vw;
         a {
             font-size: 4rem;
@@ -142,6 +193,23 @@
         &-outlet {
             &.open {
                 transform: translateX(-100vw);
+            }
+        }
+        &-user {
+            label {
+                font-size: 4rem;
+                span {
+                    font-size: 4.5rem;
+                }
+            }
+            button {
+                &,
+                &:link,
+                &:visited {
+                    line-height: 2.7rem;
+                    font-size: 2.7rem;
+                    padding: 0.7rem;
+                }
             }
         }
         &-menu {
