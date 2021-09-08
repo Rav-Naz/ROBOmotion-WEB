@@ -1,3 +1,4 @@
+import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { Component, OnInit, Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,21 +21,10 @@ export class AppComponent implements OnInit {
       this.isEnglish = prefLanguage !== 'pl';
       translate.setDefaultLang(prefLanguage);
     }
-    // const socket = openSocket('http://localhost:8080', {
-    //   auth: {
-    //     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1enl0a293bmlrX2lkIjo4LCJ1enl0a293bmlrX3V1aWQiOiIyZjM5NzgwNS1kOTI4LTExZWItOGJhNS1iOGNhM2E1YmM3ZDAiLCJ1enl0a293bmlrX3R5cCI6MiwiaWF0IjoxNjI4NzcyNDE4LCJleHAiOjE2Mjg4NTg4MTh9.53BQyw7nLpGNs2vwEoAPgLlpT1RJZlPvqqP8NhZITM8"
-    //   }
-    // });
-    // socket.on("socketId", (data) => {
-    //   console.log(data);
-    // })
-    // socket.on("addRobotCategory", (data) => {
-    //   console.log(data);
-    // })
   }
 
   ngOnInit() {
-    this.injector.get(AuthService).getFirstName$.subscribe((data) => {
+    this.injector.get(UserService).getFirstName$.subscribe((data) => {
       this.userName = data;
     });
   }

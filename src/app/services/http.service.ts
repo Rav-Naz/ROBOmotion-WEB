@@ -16,10 +16,11 @@ export class HttpService {
     this.url = environment.apiUrl;
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      // 'Access-Control-Allow-Origin': 'http://localhost:4200'
+      'Accept': 'application/json'
   })
   }
+
+  // ------------- PUBLIC
 
   confirmCode(uzytkownik_uuid: string, kod: string, czy_na_telefon: string) {
     return new Promise<any>((resolve, rejects) => {
@@ -54,6 +55,34 @@ export class HttpService {
         (error) => { rejects(error) }
       );
     })
+  }
+
+  // ------------- USER
+
+  getUser() {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.get(`${this.url}user/getUser`, {headers: this.headers}).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  // ------------- REFEREE
+
+  public setNewToken(jwt: string | null) {
+    if (jwt !== null) {
+      this.headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'token': jwt
+      })
+    } else {
+      this.headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      })
+    }
   }
 
   get getHomePageInfo(): Observable<APIResponse> {

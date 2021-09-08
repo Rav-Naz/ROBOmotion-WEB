@@ -31,6 +31,10 @@ export class RegisterComponent{
     }
   }
 
+  enterSubmit(event: any) {
+    if(event.keyCode === 13) this.onSubmit();
+  }
+
   get isFormGroupValid() {
     return this.form.valid;
   }

@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -22,13 +23,17 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit() {
-    if(this.authService.userDetails !== null) this.router.navigateByUrl('competitor-zone')
+    if(this.authService.isLogged) this.router.navigateByUrl('competitor-zone')
   }
 
   onSubmit() {
     if (this.isFormGroupValid) {
       this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value);
     }
+  }
+
+  enterSubmit(event: any) {
+    if(event.keyCode === 13) this.onSubmit();
   }
 
   get isFormGroupValid() {

@@ -24,6 +24,9 @@ import { SelectComponent } from './shared/select/select.component';
 import { LoginComponent } from './competitor-zone/login/login.component';
 import { RegisterComponent } from './competitor-zone/register/register.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { MyRobotsComponent } from './competitor-zone/user/my-robots/my-robots.component';
+import { SettingsComponent } from './competitor-zone/user/settings/settings.component';
+import { RefereeGuard } from './services/referee-guard.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { AuthGuard } from './services/auth-guard.service';
     InputComponent,
     SelectComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyRobotsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,8 @@ import { AuthGuard } from './services/auth-guard.service';
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pl-PL" },
-    AuthGuard
+    AuthGuard,
+    RefereeGuard
   ],
   bootstrap: [AppComponent]
 })

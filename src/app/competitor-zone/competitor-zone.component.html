@@ -1,7 +1,30 @@
 <div class="container">
     <app-header [pageName]="'menu.competitor-zone'"></app-header>
     <div class="competitor">
-        <!-- <h3 class="section-header">{{'competitor-zone.login.title' | translate}}</h3> -->
-        <p>Strefa zawodnika</p>
+        <div class="competitor-zone">
+            <div class="competitor-zone-bar">
+                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['my-robots']}}]">
+                    <i class="las la-robot"></i>
+                    <p>{{'competitor-zone.bar.my-robots' | translate}}</p>
+                </section>
+                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['settings']}}]">
+                    <i class="las la-cog"></i>
+                    <p>{{'competitor-zone.bar.settings' | translate}}</p>
+                </section>
+                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['referee-zone']}}]" *ngIf="userService.isReferee">
+                    <i class="las la-gavel"></i>
+                    <p>{{'competitor-zone.bar.referee-zone' | translate}}</p>
+                </section>
+            </div>
+            <div class="competitor-zone-main">
+                <ng-container *ngIf="isFirstPage">
+                    <img src="../../assets/gifs/battlebot.gif">
+                    <p>{{'competitor-zone.bar.hello.1' | translate}}<span>{{'competitor-zone.bar.hello.2' | translate}}</span><br>{{'competitor-zone.bar.hello.3' | translate}}</p>
+                </ng-container>
+                <router-outlet name="outlet">
+
+                </router-outlet>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,37 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from './../services/user.service';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl
-} from '@angular/forms';
+
 @Component({
   selector: 'app-competitor-zone',
   templateUrl: './competitor-zone.component.html',
   styleUrls: ['./competitor-zone.component.scss']
 })
-export class CompetitorZoneComponent implements OnInit{
+export class CompetitorZoneComponent{
 
-  form: FormGroup;
-  options = [{value: 'controls.category.name', id: 0}, {value: 'controls.password.name', id: 1}];
 
-  constructor(public translate: TranslateService, private formBuilder: FormBuilder) {
-    this.form = this.formBuilder.group({
-      email: [null, [Validators.required,Validators.minLength(2), Validators.maxLength(100), Validators.pattern(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)]],
-      password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(64)]],
-      // category: [null, [Validators.required]]
-    });
+  constructor(public translate: TranslateService, public userService: UserService, private router: Router) {
   }
 
-  ngOnInit() {
-    // setInterval(() => {
-    //   console.log(this.form)
-    // }, 2000)
+  get isFirstPage() {
+    return this.router.url === '/competitor-zone';
   }
 
-  get isFormGroupValid() {
-    return this.form.valid;
-  }
 
 }

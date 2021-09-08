@@ -2,7 +2,7 @@
     <app-header [pageName]="'menu.competitor-zone'"></app-header>
     <div class="competitor">
         <h3 class="section-header">{{'competitor-zone.login.title' | translate}}</h3>
-        <div class="competitor-form">
+        <div class="competitor-form" (keydown)="enterSubmit($event)">
             <app-input [group]="form" controlName="email"></app-input>
             <!-- <app-select [group]="form" controlName="category" [options]="options" translatePrefix="controls"></app-select> -->
             <app-input [group]="form" controlName="password"></app-input>

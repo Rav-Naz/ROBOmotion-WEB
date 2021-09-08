@@ -8,7 +8,71 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    p {
-        font-size: 2rem;
+    &-zone {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: max-content 1fr;
+        width: 90%;
+        height: 85%;
+        padding: 3rem;
+        box-shadow: 2rem 2rem 4rem $color-grey-4, -2rem -2rem 4rem rgba($color-grey-0, 0.1), inset 2rem 2rem 4rem $color-grey-4, inset -2rem -2rem 4rem rgba($color-grey-0, 0.1);
+        border-radius: 4rem;
+        &-bar {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, $color-grey-5, $color-grey-3);
+            box-shadow: 1rem 1rem 3rem #202020ca, -1rem -1rem 3rem #2a2a2a98;
+            border-radius: 2.5rem;
+            grid-column: 1;
+            grid-row: 1;
+            padding: 2rem;
+            &-segment {
+                padding: .5rem;
+                width: 100%;
+                transition: all .2s ease-in-out;
+                cursor: pointer;
+                i {
+                    font-size: 3rem;
+                    justify-self: center;
+                    align-self: center;
+                }
+                p {
+                    margin: 0 1rem;
+                    width: 100%;
+                    text-align: left;
+                    font-size: 2.2rem;
+                    text-transform: uppercase;
+                }
+                &:hover {
+                    color: $color-primary;
+                }
+                width: 100%;
+                display: grid;
+                grid-template-columns: min-content 1fr;
+            }
+        }
+        &-main {
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            img {
+                max-width: 30rem;
+                max-height: 30rem;
+            }
+            p {
+                font-family: $title-font;
+                font-size: 2.5rem;
+                max-width: 40%;
+                text-align: center;
+                span {
+                    color: $color-primary;
+                    font-weight: 600;
+                }
+            }
+        }
     }
 }

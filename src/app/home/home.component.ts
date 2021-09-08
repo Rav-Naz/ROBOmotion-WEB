@@ -1,3 +1,5 @@
+import { AuthService } from './../services/auth.service';
+import { UserService } from './../services/user.service';
 import { HttpService } from './../services/http.service';
 import { Patreon } from './../models/patreon';
 import { EventDescription } from './../models/event-description.model';
@@ -72,7 +74,7 @@ export class HomeComponent implements OnInit{
   public windowSize: WindowSize = { height: 1080, width: 1920};
 
 
-  constructor(private sanitizer: DomSanitizer, public translate: TranslateService, private httpService: HttpService) {
+  constructor(private sanitizer: DomSanitizer, public translate: TranslateService, private httpService: HttpService, private auth: AuthService) {
     this.httpService.getHomePageInfo.subscribe((data) => {
       if(data === undefined || data === null) return;
       this.eventDate = new Date(data.body.eventDate);

@@ -45,7 +45,7 @@
             "learn": "DOWIEDZ SIĘ WIĘCEJ",
             "regulations": "Regulamin",
             "categories": [
-                { "id": 1, "name": "Smash Bots by RoboLAB", "description": "Smash Botsy by RoboLAB to z pewnością najbardziej wymagająca konkurencja na naszych zawodach! W specjalnej arenie zdalnie sterowane roboty będą walczyć ze sobą do ostaniego tchu. Tutaj będzie się wiele działo!", "icon": "battlebot.gif", "linkToRegulation": "https://bit.ly/robomotion21bb" },
+                { "id": 1, "name": "Smash Bots by RoboLAB", "description": "Smash Botsy by RoboLAB to z pewnością najbardziej wymagająca konkurencja na naszych zawodach! W specjalnej arenie zdalnie sterowane roboty będą walczyć ze sobą do ostaniego tchu. Tutaj będzie się wiele działo!", "icon": "battlebot.gif", "linkToRegulation": "https://rzgit-my.sharepoint.com/:f:/g/personal/robo_kneiti_prz_edu_pl/ErCZ78rxSrpKs8EPimRWR0YBZNeY4CiKhoORwosxpt8iXQ?e=eyWCg8" },
                 { "id": 2, "name": "Freestyle", "description": "W tej konkurencji zawodnicy mogą wystawić całkowicie dowolny projekt, robota lub maszynę. Konstrukcje są oceniane prze sędziów oraz odwiedzających. Każdy głosujący wypełnia ankietę, w której przyznaje punkty każdemu projektowi, dlatego ważne jest, aby każdy zawodnik jak najlepiej zaprezentował swój projekt.", "icon": "freestyle.gif", "linkToRegulation": "https://bit.ly/robomotion21fs" },
                 { "id": 3, "name": "Humanoid Sprint", "description": "Roboty humanoidalne, wyglądem i sposobem poruszania się mają przypominać ciało człowieka, dlatego każdy robot w tej konkurencji musi posiadać jedną parę nóg i rąk (a już z pewnością nie mogą posiadać kółek). Tutaj będą ścigać się między sobą po prostym torze. Wygrywa pierwszy na mecie.", "icon": "humanoid_sprint.gif", "linkToRegulation": "https://rzgit-my.sharepoint.com/:f:/g/personal/robo_kneiti_prz_edu_pl/EuHkMduHWcdGrRk0_ZHTSuYBZMeydZy-cCFBMRvDA-5iIA?e=7fscaM" },
                 { "id": 4, "name": "Line Follower", "description": "Celem robota w tej konkurencji jest jak najszybsze pokonanie trasy wyznaczonej przez czarną linię narysowaną na planszy. Robot musi poruszać się po linii możliwie dokładnie, bez omijania czy ścinania zakrętów.", "icon": "line_follower.gif", "linkToRegulation": "https://rzgit-my.sharepoint.com/:f:/g/personal/robo_kneiti_prz_edu_pl/Erv3ruktMJtImHEgknuiI8EB5tQCTr3wcBGiN_7RSbGXSA?e=8Rcm8i" },
@@ -123,6 +123,16 @@
             "errors": {
                 "duplicate": "Uzytkownik o takim e-mailu już istnieje!",
                 "success": "Pomyślnie zarejestrowano. Potwierdź swoje konto poprzez wiadomość wysłaną na podany adres e-mail."
+            }
+        },
+        "bar": {
+            "my-robots": "MOJE ROBOTY",
+            "settings": "USTAWIENIA",
+            "referee-zone": "STREFA SĘDZIEGO",
+            "hello": {
+                "1": "Witaj w ",
+                "2": "Strefie Zawodnika!",
+                "3": " Wybierz jedną z aktywności dostępnych w panelu po lewej stronie ekranu."
             }
         }
     },

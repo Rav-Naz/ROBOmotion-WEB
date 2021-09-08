@@ -1,4 +1,6 @@
-import { Observable, observable, BehaviorSubject } from 'rxjs';
+import { UserService } from './user.service';
+import { WebsocketService } from './websocket.service';
+import { BehaviorSubject } from 'rxjs';
 import { UiService } from './ui.service';
 import { ErrorsService } from './errors.service';
 import { Injectable } from '@angular/core';
@@ -6,6 +8,8 @@ import { HttpService } from './http.service';
 import { Router } from '@angular/router';
 import { sha256 } from 'js-sha256'
 import { TranslateService } from '@ngx-translate/core';
+import jwt_decode from 'jwt-decode';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,32 +17,44 @@ import { TranslateService } from '@ngx-translate/core';
 export class AuthService {
 
   public JWT: string | null= null;
-  public userDetails: object | null = null;
-  public userName = new BehaviorSubject<string | null>(null);
 
-  constructor(private http: HttpService, private router: Router, private errorService: ErrorsService, private ui: UiService, private translate: TranslateService) {
+  constructor(private http: HttpService, private router: Router, private errorService: ErrorsService, private ui: UiService, private translate: TranslateService, private webSocket: WebsocketService, private userService: UserService) {
     const details = localStorage.getItem('details');
     if (details) {
-      this.SetDetails(details);
+      this.SetDetails(details).then(() => {
+        if(!this.isLogged) { this.SetDetails(null) }
+        else {
+          setTimeout(() => {
+            this.userService.getUser().then((value) => {
+              this.SetDetails(JSON.stringify({...value.body, token: this.JWT}))
+            })
+          }, 1000)
+        };
+      });
+    } else {
+      this.webSocket.createSocket();
     }
   }
 
   SetDetails(userDetails: string | null) {
     return new Promise<void>((resolve) => {
+      
       if(userDetails !== null) {
         const detailsParsed = JSON.parse(userDetails);
-        this.userDetails = detailsParsed;
+        this.userService.userDetails = detailsParsed;
         this.JWT = detailsParsed.token;
-        this.userName.next(detailsParsed.imie);
+        this.userService.userName.next(detailsParsed.imie);
         localStorage.setItem('details', JSON.stringify(detailsParsed));
-        resolve();
+        this.webSocket.createSocket(this.JWT!);
       } else {
-        this.userName.next(null);
-        this.userDetails = null;
+        this.userService.userName.next(null);
+        this.userService.userDetails = null;
         this.JWT = null;
         localStorage.removeItem('details');
-        resolve();
+        this.webSocket.createSocket();
       }
+      this.http.setNewToken(this.JWT);
+      resolve();
     });
   }
 
@@ -99,7 +115,7 @@ export class AuthService {
   {
     return new Promise<void>(async (resolve) => {
       await this.SetDetails(null);
-      if(this.router.url.length === 1 || (this.router.url.length > 1 && this.router.url.slice(0,2) === '/#')) {
+      if(this.router.url.length === 1 || (this.router.url.length > 1 && this.router.url.slice(0,2) === '/#')) { //jeśli jest na stronie głownej
         setTimeout(() => {
           this.ui.showFeedback('succes', this.translate.instant('competitor-zone.login.errors.logout'), 3);
         }, 400);
@@ -118,18 +134,12 @@ export class AuthService {
     return sha256(haslo);
   }
 
-  get getFirstName$() {
-    return this.userName.asObservable();
-  }
-
   get isLogged()
   {
-    return this.JWT !== null;
-  }
-
-  get userType()
-  {
-    return (this.userDetails as any).uzytkownik_typ;
+    if(this.JWT === null || this.JWT === undefined) return false;
+    const d = new Date(0);
+    d.setUTCSeconds((jwt_decode(this.JWT!) as any).exp);
+    return new Date() < d;
   }
 
 }
