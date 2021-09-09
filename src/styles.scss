@@ -133,6 +133,14 @@ body {
     font-family: 'Changa', sans-serif;
 }
 
+.router-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
 ::-webkit-scrollbar {
     width: 1rem;
 }

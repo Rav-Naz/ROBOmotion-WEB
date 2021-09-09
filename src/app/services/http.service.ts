@@ -1,3 +1,4 @@
+import { Robot } from './../models/robot';
 import { APIResponse } from './../models/response';
 import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
@@ -22,18 +23,18 @@ export class HttpService {
 
   // ------------- PUBLIC
 
-  confirmCode(uzytkownik_uuid: string, kod: string, czy_na_telefon: string) {
+  public confirmCode(uzytkownik_uuid: string, kod: string, czy_na_telefon: string) {
     return new Promise<any>((resolve, rejects) => {
-      this.http.get(`${this.url}public/confirmCode/${uzytkownik_uuid}/${kod}/${czy_na_telefon}`).toPromise().then(
+      this.http.get<APIResponse>(`${this.url}public/confirmCode/${uzytkownik_uuid}/${kod}/${czy_na_telefon}`).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );
     })
   }
 
-  register(imie: string, nazwisko: string, email: string, hasloHashed: string) {
+  public register(imie: string, nazwisko: string, email: string, hasloHashed: string) {
     return new Promise<any>((resolve, rejects) => {
-      this.http.post(`${this.url}public/registerUser`, {
+      this.http.post<APIResponse>(`${this.url}public/registerUser`, {
         imie: imie,
         nazwisko: nazwisko,
         email: email,
@@ -45,9 +46,9 @@ export class HttpService {
     })
   }
 
-  login(email: string, hasloHashed: string) {
+  public login(email: string, hasloHashed: string) {
     return new Promise<any>((resolve, rejects) => {
-      this.http.post(`${this.url}public/loginUser`, {
+      this.http.post<APIResponse>(`${this.url}public/loginUser`, {
         email: email,
         haslo: hasloHashed
       }).toPromise().then(
@@ -59,9 +60,18 @@ export class HttpService {
 
   // ------------- USER
 
-  getUser() {
+  public getUser() {
     return new Promise<any>((resolve, rejects) => {
-      this.http.get(`${this.url}user/getUser`, {headers: this.headers}).toPromise().then(
+      this.http.get<APIResponse>(`${this.url}user/getUser`, {headers: this.headers}).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public getAllRobotsOfUser() {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}user/getAllRobotsOfUser`, {headers: this.headers}).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );

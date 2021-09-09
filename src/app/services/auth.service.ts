@@ -17,9 +17,14 @@ import jwt_decode from 'jwt-decode';
 export class AuthService {
 
   public JWT: string | null= null;
+  public accessToModifyExpirationDate: Date | null = null;
 
   constructor(private http: HttpService, private router: Router, private errorService: ErrorsService, private ui: UiService, private translate: TranslateService, private webSocket: WebsocketService, private userService: UserService) {
     const details = localStorage.getItem('details');
+    this.http.getHomePageInfo.subscribe((data) => {
+      if(data === undefined || data === null) return;
+      this.accessToModifyExpirationDate = new Date(data.body.accessToModifyExpirationDate);
+    })
     if (details) {
       this.SetDetails(details).then(() => {
         if(!this.isLogged) { this.SetDetails(null) }
@@ -140,6 +145,10 @@ export class AuthService {
     const d = new Date(0);
     d.setUTCSeconds((jwt_decode(this.JWT!) as any).exp);
     return new Date() < d;
+  }
+
+  get canModify() {
+    return (this.accessToModifyExpirationDate !== null && this.accessToModifyExpirationDate > new Date()) || this.userService.isReferee;
   }
 
 }

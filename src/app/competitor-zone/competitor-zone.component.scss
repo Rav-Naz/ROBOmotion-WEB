@@ -27,6 +27,9 @@
             grid-row: 1;
             padding: 2rem;
             &-segment {
+                &-active {
+                    color: $color-primary;
+                }
                 padding: .5rem;
                 width: 100%;
                 transition: all .2s ease-in-out;
@@ -55,6 +58,7 @@
             width: 100%;
             height: 100%;
             padding: 2rem;
+            padding-left: 5rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -73,6 +77,17 @@
                     font-weight: 600;
                 }
             }
+            div {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
+}
+
+.router-flex {
+    // height: 1px;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
 }

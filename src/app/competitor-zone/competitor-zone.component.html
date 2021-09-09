@@ -3,15 +3,15 @@
     <div class="competitor">
         <div class="competitor-zone">
             <div class="competitor-zone-bar">
-                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['my-robots']}}]">
+                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['my-robots']}}]" routerLinkActive="competitor-zone-bar-segment-active">
                     <i class="las la-robot"></i>
                     <p>{{'competitor-zone.bar.my-robots' | translate}}</p>
                 </section>
-                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['settings']}}]">
+                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['settings']}}]" routerLinkActive="competitor-zone-bar-segment-active">
                     <i class="las la-cog"></i>
                     <p>{{'competitor-zone.bar.settings' | translate}}</p>
                 </section>
-                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['referee-zone']}}]" *ngIf="userService.isReferee">
+                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['referee-zone']}}]" *ngIf="userService.isReferee" routerLinkActive="competitor-zone-bar-segment-active">
                     <i class="las la-gavel"></i>
                     <p>{{'competitor-zone.bar.referee-zone' | translate}}</p>
                 </section>
@@ -21,9 +21,9 @@
                     <img src="../../assets/gifs/battlebot.gif">
                     <p>{{'competitor-zone.bar.hello.1' | translate}}<span>{{'competitor-zone.bar.hello.2' | translate}}</span><br>{{'competitor-zone.bar.hello.3' | translate}}</p>
                 </ng-container>
-                <router-outlet name="outlet">
-
-                </router-outlet>
+                <div fxFlex fxLayout="column">
+                    <router-outlet name="outlet"></router-outlet>
+                </div>
             </div>
         </div>
     </div>

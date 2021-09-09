@@ -1,1 +1,14 @@
-<p>my-robots works!</p>
+<div class="router-child">
+    <div class="my-robots-header">
+        <p></p>
+        <label>MOJE ROBOTY</label>
+        <button class="submit-button">DODAJ ROBOTA <i class="las la-plus-circle"></i></button>
+    </div>
+    <div class="my-robots">
+        <div class="my-robots-element" *ngFor="let robot of userRobots">
+            <p>{{robot.nazwa_robota}}</p>
+            <p>{{robot.kategorie}}</p>
+            <p>Usun</p>
+        </div>
+    </div>
+</div>

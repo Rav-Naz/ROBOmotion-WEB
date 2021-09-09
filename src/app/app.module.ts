@@ -27,6 +27,8 @@ import { AuthGuard } from './services/auth-guard.service';
 import { MyRobotsComponent } from './competitor-zone/user/my-robots/my-robots.component';
 import { SettingsComponent } from './competitor-zone/user/settings/settings.component';
 import { RefereeGuard } from './services/referee-guard.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { RefereeGuard } from './services/referee-guard.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    FlexLayoutModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-top-right',

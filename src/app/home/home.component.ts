@@ -15,7 +15,7 @@ import { Category } from '../models/category';
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { TranslateService } from '@ngx-translate/core';
 import { WindowSize } from '../models/window_size.model';
-import { fromEvent, Observable } from "rxjs";
+import { fromEvent, Observable, Subscription } from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -66,16 +66,18 @@ export class HomeComponent implements OnInit{
   private switchTimer: any;
   private scrollTimer: any;
   private isScrollPaused: boolean = true;
+  private subs: Subscription = new Subscription;
   public timeToEvent: number | undefined;
   public streamLink: SafeResourceUrl | undefined = undefined;
   public timeIsUp = false;
   public switchAnimationStateName: 'start' | 'void' | 'end' = 'void';
-  public eventDate: Date = new Date(2021, 10, 27, 9, 0, 0);
+  public eventDate: Date = new Date(2021, 10, 28, 9, 0, 0);
   public windowSize: WindowSize = { height: 1080, width: 1920};
 
 
+
   constructor(private sanitizer: DomSanitizer, public translate: TranslateService, private httpService: HttpService, private auth: AuthService) {
-    this.httpService.getHomePageInfo.subscribe((data) => {
+    const sub1 = this.httpService.getHomePageInfo.subscribe((data) => {
       if(data === undefined || data === null) return;
       this.eventDate = new Date(data.body.eventDate);
       if(data.body.streamLink) {
@@ -84,7 +86,7 @@ export class HomeComponent implements OnInit{
     })
     this.windowSize = {height: window.innerHeight, width: window.innerWidth };
     const resizeObs = fromEvent(window, 'resize') as Observable<any>;
-    resizeObs.subscribe(size => {
+    const sub2 = resizeObs.subscribe(size => {
       if (!size) { return; }
       this.windowSize = {height: size.currentTarget.innerHeight, width: size.currentTarget.innerWidth};
     })
@@ -93,18 +95,19 @@ export class HomeComponent implements OnInit{
       this.refreshCounter()
     }, 1000);
     this.resetSwitchTimer();
-    translate.stream('home.event-program.eventsList').subscribe((events: Array<EventDescription>) => {
+    const sub3 = translate.stream('home.event-program.eventsList').subscribe((events: Array<EventDescription>) => {
       this.eventsList = events;
     });
-    translate.stream('home.competitions.categories').subscribe((categories: Array<Category>) => {
+    const sub4 = translate.stream('home.competitions.categories').subscribe((categories: Array<Category>) => {
       this.categories = categories;
     });
-    translate.stream('home.patreons.patreonList').subscribe((patreons: Array<Patreon>) => {
+    const sub5 = translate.stream('home.patreons.patreonList').subscribe((patreons: Array<Patreon>) => {
       if(typeof patreons === 'object') this.patreons = patreons;
     });
-    translate.stream('home.patreons.tiers').subscribe((tiers: Array<string>) => {
+    const sub6 = translate.stream('home.patreons.tiers').subscribe((tiers: Array<string>) => {
       if(typeof tiers === 'object') this.patreonNames = tiers;
     });
+    this.subs?.add(sub1).add(sub2).add(sub3).add(sub4).add(sub5).add(sub6);
   }
 
   ngOnInit() {

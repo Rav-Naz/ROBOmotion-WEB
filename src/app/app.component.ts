@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { Component, OnInit, Injector } from '@angular/core';
@@ -9,6 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+
+  private subs: Subscription = new Subscription;
 
   constructor(public translate: TranslateService, private injector: Injector) {
     translate.addLangs(['en', 'pl']);
@@ -24,9 +27,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.injector.get(UserService).getFirstName$.subscribe((data) => {
+    const sub1 = this.injector.get(UserService).getFirstName$.subscribe((data) => {
       this.userName = data;
-    });
+    })
+    this.subs?.add(sub1);
   }
 
   public userName: string | null = null;
@@ -62,5 +66,9 @@ export class AppComponent implements OnInit {
     localStorage.setItem('prefLang', this.isEnglish ? 'en' : 'pl');
     this.translate.use(this.isEnglish ? 'en' : 'pl');
 
+  }
+
+  ngOnDestroy(): void {
+    this.subs?.unsubscribe();
   }
 }

@@ -1,12 +1,15 @@
 import { Router } from '@angular/router';
 import { UserService } from './../services/user.service';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { RobotsService } from '../services/robots.service';
 
 @Component({
   selector: 'app-competitor-zone',
   templateUrl: './competitor-zone.component.html',
-  styleUrls: ['./competitor-zone.component.scss']
+  styleUrls: ['./competitor-zone.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  providers: [RobotsService]
 })
 export class CompetitorZoneComponent{
 
@@ -17,6 +20,5 @@ export class CompetitorZoneComponent{
   get isFirstPage() {
     return this.router.url === '/competitor-zone';
   }
-
 
 }
