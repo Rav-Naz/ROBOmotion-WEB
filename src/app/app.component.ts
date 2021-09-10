@@ -1,3 +1,4 @@
+import { CategoriesService } from './services/categories.service';
 import { Subscription } from 'rxjs';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
@@ -8,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [CategoriesService]
 })
 export class AppComponent implements OnInit {
 

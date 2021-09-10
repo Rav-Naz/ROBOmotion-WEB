@@ -28,6 +28,8 @@ import { MyRobotsComponent } from './competitor-zone/user/my-robots/my-robots.co
 import { SettingsComponent } from './competitor-zone/user/settings/settings.component';
 import { RefereeGuard } from './services/referee-guard.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NewRobotComponent } from './competitor-zone/user/my-robots/new-robot/new-robot.component';
+import { RobotComponent } from './competitor-zone/user/my-robots/robot/robot.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LoginComponent,
     RegisterComponent,
     MyRobotsComponent,
-    SettingsComponent
+    SettingsComponent,
+    NewRobotComponent,
+    RobotComponent
   ],
   imports: [
     BrowserModule,

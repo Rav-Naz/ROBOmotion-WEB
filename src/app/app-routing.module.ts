@@ -1,3 +1,5 @@
+import { RobotComponent } from './competitor-zone/user/my-robots/robot/robot.component';
+import { NewRobotComponent } from './competitor-zone/user/my-robots/new-robot/new-robot.component';
 import { RefereeZoneComponent } from './competitor-zone/referee/referee-zone/referee-zone.component';
 import { SettingsComponent } from './competitor-zone/user/settings/settings.component';
 import { MyRobotsComponent } from './competitor-zone/user/my-robots/my-robots.component';
@@ -25,6 +27,8 @@ const routes: Routes = [
     {path: 'my-robots', component: MyRobotsComponent, outlet: 'outlet'},
     {path: 'settings', component: SettingsComponent, outlet: 'outlet'},
     {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'robot/:id', component: RobotComponent, outlet: 'outlet'},
+    {path: 'add-robot', component: NewRobotComponent,  outlet: 'outlet'},
   ]},
   {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},

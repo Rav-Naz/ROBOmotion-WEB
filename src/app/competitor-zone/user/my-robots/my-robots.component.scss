@@ -44,17 +44,68 @@
     &-element {
         margin: 1rem 0;
         border: 3px solid $color-grey-1;
-        height: 6rem;
+        height: min-content;
         width: 100%;
         border-radius: 2rem;
         background: #252525c2;
         transition: all .3s;
         box-shadow: inset 5px 5px 10px #14141498, inset -5px -5px 10px #3f3f3fdf;
         &:hover {
+            &>span:last-child {
+                color: $color-primary;
+                border-bottom: 1px dashed $color-primary;
+            }
             border: 3px solid rgba($color-primary, 0.7);
         }
         display: grid;
         grid-template-rows: 1fr;
-        grid-template-columns: 1fr 2fr max-content;
+        grid-template-columns: 35rem 2fr max-content;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        &-name {
+            text-align: left;
+            grid-column: 1;
+            grid-row: 1;
+            align-items: center;
+            line-height: 170%;
+            transform: translateY(15%);
+        }
+        &-uuid {
+            grid-column: 1;
+            grid-row: 1;
+            font-size: 1rem;
+            color: $color-primary;
+            align-items: center;
+            justify-self: left;
+            min-width: max-content;
+            transform: translateY(5%);
+        }
+        &-categories {
+            align-self: center;
+            width: max-content;
+            // width: 80%;
+            font-weight: 100;
+            font-family: $default-font;
+            color: $color-white;
+            font-size: 1.6rem;
+            grid-column: 2;
+            grid-row: 1;
+        }
+        &-edit {
+            transition: all .3s;
+            font-family: $title-font;
+            align-items: center;
+            line-height: normal;
+            color: $color-grey-0;
+            font-size: 2rem;
+            grid-column: 3;
+            grid-row: 1;
+            align-self: center;
+            border-bottom: 1px dashed $color-grey-0;
+            padding-bottom: .4rem;
+            i {
+                padding-left: .5rem;
+            }
+        }
     }
 }

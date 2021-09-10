@@ -134,6 +134,11 @@
                 "2": "Strefie Zawodnika!",
                 "3": " Wybierz jedną z aktywności dostępnych w panelu po lewej stronie ekranu."
             }
+        },
+        "my-robots": {
+            "title": "MOJE ROBOTY",
+            "add": "Dodaj robota",
+            "edit": "Edytuj"
         }
     },
     "controls": {

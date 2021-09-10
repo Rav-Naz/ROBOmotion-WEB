@@ -135,6 +135,11 @@
                 "2": "Competitor Zone!",
                 "3": " Select one of the activities available in the panel on the left side of the screen."
             }
+        },
+        "my-robots": {
+            "title": "MY ROBOTS",
+            "add": "Add robot",
+            "edit": "Edit"
         }
     },
     "controls": {

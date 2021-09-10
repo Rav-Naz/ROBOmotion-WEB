@@ -14,7 +14,7 @@ export class RobotsService{
     this.getAllRobotsOfUser();
   }
 
-  getAllRobotsOfUser() {
+  public getAllRobotsOfUser() {
     return new Promise<any>(async (resolve) => {
       const value = await this.http.getAllRobotsOfUser().catch(err => {
         if(err.status === 400) {
