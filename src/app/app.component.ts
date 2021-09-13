@@ -1,3 +1,4 @@
+import { RobotsService } from './services/robots.service';
 import { CategoriesService } from './services/categories.service';
 import { Subscription } from 'rxjs';
 import { UserService } from './services/user.service';
@@ -42,7 +43,7 @@ export class AppComponent implements OnInit {
   switchMenu(bool?: boolean): void {
     const menuButton = document.querySelector('.navigator-menu');
     const container = document.querySelector('.navigator-outlet');
-    if(bool != null && bool != undefined) {
+    if (bool != null && bool != undefined) {
       this.isMenuOpen = !bool;
     }
     if (this.isMenuOpen) {
@@ -53,6 +54,9 @@ export class AppComponent implements OnInit {
       menuButton?.classList.add('open');
       container?.classList.add('open');
     }
+    const sub2 = this.injector.get(RobotsService).userRobots$.subscribe((data) => {
+      console.log("app.componrnt", data)
+    })
     this.isMenuOpen = !this.isMenuOpen;
   }
 

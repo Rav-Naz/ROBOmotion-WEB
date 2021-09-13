@@ -26,7 +26,7 @@ export class RobotsService{
 
       if(value !== undefined) {
         resolve(value);
-        this.userRobots.next(value.body);
+        this.userRobots.next(Object.assign(value.body));
       }
     });
   }

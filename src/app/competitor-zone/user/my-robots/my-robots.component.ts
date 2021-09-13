@@ -6,7 +6,7 @@ import { Robot } from './../../../models/robot';
 import { RobotsService } from './../../../services/robots.service';
 import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, forkJoin, combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-my-robots',
@@ -25,25 +25,18 @@ export class MyRobotsComponent implements OnInit {
   constructor(private authService: AuthService, private robotsService: RobotsService, private categoriesService: CategoriesService, public translate: TranslateService, public router: Router) { }
 
   ngOnInit(): void {
-    const sub1 = this.robotsService.userRobots$.subscribe((data) => {
-      if(data !== null && data !== undefined) {
-        this.userRobots = [...data];
-      } else {return;}
-      const sub2 = this.categoriesService.categories$.subscribe((data1) => {
-        if(data1 !== null && data1 !== undefined) {
-          this.categories = [...data1];
-          // console.log(this.userRobots);
-          if (this.userRobots === null || this.userRobots === undefined) return;
-          for (let index = 0; index < this.userRobots!.length; index++) {
-            // console.log()
-            const robot = this.userRobots![index];
-            robot.kategorie = [...robot.kategorie.split(", ")].map((cat) => this.categories?.find(obj => obj.kategoria_id.toString() === cat)?.nazwa).join(", ")
-          }
-        }
-      });
-      this.subs.add(sub2);
-    });
-    this.subs?.add(sub1);
+
+    const sub1 = combineLatest(this.categoriesService.categories$, this.robotsService.userRobots$).subscribe((val) => {
+      if (val[0] !== null && val[1]) {
+        this.userRobots = JSON.parse(JSON.stringify(val[1]!));
+        this.categories = JSON.parse(JSON.stringify(val[0]!));
+        this.userRobots?.forEach((robot) => {
+          const a = [...[...robot.kategorie.split(", ")].map((cat) => this.categories!.find(obj => obj.kategoria_id.toString() === cat)?.nazwa)].join(", ");
+          robot.kategorie = a;
+        })
+      }
+    })
+    this.subs.add(sub1)
 
   }
 
