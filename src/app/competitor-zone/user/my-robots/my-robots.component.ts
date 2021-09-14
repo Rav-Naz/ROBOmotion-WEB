@@ -22,7 +22,7 @@ export class MyRobotsComponent implements OnInit {
   public userRobots: Array<Robot> | null = null;
   public categories: Array<CategoryMain> | null = null;
 
-  constructor(private authService: AuthService, private robotsService: RobotsService, private categoriesService: CategoriesService, public translate: TranslateService, public router: Router) { }
+  constructor(public authService: AuthService, private robotsService: RobotsService, private categoriesService: CategoriesService, public translate: TranslateService, public router: Router) { }
 
   ngOnInit(): void {
 

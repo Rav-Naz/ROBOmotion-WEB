@@ -27,7 +27,7 @@ const routes: Routes = [
     {path: 'my-robots', component: MyRobotsComponent, outlet: 'outlet'},
     {path: 'settings', component: SettingsComponent, outlet: 'outlet'},
     {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
-    {path: 'robot/:id', component: RobotComponent, outlet: 'outlet'},
+    {path: 'robot/:robot_uuid', component: RobotComponent, outlet: 'outlet'},
     {path: 'add-robot', component: NewRobotComponent,  outlet: 'outlet'},
   ]},
   {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
