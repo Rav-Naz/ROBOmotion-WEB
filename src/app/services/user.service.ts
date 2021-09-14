@@ -22,9 +22,7 @@ export class UserService {
           this.errorService.showError(err.status);
         }
       })
-      if(value !== undefined) {
-        resolve(value);
-      }
+      resolve(value);
     });
   }
 

@@ -12,6 +12,7 @@ import { ConfirmedValidator } from 'src/app/shared/utils/matching';
 export class RegisterComponent{
 
   form: FormGroup;
+  private loading: boolean = false;
 
   constructor(public translate: TranslateService, private formBuilder: FormBuilder, private authService: AuthService) {
     this.form = this.formBuilder.group({
@@ -27,7 +28,11 @@ export class RegisterComponent{
 
   onSubmit() {
     if (this.isFormGroupValid) {
+      this.loading = true;
       this.authService.register(this.form.get('name')?.value ,this.form.get('surname')?.value,this.form.get('email')?.value,this.form.get('password')?.value)
+      .finally(() => {
+        this.loading = false;
+      })
     }
   }
 
@@ -36,7 +41,11 @@ export class RegisterComponent{
   }
 
   get isFormGroupValid() {
-    return this.form.valid;
+    return this.form.valid && !this.isLoading;
+  }
+
+  get isLoading() {
+    return this.loading;
   }
 
 }

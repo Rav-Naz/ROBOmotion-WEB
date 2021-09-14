@@ -84,11 +84,11 @@ export class AuthService {
         }
       })
       if(value !== undefined) {
-        resolve(value);
         this.SetDetails(JSON.stringify(value.body))
         this.router.navigateByUrl('/competitor-zone').then(() => {
         })
       }
+      resolve(value);
     });
   }
 
@@ -111,8 +111,8 @@ export class AuthService {
             this.ui.showFeedback("succes", this.translate.instant('competitor-zone.register.errors.success'), 4)
           }, 200)
         })
-        resolve(value);
       }
+      resolve(value);
     });
   }
 

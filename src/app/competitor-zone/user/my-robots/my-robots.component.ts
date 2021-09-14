@@ -46,6 +46,5 @@ export class MyRobotsComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subs?.unsubscribe();
-    console.log("onDestroy my-robots")
   }
 }

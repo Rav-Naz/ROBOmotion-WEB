@@ -139,6 +139,25 @@
             "title": "MOJE ROBOTY",
             "add": "Dodaj robota",
             "edit": "Edytuj"
+        },
+        "new-robot": {
+            "category": {
+                "name": "Kategoria",
+                "validators": {
+                    "required": "To pole jest wymagane"
+                }
+            },
+            "add": "Dodaj",
+            "h1": {
+                "1": "Dodaj nowego ",
+                "2": "robota"
+            },
+            "p": {
+                "1": "*Rekomendujemy aby nie dodawać więcej niż ",
+                "2": "jednego",
+                "3": " robota w kategorii. Może to spowodować błędy logistyczne i uniemożliwić udział robota w rozgrywkach."
+            },
+            "success": "Pomyślnie dodano nowego robota"
         }
     },
     "controls": {
@@ -186,6 +205,14 @@
             "name": "Kategoria",
             "validators": {
                 "required": "To pole jest wymagane"
+            }
+        },
+        "robot_name": {
+            "name": "Nazwa robota",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "minlength": "Nazwa musi być dłuższa niż 2 znaki",
+                "maxlength": "Nazwa musi być krótsza niż 40 znaków"
             }
         }
     },

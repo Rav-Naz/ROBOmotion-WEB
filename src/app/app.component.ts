@@ -54,9 +54,7 @@ export class AppComponent implements OnInit {
       menuButton?.classList.add('open');
       container?.classList.add('open');
     }
-    const sub2 = this.injector.get(RobotsService).userRobots$.subscribe((data) => {
-      console.log("app.componrnt", data)
-    })
+
     this.isMenuOpen = !this.isMenuOpen;
   }
 

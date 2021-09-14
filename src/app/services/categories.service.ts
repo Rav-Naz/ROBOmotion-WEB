@@ -17,7 +17,7 @@ export class CategoriesService {
   }
 
   public getAllCategories() {
-    return new Promise<APIResponse>(async (resolve) => {
+    return new Promise<APIResponse | void>(async (resolve) => {
       const value = await this.http.getAllCategories.catch(err => {
         if(err.status === 400) {
           this.errorService.showError(err.status, err.error.body);
@@ -27,9 +27,9 @@ export class CategoriesService {
       })
 
       if(value !== undefined) {
-        resolve(value);
         this.categories.next(value.body);
       }
+      resolve(value);
     }); 
   }
 

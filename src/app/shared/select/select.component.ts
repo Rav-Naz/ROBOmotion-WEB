@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,12 +6,16 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent {
+export class SelectComponent implements OnInit{
 
   @Input() group!: FormGroup;
   @Input() controlName!: string;
   @Input() translatePrefix!: string;
-  @Input() options!: Array<{value: string, id: any}>;
+  @Input() options!: any;
+
+  ngOnInit() {
+    if(this.options) this.options = JSON.parse(this.options);
+  }
 
   get isFormInvalid() {
     return !this.group.get(this.controlName)?.valid && this.group.get(this.controlName)?.touched;

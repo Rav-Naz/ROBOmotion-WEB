@@ -91,6 +91,18 @@ export class HttpService {
     })
   }
 
+  public addRobot(nazwa: string, kategoria_id: number) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}user/addRobot`, {
+        nazwa : nazwa,
+        kategoria_id : kategoria_id
+      }, {headers: this.headers}).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   // ------------- REFEREE
 
   public setNewToken(jwt: string | null) {

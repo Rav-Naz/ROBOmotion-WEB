@@ -6,10 +6,13 @@
     </div>
     <div class="my-robots">
         <div class="my-robots-element" *ngFor="let robot of userRobots" (click)="editRobot(robot.robot_uuid)">
-            <p class="my-robots-element-name">{{robot.nazwa_robota}}</p>
-            <p class="my-robots-element-uuid">{{robot.robot_uuid}}</p>
+            <div class="my-robots-element-info">
+                <p class="my-robots-element-uuid">{{robot.robot_uuid}}</p>
+                <p class="my-robots-element-name">{{robot.nazwa_robota}}</p>
+            </div>
             <span class="my-robots-element-categories">{{robot.kategorie}}</span>
             <span class="my-robots-element-edit">{{'competitor-zone.my-robots.edit' | translate}}<i class="las la-edit"></i></span>
         </div>
+        <app-spinner *ngIf="!userRobots"></app-spinner>
     </div>
 </div>

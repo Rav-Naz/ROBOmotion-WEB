@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit{
 
   form: FormGroup;
   // options = [{value: 'controls.category.name', id: 0}, {value: 'controls.password.name', id: 1}];
+  private loading: boolean = false;
 
   constructor(public translate: TranslateService, private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.form = this.formBuilder.group({
@@ -28,7 +29,11 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {
     if (this.isFormGroupValid) {
-      this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value);
+      this.loading = true;
+      this.authService.login(this.form.get('email')?.value,this.form.get('password')?.value)
+      .finally(() => {
+        this.loading = false;
+      })
     }
   }
 
@@ -37,6 +42,11 @@ export class LoginComponent implements OnInit{
   }
 
   get isFormGroupValid() {
-    return this.form.valid;
+    return this.form.valid && !this.isLoading;
   }
+
+  get isLoading() {
+    return this.loading;
+  }
+
 }
