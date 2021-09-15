@@ -48,11 +48,11 @@ export class AuthService {
         const detailsParsed = JSON.parse(userDetails);
         this.userService.userDetails = detailsParsed;
         this.JWT = detailsParsed.token;
-        this.userService.userName.next(detailsParsed.imie);
+        this.userService.user.next(detailsParsed);
         localStorage.setItem('details', JSON.stringify(detailsParsed));
         this.webSocket.createSocket(this.JWT!);
       } else {
-        this.userService.userName.next(null);
+        this.userService.user.next(null);
         this.userService.userDetails = null;
         this.JWT = null;
         localStorage.removeItem('details');

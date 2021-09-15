@@ -6,7 +6,7 @@ import { Robot } from './../../../models/robot';
 import { RobotsService } from './../../../services/robots.service';
 import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Subscription, forkJoin, combineLatest } from 'rxjs';
+import { Subscription, combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-my-robots',

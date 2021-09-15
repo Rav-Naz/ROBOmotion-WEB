@@ -11,7 +11,8 @@ export class InputComponent {
   @Input() group!: FormGroup;
   @Input() controlName!: string;
   @Input() nameKey!: string;
-
+  @Input() collapsed: undefined | boolean;
+  
   get isFormInvalid() {
     return !this.group.get(this.controlName)?.valid && this.group.get(this.controlName)?.touched;
   }

@@ -12,6 +12,7 @@ export class SelectComponent implements OnInit{
   @Input() controlName!: string;
   @Input() translatePrefix!: string;
   @Input() options!: any;
+  @Input() collapsed: undefined | boolean;
 
   ngOnInit() {
     if(this.options) this.options = JSON.parse(this.options);

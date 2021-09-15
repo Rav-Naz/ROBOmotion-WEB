@@ -10,7 +10,8 @@
         "plan": "Plan budynku",
         "competitor-zone": "Strefa Zawodnika",
         "hello": "Witaj",
-        "logout": "Wyloguj"
+        "logout": "Wyloguj",
+        "uuid": "Identyfikator użytkownika (UUID):"
     },
     "home": {
         "event-info": {
@@ -158,6 +159,14 @@
                 "3": " robota w kategorii. Może to spowodować błędy logistyczne i uniemożliwić udział robota w rozgrywkach."
             },
             "success": "Pomyślnie dodano nowego robota"
+        },
+        "robot": {
+            "category": {
+                "name": "Nowa kategoria",
+                "validators": {
+                    "required": "To pole jest wymagane"
+                }
+            }
         }
     },
     "controls": {
@@ -213,6 +222,14 @@
                 "required": "To pole jest wymagane",
                 "minlength": "Nazwa musi być dłuższa niż 2 znaki",
                 "maxlength": "Nazwa musi być krótsza niż 40 znaków"
+            }
+        },
+        "constructor_uuid": {
+            "name": "Identyfikator użytkownika (UUID)",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "minlength": "Wprowadź poprawny identyfikator użytkownika",
+                "maxlength": "Wprowadź poprawny identyfikator użytkownika"
             }
         }
     },

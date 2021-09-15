@@ -33,6 +33,23 @@ export class CategoriesService {
     }); 
   }
 
+  public addRobotCategory(kategoria_id: number, robot_uuid: string) {
+    return new Promise<APIResponse | void>(async (resolve) => {
+      const value = await this.http.addRobotCategory(kategoria_id, robot_uuid).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, err.error.body);
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+
+      if(value !== undefined) {
+        // this.categories.next(value.body);
+      }
+      resolve(value);
+    }); 
+  }
+
   get categories$() {
     return this.categories.asObservable();
   }

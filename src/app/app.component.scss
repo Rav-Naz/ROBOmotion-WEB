@@ -57,6 +57,19 @@
         flex-direction: column;
         justify-content: left;
         align-items: flex-start;
+        span {
+            // color: $color-grey-5 !important;
+            font-size: 1.5rem;
+            color: $color-grey-5;
+            letter-spacing: .2rem;
+        }
+        p {
+            // color: $color-grey-5 !important;
+            font-size: 1.5rem;
+            color: $color-grey-5;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
         label {
             text-align: left;
             font-size: 3.5rem;

@@ -1,4 +1,4 @@
-<div class="top" [formGroup]="group">
+<div class="top" [formGroup]="group" [ngClass]="{'collapsed': collapsed}">
     <div class="form">
         <input type="text" [id]="controlName" class="form__input" [autocomplete]="controlName" placeholder=" " [ngClass]="{'form__input-invalid': isFormInvalid}" [formControlName]="controlName" [type]="isControlPassword ? 'password' : 'text'" [name]="controlName">
         <label [for]="controlName" class="form__label" [ngClass]="{'form__label-invalid': isFormInvalid}">{{('controls.'+controlName+'.name') | translate}}</label>

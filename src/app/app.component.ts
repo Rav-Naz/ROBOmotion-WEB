@@ -14,6 +14,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
 
+  public userName: string | null = null;
+  public userUUID: string | null = null;
+  public isMenuOpen: boolean = false;
+  public isEnglish: boolean = true;
   private subs: Subscription = new Subscription;
 
   constructor(public translate: TranslateService, private injector: Injector) {
@@ -30,15 +34,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const sub1 = this.injector.get(UserService).getFirstName$.subscribe((data) => {
-      this.userName = data;
+    const sub1 = this.injector.get(UserService).getUser$.subscribe((data) => {
+      const user = data as any
+      this.userName = user ? user.imie : null;
+      this.userUUID = user ? user.uzytkownik_uuid : null;
     })
     this.subs?.add(sub1);
   }
-
-  public userName: string | null = null;
-  public isMenuOpen: boolean = false;
-  public isEnglish: boolean = true;
 
   switchMenu(bool?: boolean): void {
     const menuButton = document.querySelector('.navigator-menu');

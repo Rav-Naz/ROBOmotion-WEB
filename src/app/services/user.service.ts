@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class UserService {
 
   public userDetails: object | null = null;
-  public userName = new BehaviorSubject<string | null>(null);
+  public user = new BehaviorSubject<object | null>(null);
 
   constructor(private http: HttpService, private errorService: ErrorsService) { }
 
@@ -26,8 +26,8 @@ export class UserService {
     });
   }
 
-  get getFirstName$() {
-    return this.userName.asObservable();
+  get getUser$() {
+    return this.user.asObservable();
   }
 
   get userType()

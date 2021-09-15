@@ -10,8 +10,8 @@
         "plan": "Building plan",
         "competitor-zone": "Competitor Zone",
         "hello": "Hello",
-        "logout": "Logout"
-
+        "logout": "Logout",
+        "uuid": "User UUID:"
     },
     "home": {
         "event-info": {
@@ -159,6 +159,14 @@
                 "3": " robot in a category. This can cause logistic errors and preclude the robot from participating in the games."
             },
             "success": "New robot added successfully"
+        },
+        "robot": {
+            "category": {
+                "name": "New category",
+                "validators": {
+                    "required": "This field is required"
+                }
+            }
         }
     },
     "controls": {
@@ -214,6 +222,14 @@
                 "required": "This field is required",
                 "minlength": "Robot name must be longer than 2 characters",
                 "maxlength": "Robot name must be less than 40 characters"
+            }
+        },
+        "constructor_uuid": {
+            "name": "New constructor UUID",
+            "validators": {
+                "required": "This field is required",
+                "minlength": "Please enter a valid user UUID",
+                "maxlength": "Please enter a valid user UUID"
             }
         }
     },

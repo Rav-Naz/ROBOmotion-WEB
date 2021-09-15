@@ -3,7 +3,7 @@
     <p>{{'competitor-zone.new-robot.p.1' | translate}}<b>{{'competitor-zone.new-robot.p.2' | translate}}</b>{{'competitor-zone.new-robot.p.3' | translate}}</p>
     <div *ngIf="categories" class="form">
         <app-input [group]="form" controlName="robot_name"></app-input>
-        <app-select [group]="form" controlName="category" translatePrefix="competitor-zone.new-robot" [options]="categoriesOptions"></app-select>
+        <app-select [group]="form" controlName="category" translatePrefix="controls" [options]="categoriesOptions"></app-select>
         <button class="submit-button" [disabled]="!isFormGroupValid" (click)="onSubmit()">{{'competitor-zone.new-robot.add' | translate}}<i class="las la-plus-circle"></i></button>
     </div>
 </div>

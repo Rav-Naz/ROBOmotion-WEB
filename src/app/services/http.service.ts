@@ -13,18 +13,18 @@ export class HttpService {
   private url: string;
   private headers: HttpHeaders;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.url = environment.apiUrl;
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json'
-  })
+    })
   }
 
   // ------------- PUBLIC
 
   get getHomePageInfo(): Observable<APIResponse> {
-    return this.http.get<APIResponse>(`${this.url}site/info`, {headers: this.headers});
+    return this.http.get<APIResponse>(`${this.url}site/info`, { headers: this.headers });
   }
 
   get getAllCategories(): Promise<APIResponse> {
@@ -75,16 +75,18 @@ export class HttpService {
 
   public getUser() {
     return new Promise<any>((resolve, rejects) => {
-      this.http.get<APIResponse>(`${this.url}user/getUser`, {headers: this.headers}).toPromise().then(
+      this.http.get<APIResponse>(`${this.url}user/getUser`, { headers: this.headers }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );
     })
   }
 
+
+
   public getAllRobotsOfUser() {
     return new Promise<APIResponse>((resolve, rejects) => {
-      this.http.get<APIResponse>(`${this.url}user/getAllRobotsOfUser`, {headers: this.headers}).toPromise().then(
+      this.http.get<APIResponse>(`${this.url}user/getAllRobotsOfUser`, { headers: this.headers }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );
@@ -94,9 +96,58 @@ export class HttpService {
   public addRobot(nazwa: string, kategoria_id: number) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.post<APIResponse>(`${this.url}user/addRobot`, {
-        nazwa : nazwa,
-        kategoria_id : kategoria_id
-      }, {headers: this.headers}).toPromise().then(
+        nazwa: nazwa,
+        kategoria_id: kategoria_id
+      }, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public updateRobot(nazwa: string, robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.put<APIResponse>(`${this.url}user/updateRobot`, {
+        nazwa: nazwa,
+        robot_uuid: robot_uuid
+      }, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public addRobotCategory(kategoria_id: number, robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}user/addRobotCategory`, {
+        kategoria_id: kategoria_id,
+        robot_uuid: robot_uuid
+      }, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+
+
+
+
+  public getConstructors(robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}user/getConstructors/${robot_uuid}`, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public addConstructor(uzytkownik_uuid: string, robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}user/addConstructor`, {
+        uzytkownik_uuid: uzytkownik_uuid,
+        robot_uuid: robot_uuid
+      }, { headers: this.headers }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );

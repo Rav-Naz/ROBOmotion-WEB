@@ -58,6 +58,24 @@ export class RobotsService{
     });
   }
 
+  public updateRobot(robot_uuid: string, nazwa: string) {
+    return new Promise<any>(async (resolve) => {
+      const value = await this.http.updateRobot(nazwa, robot_uuid).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, err.error.body);
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+
+      // console.log(value);
+      if(value !== undefined) {
+        // this.userRobots.next(Object.assign(value.body));
+      }
+      resolve(value);
+    });
+  }
+
 
   get userRobots$() {
     return this.userRobots.asObservable()

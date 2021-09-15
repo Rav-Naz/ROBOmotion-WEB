@@ -1,4 +1,4 @@
-<div class="top" [formGroup]="group">
+<div class="top" [formGroup]="group" [ngClass]="{'collapsed': collapsed}">
     <div class="form">
         <select type="text" [id]="controlName" class="form__select" [ngClass]="{'form__select-invalid': isFormInvalid, 'choosed': isSeleted}" [formControlName]="controlName" [name]="controlName">
             <option *ngFor="let option of options" [value]="option.id">{{option.value | translate}}</option>
