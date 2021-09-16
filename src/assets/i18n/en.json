@@ -229,7 +229,9 @@
             "validators": {
                 "required": "This field is required",
                 "minlength": "Please enter a valid user UUID",
-                "maxlength": "Please enter a valid user UUID"
+                "maxlength": "Please enter a valid user UUID",
+                "alreadyExistValidator": "The user is already the constructor of this robot"
+
             }
         }
     },

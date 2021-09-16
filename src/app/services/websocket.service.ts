@@ -5,20 +5,18 @@ import { Socket, io } from 'socket.io-client';
 @Injectable({
   providedIn: 'root'
 })
-export class WebsocketService {
+export class WebsocketService{
 
   public socket = new BehaviorSubject<Socket | null>(null);
   private lastSocket: Socket | null = null;
 
   constructor() { 
+    
     this.getWebSocket$.subscribe((socket) => {
       if(socket !== null && socket !== undefined) {
         if(this.lastSocket !== null) {
           this.lastSocket.disconnect();
         }
-        socket.on("setTimeResult", (data) => {
-            console.log("z websocketa", data);
-        })
         this.lastSocket = socket;
       }
     })
@@ -26,14 +24,16 @@ export class WebsocketService {
 
   createSocket(jwt?: string) {
     if (jwt) {
-      const socket = io('https://api.robomotion.com.pl/', { transports: ['websocket'],
+      const socket = io('http://127.0.0.1:8080', { transports: ['websocket'],
         auth: {
           token: jwt
         }
       });
+      // console.log("socket", socket)
       this.socket.next(socket);
     } else {
-      const socket = io('https://api.robomotion.com.pl/', {transports: ['websocket']});
+      const socket = io('http://127.0.0.1:8080', {transports: ['websocket']});
+      // console.log("socket", socket)
       this.socket.next(socket);
     }
   }

@@ -229,7 +229,8 @@
             "validators": {
                 "required": "To pole jest wymagane",
                 "minlength": "Wprowadź poprawny identyfikator użytkownika",
-                "maxlength": "Wprowadź poprawny identyfikator użytkownika"
+                "maxlength": "Wprowadź poprawny identyfikator użytkownika",
+                "alreadyExistValidator": "Użytkownik już jest konstruktorem tego robota"
             }
         }
     },

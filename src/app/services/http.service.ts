@@ -129,6 +129,18 @@ export class HttpService {
     })
   }
 
+  public deleteRobotCategory(kategoria_id: number, robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.delete<APIResponse>(`${this.url}user/deleteRobotCategory`, { headers: this.headers, body: {
+        kategoria_id: kategoria_id,
+        robot_uuid: robot_uuid
+      } }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
 
 
 
@@ -143,6 +155,18 @@ export class HttpService {
   }
 
   public addConstructor(uzytkownik_uuid: string, robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}user/addConstructor`, {
+        uzytkownik_uuid: uzytkownik_uuid,
+        robot_uuid: robot_uuid
+      }, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public deleteConstructor(uzytkownik_uuid: string, robot_uuid: string) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.post<APIResponse>(`${this.url}user/addConstructor`, {
         uzytkownik_uuid: uzytkownik_uuid,

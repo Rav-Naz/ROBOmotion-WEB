@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit{
+export class SelectComponent implements OnChanges{
 
   @Input() group!: FormGroup;
   @Input() controlName!: string;
@@ -14,8 +14,14 @@ export class SelectComponent implements OnInit{
   @Input() options!: any;
   @Input() collapsed: undefined | boolean;
 
-  ngOnInit() {
-    if(this.options) this.options = JSON.parse(this.options);
+  public opts: Array<any> | undefined;
+
+  ngOnChanges(): void {
+    if(this.options && typeof this.options === 'string') this.opts = JSON.parse(this.options);
+  }
+
+  get getOptions() {
+    return this.opts;
   }
 
   get isFormInvalid() {

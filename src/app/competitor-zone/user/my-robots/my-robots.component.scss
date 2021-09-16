@@ -59,7 +59,7 @@
         }
         display: grid;
         grid-template-rows: max-content;
-        grid-template-columns: 35rem 2fr max-content;
+        grid-template-columns: minmax(min-content, 35rem) 2fr max-content;
         padding: 1.5rem 2rem;
         cursor: pointer;
         &-info {
@@ -89,7 +89,7 @@
         &-categories {
             padding-left: 2rem;
             align-self: center;
-            width: max-content;
+            // width: mii-content;
             // width: 80%;
             font-weight: 100;
             font-family: $default-font;

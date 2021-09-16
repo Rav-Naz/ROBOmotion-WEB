@@ -1,3 +1,4 @@
+import { RobotsService } from './services/robots.service';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +31,7 @@ import { RefereeGuard } from './services/referee-guard.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NewRobotComponent } from './competitor-zone/user/my-robots/new-robot/new-robot.component';
 import { RobotComponent } from './competitor-zone/user/my-robots/robot/robot.component';
+import { WebsocketService } from './services/websocket.service';
 
 
 @NgModule({
@@ -79,7 +81,9 @@ import { RobotComponent } from './competitor-zone/user/my-robots/robot/robot.com
   providers: [
     { provide: LOCALE_ID, useValue: "pl-PL" },
     AuthGuard,
-    RefereeGuard
+    RefereeGuard,
+    WebsocketService,
+    RobotsService
   ],
   bootstrap: [AppComponent]
 })
