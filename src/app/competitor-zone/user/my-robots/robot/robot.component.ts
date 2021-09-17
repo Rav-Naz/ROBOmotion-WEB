@@ -33,33 +33,51 @@ export class RobotComponent {
   private subs: Subscription = new Subscription;
   public robot: Robot | null = null;
   public categories: Array<CategoryMain> | null = null;
+  public robots: Array<Robot> | null = null;
   public constructors: Array<Constructor> | null = null;
   public aviableCategories: Array<CategoryMain> | null = null;
 
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private authService: AuthService, private robotsService: RobotsService,
-     private categoriesService: CategoriesService, private constructorsService: ConstructorsService, private userSerceice: UserService) {
-
+    private categoriesService: CategoriesService, private constructorsService: ConstructorsService, private userSerceice: UserService) {
     const robot_uuid = this.route.snapshot.paramMap.get('robot_uuid');
-    const sub1 = combineLatest(this.categoriesService.categories$, this.robotsService.userRobots$).subscribe(async (val) => {
+    const sub1 = combineLatest(this.categoriesService.categories$, this.robotsService.userRobots$, this.constructorsService.getNewConstructors$).subscribe(async (val) => {
+
       if (val[0] !== null && val[1] !== null) {
-        this.categories = JSON.parse(JSON.stringify(val[0]!));
-        const robots = JSON.parse(JSON.stringify(val[1]!)) as Array<Robot>;
-        const thisRobot = robots?.find((rob: any) => rob.robot_uuid == robot_uuid);
-        this.robot = thisRobot ? thisRobot : null;
-        this.oldName = this.robot!.nazwa_robota;
-        await this.constructorsService.getConstructorsOfRobot(this.robot!.robot_uuid).catch(err => { }).then(constructors => {
-          this.constructors = constructors as Array<Constructor>;
-        });
-        this.filterAvaibleCategories();
-        if (this.formCategory) this.formCategory.reset()
-        this.formName = this.formBuilder.group({
-          robot_name: [this.oldName, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]]
-        });
-        this.formConstructor = this.formBuilder.group({
-          constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
-        },{ 
-          validator: AlreadyExist('constructor_uuid', this.constructors!)
-        });
+        const categories = JSON.stringify(val[0]!);
+        const robots = JSON.stringify(val[1]!);
+        if (categories !== JSON.stringify(this.categories) || JSON.stringify(this.robots) !== robots) {
+          console.log("przeladowanie")
+          this.categories = JSON.parse(categories);
+          this.robots = JSON.parse(robots) as Array<Robot>;
+          const thisRobot = this.robots.find((rob: any) => rob.robot_uuid == robot_uuid);
+          this.robot = thisRobot ? thisRobot : null;
+          this.oldName = this.robot!.nazwa_robota;
+          this.filterAvaibleCategories();
+          if (this.formCategory) {
+            this.formCategory.reset();
+            this.loadingCategories = false;
+          }
+          this.formName = this.formBuilder.group({
+            robot_name: [this.oldName, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]]
+          });
+          this.formConstructor = this.formBuilder.group({
+            constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
+          });
+        }
+        if (val[2] !== null) {
+          const newData = val[2] as any;
+          if (this.robot !== null && newData.method === 'start' && this.constructors === null) {
+            await this.getConstructors();
+            this.formConstructor = this.formBuilder.group({
+              constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
+            }, {
+              validator: AlreadyExist('constructor_uuid', this.constructors!)
+            });
+          } else {
+            //TODO addConstructor and deleteConstructor
+            console.log(newData)
+          }
+        }
       }
     });
     this.subs.add(sub1);
@@ -74,7 +92,6 @@ export class RobotComponent {
     });
   }
 
-
   onUpdateName() {
     if (this.isFormGroupNameValid) {
       this.loadingName = true;
@@ -88,7 +105,9 @@ export class RobotComponent {
     if (this.isFormGroupCategoryValid) {
       this.loadingCategories = true;
       this.categoriesService.addRobotCategory(this.formCategory.get('category')?.value, this.robot!.robot_uuid).finally(() => {
-        this.loadingCategories = false;
+        setTimeout(() => {
+          this.loadingCategories = false;
+        }, 1000)
       })
     }
   }
@@ -96,7 +115,9 @@ export class RobotComponent {
   onRemoveCategory(kategoria_id: number) {
     this.loadingCategories = true;
     this.categoriesService.deleteRobotCategory(kategoria_id, this.robot!.robot_uuid).finally(() => {
-      this.loadingCategories = false;
+      setTimeout(() => {
+        this.loadingCategories = false;
+      }, 5000)
     })
   }
 
@@ -107,6 +128,19 @@ export class RobotComponent {
         this.loadingConstructors = false;
       })
     }
+  }
+
+  onDeleteConstructor(konstruktor_id: number) {
+    this.loadingConstructors = true;
+    this.constructorsService.deleteConstructor(konstruktor_id, this.robot!.robot_uuid).catch(err => console.log(err)).finally(() => {
+      this.loadingConstructors = false;
+    })
+  }
+
+  async getConstructors() {
+    await this.constructorsService.getConstructorsOfRobot(this.robot!.robot_uuid).catch(err => { }).then(constructors => {
+      this.constructors = constructors as Array<Constructor>;
+    });
   }
 
   filterAvaibleCategories() {

@@ -43,7 +43,7 @@
                                 <p>{{constructor.uzytkownik_uuid}}</p>
                             </div>
                         </div>
-                        <button [disabled]="isLoadingConstructors" class="submit-button grid-button"><i class="las la-trash-alt"></i></button>
+                        <button [disabled]="isLoadingConstructors" class="submit-button grid-button" (click)="onDeleteConstructor(constructor.konstruktor_id)"><i class="las la-trash-alt"></i></button>
 
                     </div>
                 </div>

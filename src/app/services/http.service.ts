@@ -166,12 +166,12 @@ export class HttpService {
     })
   }
 
-  public deleteConstructor(uzytkownik_uuid: string, robot_uuid: string) {
+  public deleteConstructor(konstruktor_id: number, robot_uuid: string) {
     return new Promise<APIResponse>((resolve, rejects) => {
-      this.http.post<APIResponse>(`${this.url}user/addConstructor`, {
-        uzytkownik_uuid: uzytkownik_uuid,
+      this.http.delete<APIResponse>(`${this.url}user/deleteConstructor`, { headers: this.headers, body: {
+        konstruktor_id : konstruktor_id,
         robot_uuid: robot_uuid
-      }, { headers: this.headers }).toPromise().then(
+      } }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );

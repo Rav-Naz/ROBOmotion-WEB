@@ -4,17 +4,23 @@ import { APIResponse } from './../models/response';
 import { ErrorsService } from './errors.service';
 import { HttpService } from './http.service';
 import { Injectable } from '@angular/core';
+import { RobotsService } from './robots.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConstructorsService {
 
-  constructor(private http: HttpService, private errorService: ErrorsService, private websocket: WebsocketService) {
+  private getNewConstructors = new BehaviorSubject<object | null>({method: "start", data: null});
+
+  constructor(private http: HttpService, private errorService: ErrorsService, private websocket: WebsocketService, private robotService: RobotsService) {
     this.websocket.getWebSocket$.subscribe((socket) => {
       socket?.on('robots/addConstructor', (data) => {
-        console.log(data)
-        // this.WS_updateRobot(data)
+        this.getNewConstructors.next({method: "add", data: data})
+      })
+      socket?.on('robots/deleteConstructor', (data) => {
+        this.getNewConstructors.next({method: "delete", data: data})
       })
     })
   }
@@ -44,4 +50,22 @@ export class ConstructorsService {
       resolve(value);
     });
   }
+
+  deleteConstructor(konstruktor_id: number, robot_uuid: string) {
+    return new Promise<any>(async (resolve) => {
+      const value = await this.http.deleteConstructor(konstruktor_id,robot_uuid).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, err.error.body);
+        } else {
+          this.errorService.showError(err.status);
+        }
+      }) as APIResponse
+      resolve(value);
+    });
+  }
+
+  get getNewConstructors$ () {
+    return this.getNewConstructors.asObservable();
+  }
+  
 }

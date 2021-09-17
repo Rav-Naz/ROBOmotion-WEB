@@ -61,6 +61,8 @@
         line-height: 100%;
         transition: all 200ms ease-in;
         pointer-events: none;
+        width: max-content;
+        // word-wrap: normal;
         &-invalid {
             transition: all 200ms ease-in;
             transition: inherit;
