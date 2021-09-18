@@ -177,8 +177,16 @@
             "add-constructor-self": "You have been added as a robot constructor with the id:",
             "delete-constructor": "Constructor added successfully",
             "delete-constructor-self": "You have been removed from the list of constructors of the robot with the id:",
-            "delete-robot": "Deleted robot with id:"
+            "delete-robot": "Deleted robot with id:",
+            "want-to-delete-category": "Delete the category robot makes it impossible to start in this category",
+            "want-to-delete-constructor": "Removing the constructor makes user impossible to editing the robot and accessing any rewards",
+            "want-to-delete-robot": "Removing the robot excludes its participation in the competition. Attention! This decision cannot be undone!"
         }
+    },
+    "dialog-box": {
+        "yes": "Continue",
+        "no": "Cancel",
+        "continue": "Do you want to continue?"
     },
     "controls": {
         "name": {

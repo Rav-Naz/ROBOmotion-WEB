@@ -71,24 +71,24 @@ export class RobotComponent {
           setTimeout(() => {
             this.loadingName = false;
             this.loadingCategories = false;
-          },100);
+          }, 100);
           this.formConstructor = this.formBuilder.group({
             constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
           });
         }
         if (val[2] !== this.lastConstructorMessage) {
           const newData = val[2] as any;
-          if (this.robot !== null  && this.constructors === null) {
+          if (this.robot !== null && this.constructors === null) {
             this.lastConstructorMessage = newData;
             await this.getConstructors();
-          } else if(newData.data !== null && newData.data.robot_uuid === robot_uuid) {
-            if(newData.method === 'add') {
+          } else if (newData.data !== null && newData.data.robot_uuid === robot_uuid) {
+            if (newData.method === 'add') {
               this.loadingConstructors = true;
               await this.getConstructors();
             } else if (newData.method === 'delete') {
               const deletedConstructor = this.constructors?.find(constr => constr.konstruktor_id === newData.data.konstruktor_id);
               const path = `/competitor-zone/(outlet:robot/${newData.data.robot_uuid})`;
-              if(deletedConstructor && deletedConstructor.uzytkownik_uuid === this.userUUID && this.router.url === path) {
+              if (deletedConstructor && deletedConstructor.uzytkownik_uuid === this.userUUID && this.router.url === path) {
                 this.backToMyRobots();
                 this.robotsService.getAllRobotsOfUser();
               } else {
@@ -140,15 +140,18 @@ export class RobotComponent {
     }
   }
 
-  onRemoveCategory(kategoria_id: number) {
-    this.loadingCategories = true;
-    this.categoriesService.deleteRobotCategory(kategoria_id, this.robot!.robot_uuid).then(() => {
-      this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.delete-category'), 2)
-    }).finally(() => {
-      setTimeout(() => {
-        this.loadingCategories = false;
-      }, 1000);
-    });
+  async onRemoveCategory(kategoria_id: number) {
+    const decision = await this.ui.wantToContinue(this.translate.instant('competitor-zone.robot.want-to-delete-category'));
+    if (decision) {
+      this.loadingCategories = true;
+      this.categoriesService.deleteRobotCategory(kategoria_id, this.robot!.robot_uuid).then(() => {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.delete-category'), 2)
+      }).finally(() => {
+        setTimeout(() => {
+          this.loadingCategories = false;
+        }, 1000);
+      });
+    }
   }
 
   onAddConstructor() {
@@ -164,14 +167,17 @@ export class RobotComponent {
     }
   }
 
-  onDeleteConstructor(konstruktor_id: number) {
+  async onDeleteConstructor(konstruktor_id: number) {
     if (this.canDeleteConstructor) {
-      this.loadingConstructors = true;
-      this.constructorsService.deleteConstructor(konstruktor_id, this.robot!.robot_uuid).catch(err => {
-        this.backToMyRobots();
-      }).then(() => {
-        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.delete-constructor'), 2);
-      });
+      const decision = await this.ui.wantToContinue(this.translate.instant('competitor-zone.robot.want-to-delete-constructor'));
+      if (decision) {
+        this.loadingConstructors = true;
+        this.constructorsService.deleteConstructor(konstruktor_id, this.robot!.robot_uuid).catch(err => {
+          this.backToMyRobots();
+        }).then(() => {
+          this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.delete-constructor'), 2);
+        });
+      }
     }
   }
 
@@ -189,19 +195,22 @@ export class RobotComponent {
     });
   }
 
-  onDeleteRobot() {
-    this.loadingConstructors = true;
-    this.loadingCategories = true;
-    this.loadingName = true;
-    this.robotsService.deleteRobot(this.robot!.robot_uuid).catch(err => {
-      this.backToMyRobots();
-    }).finally(() => {
-      this.backToMyRobots();
-    })
+  async onDeleteRobot() {
+    const decision = await this.ui.wantToContinue(this.translate.instant('competitor-zone.robot.want-to-delete-robot'));
+    if (decision) {
+      this.loadingConstructors = true;
+      this.loadingCategories = true;
+      this.loadingName = true;
+      this.robotsService.deleteRobot(this.robot!.robot_uuid).catch(err => {
+        this.backToMyRobots();
+      }).finally(() => {
+        this.backToMyRobots();
+      })
+    }
   }
 
   backToMyRobots() {
-      this.router.navigateByUrl(`/competitor-zone/(outlet:my-robots)`);
+    this.router.navigateByUrl(`/competitor-zone/(outlet:my-robots)`);
   }
 
 

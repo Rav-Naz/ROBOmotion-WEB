@@ -177,8 +177,16 @@
             "add-constructor-self": "Zostałeś dodany jako konstruktor robota o identyfikatorze:",
             "delete-constructor": "Pomyślnie usunięto konstruktora",
             "delete-constructor-self": "Zostałeś usunięty z listy konstruktorów robota o identyfikatorze:",
-            "delete-robot": "Usunięto robota o identyfikatorze:"
+            "delete-robot": "Usunięto robota o identyfikatorze:",
+            "want-to-delete-category": "Usunięcie kategorii robota uniemożliwi jego start w tej kategorii",
+            "want-to-delete-constructor": "Usunięcie konstruktora uniemożliwi użytkownikowi edycję robota oraz dostęp do ewentualnych nagród",
+            "want-to-delete-robot": "Usunięcie robota wyklucza jego udział w zawodach. Uwaga! Tej decyzji nie można cofnąć!"
         }
+    },
+    "dialog-box": {
+        "yes": "Kontynuuj",
+        "no": "Anuluj",
+        "continue": "Czy chcesz kontynuować?"
     },
     "controls": {
         "name": {

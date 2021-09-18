@@ -1,10 +1,11 @@
-import { RobotsService } from './services/robots.service';
+import { UiService } from './services/ui.service';
 import { CategoriesService } from './services/categories.service';
 import { Subscription } from 'rxjs';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ConfirmComponent } from './shared/confirm/confirm.component';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,9 @@ export class AppComponent implements OnInit {
   public isEnglish: boolean = true;
   private subs: Subscription = new Subscription;
 
-  constructor(public translate: TranslateService, private injector: Injector) {
+  @ViewChild(ConfirmComponent) confirm: ConfirmComponent | null = null;
+
+  constructor(public translate: TranslateService, private injector: Injector, private ui: UiService) {
     translate.addLangs(['en', 'pl']);
     const prefLanguage = localStorage.getItem("prefLang");
     if (prefLanguage == null || prefLanguage == undefined) {
@@ -40,6 +43,12 @@ export class AppComponent implements OnInit {
       this.userUUID = user ? user.uzytkownik_uuid : null;
     })
     this.subs?.add(sub1);
+  }
+
+  ngAfterViewInit(): void {
+    if (this.confirm) {
+      this.ui.setConfirmComponent(this.confirm);
+    }
   }
 
   switchMenu(bool?: boolean): void {

@@ -1,3 +1,4 @@
+import { ConfirmComponent } from './shared/confirm/confirm.component';
 import { RobotsService } from './services/robots.service';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,6 +45,7 @@ import { ConstructorsService } from './services/constructors.service';
     ResultsComponent,
     MsToDaysPipe,
     BuildingPlanComponent,
+    ConfirmComponent,
     HeaderComponent,
     ConfirmCodeComponent,
     SpinnerComponent,
