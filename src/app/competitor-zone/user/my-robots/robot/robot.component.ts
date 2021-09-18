@@ -1,3 +1,5 @@
+import { TranslateService } from '@ngx-translate/core';
+import { UiService } from './../../../../services/ui.service';
 import { UserService } from './../../../../services/user.service';
 import { Constructor } from './../../../../models/constructor';
 import { CategoriesService } from './../../../../services/categories.service';
@@ -5,7 +7,7 @@ import { RobotsService } from './../../../../services/robots.service';
 import { AuthService } from './../../../../services/auth.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, combineLatest } from 'rxjs';
 import { Robot } from 'src/app/models/robot';
 import { CategoryMain } from 'src/app/models/category-main';
@@ -27,18 +29,20 @@ export class RobotComponent {
   public formName: FormGroup;
   public formCategory: FormGroup;
   public formConstructor: FormGroup;
-  private loadingName: boolean = false;
-  private loadingCategories: boolean = false;
-  private loadingConstructors: boolean = false;
+  private loadingName: boolean = true;
+  private loadingCategories: boolean = true;
+  private loadingConstructors: boolean = true;
   private subs: Subscription = new Subscription;
   public robot: Robot | null = null;
   public categories: Array<CategoryMain> | null = null;
   public robots: Array<Robot> | null = null;
   public constructors: Array<Constructor> | null = null;
   public aviableCategories: Array<CategoryMain> | null = null;
+  private lastConstructorMessage: object | null = null;
 
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private authService: AuthService, private robotsService: RobotsService,
-    private categoriesService: CategoriesService, private constructorsService: ConstructorsService, private userSerceice: UserService) {
+    private categoriesService: CategoriesService, private constructorsService: ConstructorsService, private userSerceice: UserService, private router: Router,
+    private ui: UiService, private translate: TranslateService) {
     const robot_uuid = this.route.snapshot.paramMap.get('robot_uuid');
     const sub1 = combineLatest(this.categoriesService.categories$, this.robotsService.userRobots$, this.constructorsService.getNewConstructors$).subscribe(async (val) => {
 
@@ -46,36 +50,52 @@ export class RobotComponent {
         const categories = JSON.stringify(val[0]!);
         const robots = JSON.stringify(val[1]!);
         if (categories !== JSON.stringify(this.categories) || JSON.stringify(this.robots) !== robots) {
-          console.log("przeladowanie")
+          this.loadingCategories = true;
+          this.loadingName = true;
           this.categories = JSON.parse(categories);
           this.robots = JSON.parse(robots) as Array<Robot>;
           const thisRobot = this.robots.find((rob: any) => rob.robot_uuid == robot_uuid);
+          if (thisRobot === undefined || thisRobot === null) {
+            this.backToMyRobots();
+            return;
+          }
           this.robot = thisRobot ? thisRobot : null;
           this.oldName = this.robot!.nazwa_robota;
           this.filterAvaibleCategories();
           if (this.formCategory) {
             this.formCategory.reset();
-            this.loadingCategories = false;
           }
           this.formName = this.formBuilder.group({
             robot_name: [this.oldName, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]]
           });
+          setTimeout(() => {
+            this.loadingName = false;
+            this.loadingCategories = false;
+          },100);
           this.formConstructor = this.formBuilder.group({
             constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
           });
         }
-        if (val[2] !== null) {
+        if (val[2] !== this.lastConstructorMessage) {
           const newData = val[2] as any;
-          if (this.robot !== null && newData.method === 'start' && this.constructors === null) {
+          if (this.robot !== null  && this.constructors === null) {
+            this.lastConstructorMessage = newData;
             await this.getConstructors();
-            this.formConstructor = this.formBuilder.group({
-              constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
-            }, {
-              validator: AlreadyExist('constructor_uuid', this.constructors!)
-            });
-          } else {
-            //TODO addConstructor and deleteConstructor
-            console.log(newData)
+          } else if(newData.data !== null && newData.data.robot_uuid === robot_uuid) {
+            if(newData.method === 'add') {
+              this.loadingConstructors = true;
+              await this.getConstructors();
+            } else if (newData.method === 'delete') {
+              const deletedConstructor = this.constructors?.find(constr => constr.konstruktor_id === newData.data.konstruktor_id);
+              const path = `/competitor-zone/(outlet:robot/${newData.data.robot_uuid})`;
+              if(deletedConstructor && deletedConstructor.uzytkownik_uuid === this.userUUID && this.router.url === path) {
+                this.backToMyRobots();
+                this.robotsService.getAllRobotsOfUser();
+              } else {
+                this.loadingConstructors = true;
+                await this.getConstructors();
+              }
+            }
           }
         }
       }
@@ -95,53 +115,95 @@ export class RobotComponent {
   onUpdateName() {
     if (this.isFormGroupNameValid) {
       this.loadingName = true;
-      this.robotsService.updateRobot(this.robot!.robot_uuid, this.formName.get('robot_name')?.value).finally(() => {
+      this.robotsService.updateRobot(this.robot!.robot_uuid, this.formName.get('robot_name')?.value).catch(err => {
+        this.backToMyRobots();
+      }).then(() => {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.update-name'), 2)
+      }).finally(() => {
         this.loadingName = false;
-      })
+      });
     }
   }
 
   onAddCategory() {
     if (this.isFormGroupCategoryValid) {
       this.loadingCategories = true;
-      this.categoriesService.addRobotCategory(this.formCategory.get('category')?.value, this.robot!.robot_uuid).finally(() => {
+      this.categoriesService.addRobotCategory(this.formCategory.get('category')?.value, this.robot!.robot_uuid).catch(err => {
+        this.backToMyRobots();
+      }).then(() => {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.add-category'), 2)
+      }).finally(() => {
         setTimeout(() => {
           this.loadingCategories = false;
-        }, 1000)
-      })
+        }, 1000);
+      });
     }
   }
 
   onRemoveCategory(kategoria_id: number) {
     this.loadingCategories = true;
-    this.categoriesService.deleteRobotCategory(kategoria_id, this.robot!.robot_uuid).finally(() => {
+    this.categoriesService.deleteRobotCategory(kategoria_id, this.robot!.robot_uuid).then(() => {
+      this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.delete-category'), 2)
+    }).finally(() => {
       setTimeout(() => {
         this.loadingCategories = false;
-      }, 5000)
-    })
+      }, 1000);
+    });
   }
 
   onAddConstructor() {
     if (this.isFormGroupConstructorValid) {
       this.loadingConstructors = true;
-      this.constructorsService.addConstructor(this.formConstructor.get('constructor_uuid')?.value, this.robot!.robot_uuid).catch(err => console.log(err)).finally(() => {
-        this.loadingConstructors = false;
-      })
+      this.constructorsService.addConstructor(this.formConstructor.get('constructor_uuid')?.value, this.robot!.robot_uuid).catch(err => {
+        this.backToMyRobots();
+      }).then(() => {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.add-constructor'), 2);
+      }).finally(() => {
+        if (this.formConstructor) this.formConstructor.reset();
+      });
     }
   }
 
   onDeleteConstructor(konstruktor_id: number) {
-    this.loadingConstructors = true;
-    this.constructorsService.deleteConstructor(konstruktor_id, this.robot!.robot_uuid).catch(err => console.log(err)).finally(() => {
-      this.loadingConstructors = false;
-    })
+    if (this.canDeleteConstructor) {
+      this.loadingConstructors = true;
+      this.constructorsService.deleteConstructor(konstruktor_id, this.robot!.robot_uuid).catch(err => {
+        this.backToMyRobots();
+      }).then(() => {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.delete-constructor'), 2);
+      });
+    }
   }
 
   async getConstructors() {
-    await this.constructorsService.getConstructorsOfRobot(this.robot!.robot_uuid).catch(err => { }).then(constructors => {
+    await this.constructorsService.getConstructorsOfRobot(this.robot!.robot_uuid).catch(err => {
+      this.backToMyRobots();
+    }).then(constructors => {
       this.constructors = constructors as Array<Constructor>;
+      this.formConstructor = this.formBuilder.group({
+        constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
+      }, {
+        validator: AlreadyExist('constructor_uuid', this.constructors)
+      });
+      this.loadingConstructors = false;
     });
   }
+
+  onDeleteRobot() {
+    this.loadingConstructors = true;
+    this.loadingCategories = true;
+    this.loadingName = true;
+    this.robotsService.deleteRobot(this.robot!.robot_uuid).catch(err => {
+      this.backToMyRobots();
+    }).finally(() => {
+      this.backToMyRobots();
+    })
+  }
+
+  backToMyRobots() {
+      this.router.navigateByUrl(`/competitor-zone/(outlet:my-robots)`);
+  }
+
 
   filterAvaibleCategories() {
     if (this.categories && this.robot) {
@@ -185,6 +247,10 @@ export class RobotComponent {
 
   public get userUUID() {
     return (this.userSerceice.userDetails as any).uzytkownik_uuid;
+  }
+
+  public get canDeleteConstructor() {
+    return this.constructors ? (this.constructors.length > 1) : false;
   }
 
   public get categoriesOptions(): string | undefined {

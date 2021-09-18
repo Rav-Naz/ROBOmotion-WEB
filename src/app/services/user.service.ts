@@ -32,7 +32,12 @@ export class UserService {
 
   get userType()
   {
-    return (this.userDetails as any).uzytkownik_typ;
+    return this.userDetails ? (this.userDetails as any).uzytkownik_typ : null;
+  }
+
+  get userUUID()
+  {
+    return this.userDetails ? (this.userDetails as any).uzytkownik_uuid : null;
   }
 
   get isReferee() {

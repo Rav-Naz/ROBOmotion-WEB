@@ -32,6 +32,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NewRobotComponent } from './competitor-zone/user/my-robots/new-robot/new-robot.component';
 import { RobotComponent } from './competitor-zone/user/my-robots/robot/robot.component';
 import { WebsocketService } from './services/websocket.service';
+import { ConstructorsService } from './services/constructors.service';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { WebsocketService } from './services/websocket.service';
     AuthGuard,
     RefereeGuard,
     WebsocketService,
-    RobotsService
+    RobotsService,
+    ConstructorsService
   ],
   bootstrap: [AppComponent]
 })

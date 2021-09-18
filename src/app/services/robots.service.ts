@@ -1,7 +1,4 @@
-import { Router } from '@angular/router';
-import { UserService } from './user.service';
 import { WebsocketService } from './websocket.service';
-import { AuthService } from './auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UiService } from './ui.service';
 import { BehaviorSubject } from 'rxjs';
@@ -17,7 +14,7 @@ export class RobotsService{
   private userRobots = new BehaviorSubject<Array<any> | null>(null);
 
   constructor(private http: HttpService, private errorService: ErrorsService, private ui: UiService, private translate: TranslateService,
-     private websocket: WebsocketService, private userService: UserService, private router: Router) {
+     private websocket: WebsocketService) {
     this.getAllRobotsOfUser();
     this.websocket.getWebSocket$.subscribe((socket) => {
       socket?.on('robots/updateRobot', (data) => {
@@ -28,6 +25,9 @@ export class RobotsService{
       })
       socket?.on('robots/deleteRobotCategory', (data) => {
         this.WS_deleteCategory(data)
+      })
+      socket?.on('robots/deleteRobot', (data) => {
+        this.WS_deleteRobot(data);
       })
     })
   }
@@ -74,6 +74,23 @@ export class RobotsService{
     });
   }
 
+  public deleteRobot(robot_uuid: string) {
+    return new Promise<any | void>(async (resolve) => {
+      const value = await this.http.deleteRobot(robot_uuid).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, err.error.body);
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+
+      if(value !== undefined) {
+
+      } 
+      resolve(value);
+    });
+  }
+
   public updateRobot(robot_uuid: string, nazwa: string) {
     // console.log(this.userRobots.value)
     return new Promise<any>(async (resolve) => {
@@ -94,74 +111,42 @@ export class RobotsService{
   }
 
   public WS_updateRobot(data: any) {
-    const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data.robot_id)
-    if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0) {
-      this.userRobots.value![robotIndex].nazwa_robota = data.nazwa;
+    const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data?.robot_id)
+    if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0 && this.userRobots.value) {
+      this.userRobots.value![robotIndex].nazwa_robota = data?.nazwa;
       this.userRobots.next(this.userRobots.value)
     }
   }
 
   public WS_addCategory(data: any) {
-    const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data.robot_id)
-    if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0) {
+    const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data?.robot_id)
+    if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0 && this.userRobots.value) {
       let categories = ('' + this.userRobots.value![robotIndex].kategorie).slice();
-      const newCategories = categories.split(', ').concat([data.kategoria_id]).sort().join(', ')
+      const newCategories = categories.split(', ').concat([data?.kategoria_id]).sort().join(', ')
       this.userRobots.value![robotIndex].kategorie = newCategories;
       this.userRobots.next(this.userRobots.value)
     }
   }
 
   public WS_deleteCategory(data: any) {
-    const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data.robot_id)
-    if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0) {
+    const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data?.robot_id)
+    if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0 && this.userRobots.value) {
       let categories = ('' + this.userRobots.value![robotIndex].kategorie).slice();
-      const newCategories = categories.split(', ').filter(cat => cat !== data.kategoria_id.toString()).sort().join(', ')
+      const newCategories = categories.split(', ').filter(cat => cat !== data?.kategoria_id.toString()).sort().join(', ')
       this.userRobots.value![robotIndex].kategorie = newCategories;
       this.userRobots.next(this.userRobots.value)
     }
   }
 
-
-  public WS_addConstructor(data: any) {
-    console.log(data)
-    const robot_uuid = data.robot_uuid;
-    const path = `/competitor-zone/(outlet:robot/${robot_uuid})`;
-    console.log(this.userRobots.value)
-    console.log('pobieranie konstruktorów w serwisie')
-    // this.userRobots.next([]);
-    // this.getAllRobotsOfUser();
-    // if (path && this.robotComponentGetConstructors) {
-    //   this.robotComponentGetConstructors();
-    // } else {
-    // }
-    // if(this.userService.userDetails && data.uzytkownik_uuid === (this.userService.userDetails as any).uzytkownik_uuid) {
-      // this.userRobots.value![0].kategorie = "1, 2";
-
-    // } else {
-    //   const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data.robot_id)
-
-    // }
-    
-    // console.log(data);
-    // if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0) {
-    //   let categories = ('' + this.userRobots.value![robotIndex].kategorie).slice();
-    //   const newCategories = categories.split(', ').filter(cat => cat !== data.kategoria_id.toString()).sort().join(', ')
-    //   this.userRobots.value![robotIndex].kategorie = newCategories;
-    //   this.userRobots.next(this.userRobots.value)
-    // }
+  public WS_deleteRobot(data: any) {
+    const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data?.robot_id)
+    if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0 && this.userRobots.value) {
+      this.userRobots.value.splice(robotIndex, 1);
+      this.userRobots.next(this.userRobots.value)
+      this.ui.showFeedback("succes", `${this.translate.instant('competitor-zone.robot.delete-robot')} ${data?.robot_uuid}`,2)
+    }
   }
 
-  public WS_deleteConstructor(data: any) {
-    console.log(data);
-
-    // const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data.robot_id)
-    // if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0) {
-    //   let categories = ('' + this.userRobots.value![robotIndex].kategorie).slice();
-    //   const newCategories = categories.split(', ').filter(cat => cat !== data.kategoria_id.toString()).sort().join(', ')
-    //   this.userRobots.value![robotIndex].kategorie = newCategories;
-    //   this.userRobots.next(this.userRobots.value)
-    // }
-  }
   get userRobots$() {
     return this.userRobots.asObservable()
   }

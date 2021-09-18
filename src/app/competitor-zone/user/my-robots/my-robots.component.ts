@@ -1,3 +1,4 @@
+import { ConstructorsService } from 'src/app/services/constructors.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CategoryMain } from './../../../models/category-main';
@@ -22,7 +23,8 @@ export class MyRobotsComponent implements OnInit {
   public userRobots: Array<Robot> | null = null;
   public categories: Array<CategoryMain> | null = null;
 
-  constructor(public authService: AuthService, private robotsService: RobotsService, private categoriesService: CategoriesService, public translate: TranslateService, public router: Router) { }
+  constructor(public authService: AuthService, private robotsService: RobotsService, private categoriesService: CategoriesService,
+     public translate: TranslateService, public router: Router) { }
 
   ngOnInit(): void {
 

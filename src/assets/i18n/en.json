@@ -166,7 +166,18 @@
                 "validators": {
                     "required": "This field is required"
                 }
-            }
+            },
+            "categories": "Categories",
+            "too-many-categories": "According to the rules, each robot can be entered into up to four competitions, within which it can choose up to 2 categories (for example, one robot can take part in the Drag Race, LF Standard, LF Standard Enhanced and Micro Mouse, however, it cannot take part in the Drag Race, LF Standard, LF Turbo and LF Standard Enhanced)",
+            "constructors": "Constructors",
+            "update-name": "Robot name successfully updated",
+            "add-category": "Category added successfully",
+            "delete-category": "Category deleted successfully",
+            "add-constructor": "Constructor added successfully",
+            "add-constructor-self": "You have been added as a robot constructor with the id:",
+            "delete-constructor": "Constructor added successfully",
+            "delete-constructor-self": "You have been removed from the list of constructors of the robot with the id:",
+            "delete-robot": "Deleted robot with id:"
         }
     },
     "controls": {

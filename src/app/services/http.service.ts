@@ -105,6 +105,17 @@ export class HttpService {
     })
   }
 
+  public deleteRobot(robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.delete<APIResponse>(`${this.url}user/deleteRobot`, { headers: this.headers, body: {
+        robot_uuid: robot_uuid
+      } }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   public updateRobot(nazwa: string, robot_uuid: string) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.put<APIResponse>(`${this.url}user/updateRobot`, {
