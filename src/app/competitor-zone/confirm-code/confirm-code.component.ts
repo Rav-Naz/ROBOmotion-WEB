@@ -38,7 +38,7 @@ export class ConfirmCodeComponent implements OnInit {
     }
 
     const value = await this.httpService.confirmCode(uzytkownik_uuid,kod,czy_na_telefon).catch(err => {
-      if(err.error.body == "Uzytkownik ma już potwierdzony email.") {
+      if(err.error.body == "errors.details.user-have-email") {
         this.text = 'competitor-zone.confirmation-code.activated';
       } else {
         this.text = err.error.body;

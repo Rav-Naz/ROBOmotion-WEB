@@ -17,6 +17,9 @@ export class WebsocketService{
         if(this.lastSocket !== null) {
           this.lastSocket.disconnect();
         }
+        // socket.on('setTimeResult', (data) => {
+        //   console.log(data)
+        // })
         this.lastSocket = socket;
       }
     })

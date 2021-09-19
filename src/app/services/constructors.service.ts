@@ -42,7 +42,7 @@ export class ConstructorsService {
     return new Promise<Array<Constructor>>(async (resolve) => {
       const value = await this.http.getConstructors(robot_uuid).catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }
@@ -55,7 +55,7 @@ export class ConstructorsService {
     return new Promise<any>(async (resolve) => {
       const value = await this.http.addConstructor(uzytkownik_uuid,robot_uuid).catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }
@@ -68,7 +68,7 @@ export class ConstructorsService {
     return new Promise<any>(async (resolve) => {
       const value = await this.http.deleteConstructor(konstruktor_id,robot_uuid).catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }

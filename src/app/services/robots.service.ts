@@ -36,7 +36,7 @@ export class RobotsService{
     return new Promise<any>(async (resolve) => {
       const value = await this.http.getAllRobotsOfUser().catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }
@@ -53,7 +53,7 @@ export class RobotsService{
     return new Promise<any | void>(async (resolve) => {
       const value = await this.http.addRobot(nazwa,kategoria_id).catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }
@@ -78,7 +78,7 @@ export class RobotsService{
     return new Promise<any | void>(async (resolve) => {
       const value = await this.http.deleteRobot(robot_uuid).catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }
@@ -96,7 +96,7 @@ export class RobotsService{
     return new Promise<any>(async (resolve) => {
       const value = await this.http.updateRobot(nazwa, robot_uuid).catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }

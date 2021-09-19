@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { ErrorsService } from './errors.service';
 import { HttpService } from './http.service';
 import { Injectable } from '@angular/core';
@@ -11,13 +12,13 @@ export class UserService {
   public userDetails: object | null = null;
   public user = new BehaviorSubject<object | null>(null);
 
-  constructor(private http: HttpService, private errorService: ErrorsService) { }
+  constructor(private http: HttpService, private errorService: ErrorsService, private translate: TranslateService) { }
 
   public getUser() {
     return new Promise<any>(async (resolve) => {
       const value = await this.http.getUser().catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }

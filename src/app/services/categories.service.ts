@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { APIResponse } from './../models/response';
 import { CategoryMain } from './../models/category-main';
 import { Injectable } from '@angular/core';
@@ -12,7 +13,7 @@ export class CategoriesService {
 
   public categories = new BehaviorSubject<Array<CategoryMain> | null>(null);
 
-  constructor(private http: HttpService, private errorService: ErrorsService) {
+  constructor(private http: HttpService, private errorService: ErrorsService, private translate: TranslateService) {
     this.getAllCategories();
   }
 
@@ -20,7 +21,7 @@ export class CategoriesService {
     return new Promise<APIResponse | void>(async (resolve) => {
       const value = await this.http.getAllCategories.catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }
@@ -37,7 +38,7 @@ export class CategoriesService {
     return new Promise<APIResponse | void>(async (resolve) => {
       const value = await this.http.addRobotCategory(kategoria_id, robot_uuid).catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }
@@ -54,7 +55,7 @@ export class CategoriesService {
     return new Promise<APIResponse | void>(async (resolve) => {
       const value = await this.http.deleteRobotCategory(kategoria_id, robot_uuid).catch(err => {
         if(err.status === 400) {
-          this.errorService.showError(err.status, err.error.body);
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }

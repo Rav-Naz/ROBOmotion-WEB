@@ -68,14 +68,8 @@ export class AuthService {
     return new Promise<string>(async (resolve) => {
       const value = await this.http.login(email,this.hashPassword(haslo).toString()).catch(err => {
         if(err.status === 400) {
-          if(err.error.body == "Taki użytkownik nie istnieje!") {
-            this.errorService.showError(err.status, this.translate.instant('competitor-zone.login.errors.not-found'));
-          } else if (err.error.body == "Użytkownik nie został aktywowany") {
-            this.errorService.showError(err.status, this.translate.instant('competitor-zone.login.errors.not-activated'));
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
 
-          } else {
-            this.errorService.showError(err.status, err.error.body);
-          }
         } else if (err.status === 401) {
           this.errorService.showError(err.status, this.translate.instant('competitor-zone.login.errors.failed'));
         }
@@ -96,11 +90,7 @@ export class AuthService {
     return new Promise<string>(async (resolve) => {
       const value = await this.http.register(imie,nazwisko,email,this.hashPassword(haslo).toString()).catch(err => {
         if(err.status === 400) {
-          if(err.error.body == "Uzytkownik o takim email już istnieje!") {
-            this.errorService.showError(err.status, this.translate.instant('competitor-zone.register.errors.duplicate'));
-          } else {
-            this.errorService.showError(err.status, err.error.body);
-          }
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
           this.errorService.showError(err.status);
         }
