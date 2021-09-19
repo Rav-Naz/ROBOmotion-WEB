@@ -2,16 +2,16 @@
     <div class="main">
         <div class="name">
             <app-input [group]="formName" controlName="robot_name"></app-input>
-            <button [disabled]="!isChanged || !isFormGroupNameValid || isLoadingName" class="submit-button" (click)="onUpdateName()"><i class="las la-save"></i></button>
-            <button [disabled]="isLoadingName" class="submit-button" (click)="onDeleteRobot()"><i class="las la-trash-alt"></i></button>
+            <button *ngIf="authService.canModify" [disabled]="!isChanged || !isFormGroupNameValid || isLoadingName || !authService.canModify" class="submit-button" (click)="onUpdateName()"><i class="las la-save"></i></button>
+            <button *ngIf="authService.canModify" [disabled]="isLoadingName || !authService.canModify" class="submit-button" (click)="onDeleteRobot()"><i class="las la-trash-alt"></i></button>
         </div>
         <div class="grid">
             <div class="grid-categories">
                 <span>{{'competitor-zone.robot.categories' | translate}}</span>
-                <div class="grid-categories-new" *ngIf="canAddCategory">
+                <div class="grid-categories-new" *ngIf="canAddCategory && authService.canModify">
                     <app-select *ngIf="categoriesOptions !== undefined && canAddCategory && !isLoadingCategories" [group]="formCategory" [collapsed]="true" controlName="category" translatePrefix="competitor-zone.robot" [options]="categoriesOptions"></app-select>
                     <app-spinner *ngIf="categoriesOptions === undefined || isLoadingCategories"></app-spinner>
-                    <button [disabled]="!isFormGroupCategoryValid || isLoadingCategories" class="submit-button grid-button" (click)="onAddCategory()"><i class="las la-plus-circle"></i></button>
+                    <button [disabled]="!isFormGroupCategoryValid || isLoadingCategories || !authService.canModify" class="submit-button grid-button" (click)="onAddCategory()"><i class="las la-plus-circle"></i></button>
                 </div>
                 <div class="grid-categories-old-parent">
                     <a *ngIf="!canAddCategory && !isLoadingCategories && categoriesOptions !== undefined ">{{'competitor-zone.robot.too-many-categories' | translate}}</a>
@@ -20,7 +20,7 @@
                             <i class="las la-chevron-right"></i>
                             <label>{{getCategoryName(cat)}}</label>
                         </div>
-                        <button [disabled]="isLoadingCategories || !canDeleteCategory" class="submit-button grid-button" (click)="onRemoveCategory(cat)"><i class="las la-trash-alt"></i></button>
+                        <button [disabled]="isLoadingCategories || !canDeleteCategory || !authService.canModify" *ngIf="authService.canModify" class="submit-button grid-button" (click)="onRemoveCategory(cat)"><i class="las la-trash-alt"></i></button>
 
                     </div>
                 </div>
@@ -29,7 +29,7 @@
 
             <div class="grid-constructors">
                 <span>{{'competitor-zone.robot.constructors' | translate}}</span>
-                <div class="grid-categories-new">
+                <div class="grid-categories-new" *ngIf="authService.canModify">
                     <app-input *ngIf="!isLoadingConstructors" [group]="formConstructor" controlName="constructor_uuid" [collapsed]="true"></app-input>
                     <app-spinner *ngIf="isLoadingConstructors"></app-spinner>
                     <button [disabled]="!isFormGroupConstructorValid || isLoadingConstructors" class="submit-button grid-button" (click)="onAddConstructor()"><i class="las la-plus-circle"></i></button>
@@ -43,7 +43,7 @@
                                 <p>{{constructor.uzytkownik_uuid}}</p>
                             </div>
                         </div>
-                        <button [disabled]="isLoadingConstructors || !canDeleteConstructor" class="submit-button grid-button" (click)="onDeleteConstructor(constructor.konstruktor_id)"><i class="las la-trash-alt"></i></button>
+                        <button *ngIf="authService.canModify" [disabled]="isLoadingConstructors || !canDeleteConstructor" class="submit-button grid-button" (click)="onDeleteConstructor(constructor.konstruktor_id)"><i class="las la-trash-alt"></i></button>
 
                     </div>
                 </div>

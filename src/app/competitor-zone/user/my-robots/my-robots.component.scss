@@ -15,6 +15,7 @@
         align-items: center;
         justify-content: center;
         height: min-content;
+        min-height: 8rem;
         border-bottom: 4px dotted $color-grey-0;
         color: $color-grey-0;
         label {

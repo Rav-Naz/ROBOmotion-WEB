@@ -40,7 +40,7 @@ export class RobotComponent {
   public aviableCategories: Array<CategoryMain> | null = null;
   private lastConstructorMessage: object | null = null;
 
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private authService: AuthService, private robotsService: RobotsService,
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, public authService: AuthService, private robotsService: RobotsService,
     private categoriesService: CategoriesService, private constructorsService: ConstructorsService, private userSerceice: UserService, private router: Router,
     private ui: UiService, private translate: TranslateService) {
     const robot_uuid = this.route.snapshot.paramMap.get('robot_uuid');

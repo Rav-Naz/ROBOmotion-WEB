@@ -234,12 +234,6 @@ export class HomeComponent implements OnInit{
     window.open(url);
   }
 
-  playVideo(comp: number) {
-    let player = (document.getElementById(`comp-${comp}`) as HTMLVideoElement);
-    player.muted = true;
-    player.play()
-  }
-
   get descriptionOfSelectedEvent(): string | undefined {
     return this.eventsList.find((event) => event.id === this.selectedEventIndex)?.description;
   }

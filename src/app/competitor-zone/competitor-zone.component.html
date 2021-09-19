@@ -3,18 +3,49 @@
     <div class="competitor">
         <div class="competitor-zone">
             <div class="competitor-zone-bar">
-                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['my-robots']}}]" routerLinkActive="competitor-zone-bar-segment-active">
-                    <i class="las la-robot"></i>
-                    <p>{{'competitor-zone.bar.my-robots' | translate}}</p>
-                </section>
-                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['settings']}}]" routerLinkActive="competitor-zone-bar-segment-active">
-                    <i class="las la-cog"></i>
-                    <p>{{'competitor-zone.bar.settings' | translate}}</p>
-                </section>
-                <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['referee-zone']}}]" *ngIf="userService.isReferee" routerLinkActive="competitor-zone-bar-segment-active">
-                    <i class="las la-gavel"></i>
-                    <p>{{'competitor-zone.bar.referee-zone' | translate}}</p>
-                </section>
+                <div>
+                    <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['my-robots']}}]" routerLinkActive="competitor-zone-bar-segment-active">
+                        <i class="las la-robot"></i>
+                        <p>{{'competitor-zone.bar.my-robots' | translate}}</p>
+                    </section>
+                    <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['settings']}}]" routerLinkActive="competitor-zone-bar-segment-active">
+                        <i class="las la-cog"></i>
+                        <p>{{'competitor-zone.bar.settings' | translate}}</p>
+                    </section>
+                    <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['referee-zone']}}]" *ngIf="userService.isReferee" routerLinkActive="competitor-zone-bar-segment-active">
+                        <i class="las la-gavel"></i>
+                        <p>{{'competitor-zone.bar.referee-zone' | translate}}</p>
+                    </section>
+                </div>
+                <div class="competitor-zone-bar-time" *ngIf="timeLeft && !timeIsUp">
+                    <p>Czas do końca edycji robotów</p>
+                    <div [ngClass]="{'competitor-zone-bar-time-ending': isLessThanWeek}">
+                        <label>
+                            {{timeLeft | msTransform: 'd'}}<span>D</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeft | msTransform: 'h'}}<span>H</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeft | msTransform: 'm'}}<span>M</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeft | msTransform: 's'}}<span>S</span>
+                        </label>
+                    </div>
+                </div>
+                <p *ngIf="timeIsUp">
+                    Czas na edycję robotów zakończył się!
+                </p>
             </div>
             <div class="competitor-zone-main">
                 <ng-container *ngIf="isFirstPage">

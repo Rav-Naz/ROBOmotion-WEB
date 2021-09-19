@@ -172,6 +172,7 @@
             }
             // border-bottom: .2rem dashed rgba($color-grey-0, 0.5);
             div {
+                min-height: 6.5rem;
                 z-index: 1;
                 transition: all .5s ease-out;
                 i {

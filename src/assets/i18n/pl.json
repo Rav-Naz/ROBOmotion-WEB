@@ -139,7 +139,8 @@
         "my-robots": {
             "title": "MOJE ROBOTY",
             "add": "Dodaj robota",
-            "edit": "Edytuj"
+            "edit": "Edytuj",
+            "view": "Przeglądaj"
         },
         "new-robot": {
             "category": {
