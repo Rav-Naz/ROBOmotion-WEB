@@ -29,9 +29,11 @@ export class AppComponent implements OnInit {
     if (prefLanguage == null || prefLanguage == undefined) {
       const browserLang = translate.getBrowserLang();
       this.isEnglish = browserLang !== 'pl';
+      translate.use(browserLang);
       translate.setDefaultLang(browserLang === 'pl' ? browserLang : 'en');
     } else {
       this.isEnglish = prefLanguage !== 'pl';
+      translate.use(prefLanguage);
       translate.setDefaultLang(prefLanguage);
     }
   }

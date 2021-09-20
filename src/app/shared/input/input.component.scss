@@ -46,6 +46,9 @@
             transition: all 200ms ease-in;
             border-color: $color-invalid !important;
         }
+        &-disabled {
+            pointer-events: none;
+        }
     }
     &__label {
         position: absolute;

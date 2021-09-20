@@ -106,6 +106,44 @@ export class AuthService {
     });
   }
 
+  async remindPassword(email: string) {
+    return new Promise<string>(async (resolve, reject) => {
+      const value = await this.http.remindPassword(email).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      if(value !== undefined) {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.forgot-password.errors.sended'), 4)
+        resolve(value);
+      } else {
+        reject();
+      }
+    });
+  }
+
+  async resetPassword(uzytkownik_uuid : string, kod: string, haslo: string) {
+    return new Promise<string>(async (resolve) => {
+      const value = await this.http.resetPassword(uzytkownik_uuid,kod,this.hashPassword(haslo).toString()).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      if(value !== undefined) {
+        this.router.navigateByUrl('/login').then(() => {
+          setTimeout(() => {
+            this.ui.showFeedback("succes", this.translate.instant('competitor-zone.reset-password.errors.success'), 4)
+          }, 200)
+        })
+      }
+      resolve(value);
+    });
+  }
+
   async logout()
   {
     return new Promise<void>(async (resolve) => {

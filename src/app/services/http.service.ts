@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Robot } from './../models/robot';
 import { APIResponse } from './../models/response';
 import { environment } from './../../environments/environment.prod';
@@ -13,7 +14,7 @@ export class HttpService {
   private url: string;
   private headers: HttpHeaders;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private translate: TranslateService) {
     this.url = environment.apiUrl;
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -51,7 +52,8 @@ export class HttpService {
         imie: imie,
         nazwisko: nazwisko,
         email: email,
-        haslo: hasloHashed
+        haslo: hasloHashed,
+        lang: this.translate.currentLang
       }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
@@ -64,6 +66,31 @@ export class HttpService {
       this.http.post<APIResponse>(`${this.url}public/loginUser`, {
         email: email,
         haslo: hasloHashed
+      }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public remindPassword(email: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}public/remind`, {
+        email: email,
+        lang: this.translate.currentLang
+      }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public resetPassword(uzytkownik_uuid : string, kod: string, hasloHashed: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}public/reset-password`, {
+        uzytkownik_uuid: uzytkownik_uuid,
+        kod: kod,
+        haslo: hasloHashed,
       }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }

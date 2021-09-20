@@ -27,4 +27,8 @@ export class InputComponent {
     return this.controlName.toLowerCase().indexOf('assword') > 0;
   }
 
+  get isDisabled() {
+    return this.group.disabled;
+  }
+
 }

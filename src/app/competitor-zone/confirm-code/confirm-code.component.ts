@@ -16,7 +16,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ConfirmCodeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, public translate: TranslateService, private httpService: HttpService, private ui: UiService, private errorService: ErrorsService ) { }
+  constructor(private route: ActivatedRoute, public translate: TranslateService, private httpService: HttpService, 
+     private errorService: ErrorsService ) { }
 
   public text:any = undefined;
   private opis:any = undefined;

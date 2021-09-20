@@ -109,11 +109,33 @@
             "sign-in": "Sign in",
             "havent": "Don't have an account yet?",
             "register": "Sign up!",
+            "forgotten": "I forgot my password",
             "errors": {
                 "not-found": "There is no such user!",
                 "not-activated": "User has not been activated",
                 "failed": "Incorrect e-mail or password provided",
                 "logout": "Successfully logged out"
+            }
+        },
+        "forgot-password": {
+            "title": "Password forgotten",
+            "sign-in": "Send code",
+            "info": "Enter the e-mail address provided when creating the account. A link will be sent to it with a code needed to reset the password and set a new one.",
+            "sended": {
+                "1": "On e-mail adress ",
+                "2": " has been sent a link with a password reset code. Check your mailbox and complete the password reset procedure."
+            },
+            "errors": {
+                "sended": "Password reset request successfully sent"
+            }
+        },
+        "reset-password": {
+            "title": "Password reset",
+            "sign-in": "Set a new password",
+            "info": "Enter a new password for your account. As soon as you confirm your password, it will take effect as your login details for your account.",
+            "errors": {
+                "no-params": "No parameters",
+                "success": "Successfully set a new password for the account. You can login now!"
             }
         },
         "register": {

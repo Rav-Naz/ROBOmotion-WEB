@@ -68,6 +68,11 @@ export class RobotComponent {
           this.formName = this.formBuilder.group({
             robot_name: [this.oldName, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]]
           });
+          if (this.formName && !this.authService.canModify) {
+            this.formName.disable();
+          } else {
+            this.formName.enable();
+          }
           setTimeout(() => {
             this.loadingName = false;
             this.loadingCategories = false;

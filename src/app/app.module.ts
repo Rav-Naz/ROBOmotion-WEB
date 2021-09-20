@@ -34,6 +34,8 @@ import { NewRobotComponent } from './competitor-zone/user/my-robots/new-robot/ne
 import { RobotComponent } from './competitor-zone/user/my-robots/robot/robot.component';
 import { WebsocketService } from './services/websocket.service';
 import { ConstructorsService } from './services/constructors.service';
+import { ForgotPasswordComponent } from './competitor-zone/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './competitor-zone/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { ConstructorsService } from './services/constructors.service';
     MyRobotsComponent,
     SettingsComponent,
     NewRobotComponent,
-    RobotComponent
+    RobotComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

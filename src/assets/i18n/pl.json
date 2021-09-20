@@ -109,11 +109,33 @@
             "sign-in": "Zaloguj się",
             "havent": "Nie posiadasz jeszcze konta?",
             "register": "Zarejestruj się!",
+            "forgotten": "Zapomniałem hasła",
             "errors": {
                 "not-found": "Taki użytkownik nie istnieje!",
                 "not-activated": "Użytkownik nie został aktywowany",
                 "failed": "Podano błędny e-mail lub hasło",
                 "logout": "Pomyślnie wylogowano"
+            }
+        },
+        "forgot-password": {
+            "title": "Zapomniałem hasła",
+            "sign-in": "Wyślij kod",
+            "info": "Wprowadź adres e-mail podany przy zakładaniu konta. Zostanie na niego wysłany link z kodem, potrzebnym do zresetowania hasła i ustawienia nowego.",
+            "sended": {
+                "1": "Na adres email ",
+                "2": " został wysłany link z kodem do zresetowania hasła. Sprawdź swoją skrzynkę pocztową i dokończ procedurę resetowania hasła."
+            },
+            "errors": {
+                "no-params": "Pomyślnie wysłano prośbę o zresetowanie hasła"
+            }
+        },
+        "reset-password": {
+            "title": "Resetowanie hasła",
+            "sign-in": "Ustaw nowe hasło",
+            "info": "Wprowadź nowe hasło do swojego konta. Od momentu potwierdzenia hasła, zacznie ono obowiązywać jako dane logowania do Twojego konta.",
+            "errors": {
+                "no-params": "Brak parametrów",
+                "success": "Pomyślnie ustawione nowe hasło do konta. Możesz się teraz zalogować!"
             }
         },
         "register": {
