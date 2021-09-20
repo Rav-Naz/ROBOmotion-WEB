@@ -1,1 +1,29 @@
-<p>settings works!</p>
+<div class="router-child">
+    <section>
+        <a>{{'competitor-zone.settings.user'  | translate}}</a>
+        <div class="row">
+            <app-input [group]="formName" controlName="name"></app-input>
+            <app-input [group]="formName" controlName="surname"></app-input>
+            <button class="submit-button" [disabled]="!isFormGroupNameValid"><i class="las la-save"></i></button>
+        </div>
+        <label>{{'competitor-zone.settings.user-info'  | translate}}</label>
+    </section>
+    <!-- <section>
+        <a>{{'competitor-zone.settings.phone'  | translate}}</a>
+        <div class="row">
+            <app-input [group]="formPhone" controlName="phone"></app-input>
+            <button class="submit-button" [disabled]="!isFormGroupPhoneValid"><i class="las la-save"></i></button>
+        </div>
+        <label>{{'competitor-zone.settings.phone-info'  | translate}}</label>
+    </section> -->
+    <section>
+        <a>{{'competitor-zone.settings.password'  | translate}}</a>
+        <div class="row">
+            <app-input [group]="formPassword" controlName="password"></app-input>
+            <app-input [group]="formPassword" controlName="repeatPassword"></app-input>
+            <button class="submit-button" [disabled]="!isFormGroupPasswordValid"><i class="las la-save"></i></button>
+        </div>
+        <label><br></label>
+    </section>
+
+</div>

@@ -193,6 +193,7 @@
             "categories": "Kategorie",
             "too-many-categories": "Zgodnie z regulaminem, każdy robot może być zgłoszony do maksymalnie czterech konkurencji, w ramach których moża wybrać maks. 2 kategorie (przykładowo jeden robot może wziąć udział w Drag Race, LF Standard, LF Standard Enhanced i Micro Mouse, jednakże nie może jednocześnie wystartować w Drag Race, LF Standard, LF Turbo i LF Standard Enhanced)",
             "constructors": "Konstruktorzy",
+            "constructors-info": "* Można go znaleźć w rozwijanym menu po prawej stronie lub w ustawieniach",
             "update-name": "Pomyślnie zaktualizowano nazwę robota",
             "add-category": "Pomyślnie dodano kategorie",
             "delete-category": "Pomyślnie usunięto kategorie",
@@ -204,6 +205,13 @@
             "want-to-delete-category": "Usunięcie kategorii robota uniemożliwi jego start w tej kategorii",
             "want-to-delete-constructor": "Usunięcie konstruktora uniemożliwi użytkownikowi edycję robota oraz dostęp do ewentualnych nagród",
             "want-to-delete-robot": "Usunięcie robota wyklucza jego udział w zawodach. Uwaga! Tej decyzji nie można cofnąć!"
+        },
+        "settings": {
+            "user": "Dane użytkownika",
+            "user-info": "* Prosimy o podanie prawidłowych danych. Na ich podstawie będą przyznawane ewentualne nagrody i dyplomy.",
+            "phone": "Dane kontaktowe",
+            "phone-info": "* Prosimy o podanie prawidłowych danych. Na ich podstawie będą rozsyłane istotne komunikaty.",
+            "password": "Zmień hasło"
         }
     },
     "dialog-box": {
@@ -264,6 +272,14 @@
                 "required": "To pole jest wymagane",
                 "minlength": "Nazwa musi być dłuższa niż 2 znaki",
                 "maxlength": "Nazwa musi być krótsza niż 40 znaków"
+            }
+        },
+        "phone": {
+            "name": "Numer telefonu",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "minlength": "Numer telefonu musi być dłuższy niż 7 znaki",
+                "maxlength": "Numer telefonu musi być krótszy niż 15 znaków"
             }
         },
         "constructor_uuid": {

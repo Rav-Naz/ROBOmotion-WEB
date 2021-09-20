@@ -193,6 +193,7 @@
             "categories": "Categories",
             "too-many-categories": "According to the rules, each robot can be entered into up to four competitions, within which it can choose up to 2 categories (for example, one robot can take part in the Drag Race, LF Standard, LF Standard Enhanced and Micro Mouse, however, it cannot take part in the Drag Race, LF Standard, LF Turbo and LF Standard Enhanced)",
             "constructors": "Constructors",
+            "constructors-info": "* You can find it in the main menu on the right or in the settings",
             "update-name": "Robot name successfully updated",
             "add-category": "Category added successfully",
             "delete-category": "Category deleted successfully",
@@ -204,6 +205,13 @@
             "want-to-delete-category": "Delete the category robot makes it impossible to start in this category",
             "want-to-delete-constructor": "Removing the constructor makes user impossible to editing the robot and accessing any rewards",
             "want-to-delete-robot": "Removing the robot excludes its participation in the competition. Attention! This decision cannot be undone!"
+        },
+        "settings": {
+            "user": "User details",
+            "user-info": "* Please provide correct data. On their basis, possible prizes and diplomas will be awarded.",
+            "phone": "Contact details",
+            "phone-info": "* Please provide correct data. On their basis, important messages will be sent.",
+            "password": "Change Password"
         }
     },
     "dialog-box": {
@@ -264,6 +272,14 @@
                 "required": "This field is required",
                 "minlength": "Robot name must be longer than 2 characters",
                 "maxlength": "Robot name must be less than 40 characters"
+            }
+        },
+        "phone": {
+            "name": "Phone number",
+            "validators": {
+                "required": "This field is required",
+                "minlength": "Phone number must be longer than 7 characters",
+                "maxlength": "Phone number must be less than 15 characters"
             }
         },
         "constructor_uuid": {

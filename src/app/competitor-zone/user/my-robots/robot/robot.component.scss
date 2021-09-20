@@ -140,6 +140,22 @@
             align-items: flex-start;
             border-bottom: .2rem dashed rgba($color-grey-0, 0.5);
             margin-bottom: 1rem;
+            &>div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                a {
+                    height: min-content;
+                    direction: ltr;
+                    font-family: $default-font;
+                    font-size: 1.2rem;
+                    color: $color-grey-0;
+                    text-align: right;
+                    width: 100%;
+                    padding: 0rem 5rem 1rem 0rem;
+                }
+            }
             app-select {
                 width: 90% !important;
                 padding-right: 2rem;

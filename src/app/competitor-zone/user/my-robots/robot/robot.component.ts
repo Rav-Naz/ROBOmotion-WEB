@@ -267,6 +267,10 @@ export class RobotComponent {
     return this.constructors ? (this.constructors.length > 1) : false;
   }
 
+  public get nameFormEmpty() {
+    return this.formConstructor.untouched;
+  }
+
   public get categoriesOptions(): string | undefined {
     if (this.aviableCategories) {
       return JSON.stringify(this.aviableCategories.map((category: CategoryMain) => {
