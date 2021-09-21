@@ -19,7 +19,8 @@ export class AuthService {
   public JWT: string | null= null;
   public accessToModifyExpirationDate: Date | null = null;
 
-  constructor(private http: HttpService, private router: Router, private errorService: ErrorsService, private ui: UiService, private translate: TranslateService, private webSocket: WebsocketService, private userService: UserService) {
+  constructor(private http: HttpService, private router: Router, private errorService: ErrorsService, private ui: UiService,
+     private translate: TranslateService, private webSocket: WebsocketService, private userService: UserService) {
     const details = localStorage.getItem('details');
     this.http.getHomePageInfo.subscribe((data) => {
       if(data === undefined || data === null) return;
@@ -139,6 +140,22 @@ export class AuthService {
             this.ui.showFeedback("succes", this.translate.instant('competitor-zone.reset-password.errors.success'), 4)
           }, 200)
         })
+      }
+      resolve(value);
+    });
+  }
+
+  async changeUserPassword(stareHaslo : string, noweHaslo: string) {
+    return new Promise<string>(async (resolve) => {
+      const value = await this.http.changeUserPassword(this.hashPassword(stareHaslo).toString(), this.hashPassword(noweHaslo).toString()).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      if(value !== undefined) {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.settings.errors.success'))
       }
       resolve(value);
     });

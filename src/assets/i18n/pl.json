@@ -156,7 +156,9 @@
                 "1": "Witaj w ",
                 "2": "Strefie Zawodnika!",
                 "3": " Wybierz jedną z aktywności dostępnych w panelu po lewej stronie ekranu."
-            }
+            },
+            "time-left": "Czas do końca edycji robotów",
+            "time-up": "Czas na edycję robotów zakończył się!"
         },
         "my-robots": {
             "title": "MOJE ROBOTY",
@@ -190,6 +192,7 @@
                     "required": "To pole jest wymagane"
                 }
             },
+            "uuid": "Identyfikator robota (UUID):",
             "categories": "Kategorie",
             "too-many-categories": "Zgodnie z regulaminem, każdy robot może być zgłoszony do maksymalnie czterech konkurencji, w ramach których moża wybrać maks. 2 kategorie (przykładowo jeden robot może wziąć udział w Drag Race, LF Standard, LF Standard Enhanced i Micro Mouse, jednakże nie może jednocześnie wystartować w Drag Race, LF Standard, LF Turbo i LF Standard Enhanced)",
             "constructors": "Konstruktorzy",
@@ -211,7 +214,11 @@
             "user-info": "* Prosimy o podanie prawidłowych danych. Na ich podstawie będą przyznawane ewentualne nagrody i dyplomy.",
             "phone": "Dane kontaktowe",
             "phone-info": "* Prosimy o podanie prawidłowych danych. Na ich podstawie będą rozsyłane istotne komunikaty.",
-            "password": "Zmień hasło"
+            "password": "Zmień hasło",
+            "errors": {
+                "success": "Pomyślnie zmieniono hasło do konta",
+                "success-name": "Pomyślnie edytowano dane użytkownika"
+            }
         }
     },
     "dialog-box": {
@@ -255,6 +262,29 @@
         },
         "repeatPassword": {
             "name": "Powtórz hasło",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "confirmedValidator": "Hasła nie są takie same"
+            }
+        },
+        "actualPassword": {
+            "name": "Bieżące hasło",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "minlength": "Hasło musi być dłuższe niż 6 znaków",
+                "maxlength": "Hasło musi być krótsze niż 64 znaki"
+            }
+        },
+        "newPassword": {
+            "name": "Nowe hasło",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "minlength": "Hasło musi być dłuższe niż 6 znaków",
+                "maxlength": "Hasło musi być krótsze niż 64 znaki"
+            }
+        },
+        "repeatNewPassword": {
+            "name": "Powtórz nowe hasło",
             "validators": {
                 "required": "To pole jest wymagane",
                 "confirmedValidator": "Hasła nie są takie same"

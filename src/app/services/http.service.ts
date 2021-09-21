@@ -109,6 +109,30 @@ export class HttpService {
     })
   }
 
+  public changeUserPassword(stareHasloHashed: string,noweHasloHashed: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.put<APIResponse>(`${this.url}user/changeUserPassword`, {
+        stareHaslo: stareHasloHashed,
+        noweHaslo: noweHasloHashed,
+      }, {headers: this.headers}).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public editUser(imie: string, nazwisko: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.put<APIResponse>(`${this.url}user/editUser`, {
+        imie: imie,
+        nazwisko: nazwisko,
+      }, {headers: this.headers}).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
 
 
   public getAllRobotsOfUser() {
@@ -217,6 +241,8 @@ export class HttpService {
   }
 
   // ------------- REFEREE
+
+  // ------------- OTHER
 
   public setNewToken(jwt: string | null) {
     if (jwt !== null) {

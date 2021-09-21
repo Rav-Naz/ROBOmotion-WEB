@@ -156,7 +156,9 @@
                 "1": "Welcome to the ",
                 "2": "Competitor Zone!",
                 "3": " Select one of the activities available in the panel on the left side of the screen."
-            }
+            },
+            "time-left": "Time until the end of editing robots",
+            "time-up": "Time to edit robots is over!"
         },
         "my-robots": {
             "title": "MY ROBOTS",
@@ -190,6 +192,7 @@
                     "required": "This field is required"
                 }
             },
+            "uuid": "Robot UUID:",
             "categories": "Categories",
             "too-many-categories": "According to the rules, each robot can be entered into up to four competitions, within which it can choose up to 2 categories (for example, one robot can take part in the Drag Race, LF Standard, LF Standard Enhanced and Micro Mouse, however, it cannot take part in the Drag Race, LF Standard, LF Turbo and LF Standard Enhanced)",
             "constructors": "Constructors",
@@ -211,7 +214,11 @@
             "user-info": "* Please provide correct data. On their basis, possible prizes and diplomas will be awarded.",
             "phone": "Contact details",
             "phone-info": "* Please provide correct data. On their basis, important messages will be sent.",
-            "password": "Change Password"
+            "password": "Change Password",
+            "errors": {
+                "success": "Account password changed successfully",
+                "success-name": "User data was successfully edited"
+            }
         }
     },
     "dialog-box": {
@@ -258,6 +265,30 @@
             "validators": {
                 "required": "This field is required",
                 "confirmedValidator": "The passwords do not match"
+            }
+        },
+        "actualPassword": {
+            "name": "Current password",
+            "validators": {
+                "required": "This field is required",
+                "minlength": "Password must be longer than 6 characters",
+                "maxlength": "Password must be less than 64 characters"
+            }
+        },
+        "newPassword": {
+            "name": "New password",
+            "validators": {
+                "required": "This field is required",
+                "minlength": "Password must be longer than 6 characters",
+                "maxlength": "Password must be less than 64 characters"
+            }
+        },
+        "repeatNewPassword": {
+            "name": "Repeat new password",
+            "validators": {
+                "required": "This field is required",
+                "minlength": "Password must be longer than 6 characters",
+                "maxlength": "Password must be less than 64 characters"
             }
         },
         "category": {

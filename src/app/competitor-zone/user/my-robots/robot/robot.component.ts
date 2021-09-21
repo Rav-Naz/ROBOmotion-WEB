@@ -263,6 +263,10 @@ export class RobotComponent {
     return (this.userSerceice.userDetails as any).uzytkownik_uuid;
   }
 
+  public get robotUUID() {
+    return this.robot ? this.robot.robot_uuid : null;
+  }
+
   public get canDeleteConstructor() {
     return this.constructors ? (this.constructors.length > 1) : false;
   }

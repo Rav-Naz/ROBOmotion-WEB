@@ -18,7 +18,7 @@
                     </section>
                 </div>
                 <div class="competitor-zone-bar-time" *ngIf="timeLeft && !timeIsUp">
-                    <p>Czas do końca edycji robotów</p>
+                    <p>{{'competitor-zone.bar.time-left' | translate}}</p>
                     <div [ngClass]="{'competitor-zone-bar-time-ending': isLessThanWeek}">
                         <label>
                             {{timeLeft | msTransform: 'd'}}<span>D</span>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <p *ngIf="timeIsUp">
-                    Czas na edycję robotów zakończył się!
+                    {{'competitor-zone.bar.time-up' | translate}}
                 </p>
             </div>
             <div class="competitor-zone-main">

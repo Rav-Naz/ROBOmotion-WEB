@@ -1,9 +1,15 @@
 <div class="router-child">
     <div class="main">
-        <div class="name">
-            <app-input [group]="formName" controlName="robot_name"></app-input>
-            <button *ngIf="authService.canModify" [disabled]="!isChanged || !isFormGroupNameValid || isLoadingName || !authService.canModify" class="submit-button" (click)="onUpdateName()"><i class="las la-save"></i></button>
-            <button *ngIf="authService.canModify" [disabled]="isLoadingName || !authService.canModify" class="submit-button" (click)="onDeleteRobot()"><i class="las la-trash-alt"></i></button>
+        <div class="name-parent">
+            <div class="name">
+                <app-input [group]="formName" controlName="robot_name"></app-input>
+                <button *ngIf="authService.canModify" [disabled]="!isChanged || !isFormGroupNameValid || isLoadingName || !authService.canModify" class="submit-button" (click)="onUpdateName()"><i class="las la-save"></i></button>
+                <button *ngIf="authService.canModify" [disabled]="isLoadingName || !authService.canModify" class="submit-button" (click)="onDeleteRobot()"><i class="las la-trash-alt"></i></button>
+            </div>
+            <div class="name-uuid">
+                <span>{{'competitor-zone.robot.uuid' | translate}}</span>
+                <a>{{robotUUID}}</a>
+            </div>
         </div>
         <div class="grid">
             <div class="grid-categories">
