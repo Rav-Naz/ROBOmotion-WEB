@@ -9,6 +9,7 @@
         "timetable": "Timetable",
         "plan": "Building plan",
         "competitor-zone": "Competitor Zone",
+        "app-rules": "Regulations and privacy policy",
         "hello": "Hello",
         "logout": "Logout",
         "uuid": "User UUID:"
@@ -32,13 +33,13 @@
             },
             "details": "After a short break, one of the best competitions in Poland return to Rzeszów with a bang! This time, in addition to the classic Sumo or LineFollower competitions, we were the first in Poland who prepare a unique category for you - Smash Bots by RoboLAB! Younger participants will surely like the LEGO competitions, but if someone just wants to look and watch - they will definitely not be bored.",
             "results": "See the results!",
-            "open": "The competitor zone will be open soon!"
+            "open": "The competitor zone is now open!"
         },
         "event-program": {
             "eventsList": [
                 { "id": 1, "name": "Exciting competitions", "description": "Participants will be able to compete in as many as 8 categories, i.e. 15 competitions. The organizers prepared the arenas for the struggle on the tracks for LineFollowers or Sumo fights. The track itself in the LF category will test the programming and construction skills of many robotics. In addition to the standard competitions, the organizers have prepared many surprises. Every constructor, regardless of whether he is just starting his adventure with electronics or is already experienced, will surely find something for himself. There will also be competition dedicated to LEGO® fans.", "icon": "la-trophy" },
                 { "id": 2, "name": "For the first time in Poland", "description": "This year's edition is back with a bang. Therefore, the organizers would like to invite everyone to take part in a special competition by RoboLab: Smash Bots! Powerful, remotely controlled deadly machines will fight in a dedicated closed arena. Due to the first such event in Poland, the organizers reduced the requirements of the machines to 30x30 (maximum height 2 meters). We encourage all lovers, students and pupils to try their hand and take part in this amazing fight. There will be cash prizes up for the podium.", "icon": "la-robot" },
-                { "id": 3, "name": "The best constructors", "description": "Each edition of ROBO ~ motion brings together many professionals, enthusiasts and scientists in the field of robotics. It is an amazing opportunity to establish new contacts, meet specialists at work or learn the most valuable secrets of technology from people from all over Poland. Come, show your best side and guarantee yourself a bright future!", "icon": "la-wrench" }
+                { "id": 3, "name": "The best constructors", "description": "Each edition of ROBO~motion brings together many professionals, enthusiasts and scientists in the field of robotics. It is an amazing opportunity to establish new contacts, meet specialists at work or learn the most valuable secrets of technology from people from all over world. Come, show your best side and guarantee yourself a bright future!", "icon": "la-wrench" }
             ]
         },
         "competitions": {
@@ -140,6 +141,7 @@
         },
         "register": {
             "title": "Register",
+            "accept": "I accept the terms and privacy policy",
             "sign-in": "Sign up",
             "have": "Already have an account?",
             "login": "Sign in!",
@@ -220,6 +222,193 @@
                 "success-name": "User data was successfully edited"
             }
         }
+    },
+    "app-rules": {
+        "spis": {
+            "title": "TABLE OF CONTENTS",
+            "1": "COOKIES POLICY OF THE ROBOMOTION.COM.PL SITE",
+            "2": "ROBOMOTION WEBSITE PRIVACY POLICY",
+            "3": "TERMS AND CONDITIONS FOR THE USE OF THE ROBOMOTION APP"
+        },
+        "rules": [{
+                "title": "COOKIES POLICY OF THE ROBOMOTION.COM.PL SITE",
+                "description": "The following Cookies Policy sets out the rules for saving and accessing data on Users' Devices using the Website for the purpose of providing electronic services by the Website Administrator.",
+                "paragrphs": [{
+                        "title": "Definitions",
+                        "bodies": [
+                            "<b> Website </b> - a website operating at https://robomotion.com.pl/",
+                            "<b> External website </b> - website of the Administrator's partners, service providers or recipients",
+                            "<b> Administrator </b> - Scientific Club of Automation and Robotics 'ROBO', operating at the Rzeszów University of Technology at the address: ul. Wincentego Pola 2, 35-021 Rzeszów, providing electronic services via the Website and storing and gaining access to information in the User's devices",
+                            "<b> User </b> - a natural person for whom the Administrator provides services electronically via the Website",
+                            "<b> Device </b> - an electronic device with software through which the User gains access to the Website",
+                            "<b> Cookies </b> - text data collected in the form of files placed on the User's Device"
+                        ]
+                    },
+                    {
+                        "title": "Types of cookies",
+                        "bodies": [
+                            "<b> Internal cookies </b> - files placed and read from the User's Device by the Website's IT system",
+                            "<b> External cookies </b> - files uploaded and read from the User's Device by ICT systems of external websites",
+                            "<b> Session Cookies </b> - files uploaded and read from the User's Device by the Website or External Websites during one session of a given Device. After the session ends, the files are removed from the User's Device",
+                            "<b> Persistent cookies </b> - files placed and read from the User's Device by the Website or External Services until they are manually deleted. The files are not deleted automatically after the end of the Device session, unless the User's Device configuration is set to the Cookie deletion mode after the end of the Device session"
+                        ]
+                    },
+                    {
+                        "title": "Security",
+                        "bodies": [
+                            "<b> Storage and reading mechanisms </b> - Cookies storage and reading mechanisms do not allow the collection of any personal data or any confidential information from the User's Device. It is practically impossible to transfer viruses, trojans and other worms to the User's Device",
+                            "<b> Internal cookies </b> - internal cookies used by the Cookie Administrator are safe for Users' Devices",
+                            "<b> External cookies </b> - the Administrator is not responsible for the security of Cookie files from partners of the Website. The list of partners is provided further in the Cookie Policy"
+                        ]
+                    },
+                    {
+                        "title": "The purposes for which cookies are used",
+                        "bodies": [
+                            "<b> Statistical data </b> - The Administrator and external websites use Cookie files to collect and process statistical data, such as, for example, visit statistics, User Device statistics or user behavior statistics. These data are collected in order to analyze and improve the Website. Cookies are used to adapt the content of the Website to the User's preferences and to optimize the use of the Website. They are also used to create anonymous, aggregated statistics that help to understand how the User uses the Website, which allows improving their structure and content, excluding personal identification of the User."
+                        ]
+                    },
+                    {
+                        "title": "External websites",
+                        "bodies": [
+                            "The Administrator cooperates with the following external websites that may place Cookie files on User's Devices:",
+                            "<b>Google Analytics</b>"
+                        ]
+                    },
+                    {
+                        "title": "Possibilities of determining the conditions of storage and access on User's Devices by the website and external websites",
+                        "bodies": [
+                            "The user may at any time independently change the settings for saving, deleting and accessing the data of saved cookies",
+                            "Information on how to disable cookies in the most popular computer browsers and mobile devices is available at: https://jakwylaczyccookie.pl/",
+                            "The User may at any time delete any Cookie files saved so far using the User's Device tools through which the User uses the services of the Website"
+                        ]
+                    },
+                    {
+                        "title": "Service requirements",
+                        "bodies": [
+                            "Restricting the saving and access to Cookie files on the User's Device may cause some functions of the Website to malfunction",
+                            "The Administrator does not bear any responsibility for incorrectly functioning functions of the Website if the User restricts in any way the possibility of saving and reading cookie files"
+                        ]
+                    },
+                    {
+                        "title": "Changes to the Cookie Policy",
+                        "bodies": [
+                            "The Administrator reserves the right to change this Cookie Policy at any time without informing users about it",
+                            "The changes made to the Cookie Policy will always be published on this page",
+                            "The introduced changes enter into force on the date of publication of the Cookie Policy"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "ROBOMOTION WEBSITE PRIVACY POLICY",
+                "description": "The privacy policy describes the rules for the processing of information about you, including personal data.",
+                "paragrphs": [{
+                        "title": "General information",
+                        "bodies": [
+                            "This policy applies to the ROBO~motion website (hereinafter: „Application”)",
+                            "The owner of the application and the administrator of personal data is: the Scientific Circle of Automation and Robotics 'ROBO', operating at the Rzeszów University of Technology at the address: ul. Wincentego Pola 2, 35-021 Rzeszów",
+                            "Operator's e-mail contact address: kontakt@kneiti.prz.edu.pl",
+                            "The Scientific Club of Automation and Robotics 'ROBO' is the Administrator of your personal data in relation to the data provided voluntarily in the Application",
+                            "The application uses personal data for the following purposes:",
+                            "- <b> Presenting the user's profile to other users </b>",
+                            "- <b> Handling inquiries via the form </b>",
+                            "- <b> Presentation of the offer or information </b>",
+                            "- <b> Sending internal correspondence </b>",
+                            "The application performs the functions of obtaining information about users and their behavior in the following way: by voluntarily entering data in forms, which are then entered into the Operator's systems and by saving cookie files in end devices (so-called  „cookies”)"
+                        ]
+                    },
+                    {
+                        "title": "Selected data protection methods used by the Operator",
+                        "bodies": [
+                            "The places of logging in and entering personal data are protected in the transmission layer (SSL certificate). Thanks to this, personal data and login data entered on the website are encrypted on the user's computer and can be read only on the target server",
+                            "User passwords are stored in a hashed form. The hash function works one-way - it is not possible to reverse its operation, which is now a modern standard in the field of storing user passwords.",
+                            "The operator changes his administrative passwords periodically."
+                        ]
+                    },
+                    {
+                        "title": "Hosting",
+                        "bodies": [
+                            "The application database is hosted (technically maintained) on the operator's server: smarthost.pl"
+                        ]
+                    },
+                    {
+                        "title": "Your rights and additional information on how the data is used",
+                        "bodies": [
+                            "In some situations, the Administrator has the right to transfer your personal data to other recipients, if it is necessary to perform the contract concluded with you or to fulfill the obligations incumbent on the Administrator. This applies to such groups of recipients:",
+                            "- <b> 1. authorized employees and associates who use the data to achieve the purpose of the application </b>",
+                            "Your personal data is processed by the Administrator for no longer than it is necessary to perform the related activities specified in separate regulations (e.g. on accounting). With regard to marketing data, the collected data will not be processed for more than 3 years",
+                            "You have the right to request from the Administrator",
+                            "- <b> 1.access to personal data concerning you, </b>",
+                            "- <b> 2. correct them, </b>",
+                            "- <b> 3. delete, </b>",
+                            "- <b> 4. processing restrictions, </b>",
+                            "- <b> 5. and data portability. </b>",
+                            "You have the right to object to the processing of personal data in order to perform the legitimate interests pursued by the Administrator, including profiling, but the right to object may not be exercised if there are valid legally justified grounds for processing that override your interests, rights and freedoms, in particular establishing, investigating or defending claims ",
+                            "The Administrator's actions may be appealed against to the President of the Personal Data Protection Office, ul. Stawki 2, 00-193 Warsaw",
+                            "Providing personal data is voluntary, but necessary to operate the Application",
+                            "In relation to you, actions may be taken consisting in automated decision making, including profiling in order to provide services under the concluded contract and for the purpose of conducting direct marketing by the Administrator",
+                            "Personal data is not transferred to third countries within the meaning of the provisions on the protection of personal data. This means that we do not transfer them outside the European Union"
+                        ]
+                    },
+                    {
+                        "title": "Information in the forms",
+                        "bodies": [
+                            "The application collects information provided voluntarily by the User, including personal data, if provided",
+                            "The application can save information about the connection parameters (time stamp, IP address). The data provided in the form are processed for the purpose resulting from the function of a specific form, e.g. to update the data. Each time the context and description of the form clearly indicate what it is for. serves "
+                        ]
+                    },
+                    {
+                        "title": "Administrator logs",
+                        "bodies": [
+                            "Information about the behavior of users in the application may be subject to logging. These data are used to administer the Application and the database"
+                        ]
+                    },
+                    {
+                        "title": "Important Marketing Techniques",
+                        "bodies": [
+                            "The operator uses a solution that automates the operation of the Website in relation to users, e.g. that can send an email to the user after visiting a specific subpage, provided that he has consented to receive commercial correspondence from the Operator",
+                            "The operator uses statistical analysis of website traffic through Google Analytics (Google Inc. based in the US). The operator does not provide the operator of this service with personal data, but only anonymised information. The service is based on the use of cookies on the User's end device. on the User's preferences collected by the Google advertising network. The User can view and edit the information resulting from cookies using the tool: https://www.google.com/ads/preferences/"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "TERMS AND CONDITIONS FOR THE USE OF THE ROBOMOTION APP",
+                "description": "By creating an account in the ROBO~motion application, you accept the following conditions.",
+                "paragrphs": [{
+                        "title": "General information",
+                        "bodies": [
+                            "The owner of the application and the administrator of personal data is: the Scientific Circle of Automation and Robotics 'ROBO', operating at the Rzeszów University of Technology at the following address: ul. Wincentego Pola 2, 35-021 Rzeszów (hereinafter referred to as the „Application Owner” )",
+                            "The application was created to conduct the recruitment process for the International Robot Competition ROBO ~ motion, communication with robot builders, presentation of results and promotion of sponsors"
+                        ]
+                    },
+                    {
+                        "title": "Privacy policy",
+                        "bodies": [
+                            "The Application's privacy policy is described in a separate document: Privacy Policy"
+                        ]
+                    },
+                    {
+                        "title": "Users",
+                        "bodies": [
+                            "The application was created for people interested in the ROBO~motion competition, both those taking part in the competition and the audience"
+                        ]
+                    },
+                    {
+                        "title": "Content in Apps",
+                        "bodies": [
+                            "The owner of the application is responsible for the content of the Application. The user has the right to comment on inappropriate content in the application. This can be done by writing to the following address: kontakt@kneiti.prz.edu.pl"
+                        ]
+                    },
+                    {
+                        "title": "Disclaimer of Liability",
+                        "bodies": [
+                            "The owner and authors of the Application are not responsible for using it in any way (in particular, it has no influence on whether or not the entity undertakes any action or action)"
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "dialog-box": {
         "yes": "Continue",
@@ -420,5 +609,9 @@
             "511": "Authentication required before accessing the network",
             "599": "Network connection timeout error"
         }
+    },
+    "cookies": {
+        "p": "Information: The website uses <b> cookies </b> to function properly",
+        "button": "Agree"
     }
 }

@@ -1,4 +1,11 @@
 <app-confirm></app-confirm>
+<div class="cookies" *ngIf="isCookies">
+    <div>
+        <i class="las la-cookie-bite"></i>
+        <p [innerHtml]="translate.instant('cookies.p')"></p>
+        <button class="submit-button" (click)="acceptCookies()">{{'cookies.button' | translate}}</button>
+    </div>
+</div>
 <div class="navigator">
     <label *ngIf="userName === null"> </label>
     <div class="navigator-user" *ngIf="userName !== null">
@@ -18,7 +25,10 @@
         <!-- <a [routerLink]="['/building-plan']" (click)="switchMenu(false)">{{'menu.plan' | translate}}</a> -->
         <a [routerLink]="['/login']" class="navigator-competitor-zone" (click)="switchMenu(false)">{{'menu.competitor-zone' | translate}}</a>
     </div>
-    <img (click)="switchLang()" [src]="!isEnglish ? '../assets/svg/gb.svg' : '../assets/svg/pl.svg'">
+    <div class="navigator-footer">
+        <img (click)="switchLang()" [src]="!isEnglish ? '../assets/svg/gb.svg' : '../assets/svg/pl.svg'">
+        <p [routerLink]="['/app-rules']">{{'menu.app-rules' | translate}}</p>
+    </div>
 </div>
 <button class="navigator-menu" (click)="switchMenu()">
   <div class="navigator-menu-burger navigator-menu-burger-top"></div>

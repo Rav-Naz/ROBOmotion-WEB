@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UiService } from './ui.service';
 import { RobotsService } from './robots.service';
@@ -7,7 +8,7 @@ import { Constructor } from './../models/constructor';
 import { APIResponse } from './../models/response';
 import { ErrorsService } from './errors.service';
 import { HttpService } from './http.service';
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -18,12 +19,14 @@ export class ConstructorsService {
   private getNewConstructors = new BehaviorSubject<object | null>({method: "start", data: null});
 
   constructor(private http: HttpService, private errorService: ErrorsService, private websocket: WebsocketService,
-     private userService: UserService, private robotService: RobotsService, private translate: TranslateService, private ui: UiService) {
+     private userService: UserService, private robotService: RobotsService, private translate: TranslateService,
+     private ui: UiService, private injector: Injector) {
     this.websocket.getWebSocket$.subscribe((socket) => {
       socket?.on('robots/addConstructor', (data) => {
         // console.log(data)
         if(data.uzytkownik_uuid && this.userService.userUUID === data.uzytkownik_uuid) {
           robotService.getAllRobotsOfUser();
+          websocket.createSocket(this.injector.get(AuthService).JWT!);
           ui.showFeedback("warning", `${this.translate.instant('competitor-zone.robot.add-constructor-self')} ${data.robot_uuid}`, 3)
         }
         this.getNewConstructors.next({method: "add", data: data})
@@ -31,6 +34,7 @@ export class ConstructorsService {
       socket?.on('robots/deleteConstructor', (data) => {
         if(data.uzytkownik_uuid && this.userService.userUUID === data.uzytkownik_uuid) {
           robotService.getAllRobotsOfUser();
+          websocket.createSocket(this.injector.get(AuthService).JWT!);
           ui.showFeedback("warning", `${this.translate.instant('competitor-zone.robot.delete-constructor-self')} ${data.robot_uuid}`, 3)
         }
         this.getNewConstructors.next({method: "delete", data: data})

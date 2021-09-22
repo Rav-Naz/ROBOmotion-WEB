@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.enableCompetitionsScrolling()
+    // this.enableCompetitionsScrolling()
   }
 
   async onSwitchEvent(eventIndex: number) {

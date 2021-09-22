@@ -9,6 +9,7 @@
         "timetable": "Harmonogram",
         "plan": "Plan budynku",
         "competitor-zone": "Strefa Zawodnika",
+        "app-rules": "Regulamin i polityka prywatności",
         "hello": "Witaj",
         "logout": "Wyloguj",
         "uuid": "Identyfikator użytkownika (UUID):"
@@ -32,13 +33,13 @@
             },
             "details": "Po krótkiej przerwie jedne z najlepszych zawodów w Polsce powracają do Rzeszowa z wielkim przytupem! Tym razem oprócz klasycznych konkurencji typu Sumo, czy LineFollower, jako pierwsi w Polsce przygotowaliśmy dla Was wyjątkową kategorię - Smash Bots by RoboLAB! Młodszym uczestnikom  z pewnością spodobają się konkurencje związane z LEGO, natomiast jeżeli ktoś ma chęć jedynie przyjść i pooglądać - na pewno nie będzie się nudzić.",
             "results": "Zobacz wyniki!",
-            "open": "Strefa zawodnika zostanie otwarta wkrótce!"
+            "open": "Strefa zawodnika jest już otwarta!"
         },
         "event-program": {
             "eventsList": [
                 { "id": 1, "name": "Ekscytujące konkurencje", "description": "Uczestnicy będą mogli zmierzyć się w aż 8 kategoriach czyli 15 konkurencjach. Organizatorzy przygotowali areny do zmagań na torach dla LineFollower’ów czy walk Sumo. Sam tor w kategorii LF przetestuje umiejętności programistyczne i konstrukcyjne wielu robotyków. Oprócz standardowych konkurencji organizatorzy przygotowali wiele niespodzianek. Każdy konstruktor niezależnie czy dopiero zaczyna przygodę z elektroniką czy jest już doświadczony na pewno znajdzie coś dla siebie. Nie zabraknie także konkurencji dedykowanych fanom marki LEGO®.", "icon": "la-trophy" },
                 { "id": 2, "name": "Po raz pierwszy w Polsce", "description": "Tegoroczna edycja powraca z dużym hukiem. W związku z tym organizatorzy pragną zaprosić wszystkich do wzięcia udziału w specjalnej konkurencji by RoboLab: Smash Bots! Potężne, zdalnie sterowane śmiercionośne maszyny staną do walki w dedykowanej zamkniętej arenie. Ze względu na pierwsze takie wydarzenie w Polsce organizatorzy zmniejszyli wymagania maszyn do rozmiarów 30x30 (wysokość max 2 metry). Zachęcamy wszystkich miłośników, studentów oraz uczniów aby spróbowali swoich sił i wzięli udział w tej niesamowitej walce. Do zgarnięcia za podium będą nagrody pieniężne.", "icon": "la-robot" },
-                { "id": 3, "name": "Najlepsi konstruktorzy", "description": "Każda edycja ROBO~motion skupia wielu profesjonalistów, entuzjastów i uczonych w dziedzinie robotyki. Jest to niesamowita okazja aby nawiązać nowe kontakty, zetknąć się ze specjalistami podczas pracy lub poznać najcenniejsze tajniki techniki od osób z całej Polski. Przyjedź, pokaż się od jak najlepszej strony i zagwarantuj sobie świetlaną przyszłość!", "icon": "la-wrench" }
+                { "id": 3, "name": "Najlepsi konstruktorzy", "description": "Każda edycja ROBO~motion skupia wielu profesjonalistów, entuzjastów i uczonych w dziedzinie robotyki. Jest to niesamowita okazja aby nawiązać nowe kontakty, zetknąć się ze specjalistami podczas pracy lub poznać najcenniejsze tajniki techniki od osób z całego świata. Przyjedź, pokaż się od jak najlepszej strony i zagwarantuj sobie świetlaną przyszłość!", "icon": "la-wrench" }
             ]
         },
         "competitions": {
@@ -140,6 +141,7 @@
         },
         "register": {
             "title": "Rejestracja",
+            "accept": "Akceptuję regulamin i politykę prywatności",
             "sign-in": "Zarejestruj się",
             "have": "Posiadasz już konto?",
             "login": "Zaloguj się!",
@@ -220,6 +222,193 @@
                 "success-name": "Pomyślnie edytowano dane użytkownika"
             }
         }
+    },
+    "app-rules": {
+        "spis": {
+            "title": "SPIS TREŚCI",
+            "1": "POLITYKA COOKIES WITRYNY ROBOMOTION.COM.PL",
+            "2": "POLITYKA PRYWATNOŚCI SERWISU INTERNETOWEGO ROBOMOTION",
+            "3": "REGULAMIN KORZYSTANIA Z APLIKACJI ROBOMOTION"
+        },
+        "rules": [{
+                "title": "POLITYKA COOKIES WITRYNY ROBOMOTION.COM.PL",
+                "description": "Poniższa Polityka Cookies określa zasady zapisywania i uzyskiwania dostępu do danych na Urządzeniach Użytkowników korzystających z Serwisu do celów świadczenia usług drogą elektroniczną przez Administratora Serwisu.",
+                "paragrphs": [{
+                        "title": "Definicje",
+                        "bodies": [
+                            "<b>Serwis</b> - serwis internetowy działający pod adresem https://robomotion.com.pl/",
+                            "<b>Serwis zewnętrzny</b> - serwis internetowe partnerów, usługodawców lub usługobiorców Administratora",
+                            "<b>Administrator </b> - Koło Naukowe Automatyków i Robotyków 'ROBO', prowadzące działalność na Politechnice Rzeszowskiej pod adresem: ul. Wincentego Pola 2, 35-021 Rzeszów, świadczący usługi drogą elektroniczną za pośrednictwem Serwisu oraz przechowujący i uzyskujący dostęp do informacji w urządzeniach Użytkownika",
+                            "<b>Użytkownik </b> - osoba fizyczna, dla której Administrator świadczy usługi drogą elektroniczna za pośrednictwem Serwisu",
+                            "<b>Urządzenie </b> - elektroniczne urządzenie wraz z oprogramowaniem, za pośrednictwem, którego Użytkownik uzyskuje dostęp do Serwisu",
+                            "<b>Cookies (ciasteczka)</b> - dane tekstowe gromadzone w formie plików zamieszczanych na Urządzeniu Użytkownika"
+                        ]
+                    },
+                    {
+                        "title": "Rodzaje Cookies",
+                        "bodies": [
+                            "<b>Cookies wewnętrzne</b> - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez system teleinformatyczny Serwisu",
+                            "<b>Cookies zewnętrzne</b> - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez systemy teleinformatyczne Serwisów zewnętrznych",
+                            "<b>Cookies sesyjne</b> - pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez Serwis lub Serwisy zewnętrzne podczas jednej sesji danego Urządzenia. Po zakończeniu sesji pliki są usuwane z Urządzenia Użytkownika",
+                            "<b>Cookies trwałe</b> -  pliki zamieszczane i odczytywane z Urządzenia Użytkownika przez Serwis lub Serwisy zewnętrzne do momentu ich ręcznego usunięcia. Pliki nie są usuwane automatycznie po zakończeniu sesji Urządzenia chyba że konfiguracja Urządzenia Użytkownika jest ustawiona na tryb usuwanie plików Cookie po zakończeniu sesji Urządzenia"
+                        ]
+                    },
+                    {
+                        "title": "Bezpieczeństwo",
+                        "bodies": [
+                            "<b>Mechanizmy składowania i odczytu</b> - Mechanizmy składowania i odczytu Cookies nie pozwalają na pobierania jakichkolwiek danych osobowych ani żadnych informacji poufnych z Urządzenia Użytkownika. Przeniesienie na Urządzenie Użytkownika wirusów, koni trojańskich oraz innych robaków jest praktycznie niemożliwe",
+                            "<b>Cookie wewnętrzne</b> - zastosowane przez Administratora Cookie wewnętrzne są bezpieczne dla Urządzeń Użytkowników",
+                            "<b>Cookie zewnętrzne</b> - za bezpieczeństwo plików Cookie pochodzących od partnerów Serwisu Administrator nie ponosi odpowiedzialności. Lista partnerów zamieszczona jest w dalszej części Polityki Cookie"
+                        ]
+                    },
+                    {
+                        "title": "Cele do których wykorzystywane są pliki cookie",
+                        "bodies": [
+                            "<b>Dane statystyczne</b> - Administrator oraz Serwisy zewnętrzne wykorzystuje pliki Cookie do zbierania i przetwarzania danych statystycznych takich jak np. statystyki odwiedzin, statystyki Urządzeń Użytkowników czy statystyki zachowań użytkowników. Dane te zbierane są w celu analizy i ulepszania Serwisu. Pliki „cookies” używane są w celu dostosowania zawartości Serwisu do preferencji Użytkownika oraz optymalizacji korzystania z Serwisu. Używane są również w celu tworzenia anonimowych, zagregowanych statystyk, które pomagają zrozumieć w jaki sposób Użytkownik korzysta z Serwisu co umożliwia ulepszanie ich struktury i zawartości, z wyłączeniem personalnej identyfikacji Użytkownika."
+                        ]
+                    },
+                    {
+                        "title": "Serwisy zewnętrzne",
+                        "bodies": [
+                            "Administrator współpracuje z następującymi serwisami zewnętrznymi, które mogą zamieszczać pliki Cookie na Urządzeniach Użytkownika:",
+                            "<b>Google Analytics</b>"
+                        ]
+                    },
+                    {
+                        "title": "Możliwości określania warunków przechowywania i uzyskiwania dostępu na Urządzeniach Użytkownika przez serwis i serwisy zewnętrzne",
+                        "bodies": [
+                            "Użytkownik może w dowolnym momencie, samodzielnie zmienić ustawienia dotyczące zapisywania, usuwania oraz dostępu do danych zapisanych plików Cookies",
+                            "Informacje o sposobie wyłączenia plików Cookie w najpopularniejszych przeglądarkach komputerowych i urządzeń mobilnych dostępne są na stronie: https://jakwylaczyccookie.pl/",
+                            "Użytkownik może w dowolnym momencie usunąć wszelkie zapisane do tej pory pliki Cookie korzystając z narzędzi Urządzenia Użytkownika za pośrednictwem którego Użytkownik korzysta z usług Serwisu"
+                        ]
+                    },
+                    {
+                        "title": "Wymagania serwisu",
+                        "bodies": [
+                            "Ograniczenie zapisu i dostępu do plików Cookie na Urządzeniu Użytkownika może spowodować nieprawidłowe działanie niektórych funkcji Serwisu",
+                            "Administrator nie ponosi żadnej odpowiedzialności za nieprawidłowo działające funkcje Serwisu w przypadku gdy Użytkownik ograniczy w jakikolwiek sposób możliwość zapisywania i odczytu plików Cookie"
+                        ]
+                    },
+                    {
+                        "title": "Zmiany w polityce Cookie",
+                        "bodies": [
+                            "Administrator zastrzega sobie prawo do dowolnej zmiany niniejszej Polityki Cookie bez konieczności informowania o tym użytkowników",
+                            "Wprowadzone zmiany w Polityce Cookie zawsze będą publikowane na tej stronie",
+                            "Wprowadzone zmiany wchodzą w życie w dniu publikacji Polityki Cookie"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "POLITYKA PRYWATNOŚCI SERWISU INTERNETOWEGO ROBOMOTION",
+                "description": "Polityka prywatności opisuje zasady przetwarzania przez nas informacji na Twój temat, w tym danych osobowych.",
+                "paragrphs": [{
+                        "title": "Informacje ogólne",
+                        "bodies": [
+                            "Niniejsza polityka dotyczy serwisu internetowego ROBO~motion (dalej: „Aplikacja”)",
+                            "Właścicielem aplikacji oraz Administratorem danych osobowych jest: Koło Naukowe Automatyków i Robotyków 'ROBO', prowadzące działalność na Politechnice Rzeszowskiej pod adresem: ul. Wincentego Pola 2, 35-021 Rzeszów",
+                            "Adres kontaktowy poczty elektronicznej operatora: kontakt@kneiti.prz.edu.pl",
+                            "Koło Naukowe Automatyków i Robotyków 'ROBO', jest Administratorem Twoich danych osobowych w odniesieniu do danych podanych dobrowolnie w Aplikacji",
+                            "Aplikacja wykorzystuje dane osobowe w następujących celach:",
+                            "- <b>Prezentacja profilu użytkownika innym użytkownikom</b>",
+                            "- <b>Obsługa zapytań przez formularz</b>",
+                            "- <b>Prezentacja oferty lub informacji</b>",
+                            "- <b>Przesyłanie wewnętrznej korespondencji</b>",
+                            "Aplikacja realizuje funkcje pozyskiwania informacji o użytkownikach i ich zachowaniu w następujący sposób: poprzez dobrowolnie wpisanie w formularzach danych, które zostają następnie wprowadzone do systemów Operatora oraz poprzez zapisywanie w urządzeniach końcowych plików cookie (tzw. „ciasteczka”)"
+                        ]
+                    },
+                    {
+                        "title": "Wybrane metody ochrony danych stosowane przez Operatora",
+                        "bodies": [
+                            "Miejsca logowania i wprowadzania danych osobowych są chronione w warstwie transmisji (certyfikat SSL). Dzięki temu dane osobowe i dane logowania, wprowadzone na stronie, zostają zaszyfrowane w komputerze użytkownika i mogą być odczytane jedynie na docelowym serwerze",
+                            "Hasła użytkowników są przechowywane w postaci hashowanej. Funkcja hashująca działa jednokierunkowo – nie jest możliwe odwrócenie jej działania, co stanowi obecnie współczesny standard w zakresie przechowywania haseł użytkowników.",
+                            "Operator okresowo zmienia swoje hasła administracyjne."
+                        ]
+                    },
+                    {
+                        "title": "Hosting",
+                        "bodies": [
+                            "Baza danych aplikacji jest hostowana (technicznie utrzymywana) na serwerze operatora: smarthost.pl"
+                        ]
+                    },
+                    {
+                        "title": "Twoje prawa i dodatkowe informacje o sposobie wykorzystania danych",
+                        "bodies": [
+                            "W niektórych sytuacjach Administrator ma prawo przekazywać Twoje dane osobowe innym odbiorcom, jeśli będzie to niezbędne do wykonania zawartej z Tobą umowy lub do zrealizowania obowiązków ciążących na Administratorze. Dotyczy to takich grup odbiorców:",
+                            "- <b>1. upoważnieni pracownicy i współpracownicy, którzy korzystają z danych w celu realizacji celu działania aplikacji</b>",
+                            "Twoje dane osobowe przetwarzane są przez Administratora nie dłużej, niż jest to konieczne do wykonania związanych z nimi czynności określonych osobnymi przepisami (np. o prowadzeniu rachunkowości). W odniesieniu do danych marketingowych gromadzone dane nie będą przetwarzane dłużej niż przez 3 lata",
+                            "Przysługuje Ci prawo żądania od Administratora",
+                            "- <b>1. dostępu do danych osobowych Ciebie dotyczących,</b>",
+                            "- <b>2. ich sprostowania,</b>",
+                            "- <b>3. usunięcia,</b>",
+                            "- <b>4. ograniczenia przetwarzania,</b>",
+                            "- <b>5. oraz przenoszenia danych.</b>",
+                            "Przysługuje Ci prawo do złożenia sprzeciwu wobec przetwarzania danych osobowych w celu wykonania prawnie uzasadnionych interesów realizowanych przez Administratora, w tym profilowania, przy czym prawo sprzeciwu nie będzie mogło być wykonane w przypadku istnienia ważnych prawnie uzasadnionych podstaw do przetwarzania, nadrzędnych wobec Twojego interesów, praw i wolności, w szczególności ustalenia, dochodzenia lub obrony roszczeń",
+                            "Na działania Administratora przysługuje skarga do Prezesa Urzędu Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warszawa",
+                            "Podanie danych osobowych jest dobrowolne, lecz niezbędne do obsługi Aplikacji",
+                            "W stosunku do Ciebie mogą być podejmowane czynności polegające na zautomatyzowanym podejmowaniu decyzji, w tym profilowaniu w celu świadczenia usług w ramach zawartej umowy oraz w celu prowadzenia przez Administratora marketingu bezpośredniego",
+                            "Dane osobowe nie są przekazywane do krajów trzecich w rozumieniu przepisów o ochronie danych osobowych. Oznacza to, że nie przesyłamy ich poza teren Unii Europejskiej"
+                        ]
+                    },
+                    {
+                        "title": "Informacje w formularzach",
+                        "bodies": [
+                            "Aplikacja zbiera informacje podane dobrowolnie przez Użytkownika, w tym dane osobowe, o ile zostaną one podane",
+                            "Aplikacja może zapisać informacje o parametrach połączenia (oznaczenie czasu, adres IP). Dane podane w formularzu są przetwarzane w celu wynikającym z funkcji konkretnego formularza, np. w celu aktualizacji danych. Każdorazowo kontekst i opis formularza w czytelny sposób informuje, do czego on służy"
+                        ]
+                    },
+                    {
+                        "title": "Logi Administratora",
+                        "bodies": [
+                            "Informacje o zachowaniu użytkowników w aplikacji mogą podlegać logowaniu. Dane te są wykorzystywane w celu administrowania Aplikacją i bazą danych"
+                        ]
+                    },
+                    {
+                        "title": "Istotne techniki marketingowe",
+                        "bodies": [
+                            "Operator stosuje rozwiązanie automatyzujące działanie Serwisu w odniesieniu do użytkowników, np. mogące przesłać maila do użytkownika po odwiedzeniu konkretnej podstrony, o ile wyraził on zgodę na otrzymywanie korespondencji handlowej od Operatora",
+                            "Operator stosuje analizę statystyczną ruchu na stronie, poprzez Google Analytics (Google Inc. z siedzibą w USA). Operator nie przekazuje do operatora tej usługi danych osobowych, a jedynie zanonimizowane informacje. Usługa bazuje na wykorzystaniu ciasteczek w urządzeniu końcowym Użytkownika. W zakresie informacji o preferencjach Użytkownika gromadzonych przez sieć reklamową Google Użytkownik może przeglądać i edytować informacje wynikające z plików cookies przy pomocy narzędzia: https://www.google.com/ads/preferences/"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "REGULAMIN KORZYSTANIA Z APLIKACJI ROBOMOTION",
+                "description": "Założenie konta w aplikacji ROBO~motion oznacza akceptację poniższych warunków.",
+                "paragrphs": [{
+                        "title": "Informacje ogólne",
+                        "bodies": [
+                            "Właścicielem aplikacji oraz Administratorem danych osobowych jest: Koło Naukowe Automatyków i Robotyków 'ROBO', prowadzące działalność na Politechnice Rzeszowskiej pod adresem: ul. Wincentego Pola 2, 35-021 Rzeszów (zwany dalej “Właścicielem aplikacji”)",
+                            "Aplikacja powstała w celu prowadzenia procesu rekrutacji na Międzynarodowe Zawody Robotów ROBO~motion, komunikację z konstruktorami robotów, prezentację wyników oraz promocję sponsorów"
+                        ]
+                    },
+                    {
+                        "title": "Polityka prywatności",
+                        "bodies": [
+                            "Polityka prywatności Aplikacji została opisana w osobnym dokumencie: Polityka prywatności"
+                        ]
+                    },
+                    {
+                        "title": "Użytkownicy",
+                        "bodies": [
+                            "Aplikacja została stworzona dla osób zainteresowanych zawodami ROBO~motion, zarówno osób biorących udział w zawodach jak i publiczności"
+                        ]
+                    },
+                    {
+                        "title": "Treści w Aplikacjach",
+                        "bodies": [
+                            "Odpowiedzialność za treść obecną w Aplikacji ponosi Właściciel aplikacji. Użytkownik ma prawo zgłoszenia uwag na temat nieodpowiedniej treści obecnej w aplikacji. Może tego dokonać pisząc na adres: kontakt@kneiti.prz.edu.pl"
+                        ]
+                    },
+                    {
+                        "title": "Wyłączenie odpowiedzialności",
+                        "bodies": [
+                            "Właściciel i autorzy Aplikacji nie ponoszą odpowiedzialności za wykorzystywanie jej w jakikolwiek sposób (w szczególności nie ma wpływu na to czy podmiot podejmie lub nie jakąkolwiek czynność lub czynności)"
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "dialog-box": {
         "yes": "Kontynuuj",
@@ -418,5 +607,9 @@
             "511": "Wymagane uwierzytelnienie przed otrzymaniem dostępu do sieci",
             "599": "Błąd limitu czasu połączenia sieciowego"
         }
+    },
+    "cookies": {
+        "p": "Informacja: Serwis do prawidłowego działania wykorzystuje pliki <b>cookies</b>",
+        "button": "Zgoda"
     }
 }

@@ -1,3 +1,4 @@
+import { AppRulesComponent } from './competitor-zone/app-rules/app-rules.component';
 import { ResetPasswordComponent } from './competitor-zone/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './competitor-zone/forgot-password/forgot-password.component';
 import { RobotComponent } from './competitor-zone/user/my-robots/robot/robot.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   // {path: 'building-plan', component: BuildingPlanComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'app-rules', component: AppRulesComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'reset-password/:uzytkownik_uuid/:kod', component: ResetPasswordComponent},
   {path: 'competitor-zone', canActivate: [AuthGuard], component: CompetitorZoneComponent, children: [

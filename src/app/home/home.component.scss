@@ -191,6 +191,8 @@
     }
     50% {
         transform: scale(1.05);
+        color: red;
+        border-color: red;
     }
     100% {
         transform: scale(1);
@@ -215,6 +217,7 @@
         font-size: 4rem;
         border-bottom: 5px dotted $color-grey-0;
         animation-name: pulse;
+        text-transform: uppercase;
         animation-duration: 2s;
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;

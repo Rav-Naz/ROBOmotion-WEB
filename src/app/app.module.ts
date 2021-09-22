@@ -36,6 +36,7 @@ import { WebsocketService } from './services/websocket.service';
 import { ConstructorsService } from './services/constructors.service';
 import { ForgotPasswordComponent } from './competitor-zone/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './competitor-zone/reset-password/reset-password.component';
+import { AppRulesComponent } from './competitor-zone/app-rules/app-rules.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { ResetPasswordComponent } from './competitor-zone/reset-password/reset-p
     NewRobotComponent,
     RobotComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AppRulesComponent
   ],
   imports: [
     BrowserModule,

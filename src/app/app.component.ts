@@ -19,11 +19,18 @@ export class AppComponent implements OnInit {
   public userUUID: string | null = null;
   public isMenuOpen: boolean = false;
   public isEnglish: boolean = true;
+  public isCookies: boolean = false;
   private subs: Subscription = new Subscription;
 
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent | null = null;
 
   constructor(public translate: TranslateService, private injector: Injector, private ui: UiService) {
+    const cookies = localStorage.getItem('cookies');
+    if(cookies) {
+      this.isCookies = false;
+    } else {
+      this.isCookies = true;
+    }
     translate.addLangs(['en', 'pl']);
     const prefLanguage = localStorage.getItem("prefLang");
     if (prefLanguage == null || prefLanguage == undefined) {
@@ -69,6 +76,11 @@ export class AppComponent implements OnInit {
     }
 
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  acceptCookies() {
+    this.isCookies = false;
+    localStorage.setItem('cookies', 'accepted');
   }
 
   onLogout() {
