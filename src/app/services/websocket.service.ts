@@ -17,9 +17,6 @@ export class WebsocketService{
         if(this.lastSocket !== null) {
           this.lastSocket.disconnect();
         }
-        // socket.on('setTimeResult', (data) => {
-        //   console.log(data)
-        // })
         this.lastSocket = socket;
       }
     })
@@ -27,7 +24,7 @@ export class WebsocketService{
 
   createSocket(jwt?: string) {
     if (jwt) {
-      const socket = io('http://127.0.0.1:8080', { transports: ['websocket'],
+      const socket = io('https://api.robomotion.com.pl/', {
         auth: {
           token: jwt
         }
@@ -35,7 +32,7 @@ export class WebsocketService{
       // console.log("socket", socket)
       this.socket.next(socket);
     } else {
-      const socket = io('http://127.0.0.1:8080', {transports: ['websocket']});
+      const socket = io('https://api.robomotion.com.pl/');
       // console.log("socket", socket)
       this.socket.next(socket);
     }

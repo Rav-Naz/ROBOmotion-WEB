@@ -31,10 +31,17 @@ export class NewRobotComponent implements OnInit{
       category: [null, [Validators.required]]
     });
 
-    const sub1 = this.categoriesService.categories$.subscribe((data) => {
-      this.categories = JSON.parse(JSON.stringify(data));
-    })
-    this.subs.add(sub1);
+    this.categories = [
+      {kategoria_id: 1, nazwa: "Smash Bots by RoboLAB", ilosc_robotow: 2, rodzaj: 1},
+      {kategoria_id: 2, nazwa: "Line Follower Turbo Enchanced", ilosc_robotow: 2, rodzaj: 1},
+      {kategoria_id: 3, nazwa: "Line Follower Standard", ilosc_robotow: 2, rodzaj: 1},
+      {kategoria_id: 4, nazwa: "Lego Sumo", ilosc_robotow: 2, rodzaj: 1},
+    ]
+
+    // const sub1 = this.categoriesService.categories$.subscribe((data) => {
+    //   this.categories = JSON.parse(JSON.stringify(data));
+    // })
+    // this.subs.add(sub1);
   }
 
   ngOnInit() {

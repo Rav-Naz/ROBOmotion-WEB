@@ -52,31 +52,38 @@
     }
 }
 
-@media only screen and (max-width: 1450px) {
-    .grid-container {
-        height: 45%;
-        width: 40%;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-    .grid-container {
-        height: 50%;
-        width: 50%;
-    }
-}
-
-@media only screen and (max-width: 850px) {
-    .grid-container {
-        height: 50%;
+@media only screen and (max-width: $max-width-2) {
+    .dialog-container {
+        height: 40%;
         width: 60%;
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .grid-container {
-        height: 40%;
-        width: 70%;
+@media only screen and (max-width: $max-width-5) {
+    .dialog-container {
+        // height: 50%;
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: $max-width-6) {
+    .dialog-container {
+        width: 85%;
+    }
+    .navigation-container {
+        flex-grow: 1;
+        height: auto;
+        flex-direction: column !important;
+        &>button {
+            margin: 1rem !important;
+            width: 70% !important;
+        }
+    }
+}
+
+@media only screen and (max-width: $max-width-7) {
+    .dialog-container {
+        width: 90%;
     }
 }
 
@@ -111,6 +118,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
     &>button {
         margin: 2rem;
         width: 40%;

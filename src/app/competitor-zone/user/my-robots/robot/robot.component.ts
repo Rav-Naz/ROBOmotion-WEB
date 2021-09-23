@@ -139,7 +139,6 @@ export class RobotComponent {
         this.ui.showFeedback("succes", this.translate.instant('competitor-zone.robot.add-category'), 2)
       }).finally(() => {
         setTimeout(() => {
-          this.loadingCategories = false;
         }, 1000);
       });
     }
