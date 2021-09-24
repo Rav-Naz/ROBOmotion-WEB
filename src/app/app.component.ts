@@ -85,6 +85,7 @@ export class AppComponent implements OnInit {
 
   onLogout() {
     this.injector.get(AuthService).logout();
+    this.switchMenu(false);
   }
 
   getDepth(outlet: any): void {

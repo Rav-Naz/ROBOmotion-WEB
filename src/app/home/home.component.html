@@ -77,7 +77,7 @@
                 </p>
             </div>
         </div>
-        <p>{{'home.event-info.open' | translate}}</p>
+        <p [routerLink]="['/login']">{{'home.event-info.open' | translate}}</p>
     </section>
     <section class="event-program" id="programme">
         <div class="event-program-grid" *ngIf="!isMobile">
