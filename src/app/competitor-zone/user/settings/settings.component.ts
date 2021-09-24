@@ -8,7 +8,10 @@ import { ConfirmedValidator } from 'src/app/shared/utils/matching';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  styleUrls: ['./settings.component.scss'],
+  host: {
+    'class': 'router-flex'
+  }
 })
 export class SettingsComponent {
 

@@ -168,10 +168,14 @@
             grid-template-rows: min-content 1fr;
             grid-template-columns: 1fr;
             &-bar {
-                &>div {
+                padding: 1rem;
+                &>div:not(:last-child) {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
+                }
+                &>div:last-child {
+                    line-height: 2rem;
                 }
                 grid-column: 1;
                 grid-row: 1;
@@ -188,6 +192,9 @@
                     }
                     width: min-content;
                     display: flex;
+                }
+                &-time {
+                    padding-top: .5rem;
                 }
             }
             &-main {

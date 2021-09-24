@@ -36,7 +36,7 @@
             <div class="grid-constructors">
                 <span>{{'competitor-zone.robot.constructors' | translate}}</span>
                 <div class="grid-categories-new" *ngIf="authService.canModify">
-                    <div>
+                    <div class="grid-constructors-div">
                         <app-input *ngIf="!isLoadingConstructors" [group]="formConstructor" controlName="constructor_uuid" [collapsed]="true"></app-input>
                         <a *ngIf="nameFormEmpty">{{'competitor-zone.robot.constructors-info' | translate}}</a>
                     </div>
@@ -53,7 +53,6 @@
                             </div>
                         </div>
                         <button *ngIf="authService.canModify" [disabled]="isLoadingConstructors || !canDeleteConstructor" class="submit-button grid-button" (click)="onDeleteConstructor(constructor.konstruktor_id)"><i class="las la-trash-alt"></i></button>
-
                     </div>
                 </div>
             </div>

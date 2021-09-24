@@ -1,36 +1,38 @@
 <div class="router-child">
-    <section class="top">
-        <a>{{'competitor-zone.settings.user'  | translate}}</a>
-        <div class="row">
-            <app-input [group]="formName" controlName="name"></app-input>
-            <app-input [group]="formName" controlName="surname"></app-input>
-            <button *ngIf="authService.canModify" class="submit-button" [disabled]="!isFormGroupNameValid" (click)="onSubmitNameForm()"><i class="las la-save"></i></button>
-        </div>
-        <div class="row">
-            <div class="uuid">
-                <span>{{'menu.uuid' | translate}}</span>
-                <a>{{userService.userUUID}}</a>
+    <div class="scroll">
+        <section class="top">
+            <a>{{'competitor-zone.settings.user'  | translate}}</a>
+            <div class="row">
+                <app-input [group]="formName" controlName="name"></app-input>
+                <app-input [group]="formName" controlName="surname"></app-input>
+                <button *ngIf="authService.canModify" class="submit-button" [disabled]="!isFormGroupNameValid" (click)="onSubmitNameForm()"><i class="las la-save"></i></button>
             </div>
-            <label>{{'competitor-zone.settings.user-info'  | translate}}</label>
-        </div>
-    </section>
-    <!-- <section>
-        <a>{{'competitor-zone.settings.phone'  | translate}}</a>
-        <div class="row">
-            <app-input [group]="formPhone" controlName="phone"></app-input>
-            <button class="submit-button" [disabled]="!isFormGroupPhoneValid"><i class="las la-save"></i></button>
-        </div>
-        <label>{{'competitor-zone.settings.phone-info'  | translate}}</label>
-    </section> -->
-    <section>
-        <a>{{'competitor-zone.settings.password'  | translate}}</a>
-        <app-input [group]="formPassword" controlName="actualPassword"></app-input>
-        <app-input [group]="formPassword" controlName="newPassword"></app-input>
-        <div class="row">
-            <app-input [group]="formPassword" controlName="repeatNewPassword"></app-input>
-            <button class="submit-button" [disabled]="!isFormGroupPasswordValid" (click)="onSubmitPasswordForm()"><i class="las la-save"></i></button>
-        </div>
-        <label><br></label>
-    </section>
+            <div class="row">
+                <div class="uuid">
+                    <span>{{'menu.uuid' | translate}}</span>
+                    <a>{{userService.userUUID}}</a>
+                </div>
+                <label>{{'competitor-zone.settings.user-info'  | translate}}</label>
+            </div>
+        </section>
+        <!-- <section>
+            <a>{{'competitor-zone.settings.phone'  | translate}}</a>
+            <div class="row">
+                <app-input [group]="formPhone" controlName="phone"></app-input>
+                <button class="submit-button" [disabled]="!isFormGroupPhoneValid"><i class="las la-save"></i></button>
+            </div>
+            <label>{{'competitor-zone.settings.phone-info'  | translate}}</label>
+        </section> -->
+        <section>
+            <a>{{'competitor-zone.settings.password'  | translate}}</a>
+            <app-input [group]="formPassword" controlName="actualPassword"></app-input>
+            <app-input [group]="formPassword" controlName="newPassword"></app-input>
+            <div class="row">
+                <app-input [group]="formPassword" controlName="repeatNewPassword"></app-input>
+                <button class="submit-button" [disabled]="!isFormGroupPasswordValid" (click)="onSubmitPasswordForm()"><i class="las la-save"></i></button>
+            </div>
+            <label><br></label>
+        </section>
+    </div>
 
 </div>

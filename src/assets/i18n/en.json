@@ -157,7 +157,7 @@
             "hello": {
                 "1": "Welcome to the ",
                 "2": "Competitor Zone!",
-                "3": " Select one of the activities available in the panel on the left side of the screen."
+                "3": " Select one of the activities available in the panel"
             },
             "time-left": "Time until the end of editing robots",
             "time-up": "Time to edit robots is over!"

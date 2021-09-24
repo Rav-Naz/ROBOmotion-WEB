@@ -28,26 +28,26 @@ export class MyRobotsComponent implements OnInit {
 
   ngOnInit(): void {
     /// START DEBUG
-    this.userRobots = [
-      {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
-      {kategorie: '1, 2, 3, 4', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
-      {kategorie: '1, 2, 3', nazwa_robota: "Cwelik", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
-      {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
-      {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
-      {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
-      {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
-    ]
-    this.categories = [
-      {kategoria_id: 1, nazwa: "Smash Bots by RoboLAB", ilosc_robotow: 2, rodzaj: 1},
-      {kategoria_id: 2, nazwa: "Line Follower Turbo Enchanced", ilosc_robotow: 2, rodzaj: 1},
-      {kategoria_id: 3, nazwa: "Line Follower Standard", ilosc_robotow: 2, rodzaj: 1},
-      {kategoria_id: 4, nazwa: "Lego Sumo", ilosc_robotow: 2, rodzaj: 1},
-    ]
-    this.userRobots?.forEach((robot) => {
-      const a = [...[...robot.kategorie.split(", ")].map((cat) => this.categories!.find(obj => obj.kategoria_id.toString() === cat)?.nazwa)].join(", ");
-      robot.kategorie = a;
-    })
-    return;
+    // this.userRobots = [
+    //   {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
+    //   {kategorie: '1, 2, 3, 4', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
+    //   {kategorie: '1, 2, 3', nazwa_robota: "Cwelik", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
+    //   {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
+    //   {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
+    //   {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
+    //   {kategorie: '1, 2, 3', nazwa_robota: "1234567890123456789012345678901234567890", robot_id: 1, robot_uuid: "7038b7ad-0ff8-11ec-87bf-b8ca3a5bc7d0"},
+    // ]
+    // this.categories = [
+    //   {kategoria_id: 1, nazwa: "Smash Bots by RoboLAB", ilosc_robotow: 2, rodzaj: 1},
+    //   {kategoria_id: 2, nazwa: "Line Follower Turbo Enchanced", ilosc_robotow: 2, rodzaj: 1},
+    //   {kategoria_id: 3, nazwa: "Line Follower Standard", ilosc_robotow: 2, rodzaj: 1},
+    //   {kategoria_id: 4, nazwa: "Lego Sumo", ilosc_robotow: 2, rodzaj: 1},
+    // ]
+    // this.userRobots?.forEach((robot) => {
+    //   const a = [...[...robot.kategorie.split(", ")].map((cat) => this.categories!.find(obj => obj.kategoria_id.toString() === cat)?.nazwa)].join(", ");
+    //   robot.kategorie = a;
+    // })
+    // return;
     /// END DEBUG
 
     const sub1 = combineLatest(this.categoriesService.categories$, this.robotsService.userRobots$).subscribe((val) => {

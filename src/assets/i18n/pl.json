@@ -157,7 +157,7 @@
             "hello": {
                 "1": "Witaj w ",
                 "2": "Strefie Zawodnika!",
-                "3": " Wybierz jedną z aktywności dostępnych w panelu po lewej stronie ekranu."
+                "3": " Wybierz jedną z aktywności dostępnych w panelu"
             },
             "time-left": "Czas do końca edycji robotów",
             "time-up": "Czas na edycję robotów zakończył się!"

@@ -10,6 +10,7 @@
     background-color: $color-grey-3;
     box-shadow: 0 .5rem 2rem rgba($color-grey-5, 0.5);
     margin-bottom: 1rem;
+    z-index: 5;
     &-logo {
         cursor: pointer;
         height: 100%;
@@ -52,6 +53,7 @@
             }
         }
         &-name {
+            max-width: 30%;
             font-size: 2rem;
             font-family: $title-font;
         }

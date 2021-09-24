@@ -9,11 +9,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // overflow-y: auto;
+    overflow-y: auto;
     p {
         font-size: 2rem;
     }
     &-form {
+        // margin-top: 9rem;
         max-width: 90%;
         padding: 7rem;
         box-shadow: 2rem 2rem 4rem $color-grey-4, -2rem -2rem 4rem rgba($color-grey-0, 0.1), inset 2rem 2rem 4rem $color-grey-4, inset -2rem -2rem 4rem rgba($color-grey-0, 0.1);
@@ -58,11 +59,15 @@
 }
 
 @media only screen and (max-width: $max-width-4) {
-    .register{
+    .register {
         h3 {
-            font-size: 3rem
+            font-size: 3rem;
         }
+        padding-bottom: 5rem;
+        // padding-top: 9rem;
+        // height: 100%;
         &-form {
+            // height: min-content;
             max-width: 90%;
             padding: 3rem;
             &>div {
@@ -81,27 +86,35 @@
             span {
                 font-size: 2.5rem;
             }
-             &-checkbox {
+            &-checkbox {
                 display: flex;
                 flex-direction: row;
                 i {
                     font-size: 4.5rem;
                 }
-             }
+            }
         }
     }
     .checkbox-container {
-    font-size: 12px !important;
+        padding-left: 4.5rem !important;
+        font-size: 12px !important;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .register {
+        justify-content: flex-start;
     }
 }
 
 .checkbox-container {
     display: block;
     position: relative;
+    // padding: 0 .5rem;
     padding-left: 4rem;
     cursor: pointer;
     text-align: center;
-    font-size: 22px;
+    font-size: 2.2rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -119,17 +132,18 @@
 .checkmark {
     transform: translateY(.6rem);
     position: absolute;
-    top: 0;
-    left: 0;
+    top: .5rem;
+    left: .5rem;
     height: 3rem;
     width: 3rem;
-    border: 2px solid $color-white;
+    border: .2rem solid $color-white;
     border-radius: 1rem;
+    align-items: center;
 }
 
 .checkbox-container input:checked~.checkmark {
     background-color: $color-primary;
-    border: 2px solid $color-primary
+    border: .2rem solid $color-primary
 }
 
 .checkmark:after {
@@ -143,12 +157,12 @@
 }
 
 .checkbox-container .checkmark:after {
-    left: 10px;
-    top: 6px;
-    width: 6px;
-    height: 10px;
+    left: 1rem;
+    top: .6rem;
+    width: .6rem;
+    height: 1rem;
     border: solid $color-grey-4;
-    border-width: 0 2px 2px 0;
+    border-width: 0 .2rem .2rem 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
