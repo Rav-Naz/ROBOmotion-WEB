@@ -23,7 +23,6 @@ export class ConstructorsService {
      private ui: UiService, private injector: Injector) {
     this.websocket.getWebSocket$.subscribe((socket) => {
       socket?.on('robots/addConstructor', (data) => {
-        console.log(data)
         if(data.uzytkownik_uuid && this.userService.userUUID === data.uzytkownik_uuid) {
           robotService.getAllRobotsOfUser();
           websocket.createSocket(this.injector.get(AuthService).JWT!);

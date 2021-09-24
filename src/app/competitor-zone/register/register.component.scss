@@ -91,9 +91,13 @@
                 flex-direction: row;
                 i {
                     font-size: 4.5rem;
+                    transform: translateY(-1rem);
                 }
             }
         }
+    }
+    .checkmark {
+        transform: translateY(-.6rem);
     }
     .checkbox-container {
         padding-left: 4.5rem !important;
@@ -130,7 +134,7 @@
 }
 
 .checkmark {
-    transform: translateY(.6rem);
+    // transform: translateY(.6rem);
     position: absolute;
     top: .5rem;
     left: .5rem;

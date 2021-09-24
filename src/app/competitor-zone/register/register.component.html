@@ -19,7 +19,7 @@
                     <input type="checkbox" (click)="onChangeCheckbox()" [checked]="isRulesChecked">
                     <span class="checkmark"></span>
                 </label>
-                <i class="las la-external-link-alt" (click)="openUrl('https://robomotion.com.pl/app-rules')"></i>
+                <i class="las la-external-link-alt" (click)="openUrl('https://text.robomotion.com.pl/app-rules')"></i>
             </div>
             <button class="submit-button" [disabled]="!isFormGroupValid" (click)="onSubmit()">{{'competitor-zone.register.sign-in' | translate}}</button>
             <p>{{'competitor-zone.register.have' | translate}}</p><span [routerLink]="['/login']">{{'competitor-zone.register.login' | translate}}</span>

@@ -92,7 +92,6 @@ export class RobotsService{
   }
 
   public updateRobot(robot_uuid: string, nazwa: string) {
-    // console.log(this.userRobots.value)
     return new Promise<any>(async (resolve) => {
       const value = await this.http.updateRobot(nazwa, robot_uuid).catch(err => {
         if(err.status === 400) {
@@ -102,7 +101,6 @@ export class RobotsService{
         }
       })
 
-      // console.log(value);
       if(value !== undefined) {
         // this.userRobots.next(Object.assign(value.body));
       }
