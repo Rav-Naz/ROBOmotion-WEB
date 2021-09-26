@@ -383,8 +383,8 @@
     bottom: 2rem;
     left: 2rem;
     width: 50rem;
-    height: 30rem;
-    // background-color: $color-primary;
+    max-width: 90%;
+    min-height: 30rem;
     background: linear-gradient(45deg, $color-grey-4, $color-grey-1);
     border-radius: 3rem;
     z-index: 999;
