@@ -560,7 +560,12 @@
             "fight-not-assigned": "Walka jeszcze nie została ustawiona!",
             "fight-must-end": "Walka musi się rozstrzygnąć!",
             "fight-second-robot": "Przed dodaniem wyniku dodaj drugiego robota do walki!",
-            "fight-no-edit": "Nie można już edytować tej walki ponieważ następna się już się zakończyła"
+            "fight-no-edit": "Nie można już edytować tej walki ponieważ następna się już się zakończyła",
+            "last-category": "Nie można usunąć jedynej kategorii robota",
+            "too-many-constructors": "Nie można dodać więcej niż 20 konstruktorów!",
+            "too-many-categories": "Nie można dodać więcej niż 4 kategorie!",
+            "too-many-lf-categories": "Nie można dodać więcej niż 2 kategorie w konkurencji Line Follower!",
+            "too-many-sumo-categories": "Nie można dodać więcej niż 2 kategorie w konkurencji Sumo!"
         },
         "statusCodes": {
             "400": "Błędnie określone dane - błąd użytkownika",

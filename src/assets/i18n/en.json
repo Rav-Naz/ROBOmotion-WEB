@@ -562,7 +562,12 @@
             "fight-not-assigned": "The fight has not yet been set!",
             "fight-must-end": "The fight must come to an end!",
             "fight-second-robot": "Before adding the result, add a second robot to the fight!",
-            "fight-no-edit": "This fight can no longer be edited as the next one has already ended"
+            "fight-no-edit": "This fight can no longer be edited as the next one has already ended",
+            "last-category": "The only robot category cannot be deleted!",
+            "too-many-constructors": "You cannot add more than 20 constructors!",
+            "too-many-categories": "You cannot add more than 4 robot categories!",
+            "too-many-lf-categories": "You cannot add more than 2 categories in the Line Follower competition!",
+            "too-many-sumo-categories": "You cannot add more than 2 categories in the Sumo competition!"
         },
         "statusCodes": {
             "400": "Incorrectly specified data - user error",

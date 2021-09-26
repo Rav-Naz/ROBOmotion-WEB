@@ -46,6 +46,7 @@
     }
     &-competitor-zone {
         font-size: 3rem !important;
+        font-weight: 700 !important;
     }
     a {
         color: $color-grey-5;
@@ -61,7 +62,7 @@
         cursor: pointer;
         text-decoration: none;
         font-family: $default-font;
-        font-weight: 700;
+        font-weight: 400;
         background: transparent;
         transition: all 0.1s ease-in-out;
         &:active {

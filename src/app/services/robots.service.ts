@@ -4,7 +4,8 @@ import { UiService } from './ui.service';
 import { BehaviorSubject } from 'rxjs';
 import { ErrorsService } from './errors.service';
 import { HttpService } from './http.service';
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class RobotsService{
   private userRobots = new BehaviorSubject<Array<any> | null>(null);
 
   constructor(private http: HttpService, private errorService: ErrorsService, private ui: UiService, private translate: TranslateService,
-     private websocket: WebsocketService) {
+     private websocket: WebsocketService, private injector: Injector) {
     this.getAllRobotsOfUser();
     this.websocket.getWebSocket$.subscribe((socket) => {
       socket?.on('robots/updateRobot', (data) => {
@@ -65,7 +66,8 @@ export class RobotsService{
         newRobot.nazwa_robota = newRobot.nazwa;
         delete newRobot.nazwa;
         delete newRobot.kategoria_id;
-        this.userRobots.value?.push(newRobot)
+        this.userRobots.value?.push(newRobot);
+        this.websocket.createSocket(this.injector.get(AuthService).JWT!);
         this.ui.showFeedback("succes", this.translate.instant('competitor-zone.new-robot.success'), 2);
         resolve(newRobot);
       } else {
