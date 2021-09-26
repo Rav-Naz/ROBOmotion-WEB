@@ -127,7 +127,7 @@
                 "2": " został wysłany link z kodem do zresetowania hasła. Sprawdź swoją skrzynkę pocztową i dokończ procedurę resetowania hasła."
             },
             "errors": {
-                "no-params": "Pomyślnie wysłano prośbę o zresetowanie hasła"
+                "sended": "Pomyślnie wysłano prośbę o zresetowanie hasła"
             }
         },
         "reset-password": {
