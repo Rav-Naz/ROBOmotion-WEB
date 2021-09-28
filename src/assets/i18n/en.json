@@ -160,7 +160,10 @@
                 "3": " Select one of the activities available in the panel"
             },
             "time-left": "Time until the end of editing robots",
-            "time-up": "Time to edit robots is over!"
+            "time-left-sb": "Time until the end of adding robots in the Smash Bots category",
+            "time-up": "Time to edit robots is over!",
+            "time-up-sb": "Time to adding robots in the Smash Bots category is over!"
+
         },
         "my-robots": {
             "title": "MY ROBOTS",
@@ -219,7 +222,8 @@
             "password": "Change Password",
             "errors": {
                 "success": "Account password changed successfully",
-                "success-name": "User data was successfully edited"
+                "success-name": "User data was successfully edited",
+                "copied": "User UUID copied to clipboard"
             }
         }
     },
@@ -518,7 +522,7 @@
             "success": "Success",
             "warning": "Warning!",
             "error": "Error!",
-            "loading": "Loading..."
+            "loading": "Information"
         },
         "details": {
             "no-category": "There is no such category!",

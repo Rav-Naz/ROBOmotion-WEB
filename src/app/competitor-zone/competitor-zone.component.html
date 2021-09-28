@@ -17,35 +17,68 @@
                         <p>{{'competitor-zone.bar.referee-zone' | translate}}</p>
                     </section>
                 </div>
-                <div class="competitor-zone-bar-time" *ngIf="timeLeft && !timeIsUp">
-                    <p>{{'competitor-zone.bar.time-left' | translate}}</p>
-                    <div [ngClass]="{'competitor-zone-bar-time-ending': isLessThanWeek}">
-                        <label>
-                            {{timeLeft | msTransform: 'd'}}<span>D</span>
-                        </label>
-                        <span>
-                            :
-                        </span>
-                        <label>
-                            {{timeLeft | msTransform: 'h'}}<span>H</span>
-                        </label>
-                        <span>
-                            :
-                        </span>
-                        <label>
-                            {{timeLeft | msTransform: 'm'}}<span>M</span>
-                        </label>
-                        <span>
-                            :
-                        </span>
-                        <label>
-                            {{timeLeft | msTransform: 's'}}<span>S</span>
-                        </label>
+                <ng-container *ngIf="switcher">
+                    <div class="competitor-zone-bar-time" *ngIf="timeLeft && !timeIsUp">
+                        <p>{{'competitor-zone.bar.time-left' | translate}}</p>
+                        <div [ngClass]="{'competitor-zone-bar-time-ending': isLessThanWeek}">
+                            <label>
+                                {{timeLeft | msTransform: 'd'}}<span>D</span>
+                            </label>
+                            <span>
+                                :
+                            </span>
+                            <label>
+                                {{timeLeft | msTransform: 'h'}}<span>H</span>
+                            </label>
+                            <span>
+                                :
+                            </span>
+                            <label>
+                                {{timeLeft | msTransform: 'm'}}<span>M</span>
+                            </label>
+                            <span>
+                                :
+                            </span>
+                            <label>
+                                {{timeLeft | msTransform: 's'}}<span>S</span>
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <p *ngIf="timeIsUp">
-                    {{'competitor-zone.bar.time-up' | translate}}
-                </p>
+                    <p *ngIf="timeIsUp">
+                        {{'competitor-zone.bar.time-up' | translate}}
+                    </p>
+                </ng-container>
+                <ng-container *ngIf="!switcher">
+                    <div class="competitor-zone-bar-time" *ngIf="timeLeftSmashBots && !timeIsUpSmashBots">
+                        <p>{{'competitor-zone.bar.time-left-sb' | translate}}</p>
+                        <div [ngClass]="{'competitor-zone-bar-time-ending': isLessThanWeekSmashBots}">
+                            <label>
+                                {{timeLeftSmashBots | msTransform: 'd'}}<span>D</span>
+                            </label>
+                            <span>
+                                :
+                            </span>
+                            <label>
+                                {{timeLeftSmashBots | msTransform: 'h'}}<span>H</span>
+                            </label>
+                            <span>
+                                :
+                            </span>
+                            <label>
+                                {{timeLeftSmashBots | msTransform: 'm'}}<span>M</span>
+                            </label>
+                            <span>
+                                :
+                            </span>
+                            <label>
+                                {{timeLeftSmashBots | msTransform: 's'}}<span>S</span>
+                            </label>
+                        </div>
+                    </div>
+                    <p *ngIf="timeIsUpSmashBots">
+                        {{'competitor-zone.bar.time-up-sb' | translate}}
+                    </p>
+                </ng-container>
             </div>
             <div class="competitor-zone-main">
                 <ng-container *ngIf="isFirstPage">

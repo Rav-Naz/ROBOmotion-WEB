@@ -16,11 +16,17 @@ import { ConstructorsService } from '../services/constructors.service';
 export class CompetitorZoneComponent{
 
   public timeLeft: number | undefined;
+  public timeLeftSmashBots: number | undefined;
   public timeIsUp: boolean = false;
+  public timeIsUpSmashBots: boolean = false;
+  public switcher = false;
 
 
   constructor(public translate: TranslateService, public userService: UserService, private router: Router,
     public constructorService: ConstructorsService, public authService: AuthService) {
+      setInterval(() => {
+        this.switcher = !this.switcher;
+      }, 5000)
       this.refreshCounter();
     setInterval(() => {
       this.refreshCounter();
@@ -28,15 +34,23 @@ export class CompetitorZoneComponent{
   }
 
   refreshCounter() :void {
-    if(!this.authService.accessToModifyExpirationDate) return;
+    if(!this.authService.accessToModifyExpirationDate || !this.authService.accessToModifySmashBotsExpirationDate) return;
     this.timeLeft = this.authService.accessToModifyExpirationDate.getTime() - new Date().getTime();
+    this.timeLeftSmashBots = this.authService.accessToModifySmashBotsExpirationDate.getTime() - new Date().getTime();
     if(Math.floor(this.timeLeft/1000) < 0) {
       this.timeIsUp = true;
+    }
+    if(Math.floor(this.timeLeftSmashBots/1000) < 0) {
+      this.timeIsUpSmashBots = true;
     }
   }
 
   get isLessThanWeek() {
     return this.timeLeft && Math.floor(this.timeLeft/1000) < 604800;
+  }
+
+  get isLessThanWeekSmashBots() {
+    return this.timeLeftSmashBots && Math.floor(this.timeLeftSmashBots/1000) < 604800;
   }
 
   get isFirstPage() {

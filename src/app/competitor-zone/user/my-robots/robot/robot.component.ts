@@ -231,6 +231,9 @@ export class RobotComponent {
       if (akt_sumo && akt_sumo.length >= 2) {
         cats = cats.filter(element => kategorie_sumo.findIndex(rC => rC === element.kategoria_id)! < 0);
       }
+      if (this.authService.accessToModifySmashBotsExpirationDate && this.authService.accessToModifySmashBotsExpirationDate < new Date) {
+        cats = cats.filter(element => element.kategoria_id !== 1);
+      }
       this.aviableCategories = cats.filter(element => this.robotCategories?.findIndex(rC => rC === element.kategoria_id)! < 0);
     }
   }

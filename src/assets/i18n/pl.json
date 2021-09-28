@@ -160,7 +160,9 @@
                 "3": " Wybierz jedną z aktywności dostępnych w panelu"
             },
             "time-left": "Czas do końca edycji robotów",
-            "time-up": "Czas na edycję robotów zakończył się!"
+            "time-left-sb": "Czas do końca dodawania robotów w kategorii Smash Bots",
+            "time-up": "Czas na edycję robotów zakończył się!",
+            "time-up-sb": "Czas na dodawania robotów w kategorii Smash Bots zakończył się!"
         },
         "my-robots": {
             "title": "MOJE ROBOTY",
@@ -219,7 +221,8 @@
             "password": "Zmień hasło",
             "errors": {
                 "success": "Pomyślnie zmieniono hasło do konta",
-                "success-name": "Pomyślnie edytowano dane użytkownika"
+                "success-name": "Pomyślnie edytowano dane użytkownika",
+                "copied": "Skopiowano identyfikator użytkownika do schowka"
             }
         }
     },
@@ -516,7 +519,7 @@
             "success": "Sukces",
             "warning": "Uwaga!",
             "error": "Błąd!",
-            "loading": "Ładowanie..."
+            "loading": "Informacja"
         },
         "details": {
             "no-category": "Taka kategoria nie istnieje!",

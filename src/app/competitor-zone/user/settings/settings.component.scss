@@ -8,13 +8,14 @@
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
+    height: 100%;
 }
 
 section {
     // margin-top: 1rem;
     width: 100%;
     height: max-content;
-    min-height: 5rem;
+    min-height: min-content;
     border-bottom: 2px dashed rgba($color-grey-0, 0.3);
     display: flex;
     flex-direction: column;
@@ -89,6 +90,11 @@ section {
     display: flex;
     width: max-content;
     flex-direction: column;
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
     span {
         letter-spacing: .2rem;
         font-size: 1.5rem;
@@ -99,6 +105,13 @@ section {
         font-weight: bold;
         font-family: $title-font;
         color: $color-primary;
+        cursor: pointer;
+    }
+    i {
+        cursor: pointer;
+        color: $color-grey-0;
+        font-size: 2.5rem;
+        padding: 1rem;
     }
 }
 

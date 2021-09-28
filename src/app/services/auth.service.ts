@@ -18,6 +18,7 @@ export class AuthService {
 
   public JWT: string | null= null;
   public accessToModifyExpirationDate: Date | null = null;
+  public accessToModifySmashBotsExpirationDate: Date | null = null;
 
   constructor(private http: HttpService, private router: Router, private errorService: ErrorsService, private ui: UiService,
      private translate: TranslateService, private webSocket: WebsocketService, private userService: UserService) {
@@ -25,6 +26,7 @@ export class AuthService {
     this.http.getHomePageInfo.subscribe((data) => {
       if(data === undefined || data === null) return;
       this.accessToModifyExpirationDate = new Date(data.body.accessToModifyExpirationDate);
+      this.accessToModifySmashBotsExpirationDate = new Date(data.body.accessToSmashRobots);
     })
     if (details) {
       this.SetDetails(details).then(() => {

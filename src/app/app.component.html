@@ -11,7 +11,7 @@
     <div class="navigator-user" *ngIf="userName !== null">
         <label>{{'menu.hello' | translate}} <span>{{userName}}!</span></label>
         <span>{{'menu.uuid' | translate}}</span>
-        <p>{{userUUID}}</p>
+        <p (click)="copyUUID()">{{userUUID}}</p>
         <button (click)="onLogout()">{{'menu.logout' | translate}}</button>
     </div>
     <div class="navigator-links">

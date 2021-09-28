@@ -83,6 +83,22 @@ export class AppComponent implements OnInit {
     localStorage.setItem('cookies', 'accepted');
   }
 
+  copyUUID(){
+    let selBox = document.createElement('textarea');
+      selBox.style.position = 'fixed';
+      selBox.style.left = '0';
+      selBox.style.top = '0';
+      selBox.style.opacity = '0';
+      selBox.value = this.injector.get(UserService).userUUID;
+      document.body.appendChild(selBox);
+      selBox.focus();
+      selBox.select();
+      document.execCommand('copy');
+      document.body.removeChild(selBox);
+
+      this.ui.showFeedback('loading', this.translate.instant('competitor-zone.settings.errors.copied'), 3);
+    }
+
   onLogout() {
     this.injector.get(AuthService).logout();
     this.switchMenu(false);

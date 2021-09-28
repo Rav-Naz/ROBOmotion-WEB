@@ -1,3 +1,4 @@
+import { UiService } from './../../../services/ui.service';
 import { UserService } from './../../../services/user.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -23,7 +24,7 @@ export class SettingsComponent {
   private loadingPassword: boolean = false;
   
   constructor(public translate: TranslateService, private formBuilder: FormBuilder,
-    public authService: AuthService, public userService: UserService) {
+    public authService: AuthService, public userService: UserService, private ui: UiService) {
     this.formName = this.formBuilder.group({
       name: [(userService.userDetails as any)?.imie, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
       surname: [(userService.userDetails as any)?.nazwisko, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]]
@@ -66,6 +67,21 @@ export class SettingsComponent {
     }
   }
 
+  copyUUID(){
+    let selBox = document.createElement('textarea');
+      selBox.style.position = 'fixed';
+      selBox.style.left = '0';
+      selBox.style.top = '0';
+      selBox.style.opacity = '0';
+      selBox.value = this.userService.userUUID;
+      document.body.appendChild(selBox);
+      selBox.focus();
+      selBox.select();
+      document.execCommand('copy');
+      document.body.removeChild(selBox);
+
+      this.ui.showFeedback('loading', this.translate.instant('competitor-zone.settings.errors.copied'), 3);
+    }
 
   public get isFormGroupNameValid() {
     return this.formName.valid && !this.loadingName && this.authService.canModify && this.isFormNameChanged;
