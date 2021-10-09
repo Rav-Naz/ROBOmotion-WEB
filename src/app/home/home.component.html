@@ -170,7 +170,7 @@
         </div>
         <div>
             <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
-            <span>{{'home.patreons.organizer2.name' | translate}}</span>
+            <!-- <span>{{'home.patreons.organizer2.name' | translate}}</span> -->
             <img [src]="'home.patreons.organizer2.src' | translate">
             <div class="organizer-social">
                 <p (click)="openUrl('https://www.facebook.com/DolinaWiedzy')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
@@ -180,23 +180,35 @@
         </div>
         <div>
             <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
-            <span>{{'home.patreons.organizer3.name' | translate}}</span>
+            <!-- <span>{{'home.patreons.organizer3.name' | translate}}</span> -->
             <img src="../../assets/svg/RoboLAB-white.svg">
             <div class="organizer-social">
                 <!-- <p (click)="openUrl('https://www.facebook.com/rzeszowska.grupa.it')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
-                <p (click)="openUrl('https://www.instagram.com/rzeszowskagrupait/')" class="organizer-social-item organizer-social-item--ig"><i class="lab la-instagram"></i></p>
-                <p (click)="openUrl('https://rzit.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p> -->
+                    <p (click)="openUrl('https://www.instagram.com/rzeszowskagrupait/')" class="organizer-social-item organizer-social-item--ig"><i class="lab la-instagram"></i></p>
+                    <p (click)="openUrl('https://rzit.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p> -->
+            </div>
+        </div>
+        <div>
+            <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
+            <!-- <span>{{'home.patreons.organizer4.name' | translate}}</span> -->
+            <img src="../../assets/svg/pti.svg">
+            <div class="organizer-social">
+                <p (click)="openUrl('https://www.facebook.com/ZGPTI/')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
+                <p (click)="openUrl('https://www.linkedin.com/groups/23057?trk=prof-groups-membership-name')" class="organizer-social-item organizer-social-item--in"><i class="lab la-linkedin-in"></i></p>
+                <p (click)="openUrl('https://portal.pti.org.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p>
             </div>
         </div>
     </section>
     <section class="patreons">
         <h3 class="section-header">{{'home.patreons.title' | translate}}</h3>
         <ng-container *ngFor="let name of patreonNames; let i = index">
-            <p class="patreons-name">{{name}}</p>
-            <div class="patreons-class-container">
-                <div class="patreons-one" *ngFor="let patreon of getAllPatreonsWithIndex(i)" (click)="openUrl(patreon.linkToSite)">
-                    <img [src]="patreon.image">
-                    <p>{{patreon.description}}</p>
+            <div [ngClass]="patreonClassPicker(i)" *ngIf="getAllPatreonsWithIndex(i).length > 0">
+                <p class="patreons-name">{{name}}</p>
+                <div class="patreons-class-container">
+                    <div class="patreons-one" *ngFor="let patreon of getAllPatreonsWithIndex(i)" (click)="openUrl(patreon.linkToSite)">
+                        <img [src]="patreon.image">
+                        <p>{{patreon.description}}</p>
+                    </div>
                 </div>
             </div>
         </ng-container>

@@ -1,6 +1,7 @@
 {
     "menu": {
         "home": "Strona główna",
+        "tutorial": "Poradnik zawodnika",
         "program": "Program wydarzenia",
         "competitions": "Konkurencje",
         "location": "Lokalizacja",
@@ -75,8 +76,23 @@
                 "title": "ORGANIZER",
                 "name": "RoboLAB – Local STEM Incubator"
             },
+            "organizer4": {
+                "title": "ORGANIZER",
+                "name": "PTI - Polskie Towarzystwo Informatyczne"
+            },
             "title": "Patroni",
-            "question": "Chcesz zostać patronem? Skontaktuj się z nami pod adresem kontakt@kneiti.prz.edu.pl"
+            "question": "Chcesz zostać patronem? Skontaktuj się z nami pod adresem kontakt@kneiti.prz.edu.pl",
+            "patreonList": [
+                { "id": 1, "patreonCategory": 1, "description": "WAGO", "image": "../../assets/svg/wago.png", "linkToSite": "https://www.wago.com/" }
+
+            ],
+            "tiers": [
+                "Sponsor Główny",
+                "Sponsor Złoty",
+                "Sponsor Srebrny",
+                "Sponsor Brązowy",
+                "Patronat medialny"
+            ]
         },
         "footer": {
             "copyright": "Prawa autorskie",
@@ -159,6 +175,7 @@
                 "2": "Strefie Zawodnika!",
                 "3": " Wybierz jedną z aktywności dostępnych w panelu"
             },
+            "help": "Pomoc",
             "time-left": "Czas do końca edycji robotów",
             "time-left-sb": "Czas do końca dodawania robotów w kategorii Smash Bots",
             "time-up": "Czas na edycję robotów zakończył się!",

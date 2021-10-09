@@ -44,6 +44,14 @@ export class CompetitorZoneComponent{
       this.timeIsUpSmashBots = true;
     }
   }
+  
+  openTutorial() {
+    if (this.translate.currentLang == "pl") {
+      window.open('https://rzit.smarthost.pl/robomotion/tutorial.pdf');
+    } else {
+      window.open('https://rzit.smarthost.pl/robomotion/tutorial-ang.pdf');
+    }
+  }
 
   get isLessThanWeek() {
     return this.timeLeft && Math.floor(this.timeLeft/1000) < 604800;

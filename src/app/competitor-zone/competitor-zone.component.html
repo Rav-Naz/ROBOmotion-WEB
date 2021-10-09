@@ -16,6 +16,10 @@
                         <i class="las la-gavel"></i>
                         <p>{{'competitor-zone.bar.referee-zone' | translate}}</p>
                     </section>
+                    <section class="competitor-zone-bar-segment" (click)="openTutorial()">
+                        <i class="las la-question"></i>
+                        <p>{{'competitor-zone.bar.help' | translate}}</p>
+                    </section>
                 </div>
                 <ng-container *ngIf="switcher">
                     <div class="competitor-zone-bar-time" *ngIf="timeLeft && !timeIsUp">

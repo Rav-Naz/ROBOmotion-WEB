@@ -234,6 +234,10 @@ export class HomeComponent implements OnInit{
     window.open(url);
   }
 
+  patreonClassPicker(index: number) {
+    return {[`patreons-class-${index}`]: true};
+  }
+
   get descriptionOfSelectedEvent(): string | undefined {
     return this.eventsList.find((event) => event.id === this.selectedEventIndex)?.description;
   }

@@ -107,6 +107,15 @@ export class AppComponent implements OnInit {
   getDepth(outlet: any): void {
     return outlet.activatedRouteData['depth'];
   }
+
+  openTutorial() {
+    if (this.translate.currentLang == "pl") {
+      window.open('https://rzit.smarthost.pl/robomotion/tutorial.pdf');
+    } else {
+      window.open('https://rzit.smarthost.pl/robomotion/tutorial-ang.pdf');
+    }
+  }
+
   switchLang() {
     this.isEnglish = !this.isEnglish;
     localStorage.setItem('prefLang', this.isEnglish ? 'en' : 'pl');

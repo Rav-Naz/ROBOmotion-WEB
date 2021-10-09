@@ -1201,6 +1201,19 @@
                     }
                 }
             }
+            &--in {
+                &:hover {
+                    transition: .5s;
+                    color: $color-white;
+                    background: linear-gradient(135deg, #1486f1, #1175d3);
+                    &:before {
+                        background: linear-gradient(135deg, #0f69be, #0d5eaa);
+                    }
+                    &:after {
+                        background: linear-gradient(135deg, #0b5192, #09447c 90%);
+                    }
+                }
+            }
             &--web {
                 &:hover {
                     transition: .5s;
@@ -1208,7 +1221,6 @@
                     background: linear-gradient(135deg, #4f14f1, #980df5);
                     &:before {
                         background: linear-gradient(135deg, #4112c4, #580ece);
-                        ;
                     }
                     &:after {
                         background: linear-gradient(135deg, #480ba8, #6d09af 90%);
@@ -1230,8 +1242,9 @@
         background-position: center;
         span {
             font-size: 3.5rem;
-            font-family: $title-font;
+            font-family: $default-font;
             text-align: center;
+            letter-spacing: .15rem;
             color: $color-white;
         }
         img {
@@ -1319,6 +1332,58 @@
         font-family: $title-font;
         font-weight: 700;
         letter-spacing: .3rem;
+    }
+    &-class {
+        &-0 {
+            &>p {
+                font-size: 5rem !important;
+                color: #b9f2ff;
+            }
+            .patreons-one {
+                max-width: 50rem;
+                img {
+                    max-width: 40rem;
+                    max-height: 30rem;
+                }
+            }
+        }
+        &-1 {
+            &>p {
+                font-size: 4.5rem !important;
+                color: goldenrod;
+            }
+            .patreons-one {
+                max-width: 40rem;
+                img {
+                    max-width: 30rem;
+                    max-height: 30rem;
+                }
+            }
+        }
+        &-2 {
+            &>p {
+                font-size: 4rem !important;
+                color: silver;
+            }
+            .patreons-one {
+                max-width: 35rem;
+                img {
+                    max-width: 25rem;
+                    max-height: 20rem;
+                }
+            }
+        }
+        &-3 {
+            &>p {
+                font-size: 3.5rem !important;
+                color: rgb(212, 113, 46);
+            }
+        }
+        &-4 {
+            &>p {
+                font-size: 3rem !important;
+            }
+        }
     }
     &-one {
         padding: 3rem;

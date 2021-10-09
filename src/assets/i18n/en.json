@@ -1,6 +1,7 @@
 {
     "menu": {
         "home": "Home",
+        "tutorial": "Competitor Guide",
         "program": "Schedule",
         "competitions": "Competitions",
         "location": "Location",
@@ -76,7 +77,17 @@
                 "name": "RoboLAB – Local STEM Incubator"
             },
             "title": "PATRONS",
-            "question": "Do you want to become a patron? Contact us at kontakt@kneiti.prz.edu.pl"
+            "question": "Do you want to become a patron? Contact us at kontakt@kneiti.prz.edu.pl",
+            "patreonList": [
+                { "id": 1, "patreonCategory": 1, "description": "WAGO", "image": "../../assets/svg/wago.png", "linkToSite": "https://www.wago.com/" }
+            ],
+            "tiers": [
+                "Main sponsor",
+                "Gold sponsor",
+                "Silver sponsor",
+                "Bronze sponsor",
+                "Media patronage"
+            ]
         },
         "footer": {
             "copyright": "Copyright",
@@ -159,6 +170,7 @@
                 "2": "Competitor Zone!",
                 "3": " Select one of the activities available in the panel"
             },
+            "help": "Help",
             "time-left": "Time until the end of editing robots",
             "time-left-sb": "Time until the end of adding robots in the Smash Bots category",
             "time-up": "Time to edit robots is over!",
