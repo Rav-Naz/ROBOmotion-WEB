@@ -73,6 +73,6 @@ export class UserService {
   }
 
   get isReferee() {
-    return this.userType > 1;
+    return this.userType > 0;
   }
 }

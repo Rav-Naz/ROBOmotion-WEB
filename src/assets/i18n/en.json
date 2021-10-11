@@ -527,6 +527,19 @@
                 "alreadyExistValidator": "The user is already the constructor of this robot"
 
             }
+        },
+        "position": {
+            "name": "Position",
+            "validators": {
+                "required": "This field is required"
+            }
+        },
+        "time": {
+            "name": "Edit travel time",
+            "validators": {
+                "required": "This field is required",
+                "maxlength": "The time cannot be greater than 999999ms"
+            }
         }
     },
     "errors": {

@@ -1,15 +1,152 @@
-import { Component, OnInit } from '@angular/core';
+import { FightsService } from './../../../services/fights.service';
+import { UiService } from './../../../services/ui.service';
+import { TimesService } from './../../../services/times.service';
+import { TranslateService } from '@ngx-translate/core';
+import { CategoriesService } from './../../../services/categories.service';
+import { Position } from './../../../models/position';
+import { PositionsService } from './../../../services/positions.service';
+import { RefereeService } from './../../../services/referee.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subscription, combineLatest } from 'rxjs';
+import { CategoryMain } from 'src/app/models/category-main';
 
 @Component({
   selector: 'app-referee-zone',
   templateUrl: './referee-zone.component.html',
-  styleUrls: ['./referee-zone.component.scss']
+  styleUrls: ['./referee-zone.component.scss'],
+  host: {
+    'class': 'router-flex'
+  },
+  providers: [RefereeService, PositionsService]
 })
-export class RefereeZoneComponent implements OnInit {
+export class RefereeZoneComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  form: FormGroup;
+  public positions: Array<Position> | null = null;
+  public categories: Array<CategoryMain> | null = null;
+
+  private loading: boolean = false;
+  private subs: Subscription = new Subscription;
+  public selectedPosition: number | null = 1;
+  public selectedCategory: number | null = 4;
+  public positionFights: Array<any> | null = null;
+  public positionTimesResults: Array<any> | null = null;
+  public editingTimes: number | null = null;
+  public editingTimesForm: FormGroup;
+  public isLoading: boolean = false;
+
+  constructor(private refereeService: RefereeService, private positionsService: PositionsService, private formBuilder: FormBuilder,
+     private categoriesService: CategoriesService, private translateService: TranslateService, private timesService: TimesService,
+      private ui: UiService, private figthsService: FightsService) {
+    this.form = this.formBuilder.group({
+      position: [null, [Validators.required]]
+    });
+
+    this.editingTimesForm = this.formBuilder.group({
+      time: [null, [Validators.required, Validators.maxLength(7)]]
+    });
+    
+    const sub1 = combineLatest(this.categoriesService.categories$,this.positionsService.positions$).subscribe((val) => {
+      if (val[0] !== null && val[1]) {
+        this.categories = JSON.parse(JSON.stringify(val[0]));
+        this.positions = JSON.parse(JSON.stringify(val[1]));
+        this.form.get('position')?.setValue(1); //debug
+      }
+    })
+    const sub2 = this.form.valueChanges.subscribe( async (data) => {
+      if(data !== null && data !== undefined) {
+        this.selectedPosition = Number(data.position);
+        await this.positionsService.getAllFightsForPosiotion(this.selectedPosition);
+        await this.positionsService.getAllTimesForPosiotion(this.selectedPosition);
+        // console.log('times',this.positionTimesResults) //debug
+      }
+    });
+    const sub3 = this.timesService.timesForPosition$.subscribe((data) => {
+      if(data !== null && data !== undefined) {
+        this.positionTimesResults = data;
+      }
+    });
+    const sub4 = this.figthsService.figthsForPosition$.subscribe((data) => {
+      if(data !== null && data !== undefined) {
+        this.positionFights = data;
+      }
+    });
+
+    this.subs.add(sub1).add(sub2).add(sub3).add(sub4);
+  }
 
   ngOnInit(): void {
+  }
+
+  selectCategory(kategoria_id: number) {
+    this.selectedCategory = Number(kategoria_id);
+  }
+
+  editTime(wynik_id: number) {
+    const wynik = this.positionTimesResults?.find(el => el.wynik_id === wynik_id);
+    this.editingTimesForm = this.formBuilder.group({
+      time: [wynik.czas_przejazdu, [Validators.required, Validators.maxLength(7)]]
+    });
+    this.editingTimes = wynik_id;
+  }
+
+  async saveEditedTime() {
+    if(this.isFormEditTimeValid) {
+      const decision = await this.ui.wantToContinue(`Czy na pewno chcesz zaktualizować czas przejazdu ${this.editingTimes}?`)
+      if (!decision) return;
+      this.isLoading = true;
+      const newTime = Number(this.editingTimesForm.get('time')?.value);
+      this.timesService.updateTimeResult(this.editingTimes!, newTime).then(() => {
+        this.ui.showFeedback("succes", `Pomyślnie zaktualizowano wynik ${this.editingTimes} na ${newTime}`,2);
+        this.isLoading = false;
+        this.editingTimes = null;
+      })
+    }
+  }
+
+  get positionsOptions(): string | undefined {
+    return this.positions ? JSON.stringify(Object.assign(this.positions).map((position: Position) => {
+      return {value: position.nazwa, id: position.stanowisko_id}
+    })) : undefined;
+  }
+
+  get categoriesInPosition() {
+    const categories = this.positions?.find(el => el.stanowisko_id === this.selectedPosition)?.kategorie;
+    if(categories) {
+      const a = [...[...categories.split(", ")].map((cat) => {
+        const obj = this.categories!.find(obj => obj.kategoria_id.toString() === cat);
+        return {kategoria_id: obj?.kategoria_id, nazwa: obj?.nazwa};
+      })];
+      return a;
+    } else {
+      return undefined;
+    }
+  }
+
+  get getCategoryType() {
+    return this.categories?.find(el => el.kategoria_id === this.selectedCategory)?.rodzaj
+  }
+
+  get getCategoryFigths() {
+    return this.positionFights?.filter(el => el.kategoria_id === this.selectedCategory);
+  }
+
+  get getCategoryTimesResult() {
+    return this.positionTimesResults?.filter(el => el.kategoria_id === this.selectedCategory);
+  }
+
+  public get isFormEditTimeValid() {
+    return this.editingTimesForm.valid && !this.isLoading;
+  }
+
+  formatDate(date: string) {
+    const now = new Date(date);
+    return now.toISOString();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

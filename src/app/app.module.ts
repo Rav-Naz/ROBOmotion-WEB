@@ -1,3 +1,4 @@
+import { RefereeZoneComponent } from './competitor-zone/referee/referee-zone/referee-zone.component';
 import { ConfirmComponent } from './shared/confirm/confirm.component';
 import { RobotsService } from './services/robots.service';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -37,6 +38,8 @@ import { ConstructorsService } from './services/constructors.service';
 import { ForgotPasswordComponent } from './competitor-zone/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './competitor-zone/reset-password/reset-password.component';
 import { AppRulesComponent } from './competitor-zone/app-rules/app-rules.component';
+import '@angular/common/locales/global/pl';
+import { AddTimeResultComponent } from './competitor-zone/referee/add-time-result/add-time-result.component';
 
 
 @NgModule({
@@ -62,7 +65,9 @@ import { AppRulesComponent } from './competitor-zone/app-rules/app-rules.compone
     RobotComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    AppRulesComponent
+    AppRulesComponent,
+    RefereeZoneComponent,
+    AddTimeResultComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { AddTimeResultComponent } from './competitor-zone/referee/add-time-result/add-time-result.component';
 import { AppRulesComponent } from './competitor-zone/app-rules/app-rules.component';
 import { ResetPasswordComponent } from './competitor-zone/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './competitor-zone/forgot-password/forgot-password.component';
@@ -32,9 +33,11 @@ const routes: Routes = [
   {path: 'competitor-zone', canActivate: [AuthGuard], component: CompetitorZoneComponent, children: [
     {path: 'my-robots', component: MyRobotsComponent, outlet: 'outlet'},
     {path: 'settings', component: SettingsComponent, outlet: 'outlet'},
-    {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
     {path: 'robot/:robot_uuid', component: RobotComponent, outlet: 'outlet'},
     {path: 'add-robot', component: NewRobotComponent,  outlet: 'outlet'},
+
+    {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'add-time-result', component: AddTimeResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
   ]},
   {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},

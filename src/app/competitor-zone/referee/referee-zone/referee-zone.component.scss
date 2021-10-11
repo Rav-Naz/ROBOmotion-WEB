@@ -1,0 +1,189 @@
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+.referee {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    &-header {
+        width: 100%;
+        height: max-content;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 5px dotted rgba($color-grey-0, 0.3);
+    }
+    &-categories {
+        width: 100%;
+        height: min-content;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        &-active {
+            color: $color-primary !important;
+            border: 1px solid $color-primary !important;
+        }
+        button {
+            &,
+            &:link,
+            &:visited {
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: all ease-out 0.1s, box-shadow ease-in 0.4s, background-position ease-in 0.2s;
+                text-decoration: none;
+                margin: 1rem;
+                padding: .7rem;
+                font-size: 1.5rem;
+                border: 1px solid $color-grey-0;
+                color: $color-grey-0;
+                border-radius: 1rem;
+                background: transparent;
+            }
+            &:focus {
+                outline: none;
+                &:active {
+                    transform: translateY(3px);
+                }
+            }
+            &:hover {
+                color: $color-primary;
+                border: 1px solid $color-primary;
+            }
+        }
+    }
+    &-results {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        div {
+            height: min-content;
+        }
+        &-times {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            button {
+                height: min-content;
+                padding: 1rem !important;
+                justify-content: center;
+                align-items: center;
+                width: max-content;
+            }
+            &-element {
+                margin: 1rem 0;
+                border: 3px solid $color-grey-1;
+                height: min-content;
+                width: 100%;
+                border-radius: 2rem;
+                background: #252525c2;
+                transition: all .3s;
+                box-shadow: inset 5px 5px 10px #14141498, inset -5px -5px 10px #3f3f3fdf;
+                &:hover {
+                    &>span:last-child {
+                        color: $color-primary;
+                        border-bottom: 1px dashed $color-primary;
+                    }
+                    border: 3px solid rgba($color-primary, 0.7);
+                }
+                display: grid;
+                grid-template-rows: max-content;
+                grid-template-columns: min-content minmax(min-content, 35rem) 2fr max-content;
+                padding: 1.5rem 2rem;
+                cursor: pointer;
+                &-info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: left;
+                    align-items: flex-start;
+                    grid-row: 1;
+                    grid-column: 2;
+                    align-self: center;
+                }
+                &-id {
+                    line-height: 2.2rem;
+                    color: $color-grey-0;
+                    justify-self: center;
+                    align-self: center;
+                    font-size: 2rem;
+                    padding: 1rem;
+                    padding-left: 0;
+                }
+                &-name {
+                    text-align: left;
+                    align-items: center;
+                    line-height: 170%;
+                    max-width: 33rem;
+                    // transform: translateY(15%);
+                    word-wrap: break-word;
+                }
+                &-uuid {
+                    font-size: 1rem;
+                    color: $color-primary;
+                    align-items: center;
+                    justify-self: left;
+                    min-width: max-content;
+                    // transform: translateY(-7%);
+                }
+                &-categories {
+                    padding: 0 2rem;
+                    align-self: center;
+                    // width: mii-content;
+                    // width: 80%;
+                    font-weight: 100;
+                    font-family: $default-font;
+                    color: rgba($color-white, 0.8);
+                    font-size: 1.6rem;
+                    grid-column: 3;
+                    grid-row: 1;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    p {
+                        color: $color-white;
+                        font-size: 1.5rem;
+                    }
+                }
+                &-edit {
+                    transition: all .3s;
+                    font-family: $title-font;
+                    align-items: center;
+                    line-height: normal;
+                    color: rgba($color-grey-0, 0.5);
+                    font-size: 2rem;
+                    grid-column: 4;
+                    grid-row: 1;
+                    align-self: center;
+                    border-bottom: 1px dashed rgba($color-grey-0, 0.5);
+                    padding-bottom: .4rem;
+                    i {
+                        padding-left: .5rem;
+                    }
+                    &-form {
+                        grid-column: 4;
+                        grid-row: 1;
+                        display: flex;
+                        flex-direction: row;
+                        button {
+                            width: 5rem;
+                            height: 5rem;
+                            margin: 1rem !important;
+                            margin-bottom: 2rem !important;
+                            border-radius: 1rem !important;
+                            font-size: 2.5rem !important;
+                            justify-self: center;
+                            align-self: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

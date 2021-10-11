@@ -1,1 +1,41 @@
-<p>referee-zone works!</p>
+<div class="router-child">
+    <ng-container *ngIf="positions">
+        <div class="referee-header">
+            <app-select [group]="form" controlName="position" translatePrefix="controls" [options]="positionsOptions" [collapsed]="true"></app-select>
+        </div>
+        <div class="referee">
+            <section class="referee-categories">
+                <button (click)="selectCategory(category.kategoria_id!)" *ngFor="let category of categoriesInPosition" [ngClass]="{'referee-categories-active': category.kategoria_id! === selectedCategory}">{{category.nazwa}}</button>
+            </section>
+            <section class="referee-results" *ngIf="selectedPosition">
+                <div class="referee-results-fights" *ngIf="getCategoryType === 1">
+                    <div *ngFor="let fight of getCategoryFigths">{{fight.walka_id}}</div>
+                </div>
+                <div class="referee-results-times" *ngIf="getCategoryType === 0">
+                    <button class="submit-button" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['add-time-result']}}]">Dodaj przejazd<i class="las la-plus-circle"></i></button>
+                    <div class="referee-results-times-element" *ngFor="let time of getCategoryTimesResult">
+                        <span class="referee-results-times-element-id">{{time.wynik_id}}</span>
+                        <div class="referee-results-times-element-info">
+                            <p class="referee-results-times-element-uuid">{{time.robot_uuid}}</p>
+                            <p class="referee-results-times-element-name">{{time.nazwa_robota}}</p>
+                        </div>
+
+                        <div class="referee-results-times-element-categories">
+                            <span>{{time.czas_przejazdu}} ms</span>
+                            <label>{{time.czas_zakonczenia | date: 'short'}}</label>
+                        </div>
+                        <span class="referee-results-times-element-edit" (click)="editTime(time.wynik_id)" *ngIf="time.wynik_id !== editingTimes">{{ 'competitor-zone.my-robots.edit' | translate}}<i class="las la-edit"></i></span>
+                        <div class="referee-results-times-element-edit-form" *ngIf="time.wynik_id === editingTimes">
+                            <app-input [group]="editingTimesForm" controlName="time" [collapsed]="true"></app-input>
+                            <button [disabled]="!isFormEditTimeValid" class="submit-button" (click)="saveEditedTime()"><i class="las la-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!positions">
+        <app-spinner></app-spinner>
+    </ng-container>
+</div>

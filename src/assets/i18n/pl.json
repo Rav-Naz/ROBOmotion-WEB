@@ -529,6 +529,19 @@
                 "maxlength": "Wprowadź poprawny identyfikator użytkownika",
                 "alreadyExistValidator": "Użytkownik już jest konstruktorem tego robota"
             }
+        },
+        "position": {
+            "name": "Stanowisko",
+            "validators": {
+                "required": "To pole jest wymagane"
+            }
+        },
+        "time": {
+            "name": "Edytuj czas przejazdu",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "maxlength": "Czas nie może być większy niż 999999ms"
+            }
         }
     },
     "errors": {

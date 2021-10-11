@@ -28,6 +28,33 @@ export class HttpService {
     return this.http.get<APIResponse>(`${this.url}site/info`, { headers: this.headers });
   }
 
+  getPosition(stanowisko_id: number): Promise<APIResponse> {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getPosition/${stanowisko_id}`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  getAllTimesForPosiotion(stanowisko_id: number) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getAllTimesForPosiotion/${stanowisko_id}`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  getAllFightsForPosiotion(stanowisko_id: number) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getAllFightsForPosiotion/${stanowisko_id}`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   get getAllCategories(): Promise<APIResponse> {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.get<APIResponse>(`${this.url}public/getAllCategories`).toPromise().then(
@@ -241,6 +268,27 @@ export class HttpService {
   }
 
   // ------------- REFEREE
+
+  public getRefereePositions(uzytkownik_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}referee/getRefereePositions/${uzytkownik_uuid}`, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public updateTimeResult(wynik_id: number, czas_przejazdu: number) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.put<APIResponse>(`${this.url}referee/updateTimeResult`, {
+        wynik_id: wynik_id,
+        czas_przejazdu: czas_przejazdu
+       },{ headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
 
   // ------------- OTHER
 
