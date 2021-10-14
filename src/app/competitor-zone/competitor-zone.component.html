@@ -16,6 +16,10 @@
                         <i class="las la-cog"></i>
                         <p>{{'competitor-zone.bar.settings' | translate}}</p>
                     </section>
+                    <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['statistics']}}]">
+                        <i class="las la-chart-pie"></i>
+                        <p>{{'competitor-zone.bar.statistics' | translate}}</p>
+                    </section>
                     <section class="competitor-zone-bar-segment" (click)="openTutorial()">
                         <i class="las la-question"></i>
                         <p>{{'competitor-zone.bar.help' | translate}}</p>

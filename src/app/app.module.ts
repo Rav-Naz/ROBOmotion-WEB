@@ -40,6 +40,10 @@ import { ResetPasswordComponent } from './competitor-zone/reset-password/reset-p
 import { AppRulesComponent } from './competitor-zone/app-rules/app-rules.component';
 import '@angular/common/locales/global/pl';
 import { AddTimeResultComponent } from './competitor-zone/referee/add-time-result/add-time-result.component';
+import { ChartsComponent } from './competitor-zone/charts/charts.component';
+
+import * as echarts from 'echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 
 @NgModule({
@@ -67,7 +71,8 @@ import { AddTimeResultComponent } from './competitor-zone/referee/add-time-resul
     ResetPasswordComponent,
     AppRulesComponent,
     RefereeZoneComponent,
-    AddTimeResultComponent
+    AddTimeResultComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +87,9 @@ import { AddTimeResultComponent } from './competitor-zone/referee/add-time-resul
       preventDuplicates: true,
       maxOpened: 3,
       enableHtml: true
+    }),
+    NgxEchartsModule.forRoot({
+      echarts
     }),
     TranslateModule.forRoot({
       loader: {

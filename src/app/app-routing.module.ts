@@ -1,3 +1,4 @@
+import { ChartsComponent } from './competitor-zone/charts/charts.component';
 import { AddTimeResultComponent } from './competitor-zone/referee/add-time-result/add-time-result.component';
 import { AppRulesComponent } from './competitor-zone/app-rules/app-rules.component';
 import { ResetPasswordComponent } from './competitor-zone/reset-password/reset-password.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
     {path: 'settings', component: SettingsComponent, outlet: 'outlet'},
     {path: 'robot/:robot_uuid', component: RobotComponent, outlet: 'outlet'},
     {path: 'add-robot', component: NewRobotComponent,  outlet: 'outlet'},
+    {path: 'statistics', component: ChartsComponent,  outlet: 'outlet'},
 
     // {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
     // {path: 'add-time-result', component: AddTimeResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
