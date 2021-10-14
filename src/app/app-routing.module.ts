@@ -36,8 +36,8 @@ const routes: Routes = [
     {path: 'robot/:robot_uuid', component: RobotComponent, outlet: 'outlet'},
     {path: 'add-robot', component: NewRobotComponent,  outlet: 'outlet'},
 
-    {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
-    {path: 'add-time-result', component: AddTimeResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    // {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    // {path: 'add-time-result', component: AddTimeResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
   ]},
   {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},

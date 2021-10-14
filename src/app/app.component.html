@@ -29,6 +29,7 @@
     <div class="navigator-footer">
         <img (click)="switchLang()" [src]="!isEnglish ? '../assets/svg/gb.svg' : '../assets/svg/pl.svg'">
         <p [routerLink]="['/app-rules']" (click)="switchMenu(false)">{{'menu.app-rules' | translate}}</p>
+        <a target="_blank" href="https://www.facebook.com/rzeszowrobomotion"><i class="lab la-facebook-square"></i></a>
     </div>
 </div>
 <button class="navigator-menu" (click)="switchMenu()">

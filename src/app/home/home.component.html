@@ -2,11 +2,11 @@
     <!-- INTRO -->
     <section class="paralax paralax-background">
         <div class="paralax-name-container paralax-name-container-top">
-            <h1 class="paralax-name paralax-name-top">
+            <h5 class="paralax-name paralax-name-top">
                 ROBO<br>
                 <span class="paralax-name-second">~motion 2021</span><br>
                 <img src="../../assets/svg/klocki.svg" class="paralax-name-img paralax-name-img-top">
-            </h1>
+            </h5>
         </div>
         <div class="paralax-wave paralax-wave-yellow"></div>
         <div class="paralax-wave"></div>
@@ -116,11 +116,7 @@
             <div class="competitions-grid-card-container" *ngFor="let category of categories; index as i;" (mouseenter)="pauseScrolling(true)" (mouseleave)="pauseScrolling(false)" (scroll)="pauseScrolling(false)">
                 <div class="competitions-grid-card">
                     <div class="competitions-grid-card-style competitions-grid-card--front">
-                        <img [src]="'../../assets/gifs/' + category.icon" class="competitions-grid-card--front-img" [id]="'comp-'+i">
-                        <!-- <video class="competitions-grid-card--front-img" [id]="'comp-'+i" preload="auto" autoplay muted loop>
-                            <source [src]="'../../assets/mp4/' + category.icon" type="video/mp4">
-                            <source [src]="'../../assets/webm/' + category.icon" type="video/webm">
-                        </video> -->
+                        <img [src]="'../../assets/gifs/' + category.icon" [alt]="category.name" class="competitions-grid-card--front-img" [id]="'comp-'+i">
                         <label>{{category.name}}</label>
                         <button (click)="flipCard($event, 'back')">{{'home.competitions.learn' | translate}}</button>
                     </div>
@@ -143,7 +139,7 @@
         <div class="location-wave location-wave-yellow"></div>
         <div class="location-wave"></div>
         <div class="location-grid">
-            <img src="../../assets/svg/location.svg">
+            <img src="../../assets/svg/location.svg" alt="Budynek Ł na Politechnice Rzeszowskiej">
             <div class="location-grid-right">
                 <h3 class="section-header">{{'home.location.title' | translate}}</h3>
                 <h2>
@@ -158,44 +154,44 @@
     </section>
     <!-- PATREONS -->
     <section class="organizer" id="patreons">
+        <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
         <div>
-            <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
             <span>{{'home.patreons.organizer.name' | translate}}</span>
-            <img src="../../assets/svg/robo_white.svg">
+            <img src="../../assets/svg/robo_white.svg" alt="Logo organizatora ROBO">
             <div class="organizer-social">
                 <p (click)="openUrl('https://www.facebook.com/rzeszowska.grupa.it')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
                 <p (click)="openUrl('https://www.instagram.com/rzeszowskagrupait/')" class="organizer-social-item organizer-social-item--ig"><i class="lab la-instagram"></i></p>
-                <p (click)="openUrl('https://rzit.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p>
+                <p (click)="openUrl('https://www.rzit.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p>
             </div>
         </div>
         <div>
-            <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
+            <!-- <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3> -->
             <!-- <span>{{'home.patreons.organizer2.name' | translate}}</span> -->
-            <img [src]="'home.patreons.organizer2.src' | translate">
+            <img [src]="'home.patreons.organizer2.src' | translate" alt="Logo organizatora Fundacja Wspierania Edukacji przy Stowarzyszeniu Dolina Lotnicza">
             <div class="organizer-social">
                 <p (click)="openUrl('https://www.facebook.com/DolinaWiedzy')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
                 <!-- <p (click)="openUrl('https://www.instagram.com/rzeszowskagrupait/')" class="organizer-social-item organizer-social-item--ig"><i class="lab la-instagram"></i></p> -->
-                <p (click)="openUrl('https://dolinawiedzy.pl')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p>
+                <p (click)="openUrl('https://www.dolinawiedzy.pl')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p>
             </div>
         </div>
         <div>
-            <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
+            <!-- <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3> -->
             <!-- <span>{{'home.patreons.organizer3.name' | translate}}</span> -->
-            <img src="../../assets/svg/RoboLAB-white.svg">
-            <div class="organizer-social">
-                <!-- <p (click)="openUrl('https://www.facebook.com/rzeszowska.grupa.it')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
+            <img src="../../assets/svg/RoboLAB-white.svg" alt="Logo organizatora RoboLAB">
+            <!-- <div class="organizer-social"> -->
+            <!-- <p (click)="openUrl('https://www.facebook.com/rzeszowska.grupa.it')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
                     <p (click)="openUrl('https://www.instagram.com/rzeszowskagrupait/')" class="organizer-social-item organizer-social-item--ig"><i class="lab la-instagram"></i></p>
                     <p (click)="openUrl('https://rzit.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p> -->
-            </div>
+            <!-- </div> -->
         </div>
         <div>
-            <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3>
+            <!-- <h3 class="section-header">{{'home.patreons.organizer.title' | translate}}</h3> -->
             <!-- <span>{{'home.patreons.organizer4.name' | translate}}</span> -->
-            <img src="../../assets/svg/pti.svg">
+            <img src="../../assets/svg/pti.png">
             <div class="organizer-social">
                 <p (click)="openUrl('https://www.facebook.com/ZGPTI/')" class="organizer-social-item organizer-social-item--fb"><i class="lab la-facebook-f"></i></p>
                 <p (click)="openUrl('https://www.linkedin.com/groups/23057?trk=prof-groups-membership-name')" class="organizer-social-item organizer-social-item--in"><i class="lab la-linkedin-in"></i></p>
-                <p (click)="openUrl('https://portal.pti.org.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p>
+                <p (click)="openUrl('https://www.portal.pti.org.pl/')" class="organizer-social-item organizer-social-item--web"><i class="las la-globe-europe"></i></p>
             </div>
         </div>
     </section>
@@ -206,7 +202,7 @@
                 <p class="patreons-name">{{name}}</p>
                 <div class="patreons-class-container">
                     <div class="patreons-one" *ngFor="let patreon of getAllPatreonsWithIndex(i)" (click)="openUrl(patreon.linkToSite)">
-                        <img [src]="patreon.image">
+                        <img [src]="patreon.image" alt="Logo organizatora PTI">
                         <p>{{patreon.description}}</p>
                     </div>
                 </div>
@@ -216,11 +212,11 @@
     </section>
     <!-- FOOTER -->
     <section class="footer">
-        <h1 class="paralax-name footer-name">
+        <h5 class="paralax-name footer-name">
             ROBO<br>
             <span class="paralax-name-second footer-name-second">~motion 2021</span><br>
-            <img src="../../assets/svg/klocki.svg" class="paralax-name-img footer-name-img">
-        </h1>
+            <img src="../../assets/svg/klocki.svg" class="paralax-name-img footer-name-img" alt="Logo ROBO~motion">
+        </h5>
         <!-- <a></a> -->
         <p>
             {{'home.footer.copyright' | translate}} © {{eventDate?.getFullYear()}} - Rzeszowska Grupa IT | {{'home.footer.designed' | translate}} <span>{{'home.footer.developer' | translate}}</span>

@@ -1113,14 +1113,27 @@
     width: 100%;
     padding: 2rem;
     height: min-content;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    row-gap: 2rem;
+    background-image: url('../../assets/svg/splash.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    h3 {
+        // width: 100% !important;
+        justify-self: center;
+        align-self: center;
+        grid-row: 1;
+        grid-column: 1/3;
+    }
     &-social {
         // top: 50%;
         // left: 50%;
-        margin-top: 5rem;
+        margin-top: 2rem;
         height: 10rem !important;
         width: 80%;
         display: flex !important;
@@ -1134,14 +1147,14 @@
             margin: 0;
             padding: 0;
             color: $color-white;
-            width: 8rem;
-            height: 8rem;
+            width: 6rem;
+            height: 6rem;
             background-color: #686868;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 4rem;
+            font-size: 3rem;
             transform: perspective(100rem) rotate(-30deg) skew(25deg) translate(0, 0);
             transition: .5s;
             box-shadow: -2rem 2rem 1rem rgba($color-black, 0.5);
@@ -1230,18 +1243,15 @@
         }
     }
     div {
-        height: 70rem;
-        width: 70%;
+        // padding: 5rem;
+        height: 30rem;
+        // width: 70%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-image: url('../../assets/svg/splash.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
         span {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-family: $default-font;
             text-align: center;
             letter-spacing: .15rem;
@@ -1250,16 +1260,19 @@
         img {
             margin-top: 2rem;
             height: 20rem;
+            width: 50rem;
         }
     }
 }
 
-@media only screen and (max-width: $max-width-4) {
+@media only screen and (max-width: $max-width-3) {
     .organizer {
+        display: flex;
+        grid-template-columns: 1fr;
         div {
             width: 80%;
             span {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             img {
                 height: 15rem;
@@ -1268,18 +1281,17 @@
     }
 }
 
-@media only screen and (max-width: $max-width-5) {
+@media only screen and (max-width: $max-width-4) {
     .organizer {
         &-social {
             width: 100%;
             &-item {
-                font-size: 3.5rem;
-                width: 7rem;
-                height: 7rem;
+                font-size: 3rem;
+                width: 6rem;
+                height: 6rem;
             }
         }
         div {
-            height: 60rem;
             width: 90%;
             span {
                 font-size: 2.7rem;
@@ -1293,13 +1305,6 @@
 
 @media only screen and (max-width: $max-width-6) {
     .organizer {
-        &-social {
-            &-item {
-                font-size: 3rem;
-                width: 6rem;
-                height: 6rem;
-            }
-        }
         div {
             width: 95%;
             height: 50rem;

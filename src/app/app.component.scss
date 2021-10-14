@@ -43,6 +43,13 @@
             height: 4rem;
             cursor: pointer;
         }
+        i {
+            padding-top: 2rem;
+            transform: translateX(-7px);
+            font-size: 5rem;
+            // width: 5rem;
+            // height: 5rem;
+        }
     }
     &-competitor-zone {
         font-size: 3rem !important;

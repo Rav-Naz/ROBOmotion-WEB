@@ -3,13 +3,13 @@
     <div class="competitor">
         <div>
             <div>
-                <h1>{{'app-rules.spis.title' | translate}}</h1>
+                <h5>{{'app-rules.spis.title' | translate}}</h5>
                 <h3>- {{'app-rules.spis.1' | translate}}</h3>
                 <h3>- {{'app-rules.spis.2' | translate}}</h3>
                 <h3>- {{'app-rules.spis.3' | translate}}</h3>
             </div>
             <ng-container *ngFor="let section of getRules; let j = index">
-                <h1>{{section.title}}</h1>
+                <h5>{{section.title}}</h5>
                 <label>{{section.description}}</label>
                 <ng-container *ngFor="let paragraph of section.paragrphs; let i = index">
                     <h2>§ {{i+1}} {{paragraph.title}}</h2>
