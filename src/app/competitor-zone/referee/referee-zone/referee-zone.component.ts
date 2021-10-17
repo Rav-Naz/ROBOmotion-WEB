@@ -10,6 +10,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription, combineLatest } from 'rxjs';
 import { CategoryMain } from 'src/app/models/category-main';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-referee-zone',
@@ -18,7 +19,7 @@ import { CategoryMain } from 'src/app/models/category-main';
   host: {
     'class': 'router-flex'
   },
-  providers: [RefereeService, PositionsService]
+  providers: [RefereeService]
 })
 export class RefereeZoneComponent implements OnInit, OnDestroy {
 
@@ -28,8 +29,8 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
 
   private loading: boolean = false;
   private subs: Subscription = new Subscription;
-  public selectedPosition: number | null = 1;
-  public selectedCategory: number | null = 4;
+  public selectedPosition: number | null = null;
+  public selectedCategory: number | null = null;
   public positionFights: Array<any> | null = null;
   public positionTimesResults: Array<any> | null = null;
   public editingTimes: number | null = null;
@@ -38,7 +39,8 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
 
   constructor(private refereeService: RefereeService, private positionsService: PositionsService, private formBuilder: FormBuilder,
      private categoriesService: CategoriesService, private translateService: TranslateService, private timesService: TimesService,
-      private ui: UiService, private figthsService: FightsService) {
+      private ui: UiService, private figthsService: FightsService, private route: ActivatedRoute, private router: Router) {
+
     this.form = this.formBuilder.group({
       position: [null, [Validators.required]]
     });
@@ -51,15 +53,16 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
       if (val[0] !== null && val[1]) {
         this.categories = JSON.parse(JSON.stringify(val[0]));
         this.positions = JSON.parse(JSON.stringify(val[1]));
-        this.form.get('position')?.setValue(1); //debug
       }
     })
     const sub2 = this.form.valueChanges.subscribe( async (data) => {
       if(data !== null && data !== undefined) {
+        this.loading = true;
+        this.selectedCategory = null;
         this.selectedPosition = Number(data.position);
-        await this.positionsService.getAllFightsForPosiotion(this.selectedPosition);
-        await this.positionsService.getAllTimesForPosiotion(this.selectedPosition);
-        // console.log('times',this.positionTimesResults) //debug
+        await this.figthsService.getAllFightsForPosiotion(this.selectedPosition).catch(err => {});
+        await this.timesService.getAllTimesForPosiotion(this.selectedPosition).catch(err => {});
+        this.loading = false;
       }
     });
     const sub3 = this.timesService.timesForPosition$.subscribe((data) => {
@@ -77,6 +80,23 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    const stanowisko_id = Number(this.route.snapshot.paramMap.get('stanowisko_id'));
+    const kategoria_id = Number(this.route.snapshot.paramMap.get('kategoria_id'));
+
+    if(stanowisko_id) {
+      this.form.get('position')?.setValue(stanowisko_id);
+      if(kategoria_id) {
+        this.selectedCategory = kategoria_id;
+      }
+    }
+  }
+
+  addTimeResult() {
+    this.router.navigateByUrl(`/competitor-zone/(outlet:add-time-result/${this.selectedPosition}/${this.selectedCategory}`);
+  }
+
+  addFightResult() {
+    this.router.navigateByUrl(`/competitor-zone/(outlet:add-fight-result/${this.selectedPosition}/${this.selectedCategory}`);
   }
 
   selectCategory(kategoria_id: number) {
@@ -129,11 +149,11 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   }
 
   get getCategoryFigths() {
-    return this.positionFights?.filter(el => el.kategoria_id === this.selectedCategory);
+    return this.positionFights?.filter(el => el.kategoria_id === this.selectedCategory).sort((a,b) => a.wygrane_rundy_robot1 - b.wygrane_rundy_robot2);
   }
 
   get getCategoryTimesResult() {
-    return this.positionTimesResults?.filter(el => el.kategoria_id === this.selectedCategory);
+    return this.positionTimesResults?.filter(el => el.kategoria_id === this.selectedCategory).sort((a,b) => b.wynik_id - a.wynik_id);
   }
 
   public get isFormEditTimeValid() {

@@ -536,7 +536,7 @@
             }
         },
         "time": {
-            "name": "Edit travel time",
+            "name": "Travel time",
             "validators": {
                 "required": "This field is required",
                 "maxlength": "The time cannot be greater than 999999ms"

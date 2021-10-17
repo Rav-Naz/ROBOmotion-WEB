@@ -1,3 +1,4 @@
+import { AddFightResultComponent } from './competitor-zone/referee/add-fight-result/add-fight-result.component';
 import { ChartsComponent } from './competitor-zone/charts/charts.component';
 import { AddTimeResultComponent } from './competitor-zone/referee/add-time-result/add-time-result.component';
 import { AppRulesComponent } from './competitor-zone/app-rules/app-rules.component';
@@ -38,8 +39,11 @@ const routes: Routes = [
     {path: 'add-robot', component: NewRobotComponent,  outlet: 'outlet'},
     {path: 'statistics', component: ChartsComponent,  outlet: 'outlet'},
 
-    // {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
-    // {path: 'add-time-result', component: AddTimeResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'referee-zone/:stanowisko_id/:kategoria_id', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'referee-zone/:stanowisko_id', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'add-time-result/:stanowisko_id/:kategoria_id', component: AddTimeResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'add-fight-result/:stanowisko_id/:kategoria_id', component: AddFightResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
   ]},
   {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},

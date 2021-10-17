@@ -278,12 +278,44 @@ export class HttpService {
     })
   }
 
+  public setTimeResult(robot_uuid : string, czas_przejazdu: number, stanowisko_id: number, kategoria_id: number) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}referee/setTimeResult`, {
+        robot_uuid: robot_uuid,
+        czas_przejazdu: czas_przejazdu,
+        stanowisko_id: stanowisko_id,
+        kategoria_id: kategoria_id
+       },{ headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   public updateTimeResult(wynik_id: number, czas_przejazdu: number) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.put<APIResponse>(`${this.url}referee/updateTimeResult`, {
         wynik_id: wynik_id,
         czas_przejazdu: czas_przejazdu
        },{ headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public checkIfRobotHasCategory(robot_uuid: string, kategoria_id: number) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}referee/checkIfRobotHasCategory/${robot_uuid}/${kategoria_id}`, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public getRobotsOfUserInCategory(uzytkownik_uuid: string, kategoria_id: number) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}referee/getRobotsOfUserInCategory/${uzytkownik_uuid}/${kategoria_id}`, { headers: this.headers }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );

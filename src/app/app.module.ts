@@ -1,3 +1,4 @@
+import { PositionsService } from './services/positions.service';
 import { RefereeZoneComponent } from './competitor-zone/referee/referee-zone/referee-zone.component';
 import { ConfirmComponent } from './shared/confirm/confirm.component';
 import { RobotsService } from './services/robots.service';
@@ -44,6 +45,7 @@ import { ChartsComponent } from './competitor-zone/charts/charts.component';
 
 import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { AddFightResultComponent } from './competitor-zone/referee/add-fight-result/add-fight-result.component';
 
 
 @NgModule({
@@ -72,7 +74,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     AppRulesComponent,
     RefereeZoneComponent,
     AddTimeResultComponent,
-    ChartsComponent
+    ChartsComponent,
+    AddFightResultComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +109,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     RefereeGuard,
     WebsocketService,
     RobotsService,
-    ConstructorsService
+    ConstructorsService,
+    PositionsService
   ],
   bootstrap: [AppComponent]
 })

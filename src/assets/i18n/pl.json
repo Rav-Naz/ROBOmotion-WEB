@@ -538,7 +538,7 @@
             }
         },
         "time": {
-            "name": "Edytuj czas przejazdu",
+            "name": "Czas przejazdu",
             "validators": {
                 "required": "To pole jest wymagane",
                 "maxlength": "Czas nie może być większy niż 999999ms"

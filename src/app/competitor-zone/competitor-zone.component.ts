@@ -5,13 +5,14 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { RobotsService } from '../services/robots.service';
 import { ConstructorsService } from '../services/constructors.service';
+import { PositionsService } from '../services/positions.service';
 
 @Component({
   selector: 'app-competitor-zone',
   templateUrl: './competitor-zone.component.html',
   styleUrls: ['./competitor-zone.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  providers: [RobotsService, ConstructorsService]
+  providers: [RobotsService, ConstructorsService, PositionsService]
 })
 export class CompetitorZoneComponent{
 
@@ -23,7 +24,7 @@ export class CompetitorZoneComponent{
 
 
   constructor(public translate: TranslateService, public userService: UserService, private router: Router,
-    public constructorService: ConstructorsService, public authService: AuthService) {
+    public constructorService: ConstructorsService, public authService: AuthService, public positionsService: PositionsService) {
       setInterval(() => {
         this.switcher = !this.switcher;
       }, 5000)

@@ -1,1 +1,31 @@
-<p>add-time-result works!</p>
+<div class="router-child">
+    <ng-container *ngIf="!isLoading">
+        <i class="las la-arrow-left back" (click)="previousPage()"></i>
+        <div *ngIf="viewCounter === 0" class="view">
+            <h5>DODAWANIE NOWEGO <span>PRZEJAZDU</span></h5>
+            <p>Wprowadź identyfikator przybyłego użytkownika</p>
+            <app-input [group]="formUUID" controlName="constructor_uuid"></app-input>
+            <button class="submit-button" (click)="getUserRobots()" [disabled]="!isFormUserUUIDValid">Dalej<i class="las la-forward"></i></button>
+        </div>
+        <div *ngIf="viewCounter === 1" class="robots view">
+            <h5>WYBIERZ <span>ROBOTA</span> ZAWODNIKA</h5>
+            <div class="robots-element" *ngFor="let robot of userRobots" (click)="chooseRobot(robot)">
+                <div class="robots-element-info">
+                    <p class="robots-element-uuid">{{robot.robot_uuid}}</p>
+                    <p class="robots-element-name">{{robot.nazwa_robota}}</p>
+                </div>
+                <span class="robots-element-edit">Wybierz<i class="las la-forward"></i></span>
+            </div>
+        </div>
+        <div *ngIf="viewCounter === 2" class="view">
+            <h5>DODAJ <span>WYNIK CZASOWY</span></h5>
+            <p>Wprowadź czas przejazdu w milisekundach (ms)</p>
+            <app-input [group]="formTime" controlName="time"></app-input>
+            <button class="submit-button" (click)="setTimeResult()" [disabled]="!isFromTimeValid">Dodaj i zakończ<i class="las la-plus-circle"></i></button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="isLoading">
+        <app-spinner></app-spinner>
+    </ng-container>
+
+</div>
