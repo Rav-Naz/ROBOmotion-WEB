@@ -37,6 +37,19 @@ export class PositionsService {
     }); 
   }
 
+  public checkIfRobotCanInThisPosition(robot_uuid: string, kategoria_id: number, stanowisko_id: number) {
+    return new Promise<any>(async (resolve) => {
+      const value = await this.http.checkIfRobotCanInThisPosition(robot_uuid,kategoria_id, stanowisko_id).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      resolve(value);
+    });
+  }
+
   get positions$() {
     return this.positions.asObservable();
   }

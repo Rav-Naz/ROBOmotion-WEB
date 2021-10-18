@@ -39,6 +39,7 @@ const routes: Routes = [
     {path: 'add-robot', component: NewRobotComponent,  outlet: 'outlet'},
     {path: 'statistics', component: ChartsComponent,  outlet: 'outlet'},
 
+    {path: 'referee-zone/:stanowisko_id/:kategoria_id/:grupa_id', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
     {path: 'referee-zone/:stanowisko_id/:kategoria_id', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
     {path: 'referee-zone/:stanowisko_id', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
     {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},

@@ -1,3 +1,4 @@
+import { PositionsService } from './../../../services/positions.service';
 import { TimesService } from './../../../services/times.service';
 import { UiService } from './../../../services/ui.service';
 import { RefereeService } from './../../../services/referee.service';
@@ -28,7 +29,7 @@ export class AddTimeResultComponent implements OnInit {
   public selectedRobot: Robot | null = null;
 
   constructor(private formBuilder: FormBuilder, private refereeService: RefereeService, private route: ActivatedRoute,
-    private router: Router, private ui: UiService, private timesService: TimesService) {
+    private router: Router, private ui: UiService, private timesService: TimesService, private positionService: PositionsService) {
     this.formUUID = this.formBuilder.group({
       constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
     });
@@ -61,10 +62,10 @@ export class AddTimeResultComponent implements OnInit {
 
   async chooseRobot(robot: Robot) {
     this.loading = true;
-    const response = await this.refereeService.checkIfRobotHasCategory(robot.robot_uuid, this.kategoria_id!).catch(err => {
+    const response = await this.positionService.checkIfRobotCanInThisPosition(robot.robot_uuid, this.kategoria_id!, this.stanowisko_id!).catch(err => {
       return null
     });
-    if (response !== undefined && response !== null && response.body !== undefined && response.body !== null && response.body.pCzyMa === 1) {
+    if (response !== undefined && response !== null && response.body !== undefined && response.body !== null && response.body.pCzyMoze === 1) {
       this.selectedRobot = robot;
       this.nextPage();
     } else {

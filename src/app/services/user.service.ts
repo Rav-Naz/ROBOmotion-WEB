@@ -75,4 +75,8 @@ export class UserService {
   get isReferee() {
     return this.userType > 0;
   }
+
+  get isAdmin() {
+    return this.userType > 1;
+  }
 }

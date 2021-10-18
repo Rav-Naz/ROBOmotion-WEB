@@ -1,1 +1,43 @@
-<p>add-fight-result works!</p>
+<div class="router-child">
+    <ng-container *ngIf="!isLoading">
+        <i class="las la-arrow-left back" (click)="previousPage()"></i>
+        <div *ngIf="viewCounter === 0" class="view">
+            <h5>DODAWANIE WYNIKU <span>WALKI</span></h5>
+            <span>Zanim przejdziesz do walki, sprawdź konstruktorów robota.</span>
+            <div class="grid">
+                <div>
+                    <p>Wprowadź identyfikator konstruktora robota<br><label>{{walka?.robot1_nazwa}}</label></p>
+                    <app-input [group]="formUUID1" controlName="constructor_uuid"></app-input>
+                    <button class="submit-button grid-button" (click)="callTheConstructor(walka.robot1_uuid, walka.robot1_nazwa)">Wezwij konstruktorów robota {{walka?.robot1_nazwa}}&nbsp;<i class="las la-sms"></i></button>
+                </div>
+                <div>
+                    <p>Wprowadź identyfikator konstruktora robota<br><label>{{walka?.robot2_nazwa}}</label></p>
+                    <app-input [group]="formUUID2" controlName="constructor_uuid"></app-input>
+                    <button class="submit-button grid-button" (click)="callTheConstructor(walka.robot2_uuid, walka.robot2_nazwa)">Wezwij konstruktorów robota {{walka?.robot2_nazwa}}&nbsp;<i class="las la-sms"></i></button>
+
+                </div>
+            </div>
+            <button class="submit-button" [disabled]="!isFormUserUUIDValid" (click)="goToSetFight()">Dalej<i class="las la-forward"></i></button>
+        </div>
+        <div *ngIf="viewCounter === 1" class="robots view">
+            <h5>DODAWANIE WYNIKU <span>WALKI</span></h5>
+            <span>Teraz możesz przejść do przeprowadzenia walki. Po jej zakończeniu wpisz wynik.</span>
+            <div class="grid grid-2">
+                <div>
+                    <p>Wprowadź ilość wygranych rund przez<br><label>{{walka?.robot1_nazwa}}</label></p>
+                    <app-input [group]="formResult1" controlName="fight_result" class="result" type="number"></app-input>
+                </div>
+                <span>VS</span>
+                <div>
+                    <p>Wprowadź ilość wygranych rund przez<br><label>{{walka?.robot2_nazwa}}</label></p>
+                    <app-input [group]="formResult2" controlName="fight_result" class="result" type="number"></app-input>
+                </div>
+            </div>
+            <button class="submit-button" [disabled]="!isFormResultValid" (click)="setFight()">Dodaj i zakończ<i class="las la-forward"></i></button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="isLoading">
+        <app-spinner></app-spinner>
+    </ng-container>
+
+</div>

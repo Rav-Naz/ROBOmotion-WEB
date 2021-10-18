@@ -543,6 +543,14 @@
                 "required": "To pole jest wymagane",
                 "maxlength": "Czas nie może być większy niż 999999ms"
             }
+        },
+        "fight_result": {
+            "name": "Wynik walki",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "maxlength": "Wynik musi być jednocyfrowy",
+                "minlength": "Wynik musi być jednocyfrowy"
+            }
         }
     },
     "errors": {
@@ -593,6 +601,7 @@
             "fight-is-assigned": "Walki są już ustawione",
             "fight-not-assigned": "Walka jeszcze nie została ustawiona!",
             "fight-must-end": "Walka musi się rozstrzygnąć!",
+            "fight-played": "Wynik walki został już ustalony",
             "fight-second-robot": "Przed dodaniem wyniku dodaj drugiego robota do walki!",
             "fight-no-edit": "Nie można już edytować tej walki ponieważ następna się już się zakończyła",
             "last-category": "Nie można usunąć jedynej kategorii robota",

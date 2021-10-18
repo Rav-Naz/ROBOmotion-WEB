@@ -541,6 +541,14 @@
                 "required": "This field is required",
                 "maxlength": "The time cannot be greater than 999999ms"
             }
+        },
+        "fight_result": {
+            "name": "Result of the fight",
+            "validators": {
+                "required": "This field is required",
+                "maxlength": "The result must be single-digit",
+                "minlength": "The result must be single-digit"
+            }
         }
     },
     "errors": {
@@ -590,6 +598,7 @@
             "new-password": "The new password must be different from the previous one.",
             "fight-is-assigned": "The fights are already arranged",
             "fight-not-assigned": "The fight has not yet been set!",
+            "fight-played": "The outcome of the fight has already been determined",
             "fight-must-end": "The fight must come to an end!",
             "fight-second-robot": "Before adding the result, add a second robot to the fight!",
             "fight-no-edit": "This fight can no longer be edited as the next one has already ended",

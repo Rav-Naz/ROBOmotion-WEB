@@ -1,3 +1,4 @@
+import { UiService } from 'src/app/services/ui.service';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { ErrorsService } from './errors.service';
@@ -15,11 +16,12 @@ export class FightsService {
   private actualPosition: number | null = null;
 
   constructor(private http: HttpService, private errorService: ErrorsService, private translate: TranslateService,
-    private websocket: WebsocketService) {
-    this.websocket.getWebSocket$.subscribe((socket) => {
-      // socket?.on('updateTimeResult', (data) => {
-      // })
-    })
+    private websocket: WebsocketService, private ui: UiService) {
+      this.websocket.getWebSocket$.subscribe((socket) => {
+        socket?.on('setFightResult', (data) => {
+          this.WS_setFightResult(data);
+        })
+      })
    }
 
    public getAllFightsForPosiotion(stanowisko_id: number) {
@@ -39,6 +41,19 @@ export class FightsService {
       resolve(value);
     }); 
   }
+  
+   public setFightResult(walka_id: number, wygrane_rundy_robot1: number, wygrane_rundy_robot2: number ) {
+    return new Promise<APIResponse | void>(async (resolve,reject) => {
+      const value = await this.http.setFightResult(walka_id, wygrane_rundy_robot1, wygrane_rundy_robot2).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      resolve(value);
+    }); 
+  }
 
   public pushNewFigthsForPosition(fight: Array<any>) {
     this.fightsForPosition.next(fight);
@@ -51,5 +66,20 @@ export class FightsService {
 
   get figthsForPosition$() {
     return this.fightsForPosition.asObservable();
+  }
+
+  WS_setFightResult(data: any) {
+    if(this.actualPosition === data.stanowisko_id && this.fightsForPosition.value !== null && this.fightsForPosition.value !== undefined) {
+      const fight = this.fightsForPosition.value.find(f => f.walka_id === data.walka_id);
+      if(fight) {
+        fight.czas_zakonczenia = data.czas_zakonczenia;
+        fight.wygrane_rundy_robot1 = data.wygrane_rundy_robot1;
+        fight.wygrane_rundy_robot2 = data.wygrane_rundy_robot2;
+        this.pushNewFigthsForPosition(this.fightsForPosition.value);
+        this.ui.showFeedback("succes", `Pomyślnie ustawiono wynik walki (${fight.walka_id})`, 3);
+      }
+      // delete fight.stanowisko_id;
+      // this.timesForPosition.value?.push(new_time);
+    }
   }
 }

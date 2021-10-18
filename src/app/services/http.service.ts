@@ -28,6 +28,15 @@ export class HttpService {
     return this.http.get<APIResponse>(`${this.url}site/info`, { headers: this.headers });
   }
 
+  checkIfRobotCanInThisPosition(robot_uuid: string, kategoria_id: number, stanowisko_id: number): Promise<APIResponse> {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/checkIfRobotCanInThisPosition/${robot_uuid}/${kategoria_id}/${stanowisko_id}`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   getPosition(stanowisko_id: number): Promise<APIResponse> {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.get<APIResponse>(`${this.url}public/getPosition/${stanowisko_id}`).toPromise().then(
@@ -126,6 +135,15 @@ export class HttpService {
   }
 
   // ------------- USER
+
+  public checkIfUserIsConstructorOfRobot(uzytkownik_uuid: string, robot_uuid: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}user/checkIfUserIsConstructorOfRobot/${uzytkownik_uuid}/${robot_uuid}`, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
 
   public getUser() {
     return new Promise<any>((resolve, rejects) => {
@@ -292,6 +310,19 @@ export class HttpService {
     })
   }
 
+  public setFightResult(walka_id: number, wygrane_rundy_robot1: number, wygrane_rundy_robot2: number ) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}referee/setFightResult`, {
+        walka_id: walka_id,
+        wygrane_rundy_robot1: wygrane_rundy_robot1,
+        wygrane_rundy_robot2: wygrane_rundy_robot2
+       },{ headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   public updateTimeResult(wynik_id: number, czas_przejazdu: number) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.put<APIResponse>(`${this.url}referee/updateTimeResult`, {
@@ -316,6 +347,18 @@ export class HttpService {
   public getRobotsOfUserInCategory(uzytkownik_uuid: string, kategoria_id: number) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.get<APIResponse>(`${this.url}referee/getRobotsOfUserInCategory/${uzytkownik_uuid}/${kategoria_id}`, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public callForConstructors(robot_uuid : string, stanowisko_id: number, robot_nazwa: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}referee/sendMessageToAllConstructorsOfRobot`, {
+        robot_uuid: robot_uuid,
+        tresc: `/PL/ Twoja walka właśnie się rozpoczyna! Przyjdź z robotem ${robot_nazwa} na Stanowisko ${stanowisko_id} w trybie natychmiastowym. Nie pojawienie się w przeciągu 3 minut oznaczać będzie walkower! /EN/ Your fight is about to begin! Come with the robot ${robot_nazwa} to Position ${stanowisko_id} immediately. Not showing up within 3 minutes will mean a forfeit!`
+      },{ headers: this.headers }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );

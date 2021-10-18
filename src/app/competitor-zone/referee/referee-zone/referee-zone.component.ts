@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/user.service';
 import { FightsService } from './../../../services/fights.service';
 import { UiService } from './../../../services/ui.service';
 import { TimesService } from './../../../services/times.service';
@@ -11,6 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subscription, combineLatest } from 'rxjs';
 import { CategoryMain } from 'src/app/models/category-main';
 import { ActivatedRoute, Router } from '@angular/router';
+import { onlyUnique } from 'src/app/shared/utils/unique';
 
 @Component({
   selector: 'app-referee-zone',
@@ -31,6 +33,7 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   private subs: Subscription = new Subscription;
   public selectedPosition: number | null = null;
   public selectedCategory: number | null = null;
+  public selectedGroup: number | null = null;
   public positionFights: Array<any> | null = null;
   public positionTimesResults: Array<any> | null = null;
   public editingTimes: number | null = null;
@@ -39,7 +42,7 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
 
   constructor(private refereeService: RefereeService, private positionsService: PositionsService, private formBuilder: FormBuilder,
      private categoriesService: CategoriesService, private translateService: TranslateService, private timesService: TimesService,
-      private ui: UiService, private figthsService: FightsService, private route: ActivatedRoute, private router: Router) {
+      private ui: UiService, private figthsService: FightsService, private route: ActivatedRoute, private router: Router, public userService: UserService) {
 
     this.form = this.formBuilder.group({
       position: [null, [Validators.required]]
@@ -59,6 +62,7 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
       if(data !== null && data !== undefined) {
         this.loading = true;
         this.selectedCategory = null;
+        this.selectedGroup = null;
         this.selectedPosition = Number(data.position);
         await this.figthsService.getAllFightsForPosiotion(this.selectedPosition).catch(err => {});
         await this.timesService.getAllTimesForPosiotion(this.selectedPosition).catch(err => {});
@@ -82,11 +86,15 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const stanowisko_id = Number(this.route.snapshot.paramMap.get('stanowisko_id'));
     const kategoria_id = Number(this.route.snapshot.paramMap.get('kategoria_id'));
+    const grupa_id = Number(this.route.snapshot.paramMap.get('grupa_id'));
 
     if(stanowisko_id) {
       this.form.get('position')?.setValue(stanowisko_id);
       if(kategoria_id) {
         this.selectedCategory = kategoria_id;
+        if(grupa_id) {
+          this.selectedGroup = grupa_id;
+        }
       }
     }
   }
@@ -95,12 +103,19 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl(`/competitor-zone/(outlet:add-time-result/${this.selectedPosition}/${this.selectedCategory}`);
   }
 
-  addFightResult() {
-    this.router.navigateByUrl(`/competitor-zone/(outlet:add-fight-result/${this.selectedPosition}/${this.selectedCategory}`);
+  addFightResult(walka: any) {
+    if (!walka.wygrane_rundy_robot1 && !walka.wygrane_rundy_robot2 || this.userService.isAdmin) {
+      this.router.navigateByUrl(`/competitor-zone/(outlet:add-fight-result/${this.selectedPosition}/${this.selectedCategory}`, { state: {data: walka}});
+    }
   }
 
   selectCategory(kategoria_id: number) {
     this.selectedCategory = Number(kategoria_id);
+    this.selectedGroup = null;
+  }
+
+  selectGroup(grupa_id: number) {
+    this.selectedGroup = Number(grupa_id);
   }
 
   editTime(wynik_id: number) {
@@ -123,6 +138,16 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
         this.editingTimes = null;
       })
     }
+  }
+
+  get getFightGroupsFromCategory() {
+    const groups = [...(this.getCategoryFigths ? this.getCategoryFigths : [])].map(el => {
+      return el.grupa_id
+    }).filter(onlyUnique).map(el => {
+      const temp = this.positionFights?.find(fight => fight.grupa_id === el);
+      return {grupa_id: el, nazwa_grupy: temp.nazwa_grupy}
+    });
+    return groups;
   }
 
   get positionsOptions(): string | undefined {
@@ -149,7 +174,11 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   }
 
   get getCategoryFigths() {
-    return this.positionFights?.filter(el => el.kategoria_id === this.selectedCategory).sort((a,b) => a.wygrane_rundy_robot1 - b.wygrane_rundy_robot2);
+    return this.positionFights?.filter(el => el.kategoria_id === this.selectedCategory).sort((a,b) => b.walka_id - a.walka_id).sort((a,b) => a.czas_zakonczenia - b.czas_zakonczenia);
+  }
+
+  get getGroupFigths() {
+    return this.positionFights?.filter(el => el.kategoria_id === this.selectedCategory && el.grupa_id === this.selectedGroup).sort((a,b) => b.walka_id - a.walka_id).sort((a,b) => a.czas_zakonczenia - b.czas_zakonczenia);
   }
 
   get getCategoryTimesResult() {

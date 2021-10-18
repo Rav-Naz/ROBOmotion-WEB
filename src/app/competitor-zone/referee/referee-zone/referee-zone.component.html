@@ -4,14 +4,22 @@
             <app-select [group]="form" controlName="position" translatePrefix="controls" [options]="positionsOptions" [collapsed]="true"></app-select>
         </div>
         <div class="referee">
-            <section class="referee-categories">
+            <section class="referee-categories" *ngIf="selectedPosition">
+                <label>Kategorie: </label>
+                <span *ngIf="!categoriesInPosition">Brak kategorii</span>
                 <button (click)="selectCategory(category.kategoria_id!)" *ngFor="let category of categoriesInPosition" [ngClass]="{'referee-categories-active': category.kategoria_id! === selectedCategory}">{{category.nazwa}}</button>
+            </section>
+            <section class="referee-categories" *ngIf="getCategoryType === 1">
+                <label>Grupy: </label>
+                <span *ngIf="getFightGroupsFromCategory.length === 0">Brak grup</span>
+                <button (click)="selectGroup(group.grupa_id!)" *ngFor="let group of getFightGroupsFromCategory" [ngClass]="{'referee-categories-active': group.grupa_id! === selectedGroup}">{{group.nazwa_grupy}}</button>
             </section>
             <section class="referee-results" *ngIf="selectedPosition && !isLoading">
 
                 <div class="referee-results-fights" *ngIf="getCategoryType === 1">
+                    <span *ngIf="!getGroupFigths?.length && selectedGroup">Brak walk</span>
                     <div class="scroll">
-                        <div class="referee-results-fights-element" *ngFor="let fight of getCategoryFigths" (click)="addFightResult()">
+                        <div class="referee-results-fights-element" *ngFor="let fight of getGroupFigths" (click)="addFightResult(fight)">
                             <span class="referee-results-fights-element-id">{{fight.walka_id}}</span>
                             <div class="referee-results-fights-element-info referee-results-fights-element-info-1">
                                 <p class="referee-results-fights-element-uuid">{{fight.robot1_uuid}}</p>
@@ -29,7 +37,7 @@
                                 <p class="referee-results-fights-element-uuid">{{fight.robot2_uuid}}</p>
                                 <p class="referee-results-fights-element-name">{{fight.robot2_nazwa}}</p>
                             </div>
-                            <span class="referee-results-fights-element-edit" *ngIf="!fight.wygrane_rundy_robot1 && !fight.wygrane_rundy_robot2">Dodaj wynik<i class="las la-edit"></i></span>
+                            <span class="referee-results-fights-element-edit">{{!fight.wygrane_rundy_robot1 && !fight.wygrane_rundy_robot2 || userService.isAdmin ? 'Dodaj wynik' : 'Ustalono wynik'}}<i *ngIf="!fight.wygrane_rundy_robot1 && !fight.wygrane_rundy_robot2 || userService.isAdmin" class="las la-edit"></i></span>
 
                         </div>
                     </div>
@@ -37,6 +45,7 @@
 
                 <div class="referee-results-times" *ngIf="getCategoryType === 0">
                     <button class="submit-button" (click)="addTimeResult()">Dodaj przejazd<i class="las la-plus-circle"></i></button>
+                    <span *ngIf="!getCategoryTimesResult?.length">Brak wyników czasowych</span>
                     <div class="scroll">
                         <div class="referee-results-times-element" *ngFor="let time of getCategoryTimesResult">
                             <span class="referee-results-times-element-id">{{time.wynik_id}}</span>
