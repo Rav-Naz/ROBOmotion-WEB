@@ -43,7 +43,9 @@
             line-height: 6rem;
         }
         &-second {
+            font-size: 6rem;
             margin-left: 2rem;
+            line-height: 6rem;
             color: $color-white;
         }
         &-container {
@@ -60,11 +62,12 @@
         }
         &-img {
             width: 5rem;
-            margin-top: 1rem;
+            // margin-top: 1rem;
+            transform: translateY(-4rem);
             margin-left: 7.5rem;
             &-top {
                 width: 7rem;
-                margin-top: 1.5rem;
+                // margin-top: 1.5rem;
                 margin-left: 10rem;
             }
         }
@@ -307,6 +310,7 @@
             align-items: flex-end;
             border-right: 4px dotted #484848;
             &-a {
+                font-size: 4rem;
                 margin: 0;
             }
             &-date {
@@ -1471,6 +1475,7 @@
         line-height: 2rem;
         &-second {
             margin-left: 1rem;
+            font-size: 2rem !important;
         }
         min-width: max-content;
         &-img {

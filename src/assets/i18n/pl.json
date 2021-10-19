@@ -83,7 +83,9 @@
             "title": "Patroni",
             "question": "Chcesz zostać patronem? Skontaktuj się z nami pod adresem kontakt@kneiti.prz.edu.pl",
             "patreonList": [
-                { "id": 1, "patreonCategory": 1, "description": "WAGO", "image": "../../assets/svg/wago.png", "linkToSite": "https://www.wago.com/" }
+                { "id": 1, "patreonCategory": 1, "description": "WAGO", "image": "../../assets/svg/wago.png", "linkToSite": "https://www.wago.com/" },
+                { "id": 2, "patreonCategory": 4, "description": "Forbot", "image": "../../assets/svg/forbot.svg", "linkToSite": "https://forbot.pl/" },
+                { "id": 3, "patreonCategory": 4, "description": "Botland", "image": "../../assets/jpg/botland.webp", "linkToSite": "https://botland.com.pl/" }
 
             ],
             "tiers": [
