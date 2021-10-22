@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user.service';
 import { FightsService } from './../../../services/fights.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -29,7 +30,7 @@ export class AddFightResultComponent implements OnInit {
   public walka: any = null;
 
   constructor(private formBuilder: FormBuilder, private refereeService: RefereeService, private route: ActivatedRoute,
-    private router: Router, private ui: UiService,private fightService: FightsService) {
+    private router: Router, private ui: UiService,private fightService: FightsService, public userService: UserService) {
     this.formUUID1 = this.formBuilder.group({
       constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
     });
@@ -69,6 +70,8 @@ export class AddFightResultComponent implements OnInit {
         this.loading = false;
         this.ui.showFeedback("error", `Użytkownik nie jest konstruktorem robota ${response1.body.pCzyJest === 1 ? this.walka.robot2_nazwa : this.walka.robot1_nazwa}!`, 3);
       }
+    } else if (this.userService.isAdmin) {
+      this.nextPage();
     }
   }
 

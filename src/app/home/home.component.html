@@ -87,6 +87,68 @@
             </div>
         </div>
         <p [routerLink]="['/login']">{{'home.event-info.open' | translate}}</p>
+        <ng-container *ngIf="switcher">
+            <div class="event-info-counter-end" *ngIf="timeLeft && !timeIsUp2">
+                <p>{{'competitor-zone.bar.time-left' | translate}}</p>
+                <div [ngClass]="{'event-info-counter-end-ending': isLessThanWeek}">
+                    <label>
+                        {{timeLeft | msTransform: 'd'}}<span> {{'home.event-info.time.days' | translate}}</span>
+                    </label>
+                    <span>
+                        :
+                    </span>
+                    <label>
+                        {{timeLeft | msTransform: 'h'}}<span> {{'home.event-info.time.hours' | translate}}</span>
+                    </label>
+                    <span>
+                        :
+                    </span>
+                    <label>
+                        {{timeLeft | msTransform: 'm'}}<span> {{'home.event-info.time.minutes' | translate}}</span>
+                    </label>
+                    <span>
+                        :
+                    </span>
+                    <label>
+                        {{timeLeft | msTransform: 's'}}<span> {{'home.event-info.time.seconds' | translate}}</span>
+                    </label>
+                </div>
+            </div>
+            <p *ngIf="timeIsUp">
+                {{'competitor-zone.bar.time-up' | translate}}
+            </p>
+        </ng-container>
+        <ng-container *ngIf="!switcher">
+            <div class="event-info-counter-end" *ngIf="timeLeftSmashBots && !timeIsUpSmashBots">
+                <p>{{'competitor-zone.bar.time-left-sb' | translate}}</p>
+                <div [ngClass]="{'event-info-counter-end-ending': isLessThanWeekSmashBots}">
+                    <label>
+                        {{timeLeftSmashBots | msTransform: 'd'}} <span>{{'home.event-info.time.days' | translate}}</span>
+                    </label>
+                    <span>
+                        :
+                    </span>
+                    <label>
+                        {{timeLeftSmashBots | msTransform: 'h'}} <span>{{'home.event-info.time.hours' | translate}}</span>
+                    </label>
+                    <span>
+                        :
+                    </span>
+                    <label>
+                        {{timeLeftSmashBots | msTransform: 'm'}} <span>{{'home.event-info.time.minutes' | translate}}</span>
+                    </label>
+                    <span>
+                        :
+                    </span>
+                    <label>
+                        {{timeLeftSmashBots | msTransform: 's'}} <span>{{'home.event-info.time.seconds' | translate}}</span>
+                    </label>
+                </div>
+            </div>
+            <p *ngIf="timeIsUpSmashBots">
+                {{'competitor-zone.bar.time-up-sb' | translate}}
+            </p>
+        </ng-container>
     </section>
     <section class="event-program" id="programme">
         <h3 style="visibility: collapse;">Po krótkiej przerwie jedne z najlepszych zawodów w Polsce powracają do Rzeszowa z wielkim przytupem! Tym razem oprócz klasycznych konkurencji typu Sumo, czy LineFollower, jako pierwsi w Polsce przygotowaliśmy dla Was wyjątkową kategorię - Smash

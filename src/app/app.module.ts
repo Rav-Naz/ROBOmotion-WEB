@@ -46,6 +46,9 @@ import { ChartsComponent } from './competitor-zone/charts/charts.component';
 import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { AddFightResultComponent } from './competitor-zone/referee/add-fight-result/add-fight-result.component';
+import { RobotsComponent } from './competitor-zone/referee/robots/robots.component';
+import { CompetitorsComponent } from './competitor-zone/referee/competitors/competitors.component';
+import { CompetitorComponent } from './competitor-zone/referee/competitors/competitor/competitor.component';
 
 
 @NgModule({
@@ -75,7 +78,10 @@ import { AddFightResultComponent } from './competitor-zone/referee/add-fight-res
     RefereeZoneComponent,
     AddTimeResultComponent,
     ChartsComponent,
-    AddFightResultComponent
+    AddFightResultComponent,
+    RobotsComponent,
+    CompetitorsComponent,
+    CompetitorComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import { AuthService } from './auth.service';
 export class RobotsService{
 
   private userRobots = new BehaviorSubject<Array<any> | null>(null);
+  private allRobots = new BehaviorSubject<Array<any> | null>(null);
 
   constructor(private http: HttpService, private errorService: ErrorsService, private ui: UiService, private translate: TranslateService,
      private websocket: WebsocketService, private injector: Injector) {
@@ -45,6 +46,22 @@ export class RobotsService{
 
       if(value !== undefined) {
         this.userRobots.next(Object.assign(value.body));
+      }
+      resolve(value);
+    });
+  }
+
+  public getAllRobots() {
+    return new Promise<any>(async (resolve) => {
+      const value = await this.http.getAllRobots.catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      if(value !== undefined) {
+        this.allRobots.next(Object.assign(value.body));
       }
       resolve(value);
     });
@@ -110,6 +127,14 @@ export class RobotsService{
     });
   }
 
+  public confirmArrival(robot_uuid: string) {
+    const robotIndex = this.allRobots.value?.findIndex(robot => robot.robot_uuid === robot_uuid);
+    if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0 && this.allRobots.value) {
+      this.allRobots.value![robotIndex].czy_dotarl = 1;
+      this.allRobots.next(this.allRobots.value)
+    }
+  }
+
   public WS_updateRobot(data: any) {
     const robotIndex = this.userRobots.value?.findIndex(robot => robot.robot_id === data?.robot_id)
     if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0 && this.userRobots.value) {
@@ -149,5 +174,9 @@ export class RobotsService{
 
   get userRobots$() {
     return this.userRobots.asObservable()
+  }
+
+  get allRobots$() {
+    return this.allRobots.asObservable()
   }
 }

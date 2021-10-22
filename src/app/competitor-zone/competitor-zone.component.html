@@ -12,6 +12,14 @@
                         <i class="las la-gavel"></i>
                         <p>{{'competitor-zone.bar.referee-zone' | translate}}</p>
                     </section>
+                    <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['competitors']}}]" *ngIf="userService.isReferee" routerLinkActive="competitor-zone-bar-segment-active">
+                        <i class="las la-users"></i>
+                        <p>{{'competitor-zone.bar.competitors' | translate}}</p>
+                    </section>
+                    <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['robots']}}]" *ngIf="userService.isReferee" routerLinkActive="competitor-zone-bar-segment-active">
+                        <i class="las la-robot"></i>
+                        <p>{{'competitor-zone.bar.robots' | translate}}</p>
+                    </section>
                     <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['settings']}}]" routerLinkActive="competitor-zone-bar-segment-active">
                         <i class="las la-cog"></i>
                         <p>{{'competitor-zone.bar.settings' | translate}}</p>

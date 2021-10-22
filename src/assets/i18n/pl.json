@@ -172,6 +172,8 @@
             "my-robots": "MOJE ROBOTY",
             "settings": "USTAWIENIA",
             "referee-zone": "STREFA SĘDZIEGO",
+            "competitors": "ZAWODNICY",
+            "robots": "ROBOTY",
             "statistics": "STATYSTYKI",
             "hello": {
                 "1": "Witaj w ",
@@ -242,7 +244,7 @@
             "errors": {
                 "success": "Pomyślnie zmieniono hasło do konta",
                 "success-name": "Pomyślnie edytowano dane użytkownika",
-                "copied": "Skopiowano identyfikator użytkownika do schowka"
+                "copied": "Skopiowano identyfikator do schowka"
             }
         }
     },
@@ -552,6 +554,30 @@
                 "required": "To pole jest wymagane",
                 "maxlength": "Wynik musi być jednocyfrowy",
                 "minlength": "Wynik musi być jednocyfrowy"
+            }
+        },
+        "filter": {
+            "name": "Filtruj po",
+            "validators": {}
+        },
+        "filter_name": {
+            "name": "Wartość",
+            "validators": {}
+        },
+        "postal_code": {
+            "name": "Kod pocztowy",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "maxlength": "Kod pocztowy musi być dłuższy niż 2 znaki",
+                "minlength": "Kod pocztowy musi być krótszy niż 8 znaków"
+            }
+        },
+        "message": {
+            "name": "Wiadomość do użytkownika",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "maxlength": "Wiadomość powinna być dłuższa niż 2 znaki",
+                "minlength": "Wiadomość powinna być krótsza niż 500 znaków"
             }
         }
     },

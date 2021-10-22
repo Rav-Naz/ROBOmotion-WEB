@@ -74,9 +74,18 @@ export class HomeComponent implements OnInit{
   public eventDate: Date = new Date(2021, 10, 28, 9, 0, 0);
   public windowSize: WindowSize = { height: 1080, width: 1920};
 
+  public timeLeft: number | undefined;
+  public timeLeftSmashBots: number | undefined;
+  public timeIsUp2: boolean = false;
+  public timeIsUpSmashBots: boolean = false;
+  public switcher = false;
 
 
-  constructor(private sanitizer: DomSanitizer, public translate: TranslateService, private httpService: HttpService, private auth: AuthService) {
+
+  constructor(private sanitizer: DomSanitizer, public translate: TranslateService, private httpService: HttpService, private authService: AuthService) {
+    setInterval(() => {
+      this.switcher = !this.switcher;
+    }, 5000)
     const sub1 = this.httpService.getHomePageInfo.subscribe((data) => {
       if(data === undefined || data === null) return;
       this.eventDate = new Date(data.body.eventDate);
@@ -213,6 +222,15 @@ export class HomeComponent implements OnInit{
     if(Math.floor(this.timeToEvent/1000) < 0) {
       this.timeIsUp = true;
     }
+    if(!this.authService.accessToModifyExpirationDate || !this.authService.accessToModifySmashBotsExpirationDate) return;
+    this.timeLeft = this.authService.accessToModifyExpirationDate.getTime() - new Date().getTime();
+    this.timeLeftSmashBots = this.authService.accessToModifySmashBotsExpirationDate.getTime() - new Date().getTime();
+    if(Math.floor(this.timeLeft/1000) < 0) {
+      this.timeIsUp = true;
+    }
+    if(Math.floor(this.timeLeftSmashBots/1000) < 0) {
+      this.timeIsUpSmashBots = true;
+    }
   }
 
   flipCard(event: Event, direction: 'front' | 'back') {
@@ -253,6 +271,14 @@ export class HomeComponent implements OnInit{
   get isMobile()
   {
     return this.windowSize.width <= 800;
+  }
+
+  get isLessThanWeek() {
+    return this.timeLeft && Math.floor(this.timeLeft/1000) < 604800;
+  }
+
+  get isLessThanWeekSmashBots() {
+    return this.timeLeftSmashBots && Math.floor(this.timeLeftSmashBots/1000) < 604800;
   }
 
   timeout(ms: number) {

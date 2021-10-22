@@ -25,7 +25,7 @@ import { AlreadyExist } from 'src/app/shared/utils/exist';
 })
 export class RobotComponent {
 
-  private oldName: string = "";
+  public oldName: string = "";
   public formName: FormGroup;
   public formCategory: FormGroup;
   public formConstructor: FormGroup;
@@ -41,10 +41,11 @@ export class RobotComponent {
   private lastConstructorMessage: object | null = null;
 
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, public authService: AuthService, private robotsService: RobotsService,
-    private categoriesService: CategoriesService, private constructorsService: ConstructorsService, private userSerceice: UserService, private router: Router,
+    private categoriesService: CategoriesService, private constructorsService: ConstructorsService, public userSerceice: UserService, private router: Router,
     private ui: UiService, private translate: TranslateService) {
     const robot_uuid = this.route.snapshot.paramMap.get('robot_uuid');
-    const sub1 = combineLatest(this.categoriesService.categories$, this.robotsService.userRobots$, this.constructorsService.getNewConstructors$).subscribe(async (val) => {
+    
+    const sub1 = combineLatest(this.categoriesService.categories$, userSerceice.isReferee ? this.robotsService.allRobots$ : this.robotsService.userRobots$, this.constructorsService.getNewConstructors$).subscribe(async (val) => {
 
       if (val[0] !== null && val[1] !== null) {
         const categories = JSON.stringify(val[0]!);
@@ -103,6 +104,8 @@ export class RobotComponent {
             }
           }
         }
+      } else if (!val[1]) {
+        this.robotsService.getAllRobots();
       }
     });
     this.subs.add(sub1);
@@ -217,6 +220,10 @@ export class RobotComponent {
     this.router.navigateByUrl(`/competitor-zone/(outlet:my-robots)`);
   }
 
+  openUserDetails(uzytkownik_uuid: any) {
+    if(this.userSerceice.isReferee) this.router.navigateByUrl(`/competitor-zone/(outlet:competitor/${uzytkownik_uuid})`)
+  }
+
 
   filterAvaibleCategories() {
     if (this.categories && this.robot) {
@@ -309,6 +316,22 @@ export class RobotComponent {
     let category = this.categories?.find(cat => cat.kategoria_id === id);
     return category ? category.nazwa : "???";
   }
+
+  copyUUID(){
+    let selBox = document.createElement('textarea');
+      selBox.style.position = 'fixed';
+      selBox.style.left = '0';
+      selBox.style.top = '0';
+      selBox.style.opacity = '0';
+      selBox.value = this.robot!.robot_uuid;
+      document.body.appendChild(selBox);
+      selBox.focus();
+      selBox.select();
+      document.execCommand('copy');
+      document.body.removeChild(selBox);
+
+      this.ui.showFeedback('loading', this.translate.instant('competitor-zone.settings.errors.copied'), 3);
+    }
 
   ngOnDestroy(): void {
     this.subs?.unsubscribe();

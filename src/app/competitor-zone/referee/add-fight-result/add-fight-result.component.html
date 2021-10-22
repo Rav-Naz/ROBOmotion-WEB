@@ -17,7 +17,7 @@
 
                 </div>
             </div>
-            <button class="submit-button" [disabled]="!isFormUserUUIDValid" (click)="goToSetFight()">Dalej<i class="las la-forward"></i></button>
+            <button class="submit-button" [disabled]="!isFormUserUUIDValid && !userService.isAdmin" (click)="goToSetFight()">Dalej<i class="las la-forward"></i></button>
         </div>
         <div *ngIf="viewCounter === 1" class="robots view">
             <h5>DODAWANIE WYNIKU <span>WALKI</span></h5>

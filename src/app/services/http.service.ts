@@ -73,6 +73,15 @@ export class HttpService {
     })
   }
 
+  get getAllRobots(): Promise<APIResponse> {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getAllRobots`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   public confirmCode(uzytkownik_uuid: string, kod: string, czy_na_telefon: string) {
     return new Promise<any>((resolve, rejects) => {
       this.http.get<APIResponse>(`${this.url}public/confirmCode/${uzytkownik_uuid}/${kod}/${czy_na_telefon}`).toPromise().then(
@@ -344,6 +353,15 @@ export class HttpService {
     })
   }
 
+  public get getUsers() {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}referee/getUsers`, { headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   public getRobotsOfUserInCategory(uzytkownik_uuid: string, kategoria_id: number) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.get<APIResponse>(`${this.url}referee/getRobotsOfUserInCategory/${uzytkownik_uuid}/${kategoria_id}`, { headers: this.headers }).toPromise().then(
@@ -359,6 +377,44 @@ export class HttpService {
         robot_uuid: robot_uuid,
         tresc: `/PL/ Twoja walka właśnie się rozpoczyna! Przyjdź z robotem ${robot_nazwa} na Stanowisko ${stanowisko_id} w trybie natychmiastowym. Nie pojawienie się w przeciągu 3 minut oznaczać będzie walkower! /EN/ Your fight is about to begin! Come with the robot ${robot_nazwa} to Position ${stanowisko_id} immediately. Not showing up within 3 minutes will mean a forfeit!`
       },{ headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+
+  // ------------- ADMIN
+
+  public confirmArrival(robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.put<APIResponse>(`${this.url}admin/confirmArrival`, {
+        robot_uuid: robot_uuid
+       },{ headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+  
+  public addPostalCode(uzytkownik_uuid: string, kod_pocztowy: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}admin/addPostalCode`, {
+        uzytkownik_uuid: uzytkownik_uuid,
+        kod_pocztowy: kod_pocztowy 
+       },{ headers: this.headers }).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  public sendPrivateMessage(uzytkownik_uuid: string, tresc : string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}admin/sendPrivateMessage`, {
+        uzytkownik_uuid: uzytkownik_uuid,
+        tresc: tresc  
+       },{ headers: this.headers }).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );

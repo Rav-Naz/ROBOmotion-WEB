@@ -195,6 +195,7 @@ export class AuthService {
   }
 
   get canModify() {
+    // return false
     return (this.accessToModifyExpirationDate !== null && this.accessToModifyExpirationDate > new Date()) || this.userService.isReferee;
   }
 

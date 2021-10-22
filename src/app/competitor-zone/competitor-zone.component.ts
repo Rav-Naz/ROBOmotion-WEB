@@ -1,3 +1,4 @@
+import { RefereeService } from 'src/app/services/referee.service';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './../services/user.service';
@@ -12,7 +13,7 @@ import { PositionsService } from '../services/positions.service';
   templateUrl: './competitor-zone.component.html',
   styleUrls: ['./competitor-zone.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  providers: [RobotsService, ConstructorsService, PositionsService]
+  providers: [RobotsService, ConstructorsService, PositionsService, RefereeService]
 })
 export class CompetitorZoneComponent{
 

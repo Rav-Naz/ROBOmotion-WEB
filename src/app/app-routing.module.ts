@@ -1,3 +1,6 @@
+import { CompetitorComponent } from './competitor-zone/referee/competitors/competitor/competitor.component';
+import { RobotsComponent } from './competitor-zone/referee/robots/robots.component';
+import { CompetitorsComponent } from './competitor-zone/referee/competitors/competitors.component';
 import { AddFightResultComponent } from './competitor-zone/referee/add-fight-result/add-fight-result.component';
 import { ChartsComponent } from './competitor-zone/charts/charts.component';
 import { AddTimeResultComponent } from './competitor-zone/referee/add-time-result/add-time-result.component';
@@ -45,6 +48,9 @@ const routes: Routes = [
     {path: 'referee-zone', component: RefereeZoneComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
     {path: 'add-time-result/:stanowisko_id/:kategoria_id', component: AddTimeResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
     {path: 'add-fight-result/:stanowisko_id/:kategoria_id', component: AddFightResultComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'competitors', component: CompetitorsComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'competitor/:uzytkownik_uuid', component: CompetitorComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
+    {path: 'robots', component: RobotsComponent, canActivate: [RefereeGuard], outlet: 'outlet'},
   ]},
   {path: 'confirm-code/:uzytkownik_uuid/:kod/:czy_na_telefon', component: ConfirmCodeComponent},
   {path: '**', redirectTo: ''},

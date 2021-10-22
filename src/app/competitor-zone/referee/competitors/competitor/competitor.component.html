@@ -1,0 +1,57 @@
+<div class="router-child">
+    <div class="main">
+        <section class="top top-grid">
+            <div>
+                <a>{{'competitor-zone.settings.user'  | translate}}</a>
+                <label class="competitor-name">Imię i nazwisko: <span>{{user?.imie}} {{user?.nazwisko}}</span></label>
+                <p class="competitor-detail" *ngIf="user?.numer_telefonu">Numer telefonu: <span>{{user?.numer_telefonu}}</span></p>
+                <p class="competitor-detail" *ngIf="user?.email">Adres email: <span>{{user?.email}}</span></p>
+                <p class="competitor-detail" *ngIf="user?.stanowiska">Stanowiska: <span>{{user?.stanowiska}}</span></p>
+                <p class="competitor-detail" *ngIf="user?.kod_pocztowy">Kod pocztowy: <span>{{user?.kod_pocztowy}}</span></p>
+                <div *ngIf="userSerceice.isAdmin && user && !user.kod_pocztowy" class="postal">
+                    <app-input [group]="formPostal" controlName="postal_code" [collapsed]="true"></app-input>
+                    <button [disabled]="!isFormPostalCodeValid" class="submit-button" (click)="savePostalCode()"><i class="las la-save"></i></button>
+                </div>
+                <div class="uuid">
+                    <span>{{'menu.uuid' | translate}}</span>
+                    <div (click)="copyUUID()" class="competitor-uuid">
+                        <a>{{user?.uzytkownik_uuid}}</a>
+                        <i class="las la-copy"></i>
+                    </div>
+                </div>
+            </div>
+            <div [formGroup]="formMessage">
+                <textarea formControlName="message" placeholder="Wiadomość do użytkownika"></textarea>
+                <button [disabled]="!isFormMessageValid" class="submit-button" (click)="sendMessage()">Wyślij wiadomość</button>
+            </div>
+        </section>
+        <div class="grid">
+            <div class="grid-categories competitor-container">
+                <span>{{'competitor-zone.robot.categories' | translate}}</span>
+                <div class="grid-categories-old-parent">
+                    <div *ngFor="let cat of userCategories" class="grid-categories-old">
+                        <div>
+                            <i class="las la-chevron-right"></i>
+                            <label>{{cat}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="grid-constructors competitor-container">
+                <span>Roboty</span>
+                <div class="grid-categories-old-parent">
+                    <div *ngFor="let robot of userRobots" class="grid-categories-old grid-constructors-user-parent" [ngClass]="{'grid-constructors-user-parent-clickable': userSerceice.isReferee}">
+                        <div (click)="openRobotDetails(robot)">
+                            <i class="las la-chevron-left"></i>
+                            <div class="grid-constructors-user">
+                                <label class="competitor-uuid-small">{{robot}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

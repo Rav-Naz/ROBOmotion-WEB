@@ -52,7 +52,7 @@
         transition: all .3s;
         box-shadow: inset 5px 5px 10px #14141498, inset -5px -5px 10px #3f3f3fdf;
         &:hover {
-            &>span:last-child {
+            &>span:nth-child(3) {
                 color: $color-primary;
                 border-bottom: 1px dashed $color-primary;
             }
@@ -99,6 +99,9 @@
             grid-column: 2;
             grid-row: 1;
             width: 100%;
+            details {
+                padding: 2rem;
+            }
         }
         &-edit {
             transition: all .3s;

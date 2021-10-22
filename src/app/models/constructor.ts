@@ -3,4 +3,5 @@ export interface Constructor {
     nazwisko: string;
     uzytkownik_uuid: string;
     konstruktor_id: number;
+    numer_telefonu?: number;
 }

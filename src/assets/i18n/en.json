@@ -167,6 +167,8 @@
             "my-robots": "MY ROBOTS",
             "settings": "SETTINGS",
             "referee-zone": "REFEREE ZONE",
+            "competitors": "COMPETITORS",
+            "robots": "ROBOTS",
             "statistics": "STATISTICS",
             "hello": {
                 "1": "Welcome to the ",
@@ -238,7 +240,7 @@
             "errors": {
                 "success": "Account password changed successfully",
                 "success-name": "User data was successfully edited",
-                "copied": "User UUID copied to clipboard"
+                "copied": "UUID copied to clipboard"
             }
         }
     },
@@ -550,6 +552,30 @@
                 "required": "This field is required",
                 "maxlength": "The result must be single-digit",
                 "minlength": "The result must be single-digit"
+            }
+        },
+        "filter": {
+            "name": "Filter by",
+            "validators": {}
+        },
+        "filter_name": {
+            "name": "Value",
+            "validators": {}
+        },
+        "postal_code": {
+            "name": "Postal code",
+            "validators": {
+                "required": "This field is required",
+                "maxlength": "The postal code must be longer than 2 characters",
+                "minlength": "The postal code must be less than 8 characters"
+            }
+        },
+        "message": {
+            "name": "Message to user",
+            "validators": {
+                "required": "This field is required",
+                "maxlength": "The message must be longer than 2 characters",
+                "minlength": "The message must be less than 500 characters"
             }
         }
     },

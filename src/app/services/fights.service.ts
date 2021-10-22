@@ -57,7 +57,6 @@ export class FightsService {
 
   public pushNewFigthsForPosition(fight: Array<any>) {
     this.fightsForPosition.next(fight);
-    console.log(fight)
   }
 
   isEmptyPositionList(stanowisko_id: number) {

@@ -13,7 +13,6 @@
 
 .name {
     height: min-content;
-    min-height: 12rem;
     padding: 2rem 2rem 2rem .5rem;
     overflow: hidden;
     width: 100%;
@@ -25,7 +24,20 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    label {
+        padding: 1rem;
+        padding-left: 3rem;
+        line-height: 3rem;
+        font-size: 3rem;
+        color: $color-grey-0;
+        span {
+            font-size: 3.5rem;
+            color: $color-white;
+            font-family: $title-font;
+        }
+    }
     app-input {
+        min-height: 8rem;
         width: 100%;
         padding: 0rem !important;
         height: 1rem;
@@ -58,6 +70,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: left;
+        cursor: pointer;
         span {
             letter-spacing: .2rem;
             font-size: 1.5rem;
@@ -332,6 +345,15 @@
                 &:hover>div {
                     transform: translateX(-3rem);
                 }
+                &-clickable {
+                    * {
+                        cursor: pointer !important;
+                    }
+                }
+            }
+            details {
+                font-size: 1.3rem;
+                color: rgba($color-white, 0.7)
             }
         }
     }

@@ -20,8 +20,7 @@ import { onlyUnique } from 'src/app/shared/utils/unique';
   styleUrls: ['./referee-zone.component.scss'],
   host: {
     'class': 'router-flex'
-  },
-  providers: [RefereeService]
+  }
 })
 export class RefereeZoneComponent implements OnInit, OnDestroy {
 
