@@ -2,11 +2,13 @@ import { RefereeService } from 'src/app/services/referee.service';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './../services/user.service';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { RobotsService } from '../services/robots.service';
 import { ConstructorsService } from '../services/constructors.service';
 import { PositionsService } from '../services/positions.service';
+import { WindowSize } from '../models/window_size.model';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-competitor-zone',
@@ -15,13 +17,16 @@ import { PositionsService } from '../services/positions.service';
   encapsulation: ViewEncapsulation.None,
   providers: [RobotsService, ConstructorsService, PositionsService, RefereeService]
 })
-export class CompetitorZoneComponent{
+export class CompetitorZoneComponent implements OnDestroy{
 
   public timeLeft: number | undefined;
   public timeLeftSmashBots: number | undefined;
   public timeIsUp: boolean = false;
   public timeIsUpSmashBots: boolean = false;
   public switcher = false;
+  public windowSize: WindowSize = { height: 1080, width: 1920};
+  private subs: Subscription = new Subscription;
+
 
 
   constructor(public translate: TranslateService, public userService: UserService, private router: Router,
@@ -33,6 +38,14 @@ export class CompetitorZoneComponent{
     setInterval(() => {
       this.refreshCounter();
     }, 1000);
+    this.windowSize = {height: window.innerHeight, width: window.innerWidth };
+    const resizeObs = fromEvent(window, 'resize') as Observable<any>;
+    const sub1 = resizeObs.subscribe(size => {
+      if (!size) { return; }
+      this.windowSize = {height: size.currentTarget.innerHeight, width: size.currentTarget.innerWidth};
+    })
+    this.subs?.add(sub1);
+
   }
 
   refreshCounter() :void {
@@ -67,4 +80,11 @@ export class CompetitorZoneComponent{
     return this.router.url === '/competitor-zone';
   }
 
+  get isMobile() {
+    return this.windowSize.width < 800;
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  }
 }

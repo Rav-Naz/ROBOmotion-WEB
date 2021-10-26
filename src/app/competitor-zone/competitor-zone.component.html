@@ -24,7 +24,7 @@
                         <i class="las la-cog"></i>
                         <p>{{'competitor-zone.bar.settings' | translate}}</p>
                     </section>
-                    <section class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['statistics']}}]">
+                    <section *ngIf="!isMobile" class="competitor-zone-bar-segment" [routerLink]="['/competitor-zone', { outlets: {'outlet': ['statistics']}}]">
                         <i class="las la-chart-pie"></i>
                         <p>{{'competitor-zone.bar.statistics' | translate}}</p>
                     </section>

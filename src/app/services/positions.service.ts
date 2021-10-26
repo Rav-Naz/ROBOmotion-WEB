@@ -18,10 +18,10 @@ export class PositionsService {
 
   constructor(private http: HttpService, private errorService: ErrorsService, private translate: TranslateService, private userService: UserService,
     private incjetor: Injector) {
-    if (userService.isReferee) this.getAllRefereePositions;
+      if (userService.isReferee) this.getAllRefereePositions();
   }
 
-  public get getAllRefereePositions() {
+  public getAllRefereePositions() {
     return new Promise<APIResponse | void>(async (resolve) => {
       const value = await this.http.getRefereePositions(this.userService.userUUID).catch(err => {
         if(err.status === 400) {

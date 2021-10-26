@@ -50,7 +50,6 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
     this.editingTimesForm = this.formBuilder.group({
       time: [null, [Validators.required, Validators.maxLength(7)]]
     });
-    
     const sub1 = combineLatest(this.categoriesService.categories$,this.positionsService.positions$).subscribe((val) => {
       if (val[0] !== null && val[1]) {
         this.categories = JSON.parse(JSON.stringify(val[0]));

@@ -13,7 +13,7 @@ export class RefereeService {
   private allUsers = new BehaviorSubject<Array<any> | null>(null);
 
   constructor (private errorService: ErrorsService, private http: HttpService, private translate: TranslateService, private websocket: WebsocketService) {
-    this.getUsers;
+    this.getUsers();
     this.websocket.getWebSocket$.subscribe((socket) => {
       socket?.on('user/addPostalCode', (data) => {
         this.WS_addPostalCode(data);
@@ -112,7 +112,7 @@ export class RefereeService {
     });
   }
 
-  public get getUsers() {
+  public getUsers() {
     return new Promise<any>(async (resolve) => {
       const value = await this.http.getUsers.catch(err => {
         if(err.status === 400) {
