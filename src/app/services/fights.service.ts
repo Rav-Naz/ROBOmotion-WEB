@@ -12,6 +12,7 @@ import { APIResponse } from '../models/response';
 })
 export class FightsService {
 
+  private allFights = new BehaviorSubject<Array<any> | null>(null);
   private fightsForPosition = new BehaviorSubject<Array<any> | null>(null);
   private actualPosition: number | null = null;
 
@@ -24,11 +25,11 @@ export class FightsService {
       })
    }
 
-   public getAllFightsForPosiotion(stanowisko_id: number) {
-    return new Promise<APIResponse | void>(async (resolve,reject) => {
-      if (this.isEmptyPositionList(stanowisko_id)) {reject(); return;}
-      this.actualPosition = stanowisko_id;
-      const value = await this.http.getAllFightsForPosiotion(stanowisko_id).catch(err => {
+   public getAllFights() {
+     
+    return new Promise<APIResponse | void>(async (resolve, reject) => {
+      if(this.allFights.value === null && this.allFights.value === undefined) {reject(); return;}
+      const value = await this.http.getAllFights.catch(err => {
         if(err.status === 400) {
           this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
@@ -36,7 +37,30 @@ export class FightsService {
         }
       })
       if(value !== undefined) {
-        this.pushNewFigthsForPosition(value.body);
+        this.allFights.next(value.body);
+      }
+      resolve(value);
+    }); 
+  }
+
+   public getAllFightsForPosiotion(stanowisko_id: number) {
+    return new Promise<APIResponse | void | Array<any>>(async (resolve,reject) => {
+      if (this.isEmptyPositionList(stanowisko_id)) {reject(); return;}
+      this.actualPosition = stanowisko_id;
+      let value: APIResponse | void | Array<any>;
+      if(this.allFights.value !== null) {
+        value = this.allFights.value.filter((el) => el.stanowisko_id === stanowisko_id);
+      } else {
+        value = await this.http.getAllFightsForPosiotion(stanowisko_id).catch(err => {
+          if(err.status === 400) {
+            this.errorService.showError(err.status, this.translate.instant(err.error.body));
+          } else {
+            this.errorService.showError(err.status);
+          }
+        })
+      }
+      if(value !== undefined) {
+        this.pushNewFigthsForPosition(value as any);
       }
       resolve(value);
     }); 
@@ -55,7 +79,7 @@ export class FightsService {
     }); 
   }
 
-  public pushNewFigthsForPosition(fight: Array<any>) {
+  public pushNewFigthsForPosition(fight: Array<any> | null) {
     this.fightsForPosition.next(fight);
   }
 
@@ -65,6 +89,10 @@ export class FightsService {
 
   get figthsForPosition$() {
     return this.fightsForPosition.asObservable();
+  }
+
+  get allFights$() {
+    return this.allFights.asObservable();
   }
 
   WS_setFightResult(data: any) {

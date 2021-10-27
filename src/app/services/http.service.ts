@@ -46,6 +46,15 @@ export class HttpService {
     })
   }
 
+  get getAllTimes() {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getAllTimes`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   getAllTimesForPosiotion(stanowisko_id: number) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.get<APIResponse>(`${this.url}public/getAllTimesForPosiotion/${stanowisko_id}`).toPromise().then(
@@ -55,9 +64,27 @@ export class HttpService {
     })
   }
 
+  get getAllFights() {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getAllFights`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   getAllFightsForPosiotion(stanowisko_id: number) {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.get<APIResponse>(`${this.url}public/getAllFightsForPosiotion/${stanowisko_id}`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  get getAllPositions(): Promise<APIResponse> {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getPositions`).toPromise().then(
         (value) => { resolve(value) },
         (error) => { rejects(error) }
       );

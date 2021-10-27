@@ -13,6 +13,7 @@ import { APIResponse } from '../models/response';
 export class TimesService {
 
   private timesForPosition = new BehaviorSubject<Array<any> | null>(null);
+  private allTimes = new BehaviorSubject<Array<any> | null>(null);
   private actualPosition: number | null = null;
 
   constructor(private http: HttpService, private errorService: ErrorsService, private translate: TranslateService,
@@ -30,11 +31,10 @@ export class TimesService {
     })
    }
 
-  public getAllTimesForPosiotion(stanowisko_id: number) {
+  public getAllTimes() {
     return new Promise<APIResponse | void>(async (resolve, reject) => {
-      if (this.isEmptyPositionList(stanowisko_id)) {reject(); return;}
-      this.actualPosition = stanowisko_id;
-      const value = await this.http.getAllTimesForPosiotion(stanowisko_id).catch(err => {
+      if(this.allTimes.value === null && this.allTimes.value === undefined) {reject(); return;}
+      const value = await this.http.getAllTimes.catch(err => {
         if(err.status === 400) {
           this.errorService.showError(err.status, this.translate.instant(err.error.body));
         } else {
@@ -42,7 +42,31 @@ export class TimesService {
         }
       })
       if(value !== undefined) {
-        this.pushNewTimesForPosition(value.body);
+        console.log('asd',value)
+        this.allTimes.next(value.body);
+      }
+      resolve(value);
+    }); 
+  }
+
+  public getAllTimesForPosiotion(stanowisko_id: number) {
+    return new Promise<APIResponse | void | Array<any>>(async (resolve, reject) => {
+      if (this.isEmptyPositionList(stanowisko_id)) {reject(); return;}
+      this.actualPosition = stanowisko_id;
+      let value: APIResponse | void | Array<any>;
+      if(this.allTimes.value !== null) {
+        value = this.allTimes.value.filter((el) => el.stanowisko_id === stanowisko_id);
+      } else {
+        value = await this.http.getAllTimesForPosiotion(stanowisko_id).catch(err => {
+          if(err.status === 400) {
+            this.errorService.showError(err.status, this.translate.instant(err.error.body));
+          } else {
+            this.errorService.showError(err.status);
+          }
+        })
+      }
+      if(value !== undefined) {
+        this.pushNewTimesForPosition(value as any);
       }
       resolve(value);
     }); 
@@ -103,5 +127,9 @@ export class TimesService {
 
   get timesForPosition$() {
     return this.timesForPosition.asObservable();
+  }
+
+  get allTimes$() {
+    return this.allTimes.asObservable();
   }
 }

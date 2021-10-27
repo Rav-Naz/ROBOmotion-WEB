@@ -1,5 +1,3 @@
-import { FightsService } from './fights.service';
-import { TimesService } from './times.service';
 import { Position } from './../models/position';
 import { Injectable, Injector } from '@angular/core';
 import { UserService } from './user.service';
@@ -15,10 +13,28 @@ import { BehaviorSubject } from 'rxjs';
 export class PositionsService {
 
   private positions = new BehaviorSubject<Array<Position> | null>(null);
+  private allPostions = new BehaviorSubject<Array<Position> | null>(null);
 
   constructor(private http: HttpService, private errorService: ErrorsService, private translate: TranslateService, private userService: UserService,
     private incjetor: Injector) {
       if (userService.isReferee) this.getAllRefereePositions();
+  }
+
+  public getAllPositions() {
+    return new Promise<APIResponse | void>(async (resolve, reject) => {
+      if(this.allPostions.value === null && this.allPostions.value === undefined) {reject(); return;}
+      const value = await this.http.getAllPositions.catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      if(value !== undefined) {
+        this.allPostions.next(value.body);
+      }
+      resolve(value);
+    }); 
   }
 
   public getAllRefereePositions() {
@@ -52,5 +68,9 @@ export class PositionsService {
 
   get positions$() {
     return this.positions.asObservable();
+  }
+
+  get allPositions$() {
+    return this.allPostions.asObservable();
   }
 }

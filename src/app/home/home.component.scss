@@ -1427,9 +1427,21 @@
                 color: rgb(212, 113, 46);
             }
         }
+        &-5 {
+            &>p {
+                font-size: 3rem !important;
+            }
+        }
         &-4 {
             &>p {
                 font-size: 3rem !important;
+            }
+            .patreons-one {
+                max-width: 40rem;
+                img {
+                    max-width: 30rem;
+                    max-height: 30rem;
+                }
             }
         }
     }
