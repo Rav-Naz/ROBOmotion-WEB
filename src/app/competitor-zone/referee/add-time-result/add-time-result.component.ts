@@ -1,3 +1,4 @@
+import { CategoriesService } from './../../../services/categories.service';
 import { PositionsService } from './../../../services/positions.service';
 import { TimesService } from './../../../services/times.service';
 import { UiService } from './../../../services/ui.service';
@@ -29,7 +30,7 @@ export class AddTimeResultComponent implements OnInit {
   public selectedRobot: Robot | null = null;
 
   constructor(private formBuilder: FormBuilder, private refereeService: RefereeService, private route: ActivatedRoute,
-    private router: Router, private ui: UiService, private timesService: TimesService, private positionService: PositionsService) {
+    private router: Router, private ui: UiService, private timesService: TimesService, private positionService: PositionsService, public categoryService: CategoriesService) {
     this.formUUID = this.formBuilder.group({
       constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
     });
@@ -105,6 +106,14 @@ export class AddTimeResultComponent implements OnInit {
   nextPage() {
     this.viewCounter++;
     this.loading = false;
+  }
+
+  get getCategoryType() {
+    if(this.kategoria_id) {
+      return this.categoryService.getCategoryType(this.kategoria_id);
+    } else {
+      return undefined
+    }
   }
 
   get isFormUserUUIDValid() {

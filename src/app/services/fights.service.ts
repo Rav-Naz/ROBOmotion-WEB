@@ -51,13 +51,16 @@ export class FightsService {
       if(this.allFights.value !== null) {
         value = this.allFights.value.filter((el) => el.stanowisko_id === stanowisko_id);
       } else {
-        value = await this.http.getAllFightsForPosiotion(stanowisko_id).catch(err => {
+        const response = await this.http.getAllFightsForPosiotion(stanowisko_id).catch(err => {
           if(err.status === 400) {
             this.errorService.showError(err.status, this.translate.instant(err.error.body));
           } else {
             this.errorService.showError(err.status);
           }
         })
+        if (response && response.message === 'INFO: OK') {
+          value = response.body;
+        }
       }
       if(value !== undefined) {
         this.pushNewFigthsForPosition(value as any);

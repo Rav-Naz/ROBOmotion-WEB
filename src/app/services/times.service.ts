@@ -42,7 +42,6 @@ export class TimesService {
         }
       })
       if(value !== undefined) {
-        console.log('asd',value)
         this.allTimes.next(value.body);
       }
       resolve(value);
@@ -54,16 +53,19 @@ export class TimesService {
       if (this.isEmptyPositionList(stanowisko_id)) {reject(); return;}
       this.actualPosition = stanowisko_id;
       let value: APIResponse | void | Array<any>;
-      if(this.allTimes.value !== null) {
+      if(this.allTimes.value) {
         value = this.allTimes.value.filter((el) => el.stanowisko_id === stanowisko_id);
       } else {
-        value = await this.http.getAllTimesForPosiotion(stanowisko_id).catch(err => {
+        const response = await this.http.getAllTimesForPosiotion(stanowisko_id).catch(err => {
           if(err.status === 400) {
             this.errorService.showError(err.status, this.translate.instant(err.error.body));
           } else {
             this.errorService.showError(err.status);
           }
         })
+        if (response && response.message === 'INFO: OK') {
+          value = response.body;
+        }
       }
       if(value !== undefined) {
         this.pushNewTimesForPosition(value as any);
@@ -99,6 +101,7 @@ export class TimesService {
   }
 
   public pushNewTimesForPosition(times: Array<any> | null) {
+    console.log(times)
     const sorted = times ? times.sort((a,b) => b.wynik_id - a.wynik_id) : times;
     this.timesForPosition.next(sorted);
   }

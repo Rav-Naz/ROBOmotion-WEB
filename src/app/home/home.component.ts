@@ -281,6 +281,10 @@ export class HomeComponent implements OnInit{
     return this.timeLeftSmashBots && Math.floor(this.timeLeftSmashBots/1000) < 604800;
   }
 
+  get isEnglish() {
+    return this.translate.currentLang
+  }
+
   timeout(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

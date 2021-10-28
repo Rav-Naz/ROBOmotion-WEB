@@ -34,7 +34,8 @@
             },
             "details": "Po krótkiej przerwie jedne z najlepszych zawodów w Polsce powracają do Rzeszowa z wielkim przytupem! Tym razem oprócz klasycznych konkurencji typu Sumo, czy LineFollower, jako pierwsi w Polsce przygotowaliśmy dla Was wyjątkową kategorię - Smash Bots by RoboLAB! Młodszym uczestnikom  z pewnością spodobają się konkurencje związane z LEGO, natomiast jeżeli ktoś ma chęć jedynie przyjść i pooglądać - na pewno nie będzie się nudzić.",
             "results": "Zobacz wyniki!",
-            "open": "Strefa zawodnika jest już otwarta!"
+            "open": "Rejestracja jest jeszcze otwarta!",
+            "important": "Ważne informacje dla konstruktorów robotów kategorii Line Follower, Drag Race, Micromouse oraz SmashBots by RoboLAB (28.10.2021)"
         },
         "event-program": {
             "eventsList": [
@@ -547,7 +548,7 @@
             }
         },
         "time": {
-            "name": "Czas przejazdu",
+            "name": "Wynik",
             "validators": {
                 "required": "To pole jest wymagane",
                 "maxlength": "Czas nie może być większy niż 999999ms"

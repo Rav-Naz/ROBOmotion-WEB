@@ -34,7 +34,9 @@
             },
             "details": "After a short break, one of the best competitions in Poland return to Rzeszów with a bang! This time, in addition to the classic Sumo or LineFollower competitions, we were the first in Poland who prepare a unique category for you - Smash Bots by RoboLAB! Younger participants will surely like the LEGO competitions, but if someone just wants to look and watch - they will definitely not be bored.",
             "results": "See the results!",
-            "open": "The competitor zone is now open!"
+            "open": "Registration is still open!",
+            "important": "Important informations for the constructors of robots in the categories Line Follower, Drag Race, Micromouse and SmashBots by RoboLAB (28.10.2021)"
+
         },
         "event-program": {
             "eventsList": [
@@ -545,7 +547,7 @@
             }
         },
         "time": {
-            "name": "Travel time",
+            "name": "Score",
             "validators": {
                 "required": "This field is required",
                 "maxlength": "The time cannot be greater than 999999ms"

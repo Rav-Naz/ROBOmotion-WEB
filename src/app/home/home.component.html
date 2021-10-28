@@ -86,7 +86,7 @@
                 </p>
             </div>
         </div>
-        <p [routerLink]="['/login']">{{'home.event-info.open' | translate}}</p>
+        <p *ngIf="!timeIsUp && timeLeft" [routerLink]="['/login']">{{'home.event-info.open' | translate}}</p>
         <ng-container *ngIf="switcher">
             <div class="event-info-counter-end" *ngIf="timeLeft && !timeIsUp2">
                 <p>{{'competitor-zone.bar.time-left' | translate}}</p>
@@ -149,6 +149,7 @@
                 {{'competitor-zone.bar.time-up-sb' | translate}}
             </p>
         </ng-container>
+        <a [href]="isEnglish === 'pl' ? 'https://rzit.smarthost.pl/robomotion/info-28-10-2021.pdf' : 'https://rzit.smarthost.pl/robomotion/info-28-10-2021-ang.pdf'" target="_blank">{{'home.event-info.important' | translate}}<i class="las la-external-link-alt"></i></a>
     </section>
     <section class="event-program" id="programme">
         <h3 style="visibility: collapse;">Po krótkiej przerwie jedne z najlepszych zawodów w Polsce powracają do Rzeszowa z wielkim przytupem! Tym razem oprócz klasycznych konkurencji typu Sumo, czy LineFollower, jako pierwsi w Polsce przygotowaliśmy dla Was wyjątkową kategorię - Smash

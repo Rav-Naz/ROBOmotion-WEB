@@ -2,8 +2,8 @@
     <ng-container *ngIf="!isLoading">
         <i class="las la-arrow-left back" (click)="previousPage()"></i>
         <div *ngIf="viewCounter === 0" class="view">
-            <h5>DODAWANIE NOWEGO <span>PRZEJAZDU</span></h5>
-            <span>Zanim przejdziesz do przejazdu, sprawdź konstruktora robota.</span>
+            <h5>DODAWANIE NOWEGO <span>{{getCategoryType !== 2? 'PRZEJAZDU' : 'WYNIKU'}}</span></h5>
+            <span>Zanim przejdziesz do {{getCategoryType !== 2? 'przejazdu' : 'dodawania wyniku'}}, sprawdź konstruktora robota.</span>
             <p>Wprowadź identyfikator przybyłego konstruktora</p>
             <app-input [group]="formUUID" controlName="constructor_uuid"></app-input>
             <button class="submit-button" (click)="getUserRobots()" [disabled]="!isFormUserUUIDValid">Dalej<i class="las la-forward"></i></button>
@@ -19,8 +19,8 @@
             </div>
         </div>
         <div *ngIf="viewCounter === 2" class="view">
-            <h5>DODAJ <span>WYNIK CZASOWY</span></h5>
-            <p>Wprowadź czas przejazdu w milisekundach (ms)</p>
+            <h5>DODAJ <span>{{getCategoryType !== 2? 'WYNIK CZASOWY' : 'WYNIK'}}</span></h5>
+            <p>{{getCategoryType !== 2? 'Wprowadź czas przejazdu w milisekundach (ms)' : 'Wprowadź punkty uzyskane w rozgrywce'}}</p>
             <app-input [group]="formTime" controlName="time"></app-input>
             <button class="submit-button" (click)="setTimeResult()" [disabled]="!isFromTimeValid">Dodaj i zakończ<i class="las la-plus-circle"></i></button>
         </div>

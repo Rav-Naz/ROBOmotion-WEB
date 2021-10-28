@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Directive } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CategoryMain } from 'src/app/models/category-main';
@@ -20,7 +20,6 @@ import { Position } from './../../models/position';
   styleUrls: ['./results.component.scss']
 })
 
-
 export class ResultsComponent implements OnInit, OnDestroy {
 
   public formOption: FormGroup;
@@ -37,7 +36,6 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   private loading: boolean = false;
   private subs: Subscription = new Subscription;
-  public selectedPosition: number | null = null;
   public selectedCategory: number | null = null;
   public selectedGroup: number | null = null;
   public isLoading: boolean = false;
@@ -54,11 +52,11 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.formFilter = this.formBuilder.group({
       filter_name: [this.filter]
     });
+
     positionsService.getAllPositions();
     timesService.getAllTimes();
     figthsService.getAllFights();
     const sub1 = combineLatest(this.categoriesService.categories$,this.positionsService.allPositions$, this.figthsService.allFights$,this.timesService.allTimes$).subscribe((val) => {
-      console.log(val);
       if (val[0] && val[1] && val[2] && val[3]) {
         this.categories = JSON.parse(JSON.stringify(val[0]));
         this.positions = JSON.parse(JSON.stringify(val[1]));
@@ -68,7 +66,22 @@ export class ResultsComponent implements OnInit, OnDestroy {
       }
     })
 
-    this.subs.add(sub1);
+    const sub2 = this.formOption.valueChanges.subscribe( async (data) => {
+      if(data !== null && data !== undefined) {
+        this.selectedFilter = Number(data.filter);
+        if(this.selectedFilter === 1) {
+          this.selectedCategory = null;
+          this.selectedGroup = null;
+        }
+      }
+    });
+    const sub3 = this.formFilter.valueChanges.subscribe( async (data) => {
+      if(data !== null && data !== undefined) {
+        this.filter = data.filter_name.toLowerCase();
+      }
+    });
+
+    this.subs.add(sub1).add(sub2).add(sub3);
   }
 
   ngOnInit(): void {
@@ -102,50 +115,45 @@ export class ResultsComponent implements OnInit, OnDestroy {
   }
 
   get categoriesInPosition() {
-    const categories = this.positions?.find(el => el.stanowisko_id === this.selectedPosition)?.kategorie;
-    if(categories) {
-      const a = [...[...categories.split(", ")].map((cat) => {
-        const obj = this.categories!.find(obj => obj.kategoria_id.toString() === cat);
-        return {kategoria_id: obj?.kategoria_id, nazwa: obj?.nazwa};
-      })];
-      return a;
-    } else {
-      return undefined;
+    const filter = Number(this.formOption.get('filter')?.value);
+    const filter_name = this.formFilter.get('filter_name')?.value;
+    if(filter && filter === 1 && filter_name !== '') {
+      const categories = this.positions?.find(el => Number(el.stanowisko_id) === Number(filter_name))?.kategorie;
+      if(categories) {
+        const a = [...[...categories.split(", ")].map((cat) => {
+          const obj = this.categories!.find(obj => obj.kategoria_id.toString() === cat);
+          return {kategoria_id: obj?.kategoria_id, nazwa: obj?.nazwa};
+        })];
+        return a;
+      } else {
+        return undefined;
+      }
+    } else if (this.categories) {
+      const categories = [...this.categories].map((cat) => {
+        return {kategoria_id: cat.kategoria_id, nazwa: cat.nazwa};
+      })
+      return categories
     }
+    return undefined;
   }
 
-  // get competitorsFiltered() {
-  //   let wyniki = this.all ? [...this.allCompetitors] : undefined;
-  //   if (this.filter !== '' && userzy) {
-  //     switch (this.selectedFilter) {
-  //       case 1:
-  //         userzy = userzy.filter(user => String(user.imie + ' ' + user.nazwisko).toLowerCase().includes(this.filter));
-  //         break;
-  //       case 2:
-  //         userzy = userzy.filter(user => String(user.uzytkownik_uuid).toLowerCase().includes(this.filter));
-  //           break;
-  //       case 3:
-  //         userzy = userzy.filter(user => String(user.stanowiska).toLowerCase().includes(this.filter));
-  //         break;
-  //       case 4:
-  //         userzy = userzy.filter(user => String(user.roboty_uuid).toLowerCase().includes(this.filter));
-  //         break;
-  //       case 5:
-  //         userzy = userzy.filter(user => String(user.numer_telefonu).toLowerCase().includes(this.filter));
-  //         break;
-  //       case 6:
-  //         userzy = userzy.filter(user => String(user.email).toLowerCase().includes(this.filter));
-  //         break;
-  //       case 7:
-  //         userzy = userzy.filter(user => String(user.kategorie).toLowerCase().includes(this.filter));
-  //         break;
-      
-  //       default:
-  //         break;
-  //     }
-  //   }
-  //   return userzy;
-  // }
+  get resultsFiltered() {
+    const rodzaj = this.categories?.find(el => el.kategoria_id === this.selectedCategory)?.rodzaj;
+    let wyniki = rodzaj === 1? (this.getGroupFigths ? [...this.getGroupFigths] : undefined) : (this.getCategoryTimesResult ? [...this.getCategoryTimesResult] : undefined) ;
+    if (this.filter !== '' && wyniki) {
+      switch (this.selectedFilter) {
+        case 2:
+          wyniki = wyniki.filter(wynik => rodzaj !== 1 ? String(wynik.robot_uuid).toLowerCase().includes(this.filter) : String(wynik.robot1_uuid).toLowerCase().includes(this.filter) || String(wynik.robot2_uuid).toLowerCase().includes(this.filter));
+          break;
+        case 3:
+          wyniki = wyniki.filter(wynik => rodzaj !== 1 ? String(wynik.nazwa_robota).toLowerCase().includes(this.filter) : String(wynik.robot1_nazwa).toLowerCase().includes(this.filter) || String(wynik.robot2_nazwa).toLowerCase().includes(this.filter));
+          break;
+        default:
+          break;
+      }
+    }
+    return wyniki;
+  }
 
   get getCategoryType() {
     return this.categories?.find(el => el.kategoria_id === this.selectedCategory)?.rodzaj

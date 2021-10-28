@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div [formGroup]="formMessage">
+            <div [formGroup]="formMessage" *ngIf="userSerceice.isAdmin">
                 <textarea formControlName="message" placeholder="Wiadomość do użytkownika"></textarea>
                 <button [disabled]="!isFormMessageValid" class="submit-button" (click)="sendMessage()">Wyślij wiadomość</button>
             </div>

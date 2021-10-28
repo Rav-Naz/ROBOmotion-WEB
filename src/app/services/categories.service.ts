@@ -68,7 +68,17 @@ export class CategoriesService {
     }); 
   }
 
+  getCategoryType(kategoria_id: number): null | number | void {
+    if(this.categories.value) {
+      return this.categories.value.find(el => el.kategoria_id === kategoria_id)?.rodzaj;
+    } else {
+      return null
+    }
+    
+  }
+
   get categories$() {
     return this.categories.asObservable();
   }
+  
 }
