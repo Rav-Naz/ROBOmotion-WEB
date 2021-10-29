@@ -3,11 +3,11 @@
         <section class="top top-grid">
             <div>
                 <a>{{'competitor-zone.settings.user'  | translate}}</a>
-                <label class="competitor-name">Imię i nazwisko: <span>{{user?.imie}} {{user?.nazwisko}}</span></label>
-                <p class="competitor-detail" *ngIf="user?.numer_telefonu">Numer telefonu: <span>{{user?.numer_telefonu}}</span></p>
-                <p class="competitor-detail" *ngIf="user?.email">Adres email: <span>{{user?.email}}</span></p>
-                <p class="competitor-detail" *ngIf="user?.stanowiska">Stanowiska: <span>{{user?.stanowiska}}</span></p>
-                <p class="competitor-detail" *ngIf="user?.kod_pocztowy">Kod pocztowy: <span>{{user?.kod_pocztowy}}</span></p>
+                <label class="competitor-name">{{'competitor-zone.competitor.name' | translate}}<span>{{user?.imie}} {{user?.nazwisko}}</span></label>
+                <p class="competitor-detail" *ngIf="user?.numer_telefonu">{{'competitor-zone.competitor.phone' | translate}}<span>{{user?.numer_telefonu}}</span></p>
+                <p class="competitor-detail" *ngIf="user?.email">{{'competitor-zone.competitor.email' | translate}}<span>{{user?.email}}</span></p>
+                <p class="competitor-detail" *ngIf="user?.stanowiska">{{'competitor-zone.competitor.positions' | translate}}<span>{{user?.stanowiska}}</span></p>
+                <p class="competitor-detail" *ngIf="user?.kod_pocztowy">{{'competitor-zone.competitor.postal' | translate}}<span>{{user?.kod_pocztowy}}</span></p>
                 <div *ngIf="userSerceice.isAdmin && user && !user.kod_pocztowy" class="postal">
                     <app-input [group]="formPostal" controlName="postal_code" [collapsed]="true"></app-input>
                     <button [disabled]="!isFormPostalCodeValid" class="submit-button" (click)="savePostalCode()"><i class="las la-save"></i></button>
@@ -22,7 +22,7 @@
             </div>
             <div [formGroup]="formMessage" *ngIf="userSerceice.isAdmin">
                 <textarea formControlName="message" placeholder="Wiadomość do użytkownika"></textarea>
-                <button [disabled]="!isFormMessageValid" class="submit-button" (click)="sendMessage()">Wyślij wiadomość</button>
+                <button [disabled]="!isFormMessageValid" class="submit-button" (click)="sendMessage()">{{'competitor-zone.competitor.send' | translate}}</button>
             </div>
         </section>
         <div class="grid">
@@ -40,7 +40,7 @@
 
 
             <div class="grid-constructors competitor-container">
-                <span>Roboty</span>
+                <span>{{'competitor-zone.competitor.robots' | translate}}</span>
                 <div class="grid-categories-old-parent">
                     <div *ngFor="let robot of userRobots" class="grid-categories-old grid-constructors-user-parent" [ngClass]="{'grid-constructors-user-parent-clickable': userSerceice.isReferee}">
                         <div (click)="openRobotDetails(robot)">

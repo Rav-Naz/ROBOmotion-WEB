@@ -252,7 +252,107 @@
                 "success-name": "Pomyślnie edytowano dane użytkownika",
                 "copied": "Skopiowano identyfikator do schowka"
             }
+        },
+        "add-fight-result": {
+            "title": {
+                "1": {
+                    "1": "DODAWANIE WYNIKU ",
+                    "2": "WALKI"
+                }
+            },
+            "1": {
+                "1": "Zanim przejdziesz do walki, sprawdź konstruktorów robota.",
+                "2": "Wprowadź identyfikator konstruktora robota",
+                "3": "Wezwij konstruktorów robota"
+            },
+            "next": "Dalej",
+            "2": {
+                "1": "Teraz możesz przejść do przeprowadzenia walki. Po jej zakończeniu wpisz wynik.",
+                "2": "Wprowadź ilość wygranych rund przez"
+            },
+            "add": "Dodaj i zakończ"
+
+        },
+        "add-time-result": {
+            "title": {
+                "1": {
+                    "1": "DODAWANIE NOWEGO ",
+                    "2": "PRZEJAZDU",
+                    "3": "WYNIKU"
+                },
+                "2": {
+                    "1": "WYBIERZ ",
+                    "2": "ROBOTA",
+                    "3": " ZAWODNIKA"
+                },
+                "3": {
+                    "1": "DODAJ ",
+                    "2": "WYNIK CZASOWY",
+                    "3": "WYNIK"
+                }
+            },
+            "1": {
+                "1": "Zanim przejdziesz do ",
+                "2": "przejazdu",
+                "3": "dodawania wyniku",
+                "4": ", sprawdź konstruktora robota.",
+                "5": "Wprowadź identyfikator przybyłego konstruktora"
+            },
+            "next": "Dalej",
+            "choose": "Wybierz",
+            "2": {
+                "1": "Wprowadź czas przejazdu w milisekundach (ms)",
+                "2": "Wprowadź punkty uzyskane w rozgrywce"
+            },
+            "add": "Dodaj i zakończ"
+        },
+        "competitor": {
+            "name": "Imię i nazwisko: ",
+            "phone": "Numer telefonu: ",
+            "email": "Adres email: ",
+            "positions": "Stanowiska: ",
+            "postal": "Kod pocztowy: ",
+            "send": "Wyślij wiadomość",
+            "robots": "Roboty"
+        },
+        "competitors": {
+            "title": "ZAWODNICY",
+            "on-list": "Na liście: ",
+            "categories": "Kategorie: ",
+            "more": "Więcej"
+        },
+        "referee-zone": {
+            "no-categories": "Brak kategorii",
+            "no-groups": "Brak grup",
+            "groups": "Grupy: ",
+            "no-positions": "Brak stanowisk",
+            "no-fights": "Brak walk",
+            "no-results": "Brak wyników",
+            "end-time": "Czas zakończenia: ",
+            "position-name": "Nazwa stanowiska: ",
+            "next-fight": "Następna walka ID: ",
+            "more": "Więcej",
+            "less": "Mniej",
+            "pts": "pkt",
+            "category-id": "Kategoria ID: ",
+            "robot-id": "Robot ID: ",
+            "result-id": "Wynik ID: ",
+            "add": "Dodaj wynik",
+            "added": "Ustalono wynik",
+            "add-time": "Dodaj przejazd",
+            "add-result": "Dodaj wynik"
+        },
+        "robots": {
+            "title": {
+                "1": "ROBOTY ",
+                "2": "ZAWODNIKÓW"
+            },
+            "confirm": "Potwierdź dotarcie robota"
+        },
+        "results": {
+            "title": "WYNIKI"
         }
+
     },
     "app-rules": {
         "spis": {

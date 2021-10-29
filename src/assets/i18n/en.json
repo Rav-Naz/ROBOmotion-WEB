@@ -249,6 +249,105 @@
                 "success-name": "User data was successfully edited",
                 "copied": "UUID copied to clipboard"
             }
+        },
+        "add-fight-result": {
+            "title": {
+                "1": {
+                    "1": "ADDING A RESULT",
+                    "2": "OF FIGHT"
+                }
+            },
+            "1": {
+                "1": "Before you go into combat, check out the robot constructors.",
+                "2": "Enter the robot constructor UUID",
+                "3": "Call the robot constructors"
+            },
+            "next": "Next",
+            "2": {
+                "1": "Now you can start the fight. When finished, enter the result.",
+                "2": "Enter the number of rounds won by"
+            },
+            "add": "Add and finish"
+
+        },
+        "add-time-result": {
+            "title": {
+                "1": {
+                    "1": "ADDING NEW ",
+                    "2": "TIME RESULT",
+                    "3": "RESULT"
+                },
+                "2": {
+                    "1": "CHOOSE ",
+                    "2": "ROBOT",
+                    "3": " OF USER"
+                },
+                "3": {
+                    "1": "ADD ",
+                    "2": "TIME RESULT",
+                    "3": "RESULT"
+                }
+            },
+            "1": {
+                "1": "Before you go to",
+                "2": "time result",
+                "3": "adding the result",
+                "4": ", check out the robot constructor.",
+                "5": "Enter the UUID of the arrived constructor"
+            },
+            "next": "Next",
+            "choose": "Choose",
+            "2": {
+                "1": "Enter the travel time in milliseconds (ms)",
+                "2": "Enter the points earned in the game"
+            },
+            "add": "Add and finish"
+        },
+        "competitor": {
+            "name": "First and last name:",
+            "phone": "Phone number: ",
+            "email": "Email: ",
+            "positions": "Positions: ",
+            "postal": "Postal code: ",
+            "send": "Send message",
+            "robots": "Robots"
+        },
+        "competitors": {
+            "title": "COMPETITORS",
+            "on-list": "On list: ",
+            "categories": "Categories: ",
+            "more": "More"
+        },
+        "referee-zone": {
+            "no-categories": "No categories",
+            "no-groups": "No gruops",
+            "groups": "Groups: ",
+            "no-positions": "No positions",
+            "no-fights": "No fights",
+            "no-results": "No results",
+            "end-time": "End time: ",
+            "position-name": "Position name: ",
+            "next-fight": "Next fight ID: ",
+            "more": "More",
+            "less": "Less",
+            "pts": "pts",
+            "category-id": "Category ID: ",
+            "robot-id": "Robot ID: ",
+            "result-id": "Result ID: ",
+            "add": "Add result",
+            "added": "Result added",
+            "add-time": "Add time result",
+            "add-result": "Add result"
+        },
+        "robots": {
+            "title": {
+                "1": "ROBOTS ",
+                "2": "OF COMPETITORS"
+            },
+            "confirm": "Confirm arrival of the robot"
+        },
+        "results": {
+            "title": "RESULTS"
         }
     },
     "app-rules": {

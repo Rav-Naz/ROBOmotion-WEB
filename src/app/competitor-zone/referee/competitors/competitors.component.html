@@ -1,8 +1,8 @@
 <div class="router-child">
     <div class="filter">
         <div>
-            <h5><span>ZAWODNICY</span></h5>
-            <label *ngIf="competitorsFiltered">Na liście: {{competitorsFiltered.length}}</label>
+            <h5><span>{{'competitor-zone.competitors.title' | translate}}</span></h5>
+            <label *ngIf="competitorsFiltered">{{'competitor-zone.competitors.on-list' | translate}}{{competitorsFiltered.length}}</label>
         </div>
         <app-select [group]="formOption" [collapsed]="true" controlName="filter" translatePrefix="controls" [options]="filterOptions"></app-select>
         <app-input [group]="formFilter" [collapsed]="true" controlName="filter_name"></app-input>
@@ -13,10 +13,10 @@
                 <p class="my-robots-element-uuid">{{user.uzytkownik_uuid}}</p>
                 <p class="my-robots-element-name">{{user.imie}} {{user.nazwisko}}</p>
             </div>
-            <details class="my-robots-element-categories" (click)="dummy($event)">Stanowiska: <b>{{user.stanowiska}}</b><br>Kategorie: <b>{{user.kategorie}}</b><br>
-                <ng-container *ngIf="user.numer_telefonu">Numer telefonu: <b>{{user.numer_telefonu}}</b></ng-container>
+            <details class="my-robots-element-categories" (click)="dummy($event)">{{'competitor-zone.competitor.positions' | translate}}<b>{{user.stanowiska}}</b><br>{{'competitor-zone.competitor.categories' | translate}}<b>{{user.kategorie}}</b><br>
+                <ng-container *ngIf="user.numer_telefonu">{{'competitor-zone.competitor.phone' | translate}}<b>{{user.numer_telefonu}}</b></ng-container>
             </details>
-            <span class="my-robots-element-edit">Więcej<i class="las la-angle-double-right"></i></span>
+            <span class="my-robots-element-edit">{{'competitor-zone.competitors.more' | translate}}<i class="las la-angle-double-right"></i></span>
         </div>
         <app-spinner *ngIf="!competitorsFiltered"></app-spinner>
     </div>
