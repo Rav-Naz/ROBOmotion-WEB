@@ -319,7 +319,16 @@
             "title": "ZAWODNICY",
             "on-list": "Na liście: ",
             "categories": "Kategorie: ",
-            "more": "Więcej"
+            "more": "Więcej",
+            "filters": {
+                "name": "Imię i nazwisko",
+                "user-uuid": "Użytkownik UUID",
+                "positions": "Stanowiska",
+                "robots-uuid": "Roboty UUID",
+                "phone": "Numer telefonu",
+                "email": "Email",
+                "categories": "Kategorie"
+            }
         },
         "referee-zone": {
             "no-categories": "Brak kategorii",
@@ -347,10 +356,21 @@
                 "1": "ROBOTY ",
                 "2": "ZAWODNIKÓW"
             },
-            "confirm": "Potwierdź dotarcie robota"
+            "confirm": "Potwierdź dotarcie robota",
+            "filters": {
+                "name": "Nazwa",
+                "uuid": "UUID",
+                "categories": "Kategorie",
+                "constructors": "Konstruktorzy"
+            }
         },
         "results": {
-            "title": "WYNIKI"
+            "title": "WYNIKI",
+            "filters": {
+                "position": "Stanowisko",
+                "uuid": "Robot UUID",
+                "name": "Robot nazwa"
+            }
         }
 
     },

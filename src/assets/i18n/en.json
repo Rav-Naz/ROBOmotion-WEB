@@ -316,7 +316,16 @@
             "title": "COMPETITORS",
             "on-list": "On list: ",
             "categories": "Categories: ",
-            "more": "More"
+            "more": "More",
+            "filters": {
+                "name": "First and last name",
+                "user-uuid": "User UUID",
+                "positions": "Positions",
+                "robots-uuid": "Robots UUID",
+                "phone": "Phone number",
+                "email": "Email",
+                "categories": "Categories"
+            }
         },
         "referee-zone": {
             "no-categories": "No categories",
@@ -344,10 +353,21 @@
                 "1": "ROBOTS ",
                 "2": "OF COMPETITORS"
             },
-            "confirm": "Confirm arrival of the robot"
+            "confirm": "Confirm arrival of the robot",
+            "filters": {
+                "name": "Name",
+                "uuid": "UUID",
+                "categories": "Categories",
+                "constructors": "Constructors"
+            }
         },
         "results": {
-            "title": "RESULTS"
+            "title": "RESULTS",
+            "filters": {
+                "position": "Position",
+                "uuid": "Robot UUID",
+                "name": "Robot name"
+            }
         }
     },
     "app-rules": {

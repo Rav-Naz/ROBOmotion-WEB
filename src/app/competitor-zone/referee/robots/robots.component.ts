@@ -22,10 +22,10 @@ export class RobotsComponent implements OnInit, OnDestroy {
   public categories: Array<CategoryMain> | null = null;
   private subs: Subscription = new Subscription;
   public filterOptions: string = JSON.stringify([
-    { value: "Nazwa", id: 1 },
-    { value: "UUID", id: 2 },
-    { value: "Kategorie", id: 3 },
-    { value: "Konstruktorzy", id: 4 }
+    { value: "competitor-zone.robots.filters.name", id: 1 },
+    { value: "competitor-zone.robots.filters.uuid", id: 2 },
+    { value: "competitor-zone.robots.filters.categories", id: 3 },
+    { value: "competitor-zone.robots.filters.constructors", id: 4 }
   ]);
   private selectedFilter: number | null = 1;
   private filter: string = '';

@@ -28,9 +28,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
   public allFights: Array<any> | null = null;
   public allTimes: Array<any> | null = null;
   public filterOptions: string = JSON.stringify([
-    { value: "Stanowisko", id: 1 },
-    { value: "Robot UUID", id: 2 },
-    { value: "Robot nazwa", id: 3 }
+    { value: "competitor-zone.results.filters.position", id: 1 },
+    { value: "competitor-zone.results.filters.uuid", id: 2 },
+    { value: "competitor-zone.results.filters.name", id: 3 }
   ]);
 
   private loading: boolean = false;

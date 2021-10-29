@@ -21,13 +21,13 @@ export class CompetitorsComponent implements OnInit {
   public categories: Array<CategoryMain> | null = null;
   private subs: Subscription = new Subscription;
   public filterOptions: string = JSON.stringify([
-    { value: "Imię i nazwisko", id: 1 },
-    { value: "UUID", id: 2 },
-    { value: "Stanowiska", id: 3 },
-    { value: "Roboty UUID", id: 4 },
-    { value: "Numer telefonu", id: 5 },
-    { value: "Email", id: 6 },
-    { value: "Kategorie", id: 7 }
+    { value: "competitor-zone.competitors.filters.name", id: 1 },
+    { value: "competitor-zone.competitors.filters.user-uuid", id: 2 },
+    { value: "competitor-zone.competitors.filters.positions", id: 3 },
+    { value: "competitor-zone.competitors.filters.robots-uuid", id: 4 },
+    { value: "competitor-zone.competitors.filters.phone", id: 5 },
+    { value: "competitor-zone.competitors.filters.email", id: 6 },
+    { value: "competitor-zone.competitors.filters.categories", id: 7 }
   ]);
   private selectedFilter: number | null = 1;
   private filter: string = '';
