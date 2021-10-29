@@ -82,15 +82,15 @@ export class HomeComponent implements OnInit{
 
 
 
-  constructor(private sanitizer: DomSanitizer, public translate: TranslateService, private httpService: HttpService, private authService: AuthService) {
+  constructor(public translate: TranslateService, private httpService: HttpService, private authService: AuthService) {
     setInterval(() => {
       this.switcher = !this.switcher;
     }, 5000)
-    const sub1 = this.httpService.getHomePageInfo.subscribe((data) => {
+    const sub1 = this.authService.info$.subscribe((data) => {
       if(data === undefined || data === null) return;
-      this.eventDate = new Date(data.body.eventDate);
-      if(data.body.streamLink) {
-        this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl(data.body.streamLink);
+      this.eventDate = new Date((data as any).eventDate);
+      if((data as any).streamLink) {
+        this.streamLink = (data as any).streamLink;
       }
     })
     this.windowSize = {height: window.innerHeight, width: window.innerWidth };

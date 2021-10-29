@@ -305,13 +305,15 @@
                     font-size: 4rem !important;
                     // transform: translateY(15%);
                     word-wrap: break-word;
+                    font-family: $title-font;
                 }
                 &-uuid {
-                    font-size: 1rem;
+                    font-size: 1.5rem !important;
                     color: $color-primary;
                     align-items: center;
                     justify-self: left;
                     min-width: max-content;
+                    font-family: $title-font;
                     // transform: translateY(-7%);
                 }
                 &-edit {

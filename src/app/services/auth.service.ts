@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { sha256 } from 'js-sha256'
 import { TranslateService } from '@ngx-translate/core';
 import jwt_decode from 'jwt-decode';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Injectable({
@@ -17,16 +18,29 @@ import jwt_decode from 'jwt-decode';
 export class AuthService {
 
   public JWT: string | null= null;
+  public eventDate: Date | null = null;
   public accessToModifyExpirationDate: Date | null = null;
   public accessToModifySmashBotsExpirationDate: Date | null = null;
+  public streamLink: SafeResourceUrl | undefined = undefined;
+  private info = new BehaviorSubject<object | null>(null);
 
   constructor(private http: HttpService, private router: Router, private errorService: ErrorsService, private ui: UiService,
-     private translate: TranslateService, private webSocket: WebsocketService, private userService: UserService) {
+     private translate: TranslateService, private webSocket: WebsocketService, private userService: UserService,private sanitizer: DomSanitizer) {
     const details = localStorage.getItem('details');
     this.http.getHomePageInfo.subscribe((data) => {
       if(data === undefined || data === null) return;
       this.accessToModifyExpirationDate = new Date(data.body.accessToModifyExpirationDate);
       this.accessToModifySmashBotsExpirationDate = new Date(data.body.accessToSmashRobots);
+      this.eventDate = new Date(data.body.eventDate);
+      if(data.body.streamLink) {
+        this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl(data.body.streamLink);
+      }
+      this.info.next({
+        eventDate: this.eventDate,
+        accessToModifyExpirationDate: this.accessToModifyExpirationDate,
+        accessToModifySmashBotsExpirationDate: this.accessToModifySmashBotsExpirationDate,
+        streamLink: this.streamLink
+      })
     })
     if (details) {
       this.SetDetails(details).then(() => {
@@ -184,6 +198,10 @@ export class AuthService {
 
   hashPassword(haslo: string): string {
     return sha256(haslo);
+  }
+
+  get info$() {
+    return this.info.asObservable();
   }
 
   get isLogged()

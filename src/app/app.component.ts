@@ -21,10 +21,11 @@ export class AppComponent implements OnInit {
   public isEnglish: boolean = true;
   public isCookies: boolean = false;
   private subs: Subscription = new Subscription;
+  public eventDate: Date = new Date(2021, 10, 28, 9, 0, 0);
 
   @ViewChild(ConfirmComponent) confirm: ConfirmComponent | null = null;
 
-  constructor(public translate: TranslateService, private injector: Injector, private ui: UiService) {
+  constructor(public translate: TranslateService, private injector: Injector, private ui: UiService, private authService: AuthService, public userService: UserService) {
     const cookies = localStorage.getItem('cookies');
     if(cookies) {
       this.isCookies = false;
@@ -43,6 +44,12 @@ export class AppComponent implements OnInit {
       translate.use(prefLanguage);
       translate.setDefaultLang(prefLanguage);
     }
+
+    const sub1 = this.authService.info$.subscribe((data) => {
+      if(data === undefined || data === null) return;
+      this.eventDate = new Date((data as any).eventDate);
+    })
+    this.subs?.add(sub1)
   }
 
   ngOnInit() {
@@ -121,6 +128,10 @@ export class AppComponent implements OnInit {
     localStorage.setItem('prefLang', this.isEnglish ? 'en' : 'pl');
     this.translate.use(this.isEnglish ? 'en' : 'pl');
 
+  }
+
+  get isEventNow() {
+    return new Date() > this.eventDate;
   }
 
   ngOnDestroy(): void {

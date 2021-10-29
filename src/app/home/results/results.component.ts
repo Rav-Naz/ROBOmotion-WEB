@@ -1,14 +1,13 @@
-import { Component, OnInit, OnDestroy, Directive } from '@angular/core';
+import { AuthService } from './../../services/auth.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { CategoryMain } from 'src/app/models/category-main';
 import { Subscription, combineLatest } from 'rxjs';
 import { PositionsService } from 'src/app/services/positions.service';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { TimesService } from 'src/app/services/times.service';
-import { UiService } from 'src/app/services/ui.service';
 import { FightsService } from 'src/app/services/fights.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { onlyUnique } from 'src/app/shared/utils/unique';
 import { Position } from './../../models/position';
@@ -44,7 +43,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   constructor(private positionsService: PositionsService, private formBuilder: FormBuilder,
      private categoriesService: CategoriesService, public translateService: TranslateService, private timesService: TimesService,
-      private ui: UiService, private figthsService: FightsService, private route: ActivatedRoute, private router: Router, public userService: UserService) {
+     private figthsService: FightsService, public userService: UserService, public authService: AuthService) {
 
     this.formOption = this.formBuilder.group({
       filter: [this.selectedFilter]

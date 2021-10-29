@@ -31,7 +31,7 @@ export class RegisterComponent{
   onSubmit() {
     if (this.isFormGroupValid) {
       this.loading = true;
-      this.authService.register(this.form.get('name')?.value ,this.form.get('surname')?.value,this.form.get('email')?.value,this.form.get('password')?.value)
+      this.authService.register(this.form.get('name')?.value ,this.form.get('surname')?.value,this.form.get('email')?.value,this.form.get('password')?.value).catch(err => console.log(err))
       .finally(() => {
         this.loading = false;
       })

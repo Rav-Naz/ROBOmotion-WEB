@@ -33,8 +33,8 @@
                                     <div class="referee-results-fights-element" (click)="variable.open = !variable.open">
                                         <span class="referee-results-fights-element-id">{{fight.walka_id}}</span>
                                         <div class="referee-results-fights-element-info referee-results-fights-element-info-1">
-                                            <p class="referee-results-fights-element-uuid">{{fight.robot1_uuid}}</p>
-                                            <p class="referee-results-fights-element-name">{{fight.robot1_nazwa}}</p>
+                                            <p class="referee-results-fights-element-uuid">{{fight?.robot1_uuid}}</p>
+                                            <p class="referee-results-fights-element-name">{{fight.robot1_nazwa ? fight.robot1_nazwa : 'TBA'}}</p>
                                         </div>
                                         <div class="referee-results-fights-element-vs">
                                             <span>vs</span>
@@ -45,8 +45,8 @@
                                             </div>
                                         </div>
                                         <div class="referee-results-fights-element-info referee-results-fights-element-info-2">
-                                            <p class="referee-results-fights-element-uuid">{{fight.robot2_uuid}}</p>
-                                            <p class="referee-results-fights-element-name">{{fight.robot2_nazwa}}</p>
+                                            <p class="referee-results-fights-element-uuid">{{fight?.robot2_uuid}}</p>
+                                            <p class="referee-results-fights-element-name">{{fight.robot2_nazwa ? fight.robot2_nazwa : 'TBA'}}</p>
                                         </div>
                                         <div class="referee-results-fights-element-details">
                                             <div class="referee-results-fights-element-details-flex" *ngIf="variable.open">
@@ -54,7 +54,7 @@
                                                     <label>Czas zakończenia:&nbsp;</label>
                                                     <label>{{fight.czas_zakonczenia | date: 'HH:mm:ss'}}</label>
                                                 </div>
-                                                <div class="referee-results-fights-element-details-flex-piece">
+                                                <div *ngIf="fight.nazwa_stanowiska" class="referee-results-fights-element-details-flex-piece">
                                                     <label>Nazwa stanowiska:&nbsp;</label>
                                                     <label>{{fight.nazwa_stanowiska}}</label>
                                                 </div>
@@ -116,7 +116,7 @@
                                                     <label>Czas zakończenia:&nbsp;</label>
                                                     <label>{{time.czas_zakonczenia | date: 'HH:mm:ss'}}</label>
                                                 </div>
-                                                <div class="referee-results-fights-element-details-flex-piece">
+                                                <div *ngIf="time.nazwa_stanowiska" class="referee-results-fights-element-details-flex-piece">
                                                     <label>Nazwa stanowiska:&nbsp;</label>
                                                     <label>{{time.nazwa_stanowiska}}</label>
                                                 </div>

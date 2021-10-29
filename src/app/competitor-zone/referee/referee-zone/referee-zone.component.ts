@@ -102,7 +102,7 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   }
 
   addFightResult(walka: any) {
-    if (!walka.wygrane_rundy_robot1 && !walka.wygrane_rundy_robot2 || this.userService.isAdmin) {
+    if (!walka.wygrane_rundy_robot1 && !walka.wygrane_rundy_robot2 && walka.robot1_id && walka.robot2_id || this.userService.isAdmin) {
       this.router.navigateByUrl(`/competitor-zone/(outlet:add-fight-result/${this.selectedPosition}/${this.selectedCategory}`, { state: {data: walka}});
     }
   }

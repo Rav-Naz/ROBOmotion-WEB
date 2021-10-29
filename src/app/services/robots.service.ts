@@ -31,6 +31,9 @@ export class RobotsService{
       socket?.on('robots/deleteRobot', (data) => {
         this.WS_deleteRobot(data);
       })
+      socket?.on('robots/newArrival', (data) => {
+        this.WS_confirmArrival(data);
+      })
     })
   }
 
@@ -127,11 +130,17 @@ export class RobotsService{
     });
   }
 
-  public confirmArrival(robot_uuid: string) {
-    const robotIndex = this.allRobots.value?.findIndex(robot => robot.robot_uuid === robot_uuid);
+  public WS_confirmArrival(data: any) {
+    const robotIndex = this.allRobots.value?.findIndex(robot => robot.robot_uuid === data.robot_uuid);
     if(robotIndex !== undefined && robotIndex !== null && robotIndex >= 0 && this.allRobots.value) {
       this.allRobots.value![robotIndex].czy_dotarl = 1;
       this.allRobots.next(this.allRobots.value)
+    }
+
+    const userRobotIndex = this.userRobots.value?.findIndex(robot => robot.robot_uuid === data.robot_uuid);
+    if(userRobotIndex !== undefined && userRobotIndex !== null && userRobotIndex >= 0 && this.userRobots.value) {
+      this.userRobots.value![userRobotIndex].czy_dotarl = 1;
+      this.userRobots.next(this.userRobots.value)
     }
   }
 

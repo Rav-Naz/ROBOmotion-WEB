@@ -22,7 +22,7 @@
         <a [routerLink]="['/']" fragment="competitions" (click)="switchMenu(false)">{{'menu.competitions' | translate}}</a>
         <a [routerLink]="['/']" fragment="location" (click)="switchMenu(false)">{{'menu.location' | translate}}</a>
         <a [routerLink]="['/']" fragment="patreons" (click)="switchMenu(false)">{{'menu.patreons' | translate}}</a>
-        <a [routerLink]="['/results']" (click)="switchMenu(false)">{{'menu.results' | translate}}</a>
+        <a *ngIf="isEventNow || userService.isReferee" [routerLink]="['/results']" (click)="switchMenu(false)"><b>{{'menu.results' | translate}}</b></a>
         <!-- <a [routerLink]="['/timetable']" (click)="switchMenu(false)">{{'menu.timetable' | translate}}</a> -->
         <!-- <a [routerLink]="['/building-plan']" (click)="switchMenu(false)">{{'menu.plan' | translate}}</a> -->
     </div>

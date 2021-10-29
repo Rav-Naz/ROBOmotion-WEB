@@ -29,6 +29,12 @@ export class TimesService {
         this.WS_setTimeResult(data);
       })
     })
+
+    this.websocket.getWebSocket$.subscribe((socket) => {
+      socket?.on('deleteTimeResult', (data) => {
+        this.WS_deleteTimeResult(data);
+      })
+    })
    }
 
   public getAllTimes() {
@@ -101,7 +107,6 @@ export class TimesService {
   }
 
   public pushNewTimesForPosition(times: Array<any> | null) {
-    console.log(times)
     const sorted = times ? times.sort((a,b) => b.wynik_id - a.wynik_id) : times;
     this.timesForPosition.next(sorted);
   }
@@ -112,6 +117,13 @@ export class TimesService {
       this.timesForPosition.value![timeIndex].czas_przejazdu = data?.czas_przejazdu;
       this.timesForPosition.next(this.timesForPosition.value)
     }
+    if (this.allTimes.value) {
+      const allTimeIndex = this.allTimes.value?.findIndex(time => time.wynik_id === data?.wynik_id)
+      if(allTimeIndex !== undefined && allTimeIndex !== null && allTimeIndex >= 0 && this.allTimes.value) {
+        this.allTimes.value![allTimeIndex].czas_przejazdu = data?.czas_przejazdu;
+        this.allTimes.next(this.allTimes.value)
+      }
+    }
   }
 
   WS_setTimeResult(data: any) {
@@ -121,6 +133,34 @@ export class TimesService {
       this.timesForPosition.value?.push(new_time);
       this.pushNewTimesForPosition(this.timesForPosition.value);
       this.ui.showFeedback("succes", `Pomyślnie dodano nowy czas przejazdu (${new_time.wynik_id}) dla robota ${new_time.nazwa_robota}`, 3);
+    }
+    if (this.allTimes.value) {
+      const new_time = data;
+      const timeIndex = this.allTimes.value?.findIndex(time => time.wynik_id === data?.wynik_id)
+      if(timeIndex && timeIndex >= 0) {
+        this.WS_updateTimeResult(data);
+      } else {
+        this.allTimes.value?.push(new_time);
+        this.allTimes.next(this.allTimes.value);
+      }
+    }
+  }
+
+  WS_deleteTimeResult(data: any) {
+    if (this.timesForPosition.value !== null && this.timesForPosition.value !== undefined) {
+      const timeIndex = this.timesForPosition.value.findIndex(f => f.wynik_id === data.wynik_id);
+      if (timeIndex >= 0) {
+        this.timesForPosition.value.splice(timeIndex, 1);
+        this.timesForPosition.next(this.timesForPosition.value)
+        this.ui.showFeedback('loading', `Usunięto wynik ${data.wynik_id}`,3)
+      }
+    }
+    if (this.allTimes.value) {
+      const timeIndex = this.allTimes.value.findIndex(f => f.wynik_id === data.wynik_id);
+      if (timeIndex >= 0) {
+        this.allTimes.value.splice(timeIndex, 1);
+        this.allTimes.next(this.allTimes.value)
+      }
     }
   }
 

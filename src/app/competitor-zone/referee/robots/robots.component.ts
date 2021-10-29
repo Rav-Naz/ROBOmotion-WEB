@@ -102,7 +102,7 @@ export class RobotsComponent implements OnInit, OnDestroy {
       });
       // console.log(response);
       if (response !== undefined && response !== null && response.message === "INFO: OK") {
-        this.robotsService.confirmArrival(robot.robot_uuid)
+        // this.robotsService.confirmArrival(robot.robot_uuid)
         this.ui.showFeedback("succes", `Pomyślnie potwierdzono dotarcie robota ${robot.nazwa_robota}`, 3);
 
       } else {
