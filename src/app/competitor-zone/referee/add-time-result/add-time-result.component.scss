@@ -14,9 +14,10 @@
     &>p {
         width: max-content;
         padding: 2rem;
-        color: $color-grey-0
+        color: $color-grey-0;
     }
     &>span {
+        text-align: center !important;
         padding: 1rem;
         margin: 2rem 0;
         font-size: 2rem;

@@ -192,6 +192,10 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
     return now.toISOString();
   }
 
+  dummy(event: Event) {
+    event.stopPropagation();
+  }
+
   ngOnDestroy(): void {
     this.subs.unsubscribe();
   }

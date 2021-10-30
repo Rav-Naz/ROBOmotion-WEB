@@ -96,7 +96,7 @@
                                                     <label>{{time.nazwa_stanowiska}}</label>
                                                 </div>
                                             </div>
-                                            <span class="referee-results-fights-element-edit">{{variable.open ? 'Mniej' : 'Więcej'}}<i class="las la-angle-double-down" *ngIf="!variable.open"></i><i class="las la-angle-double-up" *ngIf="variable.open"></i></span>
+                                            <span class="referee-results-fights-element-edit">{{(variable.open ? 'competitor-zone.referee-zone.less' : 'competitor-zone.referee-zone.more') | translate}}<i class="las la-angle-double-down" *ngIf="!variable.open"></i><i class="las la-angle-double-up" *ngIf="variable.open"></i></span>
                                         </div>
                                     </div>
                                 </ng-container>

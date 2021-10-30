@@ -11,7 +11,10 @@ import { CategoryMain } from 'src/app/models/category-main';
 @Component({
   selector: 'app-competitors',
   templateUrl: './competitors.component.html',
-  styleUrls: ['./competitors.component.scss']
+  styleUrls: ['./competitors.component.scss'],
+  host: {
+    'class': 'router-flex'
+  }
 })
 export class CompetitorsComponent implements OnInit {
 

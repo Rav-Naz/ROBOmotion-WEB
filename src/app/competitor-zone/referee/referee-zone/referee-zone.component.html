@@ -1,5 +1,6 @@
 <div class="router-child">
     <ng-container *ngIf="positions">
+        <!-- <div class="scroll"> -->
         <div class="referee-header">
             <app-select [group]="form" controlName="position" translatePrefix="controls" [options]="positionsOptions" [collapsed]="true"></app-select>
         </div>
@@ -56,7 +57,7 @@
                                                 <label>{{fight.nastepna_walka_id}}</label>
                                             </div>
                                         </div>
-                                        <span class="referee-results-fights-element-edit" (click)="variable.open = !variable.open">{{(variable.open ? 'competitor-zone.referee-zone.less' : 'competitor-zone.referee-zone.more') | translate}}<i class="las la-angle-double-down" *ngIf="!variable.open"></i><i class="las la-angle-double-up" *ngIf="variable.open"></i></span>
+                                        <span class="referee-results-fights-element-edit" (click)="dummy($event); variable.open = !variable.open">{{(variable.open ? 'competitor-zone.referee-zone.less' : 'competitor-zone.referee-zone.more') | translate}}<i class="las la-angle-double-down" *ngIf="!variable.open"></i><i class="las la-angle-double-up" *ngIf="variable.open"></i></span>
                                     </div>
                                 </div>
                             </ng-container>
@@ -104,7 +105,7 @@
                                                 <label>{{time.wynik_id}}</label>
                                             </div>
                                         </div>
-                                        <span (click)="variable.open = !variable.open" class="referee-results-fights-element-edit">{{(variable.open ? 'competitor-zone.referee-zone.less' : 'competitor-zone.referee-zone.more') | translate}}<i class="las la-angle-double-down" *ngIf="!variable.open"></i><i class="las la-angle-double-up" *ngIf="variable.open"></i></span>
+                                        <span (click)="dummy($event); variable.open = !variable.open" class="referee-results-fights-element-edit">{{(variable.open ? 'competitor-zone.referee-zone.less' : 'competitor-zone.referee-zone.more') | translate}}<i class="las la-angle-double-down" *ngIf="!variable.open"></i><i class="las la-angle-double-up" *ngIf="variable.open"></i></span>
                                     </div>
                                 </div>
                             </ng-container>
@@ -114,6 +115,7 @@
 
             </section>
         </div>
+        <!-- </div> -->
     </ng-container>
 
     <ng-container *ngIf="!positions">

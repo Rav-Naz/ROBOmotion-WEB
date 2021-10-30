@@ -7,6 +7,8 @@
     justify-content: flex-start;
     align-items: center;
     overflow-y: auto;
+    // height: max-content !important;
+    // max-height: max-content !important;
     &-header {
         display: grid;
         grid-template-rows: 1fr;
