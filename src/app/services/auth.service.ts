@@ -80,6 +80,12 @@ export class AuthService {
     });
   }
 
+  setUserPhoneLocaly(numer_telefonu: string | null) {
+    (this.userService.userDetails as any).numer_telefonu = numer_telefonu;
+    this.userService.user.next(this.userService.userDetails);
+    localStorage.setItem('details', JSON.stringify(this.userService.userDetails));
+  }
+
   async login(email: string, haslo: string)
   {
     return new Promise<string>(async (resolve) => {

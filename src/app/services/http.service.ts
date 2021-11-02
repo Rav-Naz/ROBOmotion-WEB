@@ -214,6 +214,17 @@ export class HttpService {
     })
   }
 
+  public addUserPhoneNumber(numer_telefonu: string) {
+    return new Promise<any>((resolve, rejects) => {
+      this.http.post<APIResponse>(`${this.url}user/addUserPhoneNumber`, {
+        numer_telefonu: numer_telefonu
+      }, {headers: this.headers}).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
 
 
   public getAllRobotsOfUser() {

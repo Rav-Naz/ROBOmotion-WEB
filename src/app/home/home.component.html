@@ -114,9 +114,17 @@
                     </label>
                 </div>
             </div>
-            <p *ngIf="timeIsUp">
-                {{'competitor-zone.bar.time-up' | translate}}
-            </p>
+            <div class="event-info-counter-end" *ngIf="timeIsUp">
+                <p>
+                    {{'competitor-zone.bar.time-up' | translate}}
+                </p>
+                <div>
+                    <label>
+                        &nbsp;
+                    </label>
+                </div>
+            </div>
+
         </ng-container>
         <ng-container *ngIf="!switcher">
             <div class="event-info-counter-end" *ngIf="timeLeftSmashBots && !timeIsUpSmashBots">
@@ -145,9 +153,16 @@
                     </label>
                 </div>
             </div>
-            <p *ngIf="timeIsUpSmashBots">
-                {{'competitor-zone.bar.time-up-sb' | translate}}
-            </p>
+            <div class="event-info-counter-end" *ngIf="timeIsUpSmashBots">
+                <p>
+                    {{'competitor-zone.bar.time-up-sb' | translate}}
+                </p>
+                <div>
+                    <label>
+                        &nbsp;
+                    </label>
+                </div>
+            </div>
         </ng-container>
         <a [href]="isEnglish === 'pl' ? 'https://rzit.smarthost.pl/robomotion/info-28-10-2021.pdf' : 'https://rzit.smarthost.pl/robomotion/info-28-10-2021-ang.pdf'" target="_blank">{{'home.event-info.important' | translate}}<i class="las la-external-link-alt"></i></a>
     </section>

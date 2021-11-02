@@ -87,7 +87,8 @@
                 { "id": 4, "patreonCategory": 0, "description": "Sędziszów Małopolski", "image": "../../assets/jpg/sedziszow.png", "linkToSite": "https://sedziszow-mlp.pl/" },
                 { "id": 5, "patreonCategory": 5, "description": "Kurier Rzeszowski", "image": "../../assets/jpg/kurier.jpg", "linkToSite": "https://kurierrzeszowski.pl/" },
                 { "id": 6, "patreonCategory": 5, "description": "Biznes i styl", "image": "../../assets/jpg/biznesistyl.jpg", "linkToSite": "https://www.biznesistyl.pl/" },
-                { "id": 7, "patreonCategory": 4, "description": "Politechnika Rzeszowska", "image": "../../assets/jpg/prz_pl.png", "linkToSite": "https://w.prz.edu.pl/" }
+                { "id": 7, "patreonCategory": 4, "description": "Politechnika Rzeszowska", "image": "../../assets/jpg/prz_pl.png", "linkToSite": "https://w.prz.edu.pl/" },
+                { "id": 8, "patreonCategory": 1, "description": "Europa Systems", "image": "../../assets/jpg/es.png", "linkToSite": "https://europasystems.pl/" }
             ],
             "tiers": [
                 "Main partner",
@@ -244,7 +245,10 @@
             "phone": "Contact details",
             "phone-info": "* Please provide correct data. On their basis, important messages will be sent.",
             "password": "Change Password",
+            "rest-countries": "Rest countries",
             "errors": {
+                "succesfuly-added-phone": "Phone number added successfully. Enter the code from the SMS sent to the given number",
+                "succesfuly-confirmed": "Phone number successfully confirmed",
                 "success": "Account password changed successfully",
                 "success-name": "User data was successfully edited",
                 "copied": "UUID copied to clipboard"
@@ -646,7 +650,8 @@
             "validators": {
                 "required": "This field is required",
                 "minlength": "Phone number must be longer than 7 characters",
-                "maxlength": "Phone number must be less than 15 characters"
+                "maxlength": "Phone number must be less than 15 characters",
+                "pattern": "Enter correct phone number (without country code)"
             }
         },
         "constructor_uuid": {
@@ -702,6 +707,14 @@
                 "required": "This field is required",
                 "maxlength": "The message must be longer than 2 characters",
                 "minlength": "The message must be less than 500 characters"
+            }
+        },
+        "code": {
+            "name": "Confirmation code",
+            "validators": {
+                "required": "This field is required",
+                "maxlength": "The code is 6 characters long",
+                "minlength": "The code is 6 characters long"
             }
         }
     },

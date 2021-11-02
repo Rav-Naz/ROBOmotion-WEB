@@ -58,6 +58,38 @@ export class UserService {
     });
   }
 
+  public  addUserPhoneNumber(numer_telefonu: string) {
+    return new Promise<any>(async (resolve) => {
+      const value = await this.http.addUserPhoneNumber(numer_telefonu).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      if (value) {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.settings.errors.succesfuly-added-phone'), 5)
+      }
+      resolve(value);
+    });
+  }
+
+  public confirmUserPhone(kod: string) {
+    return new Promise<any>(async (resolve) => {
+      const value = await this.http.confirmCode(this.userUUID,kod,'1').catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      if (value) {
+        this.ui.showFeedback("succes", this.translate.instant('competitor-zone.settings.errors.succesfuly-confirmed'), 3)
+      }
+      resolve(value);
+    });
+  }
+
   get getUser$() {
     return this.user.asObservable();
   }

@@ -1,9 +1,8 @@
 <div class="top" [formGroup]="group" [ngClass]="{'collapsed': collapsed}">
     <div>
-        <select class="form__select">
+        <select class="form__select" [id]="phoneCodeControlName" [formControlName]="phoneCodeControlName" [name]="phoneCodeControlName">
             <option data-countryCode="PL" value="48" selected>Polska (+48)</option>
-            <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
-            <optgroup [label]="'home.event-info.time.days' | translate">
+            <optgroup [label]="'competitor-zone.settings.rest-countries' | translate">
                 <option data-countryCode="DZ" value="213">Algeria (+213)</option>
                 <option data-countryCode="AD" value="376">Andorra (+376)</option>
                 <option data-countryCode="AO" value="244">Angola (+244)</option>
@@ -48,7 +47,6 @@
                 <option data-countryCode="CR" value="506">Costa Rica (+506)</option>
                 <option data-countryCode="HR" value="385">Croatia (+385)</option>
                 <option data-countryCode="CU" value="53">Cuba (+53)</option>
-                <!-- <option data-countryCode="CY" value="90392"> +357</option> -->
                 <option data-countryCode="CY" value="357">Republic of Cyprus (+357)</option>
                 <option data-countryCode="CZ" value="420">Czech Republic (+420)</option>
                 <option data-countryCode="DK" value="45">Denmark (+45)</option>
@@ -201,11 +199,9 @@
                 <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)</option>
                 <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
                 <option data-countryCode="UG" value="256">Uganda (+256)</option>
-                <!-- <option data-countryCode="GB" value="44">UK (+44)</option> -->
                 <option data-countryCode="UA" value="380">Ukraine (+380)</option>
                 <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option>
                 <option data-countryCode="UY" value="598">Uruguay (+598)</option>
-                <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
                 <option data-countryCode="UZ" value="7">Uzbekistan (+7)</option>
                 <option data-countryCode="VU" value="678">Vanuatu (+678)</option>
                 <option data-countryCode="VA" value="379">Vatican City (+379)</option>
@@ -214,12 +210,10 @@
                 <option data-countryCode="VG" value="84">Virgin Islands - British (+1284)</option>
                 <option data-countryCode="VI" value="84">Virgin Islands - US (+1340)</option>
                 <option data-countryCode="WF" value="681">Wallis &amp; Futuna (+681)</option>
-                <!-- <option data-countryCode="YE" value="969">Yemen (North)(+969)</option> -->
                 <option data-countryCode="YE" value="967">Yemen(+967)</option>
                 <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                 <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
-            </optgroup>
-            <!-- <option *ngFor="let option of getOptions" [value]="option.id" [selected]="option.id === 1">{{option.value | translate}}</option> -->
+        </optgroup>
         </select>
         <div class="form">
             <input type="text" [id]="controlName" class="form__input" [autocomplete]="controlName" placeholder=" " [ngClass]="{'form__input-invalid': isFormInvalid && !isDisabled, 'form__input-disabled': isDisabled}" [formControlName]="controlName" [type]="type ? type : isControlPassword ? 'password' : 'text'"
@@ -227,11 +221,6 @@
             <label [for]="controlName" class="form__label" [ngClass]="{'form__label-invalid': isFormInvalid && !isDisabled}">{{('controls.'+controlName+'.name') | translate}}</label>
         </div>
     </div>
-    <!-- <div class="form">
-    <input type="text" [id]="controlName" class="form__input" [autocomplete]="controlName" placeholder=" " [ngClass]="{'form__input-invalid': isFormInvalid && !isDisabled, 'form__input-disabled': isDisabled}" [formControlName]="controlName" [type]="type ? type : isControlPassword ? 'password' : 'text'"
-        [name]="controlName">
-    <label [for]="controlName" class="form__label" [ngClass]="{'form__label-invalid': isFormInvalid && !isDisabled}">{{('controls.'+controlName+'.name') | translate}}</label>
-</div> -->
     <div class="errors" *ngIf="isFormInvalid">
         <span *ngFor="let error of getErrors">{{('controls.'+controlName+'.validators.'+error) | translate}}</span>
     </div>

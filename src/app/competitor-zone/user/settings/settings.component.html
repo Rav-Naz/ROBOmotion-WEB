@@ -18,14 +18,22 @@
                 <label>{{'competitor-zone.settings.user-info'  | translate}}</label>
             </div>
         </section>
-        <!-- <section>
+        <section>
             <a>{{'competitor-zone.settings.phone'  | translate}}</a>
-            <div class="row">
-                <app-phone [group]="formPhone" controlName="phone"></app-phone>
-                <button class="submit-button" [disabled]="!isFormGroupPhoneValid"><i class="las la-save"></i></button>
-            </div>
-            <label>{{'competitor-zone.settings.phone-info'  | translate}}</label>
-        </section> -->
+            <ng-container *ngIf="!confirmingPhone">
+                <div class="row">
+                    <app-phone [group]="formPhone" controlName="phone" phoneCodeControlName="country_code"></app-phone>
+                    <button class="submit-button" [disabled]="!isFormGroupPhoneValid || !isPhoneChanged" (click)="onSubmitPhone()"><i class="las la-save"></i></button>
+                </div>
+                <label>{{'competitor-zone.settings.phone-info'  | translate}}</label>
+            </ng-container>
+            <ng-container *ngIf="confirmingPhone">
+                <div class="row">
+                    <app-input [group]="formCode" controlName="code"></app-input>
+                    <button class="submit-button" [disabled]="!isFormGroupCodeValid" (click)="onConfirmCode()"><i class="las la-save"></i></button>
+                </div>
+            </ng-container>
+        </section>
         <section>
             <a>{{'competitor-zone.settings.password'  | translate}}</a>
             <app-input [group]="formPassword" controlName="actualPassword"></app-input>

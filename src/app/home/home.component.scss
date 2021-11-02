@@ -1402,6 +1402,9 @@
                     max-width: 40rem;
                     max-height: 30rem;
                 }
+                p {
+                    font-size: 3rem;
+                }
             }
         }
         &-1 {
@@ -1410,10 +1413,15 @@
                 color: goldenrod;
             }
             .patreons-one {
-                max-width: 40rem;
+                max-width: max-content;
                 img {
+                    max-width: 50rem;
+                    min-height: 10rem;
+                    max-height: 15rem;
+                }
+                p {
                     max-width: 30rem;
-                    max-height: 30rem;
+                    font-size: 2.3rem;
                 }
             }
         }

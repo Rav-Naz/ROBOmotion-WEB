@@ -90,7 +90,9 @@
                 { "id": 4, "patreonCategory": 0, "description": "Sędziszów Małopolski", "image": "../../assets/jpg/sedziszow.png", "linkToSite": "https://sedziszow-mlp.pl/" },
                 { "id": 5, "patreonCategory": 5, "description": "Kurier Rzeszowski", "image": "../../assets/jpg/kurier.jpg", "linkToSite": "https://kurierrzeszowski.pl/" },
                 { "id": 6, "patreonCategory": 5, "description": "Biznes i styl", "image": "../../assets/jpg/biznesistyl.jpg", "linkToSite": "https://www.biznesistyl.pl/" },
-                { "id": 7, "patreonCategory": 4, "description": "Politechnika Rzeszowska", "image": "../../assets/jpg/prz_pl.png", "linkToSite": "https://w.prz.edu.pl/" }
+                { "id": 7, "patreonCategory": 4, "description": "Politechnika Rzeszowska", "image": "../../assets/jpg/prz_pl.png", "linkToSite": "https://w.prz.edu.pl/" },
+                { "id": 8, "patreonCategory": 1, "description": "Europa Systems", "image": "../../assets/jpg/es.png", "linkToSite": "https://europasystems.pl/" },
+                { "id": 89, "patreonCategory": 1, "description": "Stowarzyszenie Elektryków Polskich Oddział Rzeszowski", "image": "../../assets/jpg/sep.gif", "linkToSite": "http://www.seprzeszow.pl/" }
 
             ],
             "tiers": [
@@ -98,7 +100,7 @@
                 "Partner Złoty",
                 "Partner Srebrny",
                 "Partner Brązowy",
-                "partner strategiczny",
+                "Partner strategiczny",
                 "Patronat medialny"
             ]
         },
@@ -190,7 +192,7 @@
             "time-left": "Czas do końca edycji robotów",
             "time-left-sb": "Czas do końca dodawania robotów w kategorii Smash Bots",
             "time-up": "Czas na edycję robotów zakończył się!",
-            "time-up-sb": "Czas na dodawania robotów w kategorii Smash Bots zakończył się!"
+            "time-up-sb": "Czas na dodawanie robotów w kategorii Smash Bots zakończył się!"
         },
         "my-robots": {
             "title": "MOJE ROBOTY",
@@ -247,7 +249,10 @@
             "phone": "Dane kontaktowe",
             "phone-info": "* Prosimy o podanie prawidłowych danych. Na ich podstawie będą rozsyłane istotne komunikaty.",
             "password": "Zmień hasło",
+            "rest-countries": "Reszta państw",
             "errors": {
+                "succesfuly-added-phone": "Pomyślnie dodano numer telefonu. Wpisz kod z SMS wysłanego na podany numer",
+                "succesfuly-confirmed": "Pomyślnie potwierdzono numer telefonu",
                 "success": "Pomyślnie zmieniono hasło do konta",
                 "success-name": "Pomyślnie edytowano dane użytkownika",
                 "copied": "Skopiowano identyfikator do schowka"
@@ -649,7 +654,8 @@
             "validators": {
                 "required": "To pole jest wymagane",
                 "minlength": "Numer telefonu musi być dłuższy niż 7 znaki",
-                "maxlength": "Numer telefonu musi być krótszy niż 15 znaków"
+                "maxlength": "Numer telefonu musi być krótszy niż 15 znaków",
+                "pattern": "Wprowadź poprawny numer telefonu (bez numeru kierunkowego)"
             }
         },
         "constructor_uuid": {
@@ -704,6 +710,14 @@
                 "required": "To pole jest wymagane",
                 "maxlength": "Wiadomość powinna być dłuższa niż 2 znaki",
                 "minlength": "Wiadomość powinna być krótsza niż 500 znaków"
+            }
+        },
+        "code": {
+            "name": "Kod potwierdzający",
+            "validators": {
+                "required": "To pole jest wymagane",
+                "maxlength": "Kod ma długość 6 znaków",
+                "minlength": "Kod ma długość 6 znaków"
             }
         }
     },
