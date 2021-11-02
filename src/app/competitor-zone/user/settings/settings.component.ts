@@ -30,7 +30,7 @@ export class SettingsComponent {
       surname: [(userService.userDetails as any)?.nazwisko, [Validators.required, Validators.minLength(2), Validators.maxLength(40)]]
     });
     this.formPhone = this.formBuilder.group({
-      phone: [null, [Validators.required, Validators.minLength(7), Validators.maxLength(15)]],
+      phone: [null, [Validators.required, Validators.pattern('^[0-9]{3}[-\s\.]?[0-9]{4,6}$')]],
     });
     this.formPassword = this.formBuilder.group({
       actualPassword: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(64)]],

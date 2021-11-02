@@ -45,8 +45,12 @@ export class NewRobotComponent implements OnInit{
   onSubmit() {
     if (this.isFormGroupValid) {
       this.loading = true;
-      this.robotService.addRobot(this.form.get('robot_name')?.value, this.form.get('category')?.value).finally(() => {
-        this.location.back();
+      this.robotService.addRobot(this.form.get('robot_name')?.value, this.form.get('category')?.value).then(res => {
+        if(res !== null) {
+          this.location.back();
+        } else {
+          this.loading = true;
+        }
       })
     }
   }
@@ -65,7 +69,11 @@ export class NewRobotComponent implements OnInit{
 
 
   get categoriesOptions(): string | undefined {
-    return this.categories ? JSON.stringify(Object.assign(this.categories).map((category: CategoryMain) => {
+    let categories = this.categories ? Object.assign(this.categories): undefined;
+    if (categories && this.authService.accessToModifySmashBotsExpirationDate && this.authService.accessToModifySmashBotsExpirationDate < new Date) {
+      categories = categories.filter((element: any) => element.kategoria_id !== 1);
+    }
+    return categories ? JSON.stringify(categories.map((category: CategoryMain) => {
       return {value: category.nazwa, id: category.kategoria_id}
     })) : undefined;
   }

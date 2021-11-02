@@ -1,3 +1,4 @@
+import { PhoneComponent } from './shared/phone/phone.component';
 import { PositionsService } from './services/positions.service';
 import { RefereeZoneComponent } from './competitor-zone/referee/referee-zone/referee-zone.component';
 import { ConfirmComponent } from './shared/confirm/confirm.component';
@@ -65,6 +66,7 @@ import { CompetitorComponent } from './competitor-zone/referee/competitors/compe
     ConfirmCodeComponent,
     SpinnerComponent,
     InputComponent,
+    PhoneComponent,
     SelectComponent,
     LoginComponent,
     RegisterComponent,

@@ -760,7 +760,9 @@
             "too-many-constructors": "You cannot add more than 20 constructors!",
             "too-many-categories": "You cannot add more than 4 robot categories!",
             "too-many-lf-categories": "You cannot add more than 2 categories in the Line Follower competition!",
-            "too-many-sumo-categories": "You cannot add more than 2 categories in the Sumo competition!"
+            "too-many-sumo-categories": "You cannot add more than 2 categories in the Sumo competition!",
+            "time-to-modify-ended": "The time to add and modify robots is over",
+            "time-to-modify-ended-smash": "The time to add and modify robots in the SmashBots category is over"
         },
         "statusCodes": {
             "400": "Incorrectly specified data - user error",

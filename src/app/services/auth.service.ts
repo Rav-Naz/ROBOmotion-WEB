@@ -217,4 +217,9 @@ export class AuthService {
     return (this.accessToModifyExpirationDate !== null && this.accessToModifyExpirationDate > new Date()) || this.userService.isReferee;
   }
 
+  get canModifySmash() {
+    // return false
+    return (this.accessToModifySmashBotsExpirationDate !== null && this.accessToModifySmashBotsExpirationDate > new Date()) || this.userService.isReferee;
+  }
+
 }
