@@ -177,3 +177,20 @@ select:-webkit-autofill {
     transition: background-color 5000s ease-in-out 0s;
     transition: all 200ms ease-in;
 }
+
+@media only screen and (max-width: 1150px) {
+    .top {
+        &>div {
+            display: flex;
+            flex-direction: column;
+            // width: 100% !important;
+            // min-width: 100% !important;
+            // justify-content: center;
+            // align-items: center;
+            // height: min-content;
+        }
+    }
+    .form {
+        margin-top: 2rem;
+    }
+}
