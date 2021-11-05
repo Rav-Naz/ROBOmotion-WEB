@@ -206,6 +206,21 @@
     }
 }
 
+@keyframes pulse2 {
+    0% {
+        color: $color-white;
+        border-color: $color-white;
+    }
+    50% {
+        color: $color-invalid;
+        border-color: $color-invalid;
+    }
+    100% {
+        color: $color-white;
+        border-color: $color-white;
+    }
+}
+
 .event-info {
     background-color: $color-grey-3;
     // background: linear-gradient(180deg,rgba($color-grey-3, 1) 95%, rgba($color-grey-5, 0.88) 99%, rgba($color-grey-5, 1) 100%);
@@ -216,14 +231,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    &>a {
-        padding: 3rem 0;
+    &>a:last-child {
+        padding: 2rem 0;
         max-width: 90%;
         text-align: center;
         color: $color-primary;
         margin-top: 10rem;
         font-size: 3rem;
         cursor: pointer;
+    }
+    &-choose {
+        margin-top: 8rem;
+        padding: 3rem;
+        max-width: 90%;
+        text-align: center;
+        color: $color-white;
+        // margin-top: 10rem;
+        font-size: 5rem;
+        cursor: pointer;
+        border: 5px dashed $color-invalid;
+        border-radius: 1rem;
+        animation: pulse2 3s infinite;
     }
     &>p {
         max-width: 85%;

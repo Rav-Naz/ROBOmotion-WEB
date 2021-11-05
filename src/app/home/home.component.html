@@ -86,84 +86,88 @@
                 </p>
             </div>
         </div>
-        <p *ngIf="!timeIsUp && timeLeft" [routerLink]="['/login']">{{'home.event-info.open' | translate}}</p>
-        <ng-container *ngIf="switcher">
-            <div class="event-info-counter-end" *ngIf="timeLeft && !timeIsUp2">
-                <p>{{'competitor-zone.bar.time-left' | translate}}</p>
-                <div [ngClass]="{'event-info-counter-end-ending': isLessThanWeek}">
-                    <label>
-                        {{timeLeft | msTransform: 'd'}}<span> {{'home.event-info.time.days' | translate}}</span>
-                    </label>
-                    <span>
-                        :
-                    </span>
-                    <label>
-                        {{timeLeft | msTransform: 'h'}}<span> {{'home.event-info.time.hours' | translate}}</span>
-                    </label>
-                    <span>
-                        :
-                    </span>
-                    <label>
-                        {{timeLeft | msTransform: 'm'}}<span> {{'home.event-info.time.minutes' | translate}}</span>
-                    </label>
-                    <span>
-                        :
-                    </span>
-                    <label>
-                        {{timeLeft | msTransform: 's'}}<span> {{'home.event-info.time.seconds' | translate}}</span>
-                    </label>
+        <ng-container *ngIf="!timeIsUp">
+            <a class="event-info-choose" href="https://forms.office.com/r/6aN4DYgAZ4" target="_blank">{{'home.event-info.important-choose' | translate}}<i class="las la-external-link-alt"></i></a>
+            <p *ngIf="!timeIsUp2 && timeLeft" [routerLink]="['/login']">{{'home.event-info.open' | translate}}</p>
+            <ng-container *ngIf="switcher">
+                <div class="event-info-counter-end" *ngIf="timeLeft && !timeIsUp2">
+                    <p>{{'competitor-zone.bar.time-left' | translate}}</p>
+                    <div [ngClass]="{'event-info-counter-end-ending': isLessThanWeek}">
+                        <label>
+                            {{timeLeft | msTransform: 'd'}}<span> {{'home.event-info.time.days' | translate}}</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeft | msTransform: 'h'}}<span> {{'home.event-info.time.hours' | translate}}</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeft | msTransform: 'm'}}<span> {{'home.event-info.time.minutes' | translate}}</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeft | msTransform: 's'}}<span> {{'home.event-info.time.seconds' | translate}}</span>
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="event-info-counter-end" *ngIf="timeIsUp">
-                <p>
-                    {{'competitor-zone.bar.time-up' | translate}}
-                </p>
-                <div>
-                    <label>
-                        &nbsp;
-                    </label>
+                <div class="event-info-counter-end" *ngIf="timeIsUp2">
+                    <p>
+                        {{'competitor-zone.bar.time-up' | translate}}
+                    </p>
+                    <div>
+                        <label>
+                            &nbsp;
+                        </label>
+                    </div>
                 </div>
-            </div>
 
-        </ng-container>
-        <ng-container *ngIf="!switcher">
-            <div class="event-info-counter-end" *ngIf="timeLeftSmashBots && !timeIsUpSmashBots">
-                <p>{{'competitor-zone.bar.time-left-sb' | translate}}</p>
-                <div [ngClass]="{'event-info-counter-end-ending': isLessThanWeekSmashBots}">
-                    <label>
-                        {{timeLeftSmashBots | msTransform: 'd'}} <span>{{'home.event-info.time.days' | translate}}</span>
-                    </label>
-                    <span>
-                        :
-                    </span>
-                    <label>
-                        {{timeLeftSmashBots | msTransform: 'h'}} <span>{{'home.event-info.time.hours' | translate}}</span>
-                    </label>
-                    <span>
-                        :
-                    </span>
-                    <label>
-                        {{timeLeftSmashBots | msTransform: 'm'}} <span>{{'home.event-info.time.minutes' | translate}}</span>
-                    </label>
-                    <span>
-                        :
-                    </span>
-                    <label>
-                        {{timeLeftSmashBots | msTransform: 's'}} <span>{{'home.event-info.time.seconds' | translate}}</span>
-                    </label>
+            </ng-container>
+            <ng-container *ngIf="!switcher">
+                <div class="event-info-counter-end" *ngIf="timeLeftSmashBots && !timeIsUpSmashBots">
+                    <p>{{'competitor-zone.bar.time-left-sb' | translate}}</p>
+                    <div [ngClass]="{'event-info-counter-end-ending': isLessThanWeekSmashBots}">
+                        <label>
+                            {{timeLeftSmashBots | msTransform: 'd'}} <span>{{'home.event-info.time.days' | translate}}</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeftSmashBots | msTransform: 'h'}} <span>{{'home.event-info.time.hours' | translate}}</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeftSmashBots | msTransform: 'm'}} <span>{{'home.event-info.time.minutes' | translate}}</span>
+                        </label>
+                        <span>
+                            :
+                        </span>
+                        <label>
+                            {{timeLeftSmashBots | msTransform: 's'}} <span>{{'home.event-info.time.seconds' | translate}}</span>
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="event-info-counter-end" *ngIf="timeIsUpSmashBots">
-                <p>
-                    {{'competitor-zone.bar.time-up-sb' | translate}}
-                </p>
-                <div>
-                    <label>
-                        &nbsp;
-                    </label>
+                <div class="event-info-counter-end" *ngIf="timeIsUpSmashBots">
+                    <p>
+                        {{'competitor-zone.bar.time-up-sb' | translate}}
+                    </p>
+                    <div>
+                        <label>
+                            &nbsp;
+                        </label>
+                    </div>
                 </div>
-            </div>
+            </ng-container>
         </ng-container>
+
         <a [href]="isEnglish === 'pl' ? 'https://rzit.smarthost.pl/robomotion/info-28-10-2021.pdf' : 'https://rzit.smarthost.pl/robomotion/info-28-10-2021-ang.pdf'" target="_blank">{{'home.event-info.important' | translate}}<i class="las la-external-link-alt"></i></a>
     </section>
     <section class="event-program" id="programme">

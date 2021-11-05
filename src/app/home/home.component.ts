@@ -226,7 +226,7 @@ export class HomeComponent implements OnInit{
     this.timeLeft = this.authService.accessToModifyExpirationDate.getTime() - new Date().getTime();
     this.timeLeftSmashBots = this.authService.accessToModifySmashBotsExpirationDate.getTime() - new Date().getTime();
     if(Math.floor(this.timeLeft/1000) < 0) {
-      this.timeIsUp = true;
+      this.timeIsUp2 = true;
     }
     if(Math.floor(this.timeLeftSmashBots/1000) < 0) {
       this.timeIsUpSmashBots = true;
