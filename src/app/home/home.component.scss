@@ -1407,6 +1407,7 @@
     align-items: center;
     width: 100%;
     padding: 5rem;
+    max-width: 100%;
     background-color: $color-grey-2;
     p {
         font-size: 2rem;
@@ -1419,16 +1420,20 @@
         letter-spacing: .3rem;
     }
     &-class {
+        max-width: 100%;
         &-0 {
             &>p {
                 font-size: 5rem !important;
                 color: #b9f2ff;
             }
             .patreons-one {
-                max-width: 50rem;
+                max-width: 100%;
                 img {
-                    max-width: 40rem;
-                    max-height: 30rem;
+                    // max-width: ;
+                    max-width: 70rem;
+                    // height: 100%;
+                    min-height: 10rem;
+                    max-height: 35rem;
                 }
                 p {
                     font-size: 3rem;
@@ -1441,7 +1446,7 @@
                 color: goldenrod;
             }
             .patreons-one {
-                max-width: max-content;
+                max-width: 100%;
                 img {
                     max-width: 50rem;
                     min-height: 10rem;

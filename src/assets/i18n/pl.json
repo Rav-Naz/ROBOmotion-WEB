@@ -29,8 +29,8 @@
                 "seconds": "Sekund"
             },
             "university": {
-                "hall": "Hala sportowa",
-                "name": "Politechniki Rzeszowskiej"
+                "hall": "Regionalne Centrum Sportowo-Widowiskowe",
+                "name": "\"Podpromie\""
             },
             "details": "Po krótkiej przerwie jedne z najlepszych zawodów w Polsce powracają do Rzeszowa z wielkim przytupem! Tym razem oprócz klasycznych konkurencji typu Sumo, czy LineFollower, jako pierwsi w Polsce przygotowaliśmy dla Was wyjątkową kategorię - Smash Bots by RoboLAB! Młodszym uczestnikom  z pewnością spodobają się konkurencje związane z LEGO, natomiast jeżeli ktoś ma chęć jedynie przyjść i pooglądać - na pewno nie będzie się nudzić.",
             "results": "Zobacz wyniki!",
@@ -82,6 +82,14 @@
                 "title": "ORGANIZER",
                 "name": "PTI - Polskie Towarzystwo Informatyczne"
             },
+            "organizer5": {
+                "title": "ORGANIZER",
+                "name": "Rzeszowska Grupa IT"
+            },
+            "organizer6": {
+                "title": "ORGANIZER",
+                "name": "Koło Naukowe Elektroniki i Technologii Informacyjnych"
+            },
             "title": "Partnerzy",
             "question": "Chcesz zostać patronem? Skontaktuj się z nami pod adresem kontakt@kneiti.prz.edu.pl",
             "patreonList": [
@@ -94,7 +102,11 @@
                 { "id": 7, "patreonCategory": 4, "description": "Politechnika Rzeszowska", "image": "../../assets/jpg/prz_pl.png", "linkToSite": "https://w.prz.edu.pl/" },
                 { "id": 8, "patreonCategory": 1, "description": "Europa Systems", "image": "../../assets/jpg/es.png", "linkToSite": "https://europasystems.pl/" },
                 { "id": 9, "patreonCategory": 1, "description": "Stowarzyszenie Elektryków Polskich Oddział Rzeszowski", "image": "../../assets/jpg/sep.gif", "linkToSite": "http://www.seprzeszow.pl/" },
-                { "id": 10, "patreonCategory": 1, "description": "EDOCS", "image": "../../assets/jpg/edocs.png", "linkToSite": "https://edocssystems.com/" }
+                { "id": 10, "patreonCategory": 1, "description": "EDOCS", "image": "../../assets/jpg/edocs.png", "linkToSite": "https://edocssystems.com/" },
+                { "id": 11, "patreonCategory": 0, "description": "Deloitte", "image": "../../assets/svg/deloitte.svg", "linkToSite": "https://www2.deloitte.com/pl/pl.html" },
+                { "id": 12, "patreonCategory": 0, "description": "BorgWarner", "image": "../../assets/jpg/borg.jpg", "linkToSite": "https://www.borgwarner.com/home" },
+                { "id": 12, "patreonCategory": 4, "description": "Studenckie Koło Naukowe Informatyków KOD", "image": "../../assets/jpg/skni.png", "linkToSite": "https://kod.prz.edu.pl/" },
+                { "id": 12, "patreonCategory": 4, "description": "Koło fotograficzne Uniwersytetu Rzeszowskiego", "image": "../../assets/jpg/lens.png", "linkToSite": "https://www.facebook.com/Lens.Uniwersytet.Rzeszowski/" }
 
             ],
             "tiers": [
