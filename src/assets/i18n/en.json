@@ -85,7 +85,6 @@
                 { "id": 1, "patreonCategory": 1, "description": "WAGO", "image": "../../assets/svg/wago.png", "linkToSite": "https://www.wago.com/" },
                 { "id": 2, "patreonCategory": 5, "description": "Forbot", "image": "../../assets/svg/forbot.svg", "linkToSite": "https://forbot.pl/" },
                 { "id": 3, "patreonCategory": 5, "description": "Botland", "image": "../../assets/jpg/botland.webp", "linkToSite": "https://botland.com.pl/" },
-                { "id": 4, "patreonCategory": 0, "description": "Sędziszów Małopolski", "image": "../../assets/jpg/sedziszow.png", "linkToSite": "https://sedziszow-mlp.pl/" },
                 { "id": 5, "patreonCategory": 5, "description": "Kurier Rzeszowski", "image": "../../assets/jpg/kurier.jpg", "linkToSite": "https://kurierrzeszowski.pl/" },
                 { "id": 6, "patreonCategory": 5, "description": "Biznes i styl", "image": "../../assets/jpg/biznesistyl.jpg", "linkToSite": "https://www.biznesistyl.pl/" },
                 { "id": 7, "patreonCategory": 4, "description": "Politechnika Rzeszowska", "image": "../../assets/jpg/prz_pl.png", "linkToSite": "https://w.prz.edu.pl/" },
@@ -93,9 +92,16 @@
                 { "id": 9, "patreonCategory": 1, "description": "Stowarzyszenie Elektryków Polskich Oddział Rzeszowski", "image": "../../assets/jpg/sep.gif", "linkToSite": "http://www.seprzeszow.pl/" },
                 { "id": 10, "patreonCategory": 1, "description": "EDOCS", "image": "../../assets/jpg/edocs.png", "linkToSite": "https://edocssystems.com/" },
                 { "id": 11, "patreonCategory": 0, "description": "Deloitte", "image": "../../assets/svg/deloitte.svg", "linkToSite": "https://www2.deloitte.com/pl/pl.html" },
-                { "id": 12, "patreonCategory": 0, "description": "BorgWarner", "image": "../../assets/jpg/borg.jpg", "linkToSite": "https://www.borgwarner.com/home" },
-                { "id": 12, "patreonCategory": 4, "description": "Students Scientific Club of Computer Science KOD", "image": "../../assets/jpg/skni.png", "linkToSite": "https://kod.prz.edu.pl/" },
-                { "id": 12, "patreonCategory": 4, "description": "Koło fotograficzne Uniwersytetu Rzeszowskiego", "image": "../../assets/jpg/lens.png", "linkToSite": "https://www.facebook.com/Lens.Uniwersytet.Rzeszowski/" }
+                { "id": 12, "patreonCategory": 0, "description": "BorgWarner", "image": "../../assets/jpg/borg.png", "linkToSite": "https://www.borgwarner.com/home" },
+                { "id": 13, "patreonCategory": 4, "description": "Students Scientific Club of Computer Science KOD", "image": "../../assets/jpg/skni.png", "linkToSite": "https://kod.prz.edu.pl/" },
+                { "id": 14, "patreonCategory": 4, "description": "Koło fotograficzne Uniwersytetu Rzeszowskiego LENS", "image": "../../assets/jpg/lens.png", "linkToSite": "https://www.facebook.com/Lens.Uniwersytet.Rzeszowski/" },
+                { "id": 15, "patreonCategory": 0, "description": "MTU Aero Engines Polska", "image": "../../assets/jpg/mtu.png", "linkToSite": "https://www.mtu.de/company/mtu-worldwide/mtu-aero-engines-polska/website-polska/" },
+                { "id": 4, "patreonCategory": 0, "description": "Sędziszów Małopolski", "image": "../../assets/jpg/sedziszow.png", "linkToSite": "https://sedziszow-mlp.pl/" },
+                { "id": 16, "patreonCategory": 2, "description": "Toltech", "image": "../../assets/jpg/toltech.png", "linkToSite": "http://www.toltech.pl/" },
+                { "id": 17, "patreonCategory": 0, "description": "Patronat Prezydenta Miasta Rzeszowa", "image": "../../assets/jpg/rzeszow.png", "linkToSite": "https://bip.erzeszow.pl/" },
+                { "id": 18, "patreonCategory": 4, "description": "Podkarpackie Centrum Ratownictwa Medycznego", "image": "../../assets/jpg/pcmr.png", "linkToSite": "https://pcrm.com.pl/" },
+                { "id": 19, "patreonCategory": 4, "description": "OSP Sietesz", "image": "../../assets/jpg/osp.png", "linkToSite": "https://www.facebook.com/Ochotnicza-Stra%C5%BC-Po%C5%BCarna-w-Sieteszy-159280490780836/" },
+                { "id": 20, "patreonCategory": 4, "description": "OSP Łopuszka Mała", "image": "../../assets/jpg/osp2.png", "linkToSite": "https://www.facebook.com/OSP-%C5%81opuszka-Ma%C5%82a-105292021378333/" }
             ],
             "tiers": [
                 "Main partner",
