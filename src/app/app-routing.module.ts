@@ -1,3 +1,4 @@
+import { ThanksComponent } from './home/thanks/thanks.component';
 import { CompetitorComponent } from './competitor-zone/referee/competitors/competitor/competitor.component';
 import { RobotsComponent } from './competitor-zone/referee/robots/robots.component';
 import { CompetitorsComponent } from './competitor-zone/referee/competitors/competitors.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'app-rules', component: AppRulesComponent},
+  {path: 'thank-you', component: ThanksComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'reset-password/:uzytkownik_uuid/:kod', component: ResetPasswordComponent},
   {path: 'competitor-zone', canActivate: [AuthGuard], component: CompetitorZoneComponent, children: [

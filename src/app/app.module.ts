@@ -50,6 +50,7 @@ import { AddFightResultComponent } from './competitor-zone/referee/add-fight-res
 import { RobotsComponent } from './competitor-zone/referee/robots/robots.component';
 import { CompetitorsComponent } from './competitor-zone/referee/competitors/competitors.component';
 import { CompetitorComponent } from './competitor-zone/referee/competitors/competitor/competitor.component';
+import { ThanksComponent } from './home/thanks/thanks.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { CompetitorComponent } from './competitor-zone/referee/competitors/compe
     AddFightResultComponent,
     RobotsComponent,
     CompetitorsComponent,
-    CompetitorComponent
+    CompetitorComponent,
+    ThanksComponent
   ],
   imports: [
     BrowserModule,
