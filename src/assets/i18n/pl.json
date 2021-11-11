@@ -103,7 +103,7 @@
                 { "id": 9, "patreonCategory": 1, "description": "Stowarzyszenie Elektryków Polskich Oddział Rzeszowski", "image": "../../assets/jpg/sep.gif", "linkToSite": "http://www.seprzeszow.pl/" },
                 { "id": 10, "patreonCategory": 1, "description": "EDOCS", "image": "../../assets/jpg/edocs.png", "linkToSite": "https://edocssystems.com/" },
                 { "id": 11, "patreonCategory": 0, "description": "Deloitte", "image": "../../assets/svg/deloitte.svg", "linkToSite": "https://www2.deloitte.com/pl/pl.html" },
-                { "id": 12, "patreonCategory": 0, "description": "BorgWarner", "image": "../../assets/jpg/borg.jpg", "linkToSite": "https://www.borgwarner.com/home" },
+                { "id": 12, "patreonCategory": 0, "description": "BorgWarner", "image": "../../assets/jpg/borg.png", "linkToSite": "https://www.borgwarner.com/home" },
                 { "id": 13, "patreonCategory": 4, "description": "Studenckie Koło Naukowe Informatyków KOD", "image": "../../assets/jpg/skni.png", "linkToSite": "https://kod.prz.edu.pl/" },
                 { "id": 14, "patreonCategory": 4, "description": "Koło fotograficzne Uniwersytetu Rzeszowskiego LENS", "image": "../../assets/jpg/lens.png", "linkToSite": "https://www.facebook.com/Lens.Uniwersytet.Rzeszowski/" },
                 { "id": 15, "patreonCategory": 0, "description": "MTU Aero Engines Polska", "image": "../../assets/jpg/mtu.png", "linkToSite": "https://www.mtu.de/company/mtu-worldwide/mtu-aero-engines-polska/website-polska/" },
@@ -111,12 +111,14 @@
                 { "id": 16, "patreonCategory": 2, "description": "Toltech", "image": "../../assets/jpg/toltech.png", "linkToSite": "http://www.toltech.pl/" },
                 { "id": 18, "patreonCategory": 4, "description": "Podkarpackie Centrum Ratownictwa Medycznego", "image": "../../assets/jpg/pcmr.png", "linkToSite": "https://pcrm.com.pl/" },
                 { "id": 19, "patreonCategory": 4, "description": "OSP Sietesz", "image": "../../assets/jpg/osp.png", "linkToSite": "https://www.facebook.com/Ochotnicza-Stra%C5%BC-Po%C5%BCarna-w-Sieteszy-159280490780836/" },
-                { "id": 21, "patreonCategory": 0, "description": "Rzeszów stolica innowacji", "image": "../../assets/jpg/rzeszow_stolica.png", "linkToSite": "https://www.erzeszow.pl/" },
+                { "id": 21, "patreonCategory": 5, "description": "Rzeszów stolica innowacji", "image": "../../assets/jpg/rzeszow_stolica.png", "linkToSite": "https://www.erzeszow.pl/" },
                 { "id": 20, "patreonCategory": 4, "description": "OSP Łopuszka Mała", "image": "../../assets/jpg/osp2.png", "linkToSite": "https://www.facebook.com/OSP-%C5%81opuszka-Ma%C5%82a-105292021378333/" },
-                { "id": 17, "patreonCategory": 5, "description": "Prezydenta Miasta Rzeszowa", "image": "../../assets/jpg/rzeszow.png", "linkToSite": "https://bip.erzeszow.pl/" },
+                { "id": 17, "patreonCategory": 0, "description": "Prezydent Miasta Rzeszowa", "image": "../../assets/jpg/rzeszow.png", "linkToSite": "https://bip.erzeszow.pl/" },
                 { "id": 17, "patreonCategory": 5, "description": "Marszałek Województwa Podkarpackiego", "image": "../../assets/jpg/marszalek.png", "linkToSite": "https://www.podkarpackie.pl/index.php/zarzad-wojewodztwa/" },
                 { "id": 17, "patreonCategory": 5, "description": "Podkarpacki Kurator Oświaty", "image": "../../assets/jpg/kuratorium.png", "linkToSite": "https://www.ko.rzeszow.pl/" },
                 { "id": 17, "patreonCategory": 6, "description": "msalamon.pl", "image": "../../assets/jpg/salamon.png", "linkToSite": "https://msalamon.pl/" },
+                { "id": 17, "patreonCategory": 1, "description": "InfoSoftware", "image": "../../assets/jpg/infosoft.png", "linkToSite": "https://infosoftware.pl/" },
+                { "id": 17, "patreonCategory": 1, "description": "Astor", "image": "../../assets/jpg/astor.png", "linkToSite": "https://www.astor.com.pl/" },
                 { "id": 17, "patreonCategory": 1, "description": "Solvera", "image": "../../assets/jpg/solvera.png", "linkToSite": "http://solvera.pl/" }
 
 
