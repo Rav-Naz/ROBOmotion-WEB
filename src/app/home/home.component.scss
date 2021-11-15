@@ -1484,6 +1484,13 @@
                 font-size: 3.5rem !important;
                 color: rgb(212, 113, 46);
             }
+            .patreons-one {
+                max-width: 33rem;
+                img {
+                    max-width: 27rem;
+                    max-height: 15rem;
+                }
+            }
         }
         &-4 {
             &>p {
