@@ -1416,6 +1416,11 @@
         font-size: 2rem;
         text-align: center;
     }
+    &>img {
+        padding: 2rem;
+        max-height: 10rem;
+        max-width: 100%;
+    }
     &-name {
         font-size: 4rem;
         font-family: $title-font;
