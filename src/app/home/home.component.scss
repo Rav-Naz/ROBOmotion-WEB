@@ -1435,11 +1435,9 @@
                 color: #b9f2ff;
             }
             .patreons-one {
-                max-width: 100%;
+                max-width: 70rem;
                 img {
-                    // max-width: ;
-                    max-width: 70rem;
-                    // height: 100%;
+                    max-width: 100%;
                     min-height: 10rem;
                     max-height: 30rem;
                 }
@@ -1454,9 +1452,9 @@
                 color: goldenrod;
             }
             .patreons-one {
-                max-width: 100%;
+                max-width: 55rem;
                 img {
-                    max-width: 50rem;
+                    max-width: 100%;
                     min-height: 10rem;
                     max-height: 15rem;
                 }
@@ -1472,9 +1470,9 @@
                 color: silver;
             }
             .patreons-one {
-                max-width: 100%;
+                max-width: 30rem;
                 img {
-                    max-width: 30rem;
+                    max-width: 100%;
                     min-height: 10rem;
                     max-height: 15rem;
                 }
@@ -1492,7 +1490,7 @@
             .patreons-one {
                 max-width: 33rem;
                 img {
-                    max-width: 27rem;
+                    max-width: 100%;
                     max-height: 15rem;
                 }
             }
@@ -1504,7 +1502,7 @@
             .patreons-one {
                 max-width: 40rem;
                 img {
-                    max-width: 30rem;
+                    max-width: 100%;
                     max-height: 17rem;
                 }
             }
@@ -1516,7 +1514,7 @@
             .patreons-one {
                 max-width: 35rem;
                 img {
-                    max-width: 35rem;
+                    max-width: 100%;
                     max-height: 16rem;
                 }
             }
@@ -1525,19 +1523,27 @@
             &>p {
                 font-size: 3rem !important;
             }
+            .patreons-one {
+                max-width: 25rem;
+                img {
+                    max-width: 100%;
+                    max-height: 13rem;
+                }
+            }
         }
     }
     &-one {
-        padding: 3rem;
+        padding: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        max-width: 30rem;
+        max-width: 100%;
         cursor: pointer;
         transition: all .2s;
         img {
-            max-width: 20rem;
+            // max-width: 20rem;
+            max-width: 100%;
             padding: 1rem;
             max-height: 15rem;
             background-repeat: no-repeat;
@@ -1561,6 +1567,7 @@
 
 @media only screen and (max-width: $max-width-3) {
     .patreons {
+        padding: 2rem;
         &-name {
             font-size: 3.5rem;
         }

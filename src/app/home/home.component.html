@@ -326,7 +326,7 @@
     <section class="patreons">
         <h3 class="section-header">{{'home.patreons.title' | translate}}</h3>
         <ng-container *ngFor="let name of patreonNames; let i = index">
-            <div [ngClass]="patreonClassPicker(i)" *ngIf="getAllPatreonsWithIndex(i).length > 0">
+            <div class="patreons-class" [ngClass]="patreonClassPicker(i)" *ngIf="getAllPatreonsWithIndex(i).length > 0">
                 <p class="patreons-name">{{name}}</p>
                 <div class="patreons-class-container">
                     <div class="patreons-one" *ngFor="let patreon of getAllPatreonsWithIndex(i)" (click)="openUrl(patreon.linkToSite)">
