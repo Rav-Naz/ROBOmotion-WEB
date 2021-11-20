@@ -102,6 +102,7 @@
                 { "id": 9, "patreonCategory": 1, "description": "Stowarzyszenie Elektryków Polskich Oddział Rzeszowski", "image": "../../assets/jpg/sep.gif", "linkToSite": "http://www.seprzeszow.pl/" },
                 { "id": 10, "patreonCategory": 1, "description": "EDOCS", "image": "../../assets/jpg/edocs.png", "linkToSite": "https://edocssystems.com/" },
                 { "id": 11, "patreonCategory": 0, "description": "BorgWarner", "image": "../../assets/jpg/borg.png", "linkToSite": "https://www.pracuj.pl/praca/borgwarner%20poland%20sp.%20z%20o.o.%20-%20morse%20systems;en" },
+                { "id": 17, "patreonCategory": 0, "description": "Pratt & Whitney", "image": "../../assets/jpg/pratt.png", "linkToSite": "https://pwrze.com/" },
                 { "id": 12, "patreonCategory": 0, "description": "Deloitte", "image": "../../assets/svg/deloitte.svg", "linkToSite": "https://www2.deloitte.com/pl/pl.html" },
                 { "id": 13, "patreonCategory": 4, "description": "Studenckie Koło Naukowe Informatyków KOD", "image": "../../assets/jpg/skni.png", "linkToSite": "https://kod.prz.edu.pl/" },
                 { "id": 14, "patreonCategory": 4, "description": "Koło fotograficzne Uniwersytetu Rzeszowskiego LENS", "image": "../../assets/jpg/lens.png", "linkToSite": "https://www.facebook.com/Lens.Uniwersytet.Rzeszowski/" },
@@ -122,8 +123,8 @@
                 { "id": 17, "patreonCategory": 3, "description": "Cobot Planet", "image": "../../assets/jpg/cobot.png", "linkToSite": "https://www.cobotplanet.com/pl/" },
                 { "id": 17, "patreonCategory": 2, "description": "Autoplanet", "image": "../../assets/jpg/autopart.png", "linkToSite": "https://www.autopart.pl/" },
                 { "id": 17, "patreonCategory": 0, "description": "Urząd Marszałkowski", "image": "../../assets/jpg/podkarpackie.png", "linkToSite": "https://podkarpackie.eu/" },
-                { "id": 17, "patreonCategory": 0, "description": "Pratt & Whitney", "image": "../../assets/jpg/pratt.png", "linkToSite": "https://pwrze.com/" },
-                { "id": 17, "patreonCategory": 6, "description": "TVP 3 Rzeszów", "image": "../../assets/jpg/tvp.jpg", "linkToSite": "https://rzeszow.tvp.pl/" }
+                { "id": 17, "patreonCategory": 6, "description": "TVP 3 Rzeszów", "image": "../../assets/jpg/tvp.jpg", "linkToSite": "https://rzeszow.tvp.pl/" },
+                { "id": 17, "patreonCategory": 2, "description": "Podkarpacka Okręgowa Izba Inżynierów", "image": "../../assets/jpg/izba.png", "linkToSite": "https://www.inzynier.rzeszow.pl/" }
 
 
             ],
@@ -416,8 +417,10 @@
         "spis": {
             "title": "SPIS TREŚCI",
             "1": "POLITYKA COOKIES WITRYNY ROBOMOTION.COM.PL",
-            "2": "POLITYKA PRYWATNOŚCI SERWISU INTERNETOWEGO ROBOMOTION",
-            "3": "REGULAMIN KORZYSTANIA Z APLIKACJI ROBOMOTION"
+            "2": "POLITYKA PRYWATNOŚCI SERWISU INTERNETOWEGO ROBO~MOTION",
+            "3": "REGULAMIN KORZYSTANIA Z APLIKACJI ROBO~MOTION",
+            "4": "REGULAMIN MIĘDZYNARODOWYCH ZAWODÓW ROBO~MOTION",
+            "5": "INFORMACJA ADMINISTRATORA W ZWIĄZKU Z PRZETWARZANIEM DANYCH OSOBOWYCH"
         },
         "rules": [{
                 "title": "POLITYKA COOKIES WITRYNY ROBOMOTION.COM.PL",
@@ -489,15 +492,14 @@
                 ]
             },
             {
-                "title": "POLITYKA PRYWATNOŚCI SERWISU INTERNETOWEGO ROBOMOTION",
+                "title": "POLITYKA PRYWATNOŚCI SERWISU INTERNETOWEGO ROBO~MOTION",
                 "description": "Polityka prywatności opisuje zasady przetwarzania przez nas informacji na Twój temat, w tym danych osobowych.",
                 "paragrphs": [{
                         "title": "Informacje ogólne",
                         "bodies": [
                             "Niniejsza polityka dotyczy serwisu internetowego ROBO~motion (dalej: „Aplikacja”)",
-                            "Właścicielem aplikacji oraz Administratorem danych osobowych jest: Koło Naukowe Automatyków i Robotyków 'ROBO', prowadzące działalność na Politechnice Rzeszowskiej pod adresem: ul. Wincentego Pola 2, 35-021 Rzeszów",
+                            "Właścicielem aplikacji jest: Koło Naukowe Automatyków i Robotyków 'ROBO', prowadzące działalność na Politechnice Rzeszowskiej pod adresem: ul. Wincentego Pola 2, 35-021 Rzeszów",
                             "Adres kontaktowy poczty elektronicznej operatora: kontakt@kneiti.prz.edu.pl",
-                            "Koło Naukowe Automatyków i Robotyków 'ROBO', jest Administratorem Twoich danych osobowych w odniesieniu do danych podanych dobrowolnie w Aplikacji",
                             "Aplikacja wykorzystuje dane osobowe w następujących celach:",
                             "- <b>Prezentacja profilu użytkownika innym użytkownikom</b>",
                             "- <b>Obsługa zapytań przez formularz</b>",
@@ -562,7 +564,7 @@
                 ]
             },
             {
-                "title": "REGULAMIN KORZYSTANIA Z APLIKACJI ROBOMOTION",
+                "title": "REGULAMIN KORZYSTANIA Z APLIKACJI ROBO~MOTION",
                 "description": "Założenie konta w aplikacji ROBO~motion oznacza akceptację poniższych warunków.",
                 "paragrphs": [{
                         "title": "Informacje ogólne",
@@ -596,6 +598,143 @@
                         ]
                     }
                 ]
+            },
+            {
+                "title": "REGULAMIN MIĘDZYNARODOWYCH ZAWODÓW ROBO~MOTION 2021",
+                "description": "Ostatnia aktualizacja: 13.11.2021",
+                "paragrphs": [{
+                        "title": "Definicje",
+                        "bodies": [
+                            "<b>Drużyna</b> – grupa osób składająca się z Uczestników i Zawodników, którzy samodzielnie stworzyli co najmniej jednego Robota lub jego algorytm, biorąca udział w Zawodach.",
+                            "<b>Konstruktor</b> – osoba bądź osoby biorące udział w zawodach, które stworzyły danego Robota.",
+                            "<b>Organizator</b> – osoba nadzorująca i wpływająca na przebieg Zawodów, posiadająca imienny identyfikator z napisem Organizator.",
+                            "<b>Robot</b> – urządzenie mechatroniczne zasilane energią elektryczną poruszające się autonomicznie i w pewnym, zauważalnym stopniu reagujące na otoczenie.",
+                            "<b>Roboty identyczne</b> – roboty, mające podobną konstrukcję oraz wykorzystujące podobne algorytmy. O ostatecznym stwierdzeniu identyczności robotów decyduje Sędzia Główny.",
+                            "<b>Sędzia</b> – osoba nadzorująca przebieg konkurencji w dniu Zawodów.",
+                            "<b>Uczestnik</b> – osoba, która bierze aktywny, lub bierny udział w zawodach. Może to być zawodnik, sędzia, organizator lub widz.",
+                            "<b>Zawodnik</b> – patrz Konstruktor."
+                        ]
+                    },
+                    {
+                        "title": "Informacje ogólne",
+                        "bodies": [
+                            "Niniejszy regulamin określa warunki uczestnictwa w VI Międzynarodowych Zawodach Robotów ROBO~motion 2021 (zwanych dalej Zawodami) oraz zasady postępowania w celu przeciwdziałania rozprzestrzenianiu się wirusa SARS-CoV-2 w Polsce.",
+                            "VI Międzynarodowe Zawody Robotów ROBO~motion 2021 są kolejną edycją Zawodów organizowanych przez Koło Naukowe Automatyków i Robotyków ROBO działające na Wydziale Elektrotechniki i Informatyki Politechniki Rzeszowskiej wraz z partnerami. Celem wydarzenia jest popularyzacja robotyki wśród młodzieży i studentów.",
+                            "Zawody odbędą się w niedzielę 28 listopada 2021 roku. Czas trwania jest zależny od ilości zgłoszonych robotów, w związku z tym ostateczny harmonogram zostanie udostępniony na stronie <a href=\"robomotion.com.pl\" target=\"_blank\" style=\"color:yellow;\">robomotion.com.pl</a> najpóźniej na 4 dni przed zawodami tj. w środę 24 listopada 2021 roku.",
+                            "Nad prawidłowym przebiegiem Zawodów czuwać będą Organizatorzy. Każdy z Organizatorów będzie posiadał imienny identyfikator.",
+                            "Warunkiem koniecznym przystąpienia do Zawodów  jest wyrażenie zgody na przetwarzanie danych osobowych, w tym wizerunku:",
+                            "&nbsp; o Osoby pełnoletnie zgodę na przetwarzanie danych osobowych i danych osobowych w postaci wizerunku podpisują na miejscu – będą gotowe wydruki – formularz zgody jest dostępny na stronie <a href=\"robomotion.com.pl\" target=\"_blank\" style=\"color:yellow;\">robomotion.com.pl</a>",
+                            "&nbsp; o Osoby niepełnoletnie proszone są o przyniesienie w dniu Turnieju wydrukowanego formularza zgody podpisanego przez Rodzica/Opiekuna prawnego – formularz zgody dla osoby niepełnoletniej jest dostępny na stronie robomotion.com.pl"
+                        ]
+                    },
+                    {
+                        "title": "Uczestnicy",
+                        "bodies": [
+                            "W Zawodach mogą brać udział osoby pełnoletnie, które wyrażą zgodę na przetwarzanie danych osobowych, w tym wizerunku, oraz zaakceptują regulamin. W przypadku osób niepełnoletnich wymagana jest pisemna zgoda rodzica bądź opiekuna prawnego na udział w Zawodach, wyrażenie zgody na przetwarzanie danych osobowych, w tym wizerunku, oraz akceptacja regulaminu – formularz jest dostępny na stronie <a href=\"robomotion.com.pl\" target=\"_blank\" style=\"color:blue;\">robomotion.com.pl</a>",
+                            "W Zawodach mogą rejestrować się drużyny złożone z 1-20 osób.",
+                            "Każda drużyna nieposiadająca osoby pełnoletniej musi przyjechać na zawody pod opieką osoby dorosłej – opiekuna",
+                            "Podczas rejestracji w dniu zawodów każdy członek drużyny musi posiadać dokument potwierdzający tożsamość i okazać go na prośbę Organizatora, Sędziego bądź Obsługi.",
+                            "Zarejestrowanie drużyny w Zawodach na stronie <a href=\"robomotion.com.pl\" target=\"_blank\" style=\"color:yellow;\">robomotion.com.pl</a> jest równoznaczne z akceptacją regulaminu Ogólnego Zawodów oraz regulaminów poszczególnych konkurencji.",
+                            "Każdy uczestnik bierny bądź aktywny, startujący lub nie startujący w Zawodach, biorący udział w wydarzeniu jest zobowiązany przestrzegać wszystkie Regulaminy Zawodów oraz Regulaminy obowiązujące w budynku Regionalnego Centrum Sportowo-Widowiskowego „Podpromie”. Wejście na teren wydarzenia jest równoznaczne z akceptacją regulaminów.",
+                            "Organizatorzy zobowiązują się do nieudostępniania telefonu podanego przy rejestracji osobom trzecim bez zgody właściciela numeru."
+                        ]
+                    },
+                    {
+                        "title": "Konkurencje",
+                        "bodies": [
+                            "Na Zawodach odbędzie się 17 oddzielnych konkurencji. Jedna drużyna może brać udział w kilku z nich, jednakże poszczególne etapy różnych konkurencji mogą odbywać się w tym samym czasie.",
+                            "Konkurencje które odbędą się na zawodach to:",
+                            "&nbsp;<b>Smash Bots by RoboLAB</b>",
+                            "&nbsp;<b>LEGO Sumo</b>",
+                            "&nbsp;<b>Nano Sumo</b>",
+                            "&nbsp;<b>Micro Sumo</b>",
+                            "&nbsp;<b>Mini Sumo</b>",
+                            "&nbsp;<b>Sumo</b>",
+                            "&nbsp;<b>LineFollower Standard</b>",
+                            "&nbsp;<b>LineFollower Standard LEGO</b>",
+                            "&nbsp;<b>LineFollower Turbo</b>",
+                            "&nbsp;<b>LineFollower Standard Enhanced</b>",
+                            "&nbsp;<b>LineFollower Turbo Enhanced</b>",
+                            "&nbsp;<b>Drag Race</b>",
+                            "&nbsp;<b>Cebula House</b>",
+                            "&nbsp;<b>Micromouse</b>",
+                            "&nbsp;<b>Robot Sprint</b>",
+                            "&nbsp;<b>LEGO Tug of War</b>",
+                            "&nbsp;<b>Freestyle</b>",
+                            "Dokładny regulamin każdej konkurencji znajduje się na stronie głównej <a href=\"robomotion.com.pl\" target=\"_blank\" style=\"color:yellow;\">robomotion.com.pl</a> – odnośnik do regulaminu dostępny jest po wybraniu odpowiedniej kategorii",
+                            "W przypadku małej liczby drużyn biorących udział w danej konkurencji organizator zastrzega sobie prawo do rozegrania wyłącznie fazy finałowej lub odwołania konkurencji."
+
+                        ]
+                    },
+                    {
+                        "title": "Sprawy organizacyjne",
+                        "bodies": [
+                            "Organizator zastrzega sobie prawo do zmian w niniejszym regulaminie",
+                            "Nagrody przyznawane są drużynowo.",
+                            "Robot oraz program biorący udział w danej konkurencji musi być autorstwa tylko i wyłącznie osób wchodzących w skład danej drużyny.",
+                            "Wszelkie pytania dotyczące regulaminu należy kierować na adres robo@kneiti.prz.edu.pl"
+                        ]
+                    },
+                    {
+                        "title": "Zasady postępowania w celu przeciwdziałania rozprzestrzenianiu się wirusa SARS-CoV-2 w Polsce",
+                        "bodies": [
+                            "Każdy uczestnik jest zobowiązany do zasłaniania ust i nosa wyłącznie za pomocą maseczki ochronnej na terenie wydarzenia, Uczestnik sam ma obowiązek posiadania odpowiedniej ilości maseczek ochronnych. Organizator zastrzega sobie prawo do wyproszenia bądź niewpuszczenia na teren wydarzenia osoby nieposiadającej maseczki ochronnej bądź stosownego zaświadczenia potwierdzającego niemożność noszenia maseczki ochronnej akceptowanego przez aktualnie obowiązujące przepisy prawne.",
+                            "Organizator zapewnia odpowiednią ilość płynów do dezynfekcji, które zostaną rozstawione w całym obiekcie.",
+                            "Ilość miejsc na widowni będzie ograniczona, zajęte mogą zostać tylko i wyłącznie rozłożone siedziska (z podniesionym oparciem), natomiast siedziska z opuszczonym oparciem (złożone) są wyłączone z użytkowania.",
+                            "Każdy uczestnik zobowiązuje się również do zachowania wymaganego dystansu społecznego.",
+                            "Organizator zastrzega sobie prawo do wpuszczania na teren wydarzenia tylko osoby w pełni zaszczepione przeciw SARS-CoV-2 w przypadku przebywania na hali maksymalnej liczby osób dopuszczonej na podstawie aktualnie obowiązujących obostrzeń"
+                        ]
+                    },
+                    {
+                        "title": "Kwestie sporne, odpowiedzialność",
+                        "bodies": [
+                            "Wszelkie kwestie sporne związane z kategorią opisaną w regulaminie kategorii rozstrzyga Sędzia danej kategorii.",
+                            "Wszelkie spory i sytuacje nie opisane w Regulaminach kategorii rozstrzyga Sędzia Główny.",
+                            "Wszelkie spory i sytuacje nie opisane w niniejszym regulaminie i nie dotyczące żadnej kategorii rozstrzyga Organizator zgodnie z obowiązującymi przepisami prawa i przepisami bezpieczeństwa.",
+                            "W przypadku zachowania Uczestnika, które narusza: normy moralne, dobre obyczaje, godność człowieka, uczucia religijne lub bezpieczeństwo Uczestników, Sędzia Główny bądź Organizatorzy mają prawo nałożyć na Uczestnika  karę w postaci zakazu przebywania na terenie imprezy, w takim wypadku ukarany Uczestnik jest zobowiązany opuścić teren imprezy w trybie natychmiastowym.",
+                            "Decyzja Sędziego Głównego i Organizatora jest ostateczna."
+                        ]
+                    },
+                    {
+                        "title": "Zgody",
+                        "bodies": [
+                            "Uczestnictwo w zawodach oznacza wyrażenie zgody na publikację wizerunku (zdjęcia z zawodów, nagrania z zawodów oraz materiały wideo transmitowane na żywo przy pomocy odpowiednich platform), podstawowych danych na temat robota oraz drużynyprzez Organizatorów i Partnerów Zawodów bez konieczności informowania o tym Uczestnika."
+                        ]
+                    },
+                    {
+                        "title": "Postanowienia końcowe",
+                        "bodies": [
+                            "Dane osobowe uczestników Zawodów będą przetwarzane wyłącznie w celachprzeprowadzenia Zawodów, wyłonienia laureatów oraz przyznania, wydania, odbioru irozliczenia warunków nagród i wyróżnień.",
+                            "Administratorem danych osobowych jest Politechnika Rzeszowska im. Ignacego Łukasiewicza z siedzibą na al. Powstańców Warszawy 12, 35-959 Rzeszów.",
+                            "Przetwarzanie danych osobowych w związku z udziałem w Zawodów obejmujepublikację wizerunku, imienia i nazwiska oraz wyniku uczestnika, który zdobył jednąz nagród Zawodów. Każdy z pozostałych uczestników Zawodów będzie miał możliwośćwyrażenia zgody na ujawnienie jego wyniku, nazwiska i adresu mailowego firmomorganizującym Zawody. Dane oraz szczegółowe wyniki uczestników Zawodów, którzynie wyrażą zgody, nie będą ujawniane.",
+                            "Przetwarzanie danych dotyczy wszystkich uczestników Zawodów. Uczestnicy mająprawo wglądu do swoich danych osobowych oraz do ich poprawiania. Podanie danychosobowych (imię, nazwisko, szkoła lub uczelnia, adres poczty elektronicznej) jestdobrowolne, lecz ich niepodanie uniemożliwia udział w Zawodach. Uczestnicy Zawodów przystępując do nich wyrażają zgodę na przetwarzanie swoich danych do celuokreślonego w niniejszym Regulaminie.",
+                            "Zawodysą zorganizowane w myśl zasady fair-play. W przypadku łamania zasad tejidei, np. poprzez celowe uszkodzenie robota innego uczestnika, organizatorzy Zawodów zastrzegają sobie prawo do wykluczenia całej drużyny uczestnika z tej orazkolejnych edycji Międzynarodowych Zawodów ROBO~motion.",
+                            "W sprawach nieuregulowanych Regulaminem zastosowanie mają przepisy Kodeksu Cywilnego."
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "INFORMACJA ADMINISTRATORA W ZWIĄZKU Z PRZETWARZANIEM DANYCH OSOBOWYCH",
+                "paragrphs": [{
+                    "title": "Informacje ogólne",
+                    "bodies": [
+                        "Administratorem danych osobowych jest <b>Politechnika Rzeszowska im. Ignacego Łukasiewicza</b>, al. Powstańców Warszawy 12, 35-959 Rzeszów, (zwana dalej Uczelnią), email: kancelaria@prz.edu.pl",
+                        "Inspektorem Ochrony Danych na Politechnice Rzeszowskiej można się skontaktować się pod numerem telefonu 17 865 1775 lub poprzez e-mail: iod@prz.edu.pl",
+                        "Administrator przetwarza Twoje dane osobowe zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (zwanego dalej RODO)",
+                        "Administrator pobiera i przetwarza następujące dane osoboweUczestnika podane za pośrednictwem formularza rejestracyjnego na stronie robomotion.com.pl: imię i nazwisko, adres e-mail oraz, numer telefonu.",
+                        "&nbsp; a) na podstawie zgody w celu rejestracji uczestników i organizacji konkursu (art. 6 ust. 1 lit. a RODO) - podanie powyższych danych jest dobrowolne, jednak jest niezbędne do rejestracji i uczestnictwa w VI Międzynarodowych Zawodach ROBO~motion 2021,",
+                        "&nbsp; b) na podstawie zgody w celach marketingowych i promocyjnych związanych z ofertą Partnerów oraz Organizatora (art. 6 ust. 1 lit. a RODO) – wyrażenie zgody jest dobrowolne, można ją w każdej chwili wycofać.",
+                        "W czasie trwania wydarzenia VI Międzynarodowe Zawody ROBO~motion 2021 przeprowadzone zostaną sesje fotograficzne i video, Administrator i Partnerzy Organizatora będą przetwarzać wizerunek Uczestnikana na podstawie jego zgody lub w przypadku osób niepełnoletnich na podstawie zgody wyrażonej przez ich opiekunów prawnych(art. 6 ust. 1 lit. a RODO). Udzielenie zgody na przetwarzanie wizerunku jest dobrowolne, ale niezbędne do uczestnictwa w VI Międzynarodowych Zawodach ROBO~motion 2021. Zgoda jest dostępna pod tym <a href=\"https://rzit.smarthost.pl/robomotion/rodo.pdf\" target=\"_blank\">linkiem</a>.",
+                        "Każdy Uczestnik ma prawo żądania:",
+                        "&nbsp; a) dostępu do danych i uzyskania informacji w zakresie ich przetwarzania",
+                        "&nbsp; b) sprostowania danych oraz żądania ich usunięcia lub ograniczenia przetwarzania",
+                        "&nbsp; c) wniesienia sprzeciwu wobec przetwarzania",
+                        "&nbsp; d) cofnięcia wyrażonej zgody na przetwarzanie danych w każdym momencie – cofnięcie to jednak nie ma wpływu na zgodność przetwarzania przed jego dokonaniem",
+                        "&nbsp; e) wniesienia skargi do organu nadzorczego w przedmiocie ochrony danych osobowych – w Polsce do Prezesa Urzędu Ochrony Danych Osobowych.",
+                        "W celu realizacji powyższych praw należy skontaktować się z Organizatorem."
+                    ]
+                }]
             }
         ]
     },
