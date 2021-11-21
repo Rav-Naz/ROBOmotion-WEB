@@ -148,13 +148,29 @@
         "info": "Wyniki będą się pojawiać w tym miejscu"
     },
     "timetable": {
-        "table": [
-            { "time": "8:00-11:00", "name": "Rejestracja" },
-            { "time": "11:00-15:00", "name": "Eliminacje" },
-            { "time": "15:00-18:00", "name": "Finał" },
-            { "time": "18:00", "name": "Rozdanie nagród" }
-        ],
-        "info": "Harmonogram może się zmienić. Prosimy obserwować tą stronę w celu uzyskania najnowszych informacji."
+        "info": "Harmonogram może się zmienić. Prosimy obserwować tą stronę w celu uzyskania najnowszych informacji.\nWszystkie kategorie poza Freestyle odbywają się na głównej płycie hali, Roboty kategorii Freestyle można oglądać w korytarzu przy wejściu, na płytę główną mogą wejść TYLKO i WYŁĄCZNIE osoby posiadające stosowne identyfikatory.",
+        "time": "Godzina",
+        "onion": "Cebula House",
+        "register": "Rejestracja zawodników",
+        "viewers": "Otworzenie trybun dla widowni",
+        "brief": "Odprawa dla wszystkich zawodników (Strefa Zawodnika)",
+        "open": "OFICJALNE ROZPOCZĘCIE VI MIĘDZYNARODOWYCH ZAWODÓW ROBOTÓW ROBO~motion 2021",
+        "draw-groups": "Losowanie grup",
+        "draw": "Losowanie",
+        "rides": "Przejazdy punktowane",
+        "fights": "Walki punktowane",
+        "exhibition": "Wystawa",
+        "eliminations": "Walki eliminacyjne",
+        "ride": "Przejazd",
+        "fight1": "Walki - I tura",
+        "fight2": "Walki - II tura",
+        "fight3": "Walki - III tura",
+        "fight4": "Walki - IV tura (FINAŁY)",
+        "break": "Przerwa",
+        "technical-break": "Przerwa techniczna",
+        "results": "Ogłoszenie wyników",
+        "comission": "Ocena komisji",
+        "finals": "Walki finałowe"
     },
     "competitor-zone": {
         "info": "Strefa zawodnika będzie otwarta wkrótce!",

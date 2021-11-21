@@ -135,13 +135,29 @@
         "info": "The results will be shown here"
     },
     "timetable": {
-        "table": [
-            { "time": "8:00-11:00", "name": "Register" },
-            { "time": "11:00-15:00", "name": "Eliminations" },
-            { "time": "15:00-18:00", "name": "Final" },
-            { "time": "18:00", "name": "Award ceremony" }
-        ],
-        "info": "The schedule is subject to change. Please keep an eye on this page for the latest information."
+        "info": "The schedule may change. Please keep an eye on this page for the latest information.\nAll categories except Freestyle take place on the main floor of the hall, Robots in the Freestyle category can be viewed in the hallway at the entrance, and ONLY people with appropriate IDs can enter the motherboard.",
+        "time": "Hour",
+        "onion": "Onion House",
+        "register": "Competitors registration",
+        "viewers": "Opening the stands for the audience",
+        "brief": "Briefing for all competitors (Competitor's Zone)",
+        "open": "OFFICIAL START OF THE VI INTERNATIONAL ROBOT COMPETITION ROBO~motion 2021",
+        "draw-groups": "Draw groups",
+        "draw": "Draw",
+        "rides": "Scored runs",
+        "fights": "Scored fights",
+        "exhibition": "Exhibition",
+        "eliminations": "Elimination fights",
+        "ride": "Run",
+        "fight1": "Fights - 1st round",
+        "fight2": "Fights - 2nd round",
+        "fight3": "Fights - 3rd round",
+        "fight4": "Fights - IV round (FINALS)",
+        "break": "Break",
+        "technical-break": "Technical break",
+        "results": "Announcement of results",
+        "comission": "Evaluation of the commission",
+        "finals": "Final fights"
     },
     "competitor-zone": {
         "info": "Competitor zone will be open soon!",

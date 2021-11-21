@@ -29,7 +29,7 @@ import { RefereeGuard } from './services/referee-guard.service';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'results', component: ResultsComponent},
-  // {path: 'timetable', component: TimetableComponent},
+  {path: 'timetable', component: TimetableComponent},
   // {path: 'building-plan', component: BuildingPlanComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
