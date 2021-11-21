@@ -135,7 +135,7 @@
         "info": "The results will be shown here"
     },
     "timetable": {
-        "info": "The schedule may change. Please keep an eye on this page for the latest information.\nAll categories except Freestyle take place on the main floor of the hall, Robots in the Freestyle category can be viewed in the hallway at the entrance, and ONLY people with appropriate IDs can enter the motherboard.",
+        "info": "The schedule may change. Please keep an eye on this page for the latest information.\nAll categories except Freestyle take place on the main floor of the hall, Robots in the Freestyle category can be viewed in the hallway at the entrance. ONLY people with appropriate IDs can enter the motherboard.",
         "time": "Hour",
         "onion": "Onion House",
         "register": "Competitors registration",

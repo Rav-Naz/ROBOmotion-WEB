@@ -148,7 +148,7 @@
         "info": "Wyniki będą się pojawiać w tym miejscu"
     },
     "timetable": {
-        "info": "Harmonogram może się zmienić. Prosimy obserwować tą stronę w celu uzyskania najnowszych informacji.\nWszystkie kategorie poza Freestyle odbywają się na głównej płycie hali, Roboty kategorii Freestyle można oglądać w korytarzu przy wejściu, na płytę główną mogą wejść TYLKO i WYŁĄCZNIE osoby posiadające stosowne identyfikatory.",
+        "info": "Harmonogram może się zmienić. Prosimy obserwować tę stronę w celu uzyskania najnowszych informacji.\nWszystkie kategorie poza Freestyle odbywają się na głównej płycie hali, Roboty kategorii Freestyle można oglądać w korytarzu przy wejściu. Na płytę główną mogą wejść TYLKO i WYŁĄCZNIE osoby posiadające stosowne identyfikatory.",
         "time": "Godzina",
         "onion": "Cebula House",
         "register": "Rejestracja zawodników",
@@ -171,6 +171,18 @@
         "results": "Ogłoszenie wyników",
         "comission": "Ocena komisji",
         "finals": "Walki finałowe"
+    },
+    "building-plan": {
+        "floor": {
+            "name": "Wybierz piętro"
+        },
+        "floors": {
+            "P": "Parking",
+            "0": "Parter",
+            "1": "Pierwsze piętro",
+            "2": "Drugie piętro",
+            "3": "Trzecie piętro"
+        }
     },
     "competitor-zone": {
         "info": "Strefa zawodnika będzie otwarta wkrótce!",
