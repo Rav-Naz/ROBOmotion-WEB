@@ -135,7 +135,7 @@
         "info": "The results will be shown here"
     },
     "timetable": {
-        "info": "The schedule may change. Please keep an eye on this page for the latest information.\nAll categories except Freestyle take place on the main floor of the hall, Robots in the Freestyle category can be viewed in the hallway at the entrance. ONLY people with appropriate IDs can enter the motherboard.",
+        "info": "The schedule may change. Please keep an eye on this page for the latest information.\nAll categories except Freestyle take place on the main floor of the hall, Robots in the Freestyle category can be viewed in the hallway at the entrance. ONLY people with appropriate IDs can enter the main floor.",
         "time": "Hour",
         "onion": "Onion House",
         "register": "Competitors registration",
@@ -687,7 +687,8 @@
                             "The organizer provides an appropriate amount of disinfectants that will be placed throughout the facility.",
                             "The number of seats in the audience will be limited, only the unfolded seats (with the backrest raised) may be occupied, while the seats with the backrest down (folded) are excluded from use.",
                             "Each participant also undertakes to maintain the required social distance.",
-                            "The organizer reserves the right to admit to the event area only people fully vaccinated against SARS-CoV-2 in the event that the maximum number of people allowed on the basis of the currently applicable restrictions are present in the hall"
+                            "The organizer reserves the right to admit to the event area only people fully vaccinated against SARS-CoV-2 in the event that the maximum number of people allowed on the basis of the currently applicable restrictions are present in the hall",
+                            "The organizers of the event are required to provide the collected personal data to the State Poviat Sanitary Inspector who performs epidemiological supervision in a given area and to the security services at their request."
                         ]
                     },
                     {

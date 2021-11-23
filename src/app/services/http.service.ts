@@ -82,6 +82,24 @@ export class HttpService {
     })
   }
 
+  getAllFightsOfRobot(robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getAllFightsForRobot/${robot_uuid}`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
+  getAllTimesOfRobot(robot_uuid: string) {
+    return new Promise<APIResponse>((resolve, rejects) => {
+      this.http.get<APIResponse>(`${this.url}public/getAllTimesForRobot/${robot_uuid}`).toPromise().then(
+        (value) => { resolve(value) },
+        (error) => { rejects(error) }
+      );
+    })
+  }
+
   get getAllPositions(): Promise<APIResponse> {
     return new Promise<APIResponse>((resolve, rejects) => {
       this.http.get<APIResponse>(`${this.url}public/getPositions`).toPromise().then(

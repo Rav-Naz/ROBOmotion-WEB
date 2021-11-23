@@ -13,6 +13,7 @@ import { APIResponse } from '../models/response';
 export class TimesService {
 
   private timesForPosition = new BehaviorSubject<Array<any> | null>(null);
+  private timesForRobot = new BehaviorSubject<Array<any> | null>(null);
   private allTimes = new BehaviorSubject<Array<any> | null>(null);
   private actualPosition: number | null = null;
 
@@ -80,6 +81,24 @@ export class TimesService {
     }); 
   }
 
+  public getAllTimesOfRobots(robot_uuid: string) {
+    this.timesForRobot.next(null);
+    return new Promise<any>(async (resolve) => {
+      const value = await this.http.getAllTimesOfRobot(robot_uuid).catch(err => {
+        if(err.status === 400) {
+          this.errorService.showError(err.status, this.translate.instant(err.error.body));
+        } else {
+          this.errorService.showError(err.status);
+        }
+      })
+      if(value !== undefined) {
+        this.timesForRobot.next(Object.assign(value.body));
+      }
+      resolve(value);
+    });
+  }
+
+
   public setTimeResult(robot_uuid : string, czas_przejazdu: number, stanowisko_id: number, kategoria_id: number) {
     return new Promise<APIResponse | void>(async (resolve) => {
       const value = await this.http.setTimeResult(robot_uuid,czas_przejazdu, stanowisko_id, kategoria_id).catch(err => {
@@ -117,6 +136,13 @@ export class TimesService {
       this.timesForPosition.value![timeIndex].czas_przejazdu = data?.czas_przejazdu;
       this.timesForPosition.next(this.timesForPosition.value)
     }
+    if(this.timesForRobot.value && this.timesForRobot.value.length > 0) {
+      const index = this.timesForRobot.value.findIndex(val => val.wynik_id === data.wynik_id);
+      if (index >= 0) {
+        this.timesForRobot.value![index].czas_przejazdu = data?.czas_przejazdu;
+        this.timesForRobot.next(this.timesForRobot.value)
+      }
+    }
     if (this.allTimes.value) {
       const allTimeIndex = this.allTimes.value?.findIndex(time => time.wynik_id === data?.wynik_id)
       if(allTimeIndex !== undefined && allTimeIndex !== null && allTimeIndex >= 0 && this.allTimes.value) {
@@ -133,6 +159,10 @@ export class TimesService {
       this.timesForPosition.value?.push(new_time);
       this.pushNewTimesForPosition(this.timesForPosition.value);
       this.ui.showFeedback("succes", `Pomyślnie dodano nowy czas przejazdu (${new_time.wynik_id}) dla robota ${new_time.nazwa_robota}`, 3);
+    }
+    if(this.timesForRobot.value && this.timesForRobot.value.length > 0 && this.timesForRobot.value[0].robot_id === data.robot_id) {
+      this.timesForRobot.value.push(data);
+      this.timesForRobot.next(this.timesForRobot.value)
     }
     if (this.allTimes.value) {
       const new_time = data;
@@ -155,6 +185,13 @@ export class TimesService {
         this.ui.showFeedback('loading', `Usunięto wynik ${data.wynik_id}`,3)
       }
     }
+    if(this.timesForRobot.value && this.timesForRobot.value.length > 0) {
+      const index = this.timesForRobot.value.findIndex(val => val.wynik_id === data.wynik_id);
+      if (index >= 0) {
+        this.timesForRobot.value.splice(index, 1);
+        this.timesForRobot.next(this.timesForRobot.value)
+      }
+    }
     if (this.allTimes.value) {
       const timeIndex = this.allTimes.value.findIndex(f => f.wynik_id === data.wynik_id);
       if (timeIndex >= 0) {
@@ -170,6 +207,10 @@ export class TimesService {
 
   get timesForPosition$() {
     return this.timesForPosition.asObservable();
+  }
+
+  get timesForRobot$() {
+    return this.timesForRobot.asObservable();
   }
 
   get allTimes$() {

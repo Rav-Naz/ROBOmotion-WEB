@@ -1,3 +1,5 @@
+import { TimesService } from 'src/app/services/times.service';
+import { FightsService } from 'src/app/services/fights.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UiService } from './../../../../services/ui.service';
 import { UserService } from './../../../../services/user.service';
@@ -32,6 +34,7 @@ export class RobotComponent {
   private loadingName: boolean = true;
   private loadingCategories: boolean = true;
   private loadingConstructors: boolean = true;
+  public loadingResults: boolean = true;
   private subs: Subscription = new Subscription;
   public robot: Robot | null = null;
   public categories: Array<CategoryMain> | null = null;
@@ -39,10 +42,15 @@ export class RobotComponent {
   public constructors: Array<Constructor> | null = null;
   public aviableCategories: Array<CategoryMain> | null = null;
   private lastConstructorMessage: object | null = null;
+  public selectedCategory: number | null = null;
+  public selectedGroup: number | null = null;
+  public isEvent: boolean = false;
+  public robotFights: Array<any> | null = null;
+  public robotTimes: Array<any> | null = null;
 
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, public authService: AuthService, private robotsService: RobotsService,
     private categoriesService: CategoriesService, private constructorsService: ConstructorsService, public userSerceice: UserService, private router: Router,
-    private ui: UiService, private translate: TranslateService) {
+    private ui: UiService, private translate: TranslateService, private fightsService: FightsService, private timesService: TimesService) {
     const robot_uuid = this.route.snapshot.paramMap.get('robot_uuid');
     
     const sub1 = combineLatest(this.categoriesService.categories$, userSerceice.isReferee ? this.robotsService.allRobots$ : this.robotsService.userRobots$, this.constructorsService.getNewConstructors$).subscribe(async (val) => {
@@ -104,9 +112,27 @@ export class RobotComponent {
             }
           }
         }
+        this.authService.info$.subscribe((val) => {
+          if(val && (val as any).eventDate < new Date() && robot_uuid) {
+              this.isEvent = true;
+              this.fightsService.getAllFightsOfRobots(robot_uuid);
+              this.timesService.getAllTimesOfRobots(robot_uuid);
+              const sub1 = combineLatest(this.fightsService.figthsForRobot$, this.timesService.timesForRobot$).subscribe(val => {
+                if(val[0] !== null) {
+                  this.robotFights = val[0];
+                  this.loadingResults = false;
+                }
+                if(val[1] !== null) {
+                  this.robotTimes = val[1].sort((a,b) => a.czas_przejazdu - b.czas_przejazdu);
+                  this.loadingResults = false;
+                }
+              })
+            }
+      })
       } else if (!val[1]) {
         this.robotsService.getAllRobots();
       }
+
     });
     this.subs.add(sub1);
     this.formName = this.formBuilder.group({
@@ -245,6 +271,15 @@ export class RobotComponent {
     }
   }
 
+  selectCategory(kategoria_id: number) {
+    this.selectedCategory = Number(kategoria_id);
+    this.selectedGroup = null;
+  }
+
+  selectGroup(grupa_id: number) {
+    this.selectedGroup = Number(grupa_id);
+  }
+
   public get isChanged() {
     return this.formName.get('robot_name')?.value !== this.oldName;
   }
@@ -309,6 +344,22 @@ export class RobotComponent {
 
   public get canDeleteCategory() {
     return this.robotCategories ? this.robotCategories?.length > 1 : false;
+  }
+
+  get getCategoryType() {
+    return this.categories?.find(el => el.kategoria_id === this.selectedCategory)?.rodzaj
+  }
+
+  get getCategoryFigths() {
+    return this.robotFights?.filter(el => el.kategoria_id === this.selectedCategory).sort((a,b) => b.walka_id - a.walka_id).sort((a,b) => a.czas_zakonczenia - b.czas_zakonczenia);
+  }
+
+  get getGroupFigths() {
+    return this.robotFights?.filter(el => el.kategoria_id === this.selectedCategory && el.grupa_id === this.selectedGroup).sort((a,b) => b.walka_id - a.walka_id).sort((a,b) => a.czas_zakonczenia - b.czas_zakonczenia);
+  }
+
+  get getCategoryTimesResult() {
+    return this.robotTimes?.filter(el => el.kategoria_id === this.selectedCategory).sort((a,b) => b.wynik_id - a.wynik_id);
   }
 
   public getCategoryName(kategoria_id: string | number) {

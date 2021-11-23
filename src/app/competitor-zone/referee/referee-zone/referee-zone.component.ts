@@ -157,11 +157,11 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   get categoriesInPosition() {
     const categories = this.positions?.find(el => el.stanowisko_id === this.selectedPosition)?.kategorie;
     if(categories) {
-      const a = [...[...categories.split(", ")].map((cat) => {
+      const a = [...[...categories.split(", ")].sort().map((cat) => {
         const obj = this.categories!.find(obj => obj.kategoria_id.toString() === cat);
         return {kategoria_id: obj?.kategoria_id, nazwa: obj?.nazwa};
       })];
-      return a;
+      return a
     } else {
       return undefined;
     }

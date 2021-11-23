@@ -119,7 +119,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     if(filter && filter === 1 && filter_name !== '') {
       const categories = this.positions?.find(el => Number(el.stanowisko_id) === Number(filter_name))?.kategorie;
       if(categories) {
-        const a = [...[...categories.split(", ")].map((cat) => {
+        const a = [...[...categories.split(", ")].sort().map((cat) => {
           const obj = this.categories!.find(obj => obj.kategoria_id.toString() === cat);
           return {kategoria_id: obj?.kategoria_id, nazwa: obj?.nazwa};
         })];

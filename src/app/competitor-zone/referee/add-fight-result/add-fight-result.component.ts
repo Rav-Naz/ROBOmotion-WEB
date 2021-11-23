@@ -38,10 +38,10 @@ export class AddFightResultComponent implements OnInit {
       constructor_uuid: [null, [Validators.required, Validators.minLength(36), Validators.maxLength(36)]]
     });
     this.formResult1 = this.formBuilder.group({
-      fight_result: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(1)]]
+      fight_result: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(2)]]
     });
     this.formResult2 = this.formBuilder.group({
-      fight_result: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(1)]]
+      fight_result: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(2)]]
     });
 
   }

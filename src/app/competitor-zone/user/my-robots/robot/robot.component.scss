@@ -1,5 +1,7 @@
 @import '../../../../scss/colors';
 @import '../../../../scss/variables';
+@import '../../../competitor-zone.component.scss';
+@import '../../../referee/referee-zone/referee-zone.component.scss';
 .main {
     display: flex;
     justify-content: flex-start;
@@ -9,6 +11,17 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
+    padding-right: 2rem;
+}
+
+.infos {
+    margin-top: 1rem;
+    height: 100%;
+    height: min-content;
+}
+
+.referee-results-times-element-categories {
+    justify-content: flex-end;
 }
 
 .name {

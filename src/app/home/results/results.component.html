@@ -23,7 +23,7 @@
                 <section class="referee-results" *ngIf="!isLoading">
 
                     <div class="referee-results-fights" *ngIf="getCategoryType === 1">
-                        <span *ngIf="!resultsFiltered?.length && selectedGroup">{{'competitor-zone.referee-zone.no-results' | translate}}</span>
+                        <span *ngIf="!resultsFiltered?.length && selectedGroup">{{'competitor-zone.referee-zone.no-fights' | translate}}</span>
 
                         <!-- <span *ngIf="!getGroupFigths?.length ">Brak walk</span> -->
                         <div class="scroll">
@@ -38,9 +38,9 @@
                                         <div class="referee-results-fights-element-vs">
                                             <span>vs</span>
                                             <div>
-                                                <label [ngClass]="{'referee-results-fights-element-vs-win': fight.wygrane_rundy_robot1 && fight.wygrane_rundy_robot2 && fight.wygrane_rundy_robot1 > fight.wygrane_rundy_robot2, 'referee-results-fights-element-vs-lose': fight.wygrane_rundy_robot1 && fight.wygrane_rundy_robot2 && fight.wygrane_rundy_robot1 < fight.wygrane_rundy_robot2}">{{fight.wygrane_rundy_robot1 ? fight.wygrane_rundy_robot1 : '?'}}</label>
+                                                <label [ngClass]="{'referee-results-fights-element-vs-win': fight.wygrane_rundy_robot1 !== null && fight.wygrane_rundy_robot2 !== null && fight.wygrane_rundy_robot1 > fight.wygrane_rundy_robot2, 'referee-results-fights-element-vs-lose': fight.wygrane_rundy_robot1 !== null  && fight.wygrane_rundy_robot2 !== null && fight.wygrane_rundy_robot1 < fight.wygrane_rundy_robot2}">{{fight.wygrane_rundy_robot1 !== null ? fight.wygrane_rundy_robot1 : '?'}}</label>
                                                 <label>&nbsp;:&nbsp;</label>
-                                                <label [ngClass]="{'referee-results-fights-element-vs-win': fight.wygrane_rundy_robot1 && fight.wygrane_rundy_robot2 && fight.wygrane_rundy_robot1 < fight.wygrane_rundy_robot2, 'referee-results-fights-element-vs-lose': fight.wygrane_rundy_robot1 && fight.wygrane_rundy_robot2 && fight.wygrane_rundy_robot1 > fight.wygrane_rundy_robot2}">{{fight.wygrane_rundy_robot2 ? fight.wygrane_rundy_robot2 : '?'}}</label>
+                                                <label [ngClass]="{'referee-results-fights-element-vs-win': fight.wygrane_rundy_robot1 !== null && fight.wygrane_rundy_robot2 !== null && fight.wygrane_rundy_robot1 < fight.wygrane_rundy_robot2, 'referee-results-fights-element-vs-lose': fight.wygrane_rundy_robot1 !== null && fight.wygrane_rundy_robot2 !== null && fight.wygrane_rundy_robot1 > fight.wygrane_rundy_robot2}">{{fight.wygrane_rundy_robot2 !== null ? fight.wygrane_rundy_robot2 : '?'}}</label>
                                             </div>
                                         </div>
                                         <div class="referee-results-fights-element-info referee-results-fights-element-info-2">
@@ -83,7 +83,7 @@
                                         </div>
 
                                         <div class="referee-results-times-element-categories">
-                                            <p>{{time.czas_przejazdu}} {{(getCategoryType === 2 ? 'competitor-zone.referee-zone.pts' : 'ms') | translate}}</p>
+                                            <p>{{getCategoryType !== 2 ? time.czas_przejazdu/1000 : time.czas_przejazdu}} {{(getCategoryType === 2 ? 'competitor-zone.referee-zone.pts' : 's') | translate}}</p>
                                         </div>
                                         <div class="referee-results-fights-element-details">
                                             <div class="referee-results-fights-element-details-flex" *ngIf="variable.open">
