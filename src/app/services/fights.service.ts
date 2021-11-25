@@ -47,9 +47,9 @@ export class FightsService {
   }
 
   public getAllFights() {
-
     return new Promise<APIResponse | void>(async (resolve, reject) => {
       if (this.allFights.value === null && this.allFights.value === undefined) { reject(); return; }
+      if (this.allFights.value !== null) { resolve({message: "INFO: OK", body: this.allFights.value}); return;}
       const value = await this.http.getAllFights.catch(err => {
         if (err.status === 400) {
           this.errorService.showError(err.status, this.translate.instant(err.error.body));
@@ -93,17 +93,23 @@ export class FightsService {
   public getAllFightsOfRobots(robot_uuid: string) {
     this.fightsForRobot.next(null);
     return new Promise<any>(async (resolve) => {
-      const value = await this.http.getAllFightsOfRobot(robot_uuid).catch(err => {
-        if(err.status === 400) {
-          this.errorService.showError(err.status, this.translate.instant(err.error.body));
-        } else {
-          this.errorService.showError(err.status);
+      if (this.allFights.value && this.allFights.value.length > 0) {
+        const fights = this.allFights.value.filter(el => (el.robot1_uuid === robot_uuid || el.robot2_uuid === robot_uuid));
+        this.fightsForRobot.next(fights)
+        resolve(fights)
+      } else {
+        const value = await this.http.getAllFightsOfRobot(robot_uuid).catch(err => {
+          if(err.status === 400) {
+            this.errorService.showError(err.status, this.translate.instant(err.error.body));
+          } else {
+            this.errorService.showError(err.status);
+          }
+        });
+        if(value !== undefined) {
+          this.fightsForRobot.next(Object.assign(value.body));
         }
-      });
-      if(value !== undefined) {
-        this.fightsForRobot.next(Object.assign(value.body));
+        resolve(value);
       }
-      resolve(value);
     });
   }
 
@@ -158,7 +164,6 @@ export class FightsService {
         fight.wygrane_rundy_robot2 = data.wygrane_rundy_robot2;
         // this.pushNewFigthsForPosition(this.fightsForPosition.value);
         this.allFights.next(this.allFights.value);
-        // this.ui.showFeedback("succes", `Pomyślnie ustawiono wynik walki (${fight.walka_id})`, 3);
       }
     }
   }

@@ -23,8 +23,11 @@
             will surely find something for himself. There will also be competition dedicated to LEGO fans.</h4>
         <h3 class="section-header" *ngIf="timeToEvent">{{timeIsUp ? streamLink === undefined ? ('home.event-info.status.ended' | translate) : ('home.event-info.status.live' | translate) : ('home.event-info.status.coming' | translate)}}</h3>
         <div class="iframe-container" *ngIf="timeIsUp && streamLink !== undefined">
-            <iframe [src]="streamLink" title="ROBOmotion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- <iframe src="" width="500" height="500" style="border:none;overflow:hidden" scrolling="no"
+                frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> -->
+            <iframe [src]="streamLink" target="_top" title="ROBOmotion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+
         <button [routerLink]="['/results']" *ngIf="timeIsUp">{{'home.event-info.results' | translate}}</button>
         <div class="event-info-counter" *ngIf="!timeIsUp && timeToEvent">
             <div class="event-info-counter-part">
@@ -86,7 +89,12 @@
                 </p>
             </div>
         </div>
-        <ng-container *ngIf="!timeIsUp">
+        <label class="event-info-details-main">
+            {{'home.event-info.covid.1' | translate}}
+            <a [routerLink]="['/app-rules']">{{'home.event-info.covid.2' | translate}}</a>
+            {{'home.event-info.covid.3' | translate}}
+        </label>
+        <!-- <ng-container *ngIf="!timeIsUp">
             <a class="event-info-choose" href="https://forms.office.com/r/6aN4DYgAZ4" target="_blank">{{'home.event-info.important-choose' | translate}}<i class="las la-external-link-alt"></i></a>
             <p *ngIf="!timeIsUp2 && timeLeft" [routerLink]="['/login']">{{'home.event-info.open' | translate}}</p>
             <ng-container *ngIf="switcher">
@@ -166,7 +174,7 @@
                     </div>
                 </div>
             </ng-container>
-        </ng-container>
+        </ng-container> -->
 
         <a [href]="isEnglish === 'pl' ? 'https://rzit.smarthost.pl/robomotion/info-28-10-2021.pdf' : 'https://rzit.smarthost.pl/robomotion/info-28-10-2021-ang.pdf'" target="_blank">{{'home.event-info.important' | translate}}<i class="las la-external-link-alt"></i></a>
     </section>

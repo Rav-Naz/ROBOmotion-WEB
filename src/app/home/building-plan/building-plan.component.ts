@@ -22,7 +22,6 @@ export class BuildingPlanComponent implements OnDestroy {
 
     const sub3 = this.form.valueChanges.subscribe( async (data) => {
       if(data !== null && data !== undefined) {
-        console.log(data)
         this.selectedFloor = data.floor;
       }
     });

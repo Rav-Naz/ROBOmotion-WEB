@@ -28,6 +28,11 @@
                 "minutes": "Minutes",
                 "seconds": "Seconds"
             },
+            "covid": {
+                "1": "Entry to the event is completely free. During the event on the premises, it is mandatory to comply with the regulations in the tab",
+                "2": "'Regulations and privacy policy'",
+                "3": "and follow epidemiological restrictions, e.g. disinfecting hands and wearing masks."
+            },
             "university": {
                 "hall": "Regional Sports and Entertainment Center",
                 "name": "\"Podpromie\""
@@ -107,14 +112,14 @@
                 { "id": 17, "patreonCategory": 5, "description": "Podkarpacki Kurator Oświaty", "image": "../../assets/jpg/kuratorium.png", "linkToSite": "https://www.ko.rzeszow.pl/" },
                 { "id": 17, "patreonCategory": 6, "description": "msalamon.pl", "image": "../../assets/jpg/salamon.png", "linkToSite": "https://msalamon.pl/" },
                 { "id": 17, "patreonCategory": 1, "description": "InfoSoftware", "image": "../../assets/jpg/infosoft.png", "linkToSite": "https://infosoftware.pl/" },
-                { "id": 17, "patreonCategory": 1, "description": "Astor", "image": "../../assets/jpg/astor.png", "linkToSite": "https://www.kawasakirobotics.pl/" },
+                { "id": 17, "patreonCategory": 1, "description": "Kawasaki Robotics", "image": "../../assets/jpg/astor.png", "linkToSite": "https://www.kawasakirobotics.pl/" },
                 { "id": 17, "patreonCategory": 1, "description": "Solvera", "image": "../../assets/jpg/solvera.png", "linkToSite": "http://solvera.pl/" },
                 { "id": 17, "patreonCategory": 3, "description": "Cobot Planet", "image": "../../assets/jpg/cobot.png", "linkToSite": "https://www.cobotplanet.com/pl/" },
                 { "id": 17, "patreonCategory": 2, "description": "Autoplanet", "image": "../../assets/jpg/autopart.png", "linkToSite": "https://www.autopart.pl/" },
                 { "id": 17, "patreonCategory": 0, "description": "Urząd Marszałkowski", "image": "../../assets/jpg/podkarpackie.png", "linkToSite": "https://podkarpackie.eu/" },
                 { "id": 17, "patreonCategory": 6, "description": "TVP 3 Rzeszów", "image": "../../assets/jpg/tvp.jpg", "linkToSite": "https://rzeszow.tvp.pl/" },
-                { "id": 17, "patreonCategory": 2, "description": "Podkarpacka Okręgowa Izba Inżynierów", "image": "../../assets/jpg/izba.png", "linkToSite": "https://www.inzynier.rzeszow.pl/" }
-
+                { "id": 17, "patreonCategory": 2, "description": "Podkarpacka Okręgowa Izba Inżynierów", "image": "../../assets/jpg/izba.png", "linkToSite": "https://www.inzynier.rzeszow.pl/" },
+                { "id": 17, "patreonCategory": 4, "description": "Zespół Szkół Technicznych", "image": "../../assets/jpg/zst.png", "linkToSite": "http://www.zstrzeszow.pl/" }
             ],
             "tiers": [
                 "Main partner",

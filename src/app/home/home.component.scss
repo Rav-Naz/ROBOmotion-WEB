@@ -377,6 +377,20 @@
         width: 60%;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: min-content;
+        &-main {
+            margin-top: 5rem;
+            color: red;
+            font-size: 3rem;
+            text-align: center;
+            max-width: 80%;
+            animation: pulse2 2s ease-in-out infinite;
+            &>a {
+                color: inherit;
+                font-size: inherit;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
         &-name {
             text-align: right;
             padding: 0 3rem;
@@ -413,7 +427,7 @@
     .iframe-container {
         position: relative;
         overflow: hidden;
-        height: 60vh;
+        height: 90vh;
         width: 80%;
         // padding-top: 56.25%;
         iframe {
