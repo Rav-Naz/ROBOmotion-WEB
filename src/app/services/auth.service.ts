@@ -36,8 +36,8 @@ export class AuthService {
         this.streamLink = this.sanitizer.bypassSecurityTrustResourceUrl(data.body.streamLink);
       }
       this.info.next({
-        eventDate: new Date(),
-        // eventDate: this.eventDate,
+        // eventDate: new Date(),
+        eventDate: this.eventDate,
         accessToModifyExpirationDate: this.accessToModifyExpirationDate,
         accessToModifySmashBotsExpirationDate: this.accessToModifySmashBotsExpirationDate,
         streamLink: this.streamLink

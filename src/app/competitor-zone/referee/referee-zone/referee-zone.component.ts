@@ -37,6 +37,8 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   public positionTimesResults: Array<any> | null = null;
   public editingTimes: number | null = null;
   public editingTimesForm: FormGroup;
+  public showCategories:Array<any> | null = null
+  public showGroups:Array<any> | null = null
   public isLoading: boolean = false;
 
   constructor(private refereeService: RefereeService, private positionsService: PositionsService, private formBuilder: FormBuilder,
@@ -62,6 +64,7 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
         this.selectedCategory = null;
         this.selectedGroup = null;
         this.selectedPosition = Number(data.position);
+        this.showCategories = this.categoriesInPosition!;
         await this.figthsService.getAllFightsForPosiotion(this.selectedPosition).catch(err => {});
         await this.timesService.getAllTimesForPosiotion(this.selectedPosition).catch(err => {});
         this.loading = false;
@@ -110,6 +113,7 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   selectCategory(kategoria_id: number) {
     this.selectedCategory = Number(kategoria_id);
     this.selectedGroup = null;
+    this.showGroups = this.getFightGroupsFromCategory;
   }
 
   selectGroup(grupa_id: number) {

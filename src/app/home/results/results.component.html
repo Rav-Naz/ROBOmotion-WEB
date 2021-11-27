@@ -12,13 +12,13 @@
                 </div>
                 <section class="referee-categories inline">
                     <label>{{'competitor-zone.competitors.categories' | translate}}</label>
-                    <span *ngIf="!categoriesInPosition">{{'competitor-zone.competitors.no-categories' | translate}}</span>
-                    <button (click)="selectCategory(category.kategoria_id!)" *ngFor="let category of categoriesInPosition" [ngClass]="{'referee-categories-active': category.kategoria_id! === selectedCategory}">{{category.nazwa}}</button>
+                    <span *ngIf="!showCategories">{{'competitor-zone.referee-zone.no-categories' | translate}}</span>
+                    <button (click)="selectCategory(category.kategoria_id!)" *ngFor="let category of showCategories" [ngClass]="{'referee-categories-active': category.kategoria_id! === selectedCategory}">{{category.nazwa}}</button>
                 </section>
                 <section class="referee-categories" *ngIf="getCategoryType === 1">
                     <label>{{'competitor-zone.referee-zone.groups' | translate}}</label>
-                    <span *ngIf="getFightGroupsFromCategory.length === 0">{{'competitor-zone.referee-zone.no-groups' | translate}}</span>
-                    <button (click)="selectGroup(group.grupa_id!)" *ngFor="let group of getFightGroupsFromCategory" [ngClass]="{'referee-categories-active': group.grupa_id! === selectedGroup}">{{group.nazwa_grupy}}</button>
+                    <span *ngIf="showGroups && showGroups.length === 0">{{'competitor-zone.referee-zone.no-groups' | translate}}</span>
+                    <button (click)="selectGroup(group.grupa_id!)" *ngFor="let group of showGroups" [ngClass]="{'referee-categories-active': group.grupa_id! === selectedGroup}">{{group.nazwa_grupy}}</button>
                 </section>
                 <section class="referee-results" *ngIf="!isLoading">
 

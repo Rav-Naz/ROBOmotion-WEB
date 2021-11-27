@@ -20,9 +20,9 @@
             </section>
             <section class="referee-results" *ngIf="!loadingResults">
                 <div class="referee-results-fights" *ngIf="getCategoryType === 1">
-                    <span *ngIf="!robotFights?.length ">{{'competitor-zone.referee-zone.no-fights' | translate}}</span>
+                    <span *ngIf="!getCategoryFigths?.length ">{{'competitor-zone.referee-zone.no-fights' | translate}}</span>
                     <div class="scroll">
-                        <div *ngFor="let fight of robotFights">
+                        <div *ngFor="let fight of getCategoryFigths">
                             <ng-container *ngIf="{open: false} as variable">
                                 <div class="referee-results-fights-element" (click)="variable.open = !variable.open">
                                     <span class="referee-results-fights-element-id">{{fight.walka_id}}</span>
@@ -66,9 +66,9 @@
                 </div>
 
                 <div class="referee-results-times" *ngIf="getCategoryType === 0 || getCategoryType === 2">
-                    <span *ngIf="!robotTimes?.length">{{'competitor-zone.referee-zone.no-results' | translate}}</span>
+                    <span *ngIf="!getCategoryTimesResult?.length">{{'competitor-zone.referee-zone.no-results' | translate}}</span>
                     <div class="scroll">
-                        <div *ngFor="let time of robotTimes">
+                        <div *ngFor="let time of getCategoryTimesResult">
                             <ng-container *ngIf="{open: false} as variable">
                                 <div class="referee-results-times-element" (click)="variable.open = !variable.open">
                                     <span class="referee-results-times-element-id">{{time.wynik_id}}</span>

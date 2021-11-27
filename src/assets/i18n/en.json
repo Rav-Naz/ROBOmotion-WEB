@@ -115,11 +115,15 @@
                 { "id": 17, "patreonCategory": 1, "description": "Kawasaki Robotics", "image": "../../assets/jpg/astor.png", "linkToSite": "https://www.kawasakirobotics.pl/" },
                 { "id": 17, "patreonCategory": 1, "description": "Solvera", "image": "../../assets/jpg/solvera.png", "linkToSite": "http://solvera.pl/" },
                 { "id": 17, "patreonCategory": 3, "description": "Cobot Planet", "image": "../../assets/jpg/cobot.png", "linkToSite": "https://www.cobotplanet.com/pl/" },
-                { "id": 17, "patreonCategory": 2, "description": "Autoplanet", "image": "../../assets/jpg/autopart.png", "linkToSite": "https://www.autopart.pl/" },
+                { "id": 17, "patreonCategory": 2, "description": "Autopart", "image": "../../assets/jpg/autopart.png", "linkToSite": "https://www.autopart.pl/" },
                 { "id": 17, "patreonCategory": 0, "description": "Urząd Marszałkowski", "image": "../../assets/jpg/podkarpackie.png", "linkToSite": "https://podkarpackie.eu/" },
                 { "id": 17, "patreonCategory": 6, "description": "TVP 3 Rzeszów", "image": "../../assets/jpg/tvp.jpg", "linkToSite": "https://rzeszow.tvp.pl/" },
                 { "id": 17, "patreonCategory": 2, "description": "Podkarpacka Okręgowa Izba Inżynierów", "image": "../../assets/jpg/izba.png", "linkToSite": "https://www.inzynier.rzeszow.pl/" },
-                { "id": 17, "patreonCategory": 4, "description": "Zespół Szkół Technicznych", "image": "../../assets/jpg/zst.png", "linkToSite": "http://www.zstrzeszow.pl/" }
+                { "id": 17, "patreonCategory": 4, "description": "Zespół Szkół Technicznych", "image": "../../assets/jpg/zst.png", "linkToSite": "http://www.zstrzeszow.pl/" },
+                { "id": 17, "patreonCategory": 2, "description": "Centrum usług dronowych", "image": "../../assets/jpg/cud.png", "linkToSite": "https://centrumdronowe.pl/" },
+                { "id": 17, "patreonCategory": 6, "description": "Radio Feniks", "image": "../../assets/jpg/feniks.png", "linkToSite": "http://feniks.fm/" },
+                { "id": 17, "patreonCategory": 2, "description": "{e-bi}", "image": "../../assets/jpg/ebi.png", "linkToSite": "https://e-bi.pl/" },
+                { "id": 17, "patreonCategory": 6, "description": "Radio Centrum 89.0 FM Rzeszów", "image": "../../assets/jpg/radio_centrum.png", "linkToSite": "https://www.facebook.com/radiocentrum/" }
             ],
             "tiers": [
                 "Main partner",
@@ -650,7 +654,7 @@
                         ]
                     },
                     {
-                        "title": "Konkurencje",
+                        "title": "Competitions",
                         "bodies": [
                             "There will be 17 separate competitions. One team can take part in several of them, however the different stages of different competitions can take place at the same time",
                             "Competitions that will be held at the event:",
@@ -726,19 +730,19 @@
                 ]
             },
             {
-                "title": "ADMINISTRATOR'S INFORMATION IN CONNECTION WITH THE PROCESSING OF PERSONAL DATA",
+                "title": "INFORMACJA ADMINISTRATORA W ZWIĄZKU Z PRZETWARZANIEM DANYCH OSOBOWYCH",
                 "paragrphs": [{
-                    "title": "General information",
+                    "title": "Informacje ogólne",
                     "bodies": [
-                        "The administrator of personal data collected in connection with participation in the VI International ROBO~motion 2021 competition is the Rzeszow University of Technology. IgnacyŁukasiewicz, al. PowstańcówWarszawy 12, 35-959 Rzeszow, NIP: 813-02-66-999, REGON: 000001749 (hereinafter referred to as the University), which can be contacted at the email address: kancelaria@prz.edu.pl",
-                        "The Data Protection Supervisor at the Rzeszow University of Technology is Mr. Michał Mazur, who can be contacted by calling 17 865 1775 or by e-mail: iod@prz.edu.pl, in any matter regarding the processing of your personal data and the exercise of rights related to the processing of personal data",
-                        "The administrator processes your personal data in accordance with the Regulation pursuant to art. 13 sec. 1 and 2 of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46 / EC (hereinafter referred to as GDPR)",
-                        "The Administrator collects and processes the following personal data of the Participant provided via the registration form on the website robomotion.com.pl: name and surname, e-mail address and telephone number. Providing the above data is voluntary, however, it is necessary to conclude a contract with the Administrator for participation in the VI International ROBO~motion 2021 Competition and its implementation",
-                        "&nbsp; a) on the basis of consent to register participants and organize the competition (Article 6 (1) (a) of the GDPR) - providing the above data is voluntary, however, it is necessary for registration and participation in the VI International ROBO~motion 2021 Competition,",
-                        "&nbsp; b) on the basis of consent for marketing and promotional purposes related to the offer of the Partners and the Organizer (Article 6 (1) (a) of the GDPR) - consent is voluntary, it can be withdrawn at any time.",
-                        "During the VI International ROBO ~ motion 2021 Competition, photo and video sessions will be held, the Administrator and the Organizer's Partners will process the Participant's image on the basis of his consent or, in the case of minors, on the basis of consent expressed by their legal guardians (art. 1 letter a of the GDPR). Granting consent for image processing is voluntary, but necessary to participate in the 6th International ROBO~motion 2021 Competition. Consent is available under this <a href=\"https://rzit.smarthost.pl/robomotion/rodo-ang.pdf\" target=\"_blank\">link</a>.",
-                        "Each Participant has the right to demand:",
-                        "&nbsp; a) access to data and obtain information on their processing",
+                        "The administrator of personal data is the Ignacy Łukasiewicz University of Technology in Rzeszów al. Powstańców Warszawy 12, 35-959 Rzeszow, (hereinafter referred to as the University), email address: kancelaria@prz.edu.pl",
+                        "The Data Protection Supervisor at the Rzeszow University of Technology can be contacted by calling 17 865 1775 or by e-mail: iod@prz.edu.pl",
+                        "The administrator processes your personal data in accordance with the Regulation pursuant to Article 13 (1) (2) of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46 / EC (hereinafter referred to as GDPR).",
+                        "The Administrator collects and processes the following personal data of the Participant provided via the registration form on the website robomotion.com.pl: name and surname, e-mail address and telephone number.",
+                        "&nbsp; a) based onconsent to register participants and organize the competition (Article 6 (1) (a) of the GDPR)-providing the above data is voluntary, however, it is necessary for registration and participation in the 6th International ROBO ~ motion 2021 Competition,",
+                        "&nbsp; b) based on consent consent for marketing and promotional purposes related to the offer of the Partners and the Organizer (Article 6 (1) (a) of the GDPR) - consent is voluntary, it can be withdrawn at any time.",
+                        "During the VI International ROBO ~ motion 2021 Competition, photo and video sessions will be held, the Administrator and the Organizer's Partners will process the Participant's imagebased on his consentor in the case of minors, on the basis of consent expressed by their legal guardians (Article 6 (1) (a) of the GDPR). Granting consent for image processing is voluntary, but necessary to participate in the VI International ROBO ~ motion 2021 Competition. Consent is available under this <a href=\"https://rzit.smarthost.pl/robomotion/rodo.pdf\" target=\"_blank\">link</a>.",
+                        "Each Participant is entitled to:",
+                        "&nbsp; a) request access to data and obtain information on their processing",
                         "&nbsp; b) rectify data and demand their removal or limitation of processing",
                         "&nbsp; c) object to processing",
                         "&nbsp; d) withdraw consent to the processing of data at any time - this withdrawal, however, does not affect the compliance of the processing prior to its execution",

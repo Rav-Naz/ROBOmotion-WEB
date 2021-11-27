@@ -126,13 +126,14 @@
                 { "id": 17, "patreonCategory": 1, "description": "Kawasaki Robotics", "image": "../../assets/jpg/astor.png", "linkToSite": "https://www.kawasakirobotics.pl/" },
                 { "id": 17, "patreonCategory": 1, "description": "Solvera", "image": "../../assets/jpg/solvera.png", "linkToSite": "http://solvera.pl/" },
                 { "id": 17, "patreonCategory": 3, "description": "Cobot Planet", "image": "../../assets/jpg/cobot.png", "linkToSite": "https://www.cobotplanet.com/pl/" },
-                { "id": 17, "patreonCategory": 2, "description": "Autoplanet", "image": "../../assets/jpg/autopart.png", "linkToSite": "https://www.autopart.pl/" },
+                { "id": 17, "patreonCategory": 2, "description": "Autopart", "image": "../../assets/jpg/autopart.png", "linkToSite": "https://www.autopart.pl/" },
                 { "id": 17, "patreonCategory": 0, "description": "Urząd Marszałkowski", "image": "../../assets/jpg/podkarpackie.png", "linkToSite": "https://podkarpackie.eu/" },
                 { "id": 17, "patreonCategory": 6, "description": "TVP 3 Rzeszów", "image": "../../assets/jpg/tvp.jpg", "linkToSite": "https://rzeszow.tvp.pl/" },
-                { "id": 17, "patreonCategory": 2, "description": "Podkarpacka Okręgowa Izba Inżynierów", "image": "../../assets/jpg/izba.png", "linkToSite": "https://www.inzynier.rzeszow.pl/" },
+                { "id": 17, "patreonCategory": 2, "description": "Podkarpacka Izba Inżynierów Budownictwa", "image": "../../assets/jpg/izba.png", "linkToSite": "https://www.inzynier.rzeszow.pl/" },
                 { "id": 17, "patreonCategory": 4, "description": "Zespół Szkół Technicznych", "image": "../../assets/jpg/zst.png", "linkToSite": "http://www.zstrzeszow.pl/" },
                 { "id": 17, "patreonCategory": 2, "description": "Centrum usług dronowych", "image": "../../assets/jpg/cud.png", "linkToSite": "https://centrumdronowe.pl/" },
                 { "id": 17, "patreonCategory": 6, "description": "Radio Feniks", "image": "../../assets/jpg/feniks.png", "linkToSite": "http://feniks.fm/" },
+                { "id": 17, "patreonCategory": 2, "description": "{e-bi}", "image": "../../assets/jpg/ebi.png", "linkToSite": "https://e-bi.pl/" },
                 { "id": 17, "patreonCategory": 6, "description": "Radio Centrum 89.0 FM Rzeszów", "image": "../../assets/jpg/radio_centrum.png", "linkToSite": "https://www.facebook.com/radiocentrum/" }
 
 

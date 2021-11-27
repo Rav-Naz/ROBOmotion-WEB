@@ -39,6 +39,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
   public selectedGroup: number | null = null;
   public isLoading: boolean = false;
   private selectedFilter: number | null = 1;
+  public showCategories:Array<any> | null = null
+  public showGroups:Array<any> | null = null
   private filter: string = '';
 
   constructor(private positionsService: PositionsService, private formBuilder: FormBuilder,
@@ -62,6 +64,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
         this.allFights = JSON.parse(JSON.stringify(val[2]));
         this.allTimes = JSON.parse(JSON.stringify(val[3]));
         this.loading = false;
+        this.showCategories = this.categoriesInPosition!;
+
       }
     })
 
@@ -77,6 +81,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     const sub3 = this.formFilter.valueChanges.subscribe( async (data) => {
       if(data !== null && data !== undefined) {
         this.filter = data.filter_name.toLowerCase();
+        this.showCategories = this.categoriesInPosition!;
       }
     });
 
@@ -90,6 +95,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   selectCategory(kategoria_id: number) {
     this.selectedCategory = Number(kategoria_id);
     this.selectedGroup = null;
+    this.showGroups = this.getFightGroupsFromCategory;
   }
 
   selectGroup(grupa_id: number) {
