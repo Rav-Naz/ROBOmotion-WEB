@@ -17,6 +17,7 @@
     },
     "home": {
         "event-info": {
+            "xchallenge": "All information related to the next edition of the tournament can be found on the website",
             "status": {
                 "ended": "Event is ended",
                 "live": "Event is now live!",

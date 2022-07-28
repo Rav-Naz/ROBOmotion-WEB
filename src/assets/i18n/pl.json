@@ -17,6 +17,7 @@
     },
     "home": {
         "event-info": {
+            "xchallenge": "Wszelkie informacje związane z kolejną edycją zawodów znajdują się na stronie",
             "status": {
                 "ended": "Wydarzenie zakończyło się",
                 "live": "Wydarzenie właśnie trwa!",

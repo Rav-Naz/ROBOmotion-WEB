@@ -153,7 +153,7 @@ export class RefereeZoneComponent implements OnInit, OnDestroy {
   }
 
   get positionsOptions(): string | undefined {
-    return this.positions ? JSON.stringify(Object.assign(this.positions).map((position: Position) => {
+    return this.positions ? JSON.stringify(Object.assign(this.positions.length > 1 ? this.positions : this.positions.concat([{kategorie: '0', nazwa: '...', stanowisko_id: 8}])).map((position: Position) => {
       return {value: position.nazwa, id: position.stanowisko_id}
     })) : undefined;
   }

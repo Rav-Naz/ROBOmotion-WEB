@@ -22,12 +22,15 @@
             and construction skills of many robotics. In addition to the standard competitions, the organizers have prepared many surprises. Every constructor, regardless of whether he is just starting his adventure with electronics or is already experienced,
             will surely find something for himself. There will also be competition dedicated to LEGO fans.</h4>
         <h3 class="section-header" *ngIf="timeToEvent">{{timeIsUp ? streamLink === undefined ? ('home.event-info.status.ended' | translate) : ('home.event-info.status.live' | translate) : ('home.event-info.status.coming' | translate)}}</h3>
-        <div class="iframe-container" *ngIf="timeIsUp && streamLink !== undefined">
-            <!-- <iframe src="" width="500" height="500" style="border:none;overflow:hidden" scrolling="no"
+        <!-- <div class="iframe-container" *ngIf="timeIsUp && streamLink !== undefined"> -->
+        <!-- <iframe src="" width="500" height="500" style="border:none;overflow:hidden" scrolling="no"
                 frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> -->
-            <iframe [src]="streamLink" target="_top" title="ROBOmotion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <!-- <iframe [src]="streamLink" target="_top" title="ROBOmotion Livestream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <!-- </div> -->
+        <!-- <a class="stream" target="_blank" href="https://www.twitch.tv/robomotion2021">STREAM Z ROZGRYWKI</a> -->
 
+        <h3 class="section-header">{{'home.event-info.xchallenge' | translate}}</h3>
+        <a class="section-header" href="https://xchallenge.pl">xchallenge.pl</a>
         <button [routerLink]="['/results']" *ngIf="timeIsUp">{{'home.event-info.results' | translate}}</button>
         <div class="event-info-counter" *ngIf="!timeIsUp && timeToEvent">
             <div class="event-info-counter-part">
